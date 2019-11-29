@@ -1,8 +1,8 @@
-# README
+# This is a react project!
 
-Be careful what you push please
-I am setting up a .gitignore so that our git is not too cluttered
-Source control is important
-Please only add & push files which you are working on!
+ - The files for the project are saved within team16_project\aboutpage\src
+    - The app itself is stored in the above directory App.js
+    - The css for the app is saved in App.css
 
-test- ali test
+ - Instructions on how to install reactJS, which relies on NodeJS, can be found here:
+   shttps://makandracards.com/reactjs-quick/52419-install-reactjs-windows
