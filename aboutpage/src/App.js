@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 //PROTOTYPE:
@@ -17,26 +16,40 @@ import './App.css';
 // Don't merge this into master!
 // - Perhaps make a "prototypes" branch which we can push to.
 
-function App() {
+function App()
+{
   return (
-    <div className="AboutPage">
+    <div className="About">
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p> New test? </p>
-        <a
-          className="App-link"
-          href="https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitLab!
-        </a>
+
+        <button class="right-button" onclick={leftSwipe()}> > </button>
+        <button class="left-button" onclick={rightSwipe()}> &lt; </button>
+
+        <img id="picture" src="https://peopledotcom.files.wordpress.com/2018/10/disney-house-overview-front-yard.jpg?w=2000&h=1124" className="App-logo" alt="logo" />
+
+        <p> Edit <code> src/App.js </code> and save to reload. </p>
+
+        <a className="App-link" href="https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project"
+          target="_blank" rel="noopener noreferrer" > GitLab! </a>
+
       </header>
+
     </div>
   );
 }
 
+function leftSwipe()
+{
+  //Document.getElementbyId("picture").src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+}
+
+function rightSwipe()
+{
+  //App.getElementbyId("picture").src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+}
+
+
 export default App;
+
+//http://10.20.30.140:3000/
