@@ -16,22 +16,30 @@ import './App.css';
 // Don't merge this into master!
 // - Perhaps make a "prototypes" branch which we can push to.
 
-function App()
+var thePic = "https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg";
+
+function setPicture(val)
 {
-  return (
-    <div className="About">
+  {thePic = val};
+}
+
+
+
+function App() 
+{  
+  return(
+    <div id="root" className="About">
 
       <header className="App-header">
+
+        <img id="logo" src= "https://www.avas-angels.com/images/HiResLogo.png" />
+
+        <img id="picture" src= {thePic} className="picture"/>
 
         <button class="right-button" onclick={leftSwipe()}> > </button>
         <button class="left-button" onclick={rightSwipe()}> &lt; </button>
 
-        <img id="picture" src="https://peopledotcom.files.wordpress.com/2018/10/disney-house-overview-front-yard.jpg?w=2000&h=1124" className="App-logo" alt="logo" />
-
         <p> Edit <code> src/App.js </code> and save to reload. </p>
-
-        <a className="App-link" href="https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project"
-          target="_blank" rel="noopener noreferrer" > GitLab! </a>
 
       </header>
 
@@ -41,14 +49,17 @@ function App()
 
 function leftSwipe()
 {
-  //Document.getElementbyId("picture").src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  //document.getElementById('picture').src=
+  //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
+  setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg");
 }
 
 function rightSwipe()
 {
-  //App.getElementbyId("picture").src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  //document.getElementById("picture").src=
+  //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
+  setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg");
 }
-
 
 export default App;
 
