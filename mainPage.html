@@ -1,19 +1,70 @@
+<!DOCTYPE html>
+<head>
+<meta charset = "utf-8">
+<title> Ava's Angel Main Page </title>
+<link rel = "stylesheet" type = "text/css" href = "mainPage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 
-<img src="https://www.avas-angels.com/images/HiResLogo.png" href = "https://www.avas-angels.com/" width={250} height={85} border={0}/><br>
+<body>
+    <header>
+        <div class = "pageHeader" align = "center">
+            <a href = "https://www.avas-angels.com/">
+                <img src="https://www.avas-angels.com/images/HiResLogo.png" alt = "Ava's Angel"/>
+            </a>
+        </div>
+    </header>
 
-<button style="height:200px;width:200px">About</button>
-<button style="height:200px;width:200px">Food</button>
-<button style="height:200px;width:200px">Accommodation</button>
-<button style="height:200px;width:200px">Charities</button>
-<button style="height:200px;width:200px">Leave Contact Info</button>
-<button style="height:200px;width:200px" href = "H:avasangels/feedback.html">Feedback</button>
-<button style="height:200px;width:200px">Hospital</button>
-<button style="height:200px;width:200px">Volunteering & Donations</button>
-<button style="height:200px;width:200px">Food Stock Alert</button>
+    <section>
+        <div class = "introduction">
+            <div class = "title">
+                <a href = "https://www.avas-angels.com/">
+                    <p>Ava's Angels In Action</p>
+                </a>
+            </div>
+            <div>
+                <p class = "content">
+                    This is a responsive web application designed to provide information about the local area such as food, charity, accomodation.<br> 
+                    In addtion, as well as providing the opportunity for user to leav feedback or contact details for the charity.<br>
+                    Finally, a virtual assistant will help you with quick queries.<br>
+                </p>
+            </div>
+        </div>
+        <br>
+    </section>
 
-<img src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4" width={125} height={42} border={0}/><br>
+    <section>
+        <br>
+        <div class = "button">
+            <div>
+                <button class = "food btn btn-default ripple btn-lg">Food</button>
+                <button class = "accommodation btn btn-default ripple btn-lg">Accommodation</button>
+            </div>
+            <div>
+                <button class = "charity btn btn-default ripple btn-lg">Charities</button>
+                <img src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4" class = "button_image"/>
+                <button class = "about btn btn-default ripple btn-lg">About</button>
+            </div>
+            <div>
+                <button class = "contact btn btn-default ripple btn-lg">Leave Contact Info</button>
+                <button class = "feedback btn btn-default ripple btn-lg">Feedback</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+            <div class="aboutus">
+            <p class="bold" id = "ABOUT">About Us</p>
+            <p> Tip: If you would like to donate to Ava's Angels: <br>
+                Remember to visit the Volunteering and Donations section and leave your contact details!<br></p>
+            </div>
+    
+            <div class = "space"></div>
 
-<p style="background-color:rgb(198, 0, 148); color:white">Tip: If you would like to donate to Ava's Angels: Remember to visit the Volunteering and Donations section and leave your contact details!</p>
-
-<p style="background-color:rgb(198, 0, 148); color:white">Contact us: team@avas-angles.com</p>
-<p style="background-color:rgb(198, 0, 148); color:white">07951531748</p>
+            <div class="contact">
+            <p class="bold" id = "CONTACT">Contact</p>
+            <p>Contact us: team@avas-angles.com<br>
+                Phone : 07951531748<br></p>   
+            </div>
+    </footer>
+</body>
