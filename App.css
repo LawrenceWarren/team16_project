@@ -1,0 +1,26 @@
+.App {
+  height: 100vh;
+  background-color: hotpink;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.about{
+  border: 10 px solid;
+  font-style: italic;
+  background-color: white;
+}
+
+.button{
+  font-size: 35px;
+  color: white;
+  background-color: hotpink;
+}
+
+.h1{
+  color: white;
+}
+
+.list{
+  list-style-type: none;
+}
