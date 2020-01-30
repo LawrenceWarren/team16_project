@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.pageHeader{
+  background-color:white;
+}
+
+.pageHeader img{
+  display:block;
+  max-width:40%;
+  width:40%;
+  max-height:50%;
+  height:50%;
+}
+
+.introduction{
+  max-height: 50%;
+  border-style: solid;
+  border-color: rgba(39, 39, 39, 0.151);
+  border-top-width:1vw;
+  border-bottom-width: 1vw;
+  margin-top: 3vw;
+  display: block;
+  background-color:grey;
+}
+
+.content{
+  text-align:center;
+  font-family:"Algerian","Arial","Microsoft YaHei";
+  font-size:1.25vw;
+  font-weight:bold;
+  color:white;
+  line-height:175%;
+}
+
+.title p{
+  text-align:center;
+  font-family:"Algerian","Arial","Microsoft YaHei";
+  font-size:2.5vw;
+  font-weight:bold;
+  color:rgb(207, 141, 152);
+  margin-bottom: -1vw;
+  margin-top:-0.25vw;
+}
+
+.title a{
+  text-decoration:none;
+}
+
+.title a:hover{
+  text-decoration:none;
+}
+
+.button{
+  text-align:center;
+  display:block;
+}
+
+.button_image{
+  width: 35vw;
+  height: 20vw;
+  margin-top:3vw;
+  margin-bottom:-5vw;
+}
+
+.footer{
+  background: #211f17;
+  display: flex;
+  padding: 20px;
+  position: relative;
+  margin-top:4vw;
+}
+
+.aboutus{
+  max-width: 30%;
+  width: 30%;
+  margin-top:1%;
+  margin-left:5%;
+}
+
+.contact{
+  max-width: 30%;
+  width: 30%;
+  margin-top:1%;
+  margin-right:5%;
+}
+
+
+.aboutus .bold, .contact .bold{
+  color: #ec3c6a;
+  font-size: 1.5vw;
+  font-weight: 700;
+  padding-bottom: 1%;
+}
+
+
+.aboutus p, .contact p{
+  color: #fff;
+  font-size: 1.2vw;
+}
+
+.space{
+   width:30%;
+}
