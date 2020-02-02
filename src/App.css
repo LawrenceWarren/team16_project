@@ -67,10 +67,9 @@ body {
 
 .footer{
   background: #211f17;
-  display: flex;
   padding: 20px;
   position: relative;
-  margin-top:4vw;
+  display:flex;
 }
 
 .aboutus{
@@ -81,8 +80,8 @@ body {
 }
 
 .contact{
-  max-width: 30%;
-  width: 30%;
+  max-width: 35%;
+  width: 35%;
   margin-top:1%;
   margin-right:5%;
 }
@@ -102,5 +101,19 @@ body {
 }
 
 .space{
-   width:30%;
+   width:25%;
+}
+
+.donate{
+  margin-top: 5vw;
+  margin-bottom:0.5vw;
+}
+
+.donate img{
+  display:block;
+  max-width:60%;
+  width:60%;
+  max-height:40%;
+  height:40%;
+  
 }
