@@ -155,6 +155,7 @@ const menuitems = [
       this.state = {
         showMenuItem: -1,
         showSubMenuItem: -1,
+        needFixed: false,
       }
     }
   
@@ -176,29 +177,44 @@ const menuitems = [
     handleSubMenuLevelLeave = (e) => {
       this.setState({ showSubMenuItem: -1 })
     }
+
+    componentDidMount() {
+
+        const fixedTop = document.getElementById('fixed-menu').offsetTop;
+        window.onscroll = () => {
+          let scrollTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop)
+          if (scrollTop >= fixedTop) {
+            this.setState({ needFixed: true })
+          } else if (scrollTop < fixedTop) {
+            this.setState({ needFixed: false })
+          }
+        }
+      }
   
     render() {
       return (
+        <div id='fixed-menu' className={`${this.state.needFixed ? 'fixed' : ''}`}>
         <ul>
-          {
+            {
             menuitems.map((level, index) => (
-               <MenuLevel
-                 text={level.text}
-                 url={level.url}
-                 key={index}
-                 index={index}
-                 onMouseOver={() => { this.handleMenuLevelHover(index) }}
-                 onMouseLeave={this.handleMenuLevelLeave}
-                 onSubItemMouseOver={(e) => { this.handleSubMenuLevelHover(index, e) }}
-                 onSubItemMouseLeave={this.handleSubMenuLevelLeave}
-                 showSubMenuItem={this.state.showSubMenuItem}
-                 showMenuItem={this.state.showMenuItem}
-               >
-                 {level.submenu}
-               </MenuLevel>
-           ))
-         }
+                <MenuLevel
+                text={level.text}
+                url={level.url}
+                key={index}
+                index={index}
+                onMouseOver={() => { this.handleMenuLevelHover(index) }}
+                onMouseLeave={this.handleMenuLevelLeave}
+                onSubItemMouseOver={(e) => { this.handleSubMenuLevelHover(index, e) }}
+                onSubItemMouseLeave={this.handleSubMenuLevelLeave}
+                showSubMenuItem={this.state.showSubMenuItem}
+                showMenuItem={this.state.showMenuItem}
+                >
+                {level.submenu}
+                </MenuLevel>
+            ))
+            }
         </ul>
+        </div>
       )
     }
   }
