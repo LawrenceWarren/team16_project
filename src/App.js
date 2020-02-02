@@ -172,23 +172,28 @@ function App() {
         </div>
 
         <div class="footer">
-            <div class="aboutus">
-                <p class="bold" id = "ABOUT">About Us</p>
-                <p> Helping families with sick children in hospital. Providing relief of sickness and suffering among children being cared for in hospital by providing items, 
-                        services and emotional support for families to enable them to visit, spend quality time with and care for such children.</p>
+            <div class = "flex">
+                <div class="aboutus">
+                    <p class="bold" id = "ABOUT">About Us</p>
+                    <p> Helping families with sick children in hospital. Providing relief of sickness and suffering among children being cared for in hospital by providing items, 
+                            services and emotional support for families to enable them to visit, spend quality time with and care for such children.</p>
+                </div>
+
+                <div class = "space"></div>
+
+                <div class="contact">
+                    <p class="bold" id = "CONTACT">Contact</p>
+                    <p>Contact us: team@avas-angles.com<br />
+                        Phone : 07951531748<br /></p>   
+                    <FooterButton variant="contained" color="primary" className={FaceBookImg.image} onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}></FooterButton>
+                    <FooterButton variant="contained" color="primary" className={TwitterImg.image} onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}></FooterButton>
+                    <FooterButton variant="contained" color="primary" className={InsImg.image} onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}></FooterButton>
+                    <FooterButton variant="contained" color="primary" className={LinkedInImg.image} onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}></FooterButton>
+                    <FooterButton variant="contained" color="primary" className={FeedBackImg.image} onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}></FooterButton>
+                </div>
             </div>
-
-            <div class = "space"></div>
-
-            <div class="contact">
-                <p class="bold" id = "CONTACT">Contact</p>
-                <p>Contact us: team@avas-angles.com<br />
-                    Phone : 07951531748<br /></p>   
-                <FooterButton variant="contained" color="primary" className={FaceBookImg.image} onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={TwitterImg.image} onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={InsImg.image} onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={LinkedInImg.image} onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={FeedBackImg.image} onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}></FooterButton>
+            <div class = "copyRight">
+                <p>© Copyright 2019-2020. Designed and powered by Ali S., Lawrence W., Shan W.Z., Benjamin S., Chen Y.T. and Zhang J.H. All Rights Reserved. </p>
             </div>
         </div>
     </div>

@@ -69,6 +69,9 @@ body {
   background: #211f17;
   padding: 20px;
   position: relative;
+}
+
+.flex{
   display:flex;
 }
 
@@ -115,5 +118,12 @@ body {
   width:60%;
   max-height:40%;
   height:40%;
-  
+}
+
+.copyRight{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.197);
+  margin-top: 2vw;
+  padding-bottom: -3vw;
+  font-size: 0.9vw;
 }
