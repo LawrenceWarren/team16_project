@@ -10,6 +10,199 @@ import LinkedIn from "./resource/linkedin.png";
 import FeedBack from "./resource/feedback.png";
 import donate from "./resource/donate.png";
 
+const SubMenuItem = (props) => (
+    <a
+      href={props.url} 
+      data-id = {props.index}
+      onMouseOver={props.onMouseOver}
+      onMouseLeave={props.onMouseLeave}
+      className={(props.showSubMenuItem === props.index) ? 'submenuitem-hover' : '' }
+      > {/* Modify here to <Link> to implement router */}
+      {props.text}
+    </a>
+)
+
+const MenuLevel = (props) => (
+    <li
+      onMouseOver={props.onMouseOver}
+      onMouseLeave={props.onMouseLeave}
+      className={(props.showMenuItem === props.index) ? 'menu-hover' : ''}
+      >
+      <a href={props.url}>{props.text}</a> {/* Modify here to <Link> to implement router */}
+      <div className={(props.showMenuItem === props.index) ? 'submenu-show' : 'submenu-hidden'}>
+        {
+          props.children.map((item, index) => (
+            <SubMenuItem
+              text={item.text}
+              key={item.text + index}
+              url={item.url}
+              index = {index}
+              showSubMenuItem={props.showSubMenuItem}
+              onMouseOver={props.onSubItemMouseOver}
+              onMouseLeave={props.onSubItemMouseLeave}
+            />
+          ))
+        }
+      </div>
+    </li>
+  )
+
+const menuitems = [
+    {
+        text: 'Home',
+        url: 'https://www.avas-angels.com/',
+        submenu: []
+    },
+    {
+        text: 'Infrastructure',
+        url: 'https://www.avas-angels.com/',
+        submenu:[
+            {
+                text: 'Food',
+                url: 'https://www.avas-angels.com/',
+            },
+            {
+                text: 'Charities',
+                url: 'https://www.avas-angels.com/',
+            },
+            {
+                text: 'Accommodation',
+                url: 'https://www.avas-angels.com/',
+            }
+        ]
+    },
+    {
+        text: 'Contact',
+        url: 'https://www.avas-angels.com/',
+        submenu: [
+            {
+                text: 'Facebook',
+                url: 'https://www.facebook.com/avas.angels.739',
+            },
+            {
+                text: 'Twitter',
+                url: 'https://twitter.com/AvasAngels_com',
+            },
+            {
+                text: 'Instagram',
+                url: 'https://www.instagram.com/avasangelscharity/',
+            },
+            {
+                text: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/avas-angels-1519a2160/',
+            },
+            {
+                text: 'Leave Contact Info',
+                url: 'https://www.avas-angels.com/contact.html',
+            }
+        ]
+    },
+    {
+        text: 'Get Involved',
+        url: 'https://www.avas-angels.com/',
+        submenu: [
+            {
+                text: 'Donate',
+                url: 'https://www.paypal.com/fundraiser/112574636177901026/charity/3575409',
+                submenu: []
+            },
+            {
+                text: 'Volunteers',
+                url: 'https://www.avas-angels.com/getinvolved.html',
+            },
+            {
+                text: 'FeedBack',
+                url: 'https://www.avas-angels.com/contact.html',
+            }
+        ]
+    },
+    {
+        text: "More on Ava's Angels",
+        url: 'https://www.avas-angels.com/',
+        submenu: [
+            {
+                text: "About Ava's Angels",
+                url: 'https://www.avas-angels.com/',
+            },
+            {
+                text: 'Angel Services',
+                url: 'https://www.avas-angels.com/angelservices.html',
+            },
+            {
+                text: 'How we make a difference',
+                url: 'https://www.avas-angels.com/difference.html',
+            },
+            {
+                text: 'Proud Supporters',
+                url: 'https://www.avas-angels.com/supporters.html',
+            },
+            {
+                text: 'Shop',
+                url: 'https://www.avas-angels.com/shop.html',
+            },
+            {
+                text: 'News/Press',
+                url: 'https://www.avas-angels.com/news.html',
+            }
+        ]
+    }
+  ]
+  
+  class Menu extends React.Component {
+    constructor() {
+      super()
+  
+      this.state = {
+        showMenuItem: -1,
+        showSubMenuItem: -1,
+      }
+    }
+  
+    handleMenuLevelHover = (index) => {
+      this.setState({ showMenuItem: index })
+    }
+  
+    handleMenuLevelLeave = () => {
+      this.setState({ showMenuItem: -1 })
+    }
+  
+    handleSubMenuLevelHover = (index, e) => {
+      this.setState({
+        showMenuItem: index,
+        showSubMenuItem: +e.target.attributes.getNamedItem('data-id').value
+      })
+    }
+  
+    handleSubMenuLevelLeave = (e) => {
+      this.setState({ showSubMenuItem: -1 })
+    }
+  
+    render() {
+      return (
+        <ul>
+          {
+            menuitems.map((level, index) => (
+               <MenuLevel
+                 text={level.text}
+                 url={level.url}
+                 key={index}
+                 index={index}
+                 onMouseOver={() => { this.handleMenuLevelHover(index) }}
+                 onMouseLeave={this.handleMenuLevelLeave}
+                 onSubItemMouseOver={(e) => { this.handleSubMenuLevelHover(index, e) }}
+                 onSubItemMouseLeave={this.handleSubMenuLevelLeave}
+                 showSubMenuItem={this.state.showSubMenuItem}
+                 showMenuItem={this.state.showMenuItem}
+               >
+                 {level.submenu}
+               </MenuLevel>
+           ))
+         }
+        </ul>
+      )
+    }
+  }
+
 const MainButton = withStyles({
     root: {
         fontSize: "2.5vw",
@@ -124,6 +317,7 @@ function App() {
 
     return (
     <div>
+        <Menu />
         <header>
         <div class = "pageHeader" align = "center">
             <a href = "https://www.avas-angels.com/">
