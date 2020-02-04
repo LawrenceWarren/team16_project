@@ -9,6 +9,7 @@ import Ins from "./resource/ins.png";
 import LinkedIn from "./resource/linkedin.png";
 import FeedBack from "./resource/feedback.png";
 import donate from "./resource/donate.png";
+import figure from "./resource/Ava's Angels.jpg";
 
 const SubMenuItem = (props) => (
     <a
@@ -17,7 +18,7 @@ const SubMenuItem = (props) => (
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
       className={(props.showSubMenuItem === props.index) ? 'submenuitem-hover' : '' }
-      > {/* Modify here to <Link> to implement router */}
+      > {/* Modify here to <Link> to implement router . Add a flag to indicate whether the url is out webpages and then select to use Link or a*/}
       {props.text}
     </a>
 )
@@ -28,7 +29,11 @@ const MenuLevel = (props) => (
       onMouseLeave={props.onMouseLeave}
       className={(props.showMenuItem === props.index) ? 'menu-hover' : ''}
       >
-      <a href={props.url}>{props.text}</a> {/* Modify here to <Link> to implement router */}
+      {(props.text == 'Home') ? (
+        <a href={props.url} className = {'menulevel'}>{props.text}</a>
+      ) : (
+        <span className = {'menulevel'}>{props.text}</span>
+      )}
       <div className={(props.showMenuItem === props.index) ? 'submenu-show' : 'submenu-hidden'}>
         {
           props.children.map((item, index) => (
@@ -55,7 +60,7 @@ const menuitems = [
     },
     {
         text: 'Infrastructure',
-        url: 'https://www.avas-angels.com/',
+        url: '',
         submenu:[
             {
                 text: 'Food',
@@ -73,7 +78,7 @@ const menuitems = [
     },
     {
         text: 'Contact',
-        url: 'https://www.avas-angels.com/',
+        url: '',
         submenu: [
             {
                 text: 'Facebook',
@@ -99,7 +104,7 @@ const menuitems = [
     },
     {
         text: 'Get Involved',
-        url: 'https://www.avas-angels.com/',
+        url: '',
         submenu: [
             {
                 text: 'Donate',
@@ -111,6 +116,14 @@ const menuitems = [
                 url: 'https://www.avas-angels.com/getinvolved.html',
             },
             {
+                text: 'Supporters',
+                url: 'https://www.avas-angels.com/getinvolved.html',
+            },
+            {
+                text: 'Sponsors',
+                url: 'https://www.avas-angels.com/getinvolved.html',
+            },
+            {
                 text: 'FeedBack',
                 url: 'https://www.avas-angels.com/contact.html',
             }
@@ -118,7 +131,7 @@ const menuitems = [
     },
     {
         text: "More on Ava's Angels",
-        url: 'https://www.avas-angels.com/',
+        url: '',
         submenu: [
             {
                 text: "About Ava's Angels",
@@ -238,14 +251,30 @@ const MainButton = withStyles({
 
 const FooterButton = withStyles({
     root:{
-        marginRight: "4%",
+        marginRight: "1.5vw",
         marginTop: "1vw",
-        height: "15%",
-        width: "15%",
-        backgroundColor: grey[300],
+        height: "2.5vw",
+        width: "2.5vw",
+        backgroundColor: "#FFFFFF",
         "&:hover": {
             backgroundColor: grey[500]
         },
+    }
+})(Button);
+
+const GetInvolvedButton = withStyles({
+    root:{
+        fontSize: "1.1vw",
+        fontWeight:"bold",
+        fontFamily: "Georgia",
+        height:"10vw",
+        width:"30vw",
+        color: "rgba(39, 39, 39,0.7)",
+        backgroundColor: "#FFFFFF",
+        "&:hover": {
+            backgroundColor: grey[400]
+        },
+        marginTop: "3.5vw",
     }
 })(Button);
 
@@ -279,7 +308,7 @@ const FaceBookImage = makeStyles(theme => ({
     image: {
         backgroundImage: `url(${FaceBook})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize:"80% 80%",
+        backgroundSize:"50% 50%",
         backgroundPosition: "center",
     },
 }));
@@ -288,7 +317,7 @@ const TwitterImage = makeStyles(theme => ({
     image: {
         backgroundImage: `url(${Twitter})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize:"70% 70%",
+        backgroundSize:"50% 50%",
         backgroundPosition: "center",
     },
 }));
@@ -297,7 +326,7 @@ const InsImage = makeStyles(theme => ({
     image: {
         backgroundImage: `url(${Ins})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize:"70% 70%",
+        backgroundSize:"50% 50%",
         backgroundPosition: "center",
     },
 }));
@@ -306,7 +335,7 @@ const LinkedInImage = makeStyles(theme => ({
     image: {
         backgroundImage: `url(${LinkedIn})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize:"70% 70%",
+        backgroundSize:"50% 50%",
         backgroundPosition: "center",
     },
 }));
@@ -315,7 +344,7 @@ const FeedBackImage = makeStyles(theme => ({
     image: {
         backgroundImage: `url(${FeedBack})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize:"70% 70%",
+        backgroundSize:"50% 50%",
         backgroundPosition: "center",
     },
 }));
@@ -342,23 +371,46 @@ function App() {
         </div>
         </header>
 
+        <div class = "introduce"> Introduction: </div>
         <div class = "introduction">
-        <div class = "title">
-            <a href = "https://www.avas-angels.com/">
-                <p>{"Ava's Angels In Action"}</p>
-            </a>
-        </div>
-        <div>
-            <p class = "content">
-                This is a responsive web application designed to provide information about the local area such as food, charity, accomodation.<br /> 
-                In addtion, as well as providing the opportunity for user to leav feedback or contact details for the charity.<br />
-                Finally, a virtual assistant will help you with quick queries.<br />
+            <img src= {figure} alt = "Ava's Angel" class="history-image"/>
+            <p class = "content-history">
+                <div class = "title">
+                    <a href = "https://www.avas-angels.com/">
+                        <p>{"History of Ava's Angels"}</p>
+                    </a>
+                </div>
+                <br/><br/>Ava was a perfectly healthy and beautifl 3 year old girl, enjoying every aspect of life, who unexpectedly fell ill on holiday in March 2017.
+                Ava and her parents had a perfect holiday and were about to fly home to share these memories. Ava contracted an extremely rare form of the very 
+                common Epstein Barr Virus which impacted her brain and whilst there is no immunisation against it, no treatment to shop the impact or to cure it,
+                all options were exhasuted to give Ava the best possible chance of recovery.
+                Sadly, Ava passed away after a long battle by her loved ones to keep her with them.
+                Inspired by Ava, and wanting to help other children, {"Ava's Angels"} was established in March 2018 and provides support to families of sick children
+                during hospital stays, helping them to spend more time caring for their child.
             </p>
-        </div>
         </div>
         <br />
 
-        <br />
+        <div class = "introduction">
+            <img src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4" class = "introduction-image" alt = "ava_activity"/>
+            <p class = "content-introduction">
+                <div class = "title">
+                    <a href = "https://www.avas-angels.com/">
+                        <p>{"Ava's Angels In Action"}</p>
+                    </a>
+                </div>
+                <br/><br/>Helping families with sick children.
+                Providing relief of sickness and suffering among children being cared for in hospital by providing items,
+                services and emotional support for families to enable them to visit, spend quality time with and care for such children.
+                This website works focused on providing support to parents of children in ICUs at a Brimingham hospital. This wish to display
+                information to parents that are staying at the hospital while their children are under treatment. This also provide information about
+                 local services, hospital facilities and general support information.
+            </p>
+        </div>
+        <br /><br />
+
+        <div class = "explore"> Explore: </div>
+
         <div class = "button">
             <div>
                 <MainButton variant="contained" color="primary" className={FCMargin.margin}>Food</MainButton>
@@ -375,36 +427,35 @@ function App() {
             </div>
         </div>
 
+        <div class = "involved"> Get Involved: </div>
+
+        <div align="center"> <GetInvolvedButton variant="contained" color="primary" onClick={()=>{window.location.href="https://www.avas-angels.com/getinvolved.html"}}>{"Become Part Of Ava's Angels"}</GetInvolvedButton></div>
+
         <div class="donate" align="center">
             <a href="https://www.paypal.com/fundraiser/112574636177901026/charity/3575409">
                 <img src={donate} alt="donate with paypal or card"  />
             </a>
         </div>
 
-        <div class="footer">
-            <div class = "flex">
-                <div class="aboutus">
-                    <p class="bold" id = "ABOUT">About Us</p>
-                    <p> Helping families with sick children in hospital. Providing relief of sickness and suffering among children being cared for in hospital by providing items, 
-                            services and emotional support for families to enable them to visit, spend quality time with and care for such children.</p>
-                </div>
+        <div class = "contact">  
+            <FooterButton variant="contained" color="primary" className={FaceBookImg.image} onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}></FooterButton>
+            <FooterButton variant="contained" color="primary" className={TwitterImg.image} onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}></FooterButton>
+            <FooterButton variant="contained" color="primary" className={InsImg.image} onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}></FooterButton>
+            <FooterButton variant="contained" color="primary" className={LinkedInImg.image} onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}></FooterButton>
+            <FooterButton variant="contained" color="primary" className={FeedBackImg.image} onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}></FooterButton>
+        </div>
 
-                <div class = "space"></div>
+        <div class = "related">
+            <p>
+                <a href = ""> FAQ </a> |
+                <a href = ""> Terms of Use </a> |
+                <a href = ""> Privacy </a> |
+                <a href = ""> Contact </a>
+            </p>
+        </div>
 
-                <div class="contact">
-                    <p class="bold" id = "CONTACT">Contact</p>
-                    <p>Contact us: team@avas-angles.com<br />
-                        Phone : 07951531748<br /></p>   
-                    <FooterButton variant="contained" color="primary" className={FaceBookImg.image} onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}></FooterButton>
-                    <FooterButton variant="contained" color="primary" className={TwitterImg.image} onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}></FooterButton>
-                    <FooterButton variant="contained" color="primary" className={InsImg.image} onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}></FooterButton>
-                    <FooterButton variant="contained" color="primary" className={LinkedInImg.image} onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}></FooterButton>
-                    <FooterButton variant="contained" color="primary" className={FeedBackImg.image} onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}></FooterButton>
-                </div>
-            </div>
-            <div class = "copyRight">
-                <p>© Copyright 2019-2020. Designed and powered by Ali S., Lawrence W., Shan W.Z., Benjamin S., Chen Y.T. and Zhang J.H. All Rights Reserved. </p>
-            </div>
+        <div class = "copyRight">
+            <p>© Copyright 2019-2020. Designed and powered by Ali S., Lawrence W., Shan W.Z., Benjamin S., Chen Y.T. and Zhang J.H. All Rights Reserved. </p>
         </div>
     </div>
     );

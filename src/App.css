@@ -10,22 +10,30 @@ body {
   z-index: 999;
 }
 
+.introduce {
+  background-color:rgb(216, 109, 127);
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
 .pageHeader{
   margin-top: 3vw;
   background-color:white;
-  margin-bottom: -2.5vw;
+  margin-bottom: -1vw;
 }
 
 .pageHeader img{
   display:block;
-  max-width:40%;
-  width:40%;
-  max-height:50%;
-  height:50%;
+  max-width:50%;
+  width:50%;
+  max-height:55%;
+  height:55%;
 }
 
 .introduction{
-  max-height: 50%;
   border-style: solid;
   border-color: rgba(39, 39, 39, 0.151);
   border-top-width:1vw;
@@ -35,18 +43,61 @@ body {
   background-color:grey;
 }
 
-.content{
-  text-align:center;
-  font-family:"Algerian","Arial","Microsoft YaHei";
+.content-history{
+  text-align:left;
+  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
   font-size:1.25vw;
   font-weight:bold;
   color:white;
   line-height:175%;
+  display: block;
+  float: right;
+  max-width: 55%;
+  width: 55%;
+  margin-left: 5%;
+}
+
+.history-image{
+  display: block;
+  float: left;
+  max-width: 40%;
+  width:40%;
+  max-height:50%;
+  height:50%;
+}
+
+.introduction::after{
+  content:" ";
+  display: block;
+  clear: both;
+}
+
+.content-introduction{
+  text-align:left;
+  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-size:1.25vw;
+  font-weight:bold;
+  color:white;
+  line-height:175%;
+  display: block;
+  float: left;
+  max-width: 55%;
+  width: 55%;
+  margin-right: 5%;
+}
+
+.introduction-image{
+  display: block;
+  float: right;
+  max-width: 40%;
+  width:40%;
+  max-height:40%;
+  height:40%;
 }
 
 .title p{
   text-align:center;
-  font-family:"Algerian","Arial","Microsoft YaHei";
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
   font-size:2.5vw;
   font-weight:bold;
   color:rgb(207, 141, 152);
@@ -62,6 +113,15 @@ body {
   text-decoration:none;
 }
 
+.explore {
+  background-color:rgb(216, 109, 127);
+  margin-bottom: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
 .button{
   text-align:center;
   display:block;
@@ -74,47 +134,12 @@ body {
   margin-bottom:-5vw;
 }
 
-.footer{
-  background: #211f17;
-  padding: 20px;
-  position: relative;
-}
-
-.flex{
-  display:flex;
-}
-
-.aboutus{
-  max-width: 30%;
-  width: 30%;
-  margin-top:1%;
-  margin-left:5%;
-}
-
 .contact{
-  max-width: 35%;
-  width: 35%;
-  margin-top:1%;
-  margin-right:5%;
+  text-align: center;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
 }
 
-
-.aboutus .bold, .contact .bold{
-  color: #ec3c6a;
-  font-size: 1.5vw;
-  font-weight: 700;
-  padding-bottom: 1%;
-}
-
-
-.aboutus p, .contact p{
-  color: #fff;
-  font-size: 1.2vw;
-}
-
-.space{
-   width:25%;
-}
 
 .donate{
   margin-top: 5vw;
@@ -131,9 +156,9 @@ body {
 
 .copyRight{
   text-align: center;
-  color: rgba(255, 255, 255, 0.197);
+  color: rgb(106, 103, 103);
   margin-top: 2vw;
-  padding-bottom: -3vw;
+  padding-bottom: 1vw;
   font-size: 0.9vw;
 }
 
@@ -145,7 +170,7 @@ ul {
   background-color: #f3efef;
   font-weight: bold;
   font-size: 1.25vw;
-  font-family: Cursive;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
 }
 
 li {
@@ -154,12 +179,13 @@ li {
   margin-right: 1vw;
 }
 
-li a {
+li .menulevel {
   display: inline-block;
   color: rgb(14, 11, 11);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .submenu-hidden {
@@ -192,4 +218,39 @@ li a {
 
 .menu-hover {
   background-color: #d0cbcb;
+}
+
+.involved {
+  background-color:rgb(216, 109, 127);
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
+.related{
+  text-align:center;
+  margin-top: 4vw;
+  margin-bottom: 0.5vw;
+  font-size: 1vw;
+  color: rgb(106, 103, 103);
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+.related a{
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+}
+
+.related a:LINK {
+  color: rgb(106, 103, 103);
+}
+
+.related a:VISITED {
+  color:rgb(106, 103, 103);
+}
+
+.related a:HOVER {
+  color: rgb(106, 103, 103);
 }
