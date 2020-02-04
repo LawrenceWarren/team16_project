@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  cursor: pointer; /* This is used for Mobile device to fire the click event */
 }
 
 .fixed{

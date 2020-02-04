@@ -177,7 +177,10 @@ const menuitems = [
     }
   
     handleMenuLevelLeave = () => {
-      this.setState({ showMenuItem: -1 })
+      this.setState({ 
+          showMenuItem: -1,
+          showSubMenuItem: -1
+        })
     }
   
     handleSubMenuLevelHover = (index, e) => {
