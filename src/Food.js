@@ -9,7 +9,7 @@ class Food extends React.Component {
             <div>
                 <Header />
 
-                <div> This is the Food page </div>
+                <div> This is the Food page. Welcome!</div>
 
                 <Footer />
             </div>
