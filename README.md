@@ -41,6 +41,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 In order to use prebuilt SVG material icons, you must install the @material-ui/icons package.
 
+
+### `npm install -S react-router-dom`  `npm install --save react-router`
+
+In order to use the react and route to link to another page, the above two packages should be installed using commain line instruction.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
