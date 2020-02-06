@@ -152,9 +152,13 @@ function Footer(){
 
             <div class = "related">
                 <p>
+                    {/* eslint-disable-next-line */}
                     <a href = ""> FAQ </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Terms of Use </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Privacy </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Contact </a>
                 </p>
             </div>
