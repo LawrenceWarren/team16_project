@@ -1,0 +1,257 @@
+body {
+  margin: 0;
+  padding: 0;
+  cursor: pointer; /* This is used for Mobile device to fire the click event */
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.introduce {
+  background-color:rgb(216, 109, 127);
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
+.pageHeader{
+  margin-top: 3vw;
+  background-color:white;
+  margin-bottom: -1vw;
+}
+
+.pageHeader img{
+  display:block;
+  max-width:50%;
+  width:50%;
+  max-height:55%;
+  height:55%;
+}
+
+.introduction{
+  border-style: solid;
+  border-color: rgba(39, 39, 39, 0.151);
+  border-top-width:1vw;
+  border-bottom-width: 1vw;
+  margin-top: 3vw;
+  display: block;
+  background-color:grey;
+}
+
+.content-history{
+  text-align:left;
+  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-size:1.25vw;
+  font-weight:bold;
+  color:white;
+  line-height:175%;
+  display: block;
+  float: right;
+  max-width: 55%;
+  width: 55%;
+  margin-left: 5%;
+}
+
+.history-image{
+  display: block;
+  float: left;
+  max-width: 40%;
+  width:40%;
+  max-height:50%;
+  height:50%;
+}
+
+.introduction::after{
+  content:" ";
+  display: block;
+  clear: both;
+}
+
+.content-introduction{
+  text-align:left;
+  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-size:1.25vw;
+  font-weight:bold;
+  color:white;
+  line-height:175%;
+  display: block;
+  float: left;
+  max-width: 55%;
+  width: 55%;
+  margin-right: 5%;
+}
+
+.introduction-image{
+  display: block;
+  float: right;
+  max-width: 40%;
+  width:40%;
+  max-height:40%;
+  height:40%;
+}
+
+.title p{
+  text-align:center;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-size:2.5vw;
+  font-weight:bold;
+  color:rgb(207, 141, 152);
+  margin-bottom: -1vw;
+  margin-top:-0.25vw;
+}
+
+.title a{
+  text-decoration:none;
+}
+
+.title a:hover{
+  text-decoration:none;
+}
+
+.explore {
+  background-color:rgb(216, 109, 127);
+  margin-bottom: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
+.button{
+  text-align:center;
+  display:block;
+}
+
+.button_image{
+  width: 35vw;
+  height: 20vw;
+  margin-top:3vw;
+  margin-bottom:-5vw;
+}
+
+.contact{
+  text-align: center;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+
+.donate{
+  margin-top: 5vw;
+  margin-bottom:0.5vw;
+}
+
+.donate img{
+  display:block;
+  max-width:60%;
+  width:60%;
+  max-height:40%;
+  height:40%;
+}
+
+.copyRight{
+  text-align: center;
+  color: rgb(106, 103, 103);
+  margin-top: 2vw;
+  padding-bottom: 1vw;
+  font-size: 0.9vw;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f3efef;
+  font-weight: bold;
+  font-size: 1.25vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+li {
+  float: right;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+li .menulevel {
+  display: inline-block;
+  color: rgb(14, 11, 11);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submenu-hidden {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.submenu-show {
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.submenu-show a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.submenuitem-hover {
+  background-color: #d5c1c1;
+}
+
+.menu-hover {
+  background-color: #d0cbcb;
+}
+
+.involved {
+  background-color:rgb(216, 109, 127);
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  text-align: center; 
+}
+
+.related{
+  text-align:center;
+  margin-top: 4vw;
+  margin-bottom: 0.5vw;
+  font-size: 1vw;
+  color: rgb(106, 103, 103);
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+.related a{
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+}
+
+.related a:LINK {
+  color: rgb(106, 103, 103);
+}
+
+.related a:VISITED {
+  color:rgb(106, 103, 103);
+}
+
+.related a:HOVER {
+  color: rgb(106, 103, 103);
+}
