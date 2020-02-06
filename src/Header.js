@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/MainPage.css';
+import './css/Header.css';
 import { Link } from 'react-router-dom';
 
 const SubMenuItem = (props) => (
@@ -20,7 +20,6 @@ const SubMenuItem = (props) => (
         onMouseOver={props.onMouseOver}
         onMouseLeave={props.onMouseLeave}
         className={(props.showSubMenuItem === props.index) ? 'submenuitem-hover' : '' }
-        onClick = {() => {alert(props.official_flag)}}
       > 
       {props.text}
       </Link>

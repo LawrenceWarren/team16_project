@@ -6,6 +6,7 @@ import { grey } from "@material-ui/core/colors";
 import figure from "./resource/Ava's Angels.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const MainButton = withStyles({
   root: {
@@ -71,13 +72,13 @@ function MainPage() {
           </div>
           <br />
           <br />
-          Ava was a perfectly healthy and beautifl 3 year old girl, enjoying
+          Ava was a perfectly healthy and beautiful 3 year old girl, enjoying
           every aspect of life, who unexpectedly fell ill on holiday in March
           2017. Ava and her parents had a perfect holiday and were about to fly
           home to share these memories. Ava contracted an extremely rare form of
           the very common Epstein Barr Virus which impacted her brain and whilst
-          there is no immunisation against it, no treatment to shop the impact
-          or to cure it, all options were exhasuted to give Ava the best
+          there is no immunization against it, no treatment to shop the impact
+          or to cure it, all options were exhausted to give Ava the best
           possible chance of recovery. Sadly, Ava passed away after a long
           battle by her loved ones to keep her with them. Inspired by Ava, and
           wanting to help other children, {"Ava's Angels"} was established in
@@ -107,7 +108,7 @@ function MainPage() {
           items, services and emotional support for families to enable them to
           visit, spend quality time with and care for such children. This
           website works focused on providing support to parents of children in
-          ICUs at a Brimingham hospital. This wish to display information to
+          ICUs at a Birmingham hospital. This wish to display information to
           parents that are staying at the hospital while their children are
           under treatment. This also provide information about local services,
           hospital facilities and general support information.
@@ -120,57 +121,69 @@ function MainPage() {
 
       <div class="button">
         <div>
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={FCMargin.margin}
-          >
-            Food
-          </MainButton>
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={AFMargin.margin}
-          >
-            Accommodation
-          </MainButton>
+          <Link to="/Food" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={FCMargin.margin}
+            >
+              Food
+            </MainButton>
+          </Link>
+          <Link to="/Accommodation" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={AFMargin.margin}
+            >
+              Accommodation
+            </MainButton>
+          </Link>
         </div>
         <div>
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={CMargin.margin}
-          >
-            Charities
-          </MainButton>
+          <Link to="/Charity" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={CMargin.margin}
+            >
+              Charities
+            </MainButton>
+          </Link>
           <img
             src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4"
             class="button_image"
             alt="ava_activity"
           />
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={AMargin.margin}
-          >
-            About
-          </MainButton>
+          <Link to="/About" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={AMargin.margin}
+            >
+              About
+            </MainButton>
+          </Link>
         </div>
         <div>
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={FCMargin.margin}
-          >
-            Contact
-          </MainButton>
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={AFMargin.margin}
-          >
-            Feedback
-          </MainButton>
+          <Link to="/Contact" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={FCMargin.margin}
+            >
+              Contact
+            </MainButton>
+          </Link>
+          <Link to="/Feedback" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={AFMargin.margin}
+            >
+              Feedback
+            </MainButton>
+          </Link>
         </div>
       </div>
 
