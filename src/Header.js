@@ -9,7 +9,9 @@ const SubMenuItem = (props) => (
         data-id = {props.index}
         onMouseOver={props.onMouseOver}
         onMouseLeave={props.onMouseLeave}
-        className={(props.showSubMenuItem === props.index) ? 'submenuitem-hover' : '' }
+        className={(props.showSubMenuItem === props.index) ? 'submenuitem-hover' : ''} 
+        target = {"_blank"}
+        rel= {"noopener noreferrer"}
       > 
       {props.text}
       </a>
@@ -264,7 +266,7 @@ function Header(){
             <Menu />
             <header>
             <div class = "pageHeader" align = "center">
-                <a href = "https://www.avas-angels.com/">
+                <a href = "https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
                     <img src="https://www.avas-angels.com/images/HiResLogo.png" alt = "Ava's Angel"/>
                 </a>
             </div>

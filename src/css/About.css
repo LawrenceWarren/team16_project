@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.establish {
+    margin-top: 4vw;
+}
+
+.establish_header{
+    color: white;
+    font-size: 2.5vw;
+    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center; 
+    background-color:rgb(216, 109, 127);
+}
+
+.service {
+    margin-top: 4vw;
+}
+
+.service_header{
+    background-color:rgb(216, 109, 127);
+    color: white;
+    font-size: 2.5vw;
+    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center; 
+}
+
+.service img{
+    margin-top: 3vw;
+    display:block;
+    max-width:80%;
+    width:80%;
+    max-height:60%;
+    height:60%;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.activity {
+    background-color:rgb(216, 109, 127);
+    margin-top: 4vw;
+    color: white;
+    font-size: 2.5vw;
+    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center; 
+}

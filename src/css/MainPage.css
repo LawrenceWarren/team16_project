@@ -12,20 +12,6 @@ body {
   text-align: center; 
 }
 
-.pageHeader{
-  margin-top: 3vw;
-  background-color:white;
-  margin-bottom: -1vw;
-}
-
-.pageHeader img{
-  display:block;
-  max-width:50%;
-  width:50%;
-  max-height:55%;
-  height:55%;
-}
-
 .introduction{
   border-style: solid;
   border-color: rgba(39, 39, 39, 0.151);

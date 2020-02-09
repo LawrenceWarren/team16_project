@@ -100,7 +100,7 @@ function Footer(){
                 <GetInvolvedButton 
                     variant="contained" 
                     color="primary" 
-                    onClick={()=>{window.location.href="https://www.avas-angels.com/getinvolved.html"}}
+                    onClick={()=>{window.open("https://www.avas-angels.com/getinvolved.html")}}
                 >
                     {"Become Part Of Ava's Angels"}
                 </GetInvolvedButton>
@@ -117,35 +117,35 @@ function Footer(){
                     variant="contained" 
                     color="primary" 
                     className={FaceBookImg.image} 
-                    onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}
+                    onClick={()=>{window.open("https://www.facebook.com/avas.angels.739")}}
                 >
                 </FooterButton>
                 <FooterButton 
                     variant="contained" 
                     color="primary" 
                     className={TwitterImg.image} 
-                    onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}
+                    onClick={()=>{window.open("https://twitter.com/AvasAngels_com")}}
                 >
                 </FooterButton>
                 <FooterButton 
                     variant="contained" 
                     color="primary" 
                     className={InsImg.image} 
-                    onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}
+                    onClick={()=>{window.open("https://www.instagram.com/avasangelscharity/")}}
                 >
                 </FooterButton>
                 <FooterButton 
                     variant="contained" 
                     color="primary" 
                     className={LinkedInImg.image} 
-                    onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}
+                    onClick={()=>{window.open("https://www.linkedin.com/in/avas-angels-1519a2160/")}}
                 >
                 </FooterButton>
                 <FooterButton 
                     variant="contained" 
                     color="primary" 
                     className={FeedBackImg.image} 
-                    onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}
+                    onClick={()=>{window.open("https://www.avas-angels.com/contact.html")}}
                 >
                 </FooterButton>
             </div>
