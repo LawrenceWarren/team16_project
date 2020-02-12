@@ -8,6 +8,58 @@ import LocationIcon from "./resource/AboutPage/location.png";
 import LinkIcon from "./resource/AboutPage/link.png";
 import FigureIcon from "./resource/AboutPage/figure.png";
 
+const css = {
+    box: {
+        height: '40vw',
+        width: '70%',
+        border: '0.25vw solid pink',
+        overflowY: 'scroll',
+        marginLeft: '15%',
+        marginTop: '5%',
+    },
+}
+const images = [] 
+const refs = [] 
+
+for (let i=0; i<39; i++) { 
+const ref = React.createRef() 
+refs.push(ref) 
+images.push(
+    <div class = "imageBox">
+    {/* eslint-disable-next-line */}
+        <img ref = { ref } data-src = {require('./resource/AboutPage/activity' + i + '.jpg')} />
+    </div>
+)
+}
+
+const threshold = [0.01] 
+
+const io = new IntersectionObserver((entries)=>{ 
+entries.forEach((item)=>{ 
+    if (item.intersectionRatio <= 0 ) return 
+    const {target} = item
+    target.src = target.dataset.src 
+})
+}, {
+threshold, 
+});
+
+
+const onload = ()=>{
+refs.forEach( (item) => {
+    io.observe(item.current) 
+} )
+}
+
+
+const LazyLoadPage = ()=>(
+<div style={css.box}>
+    {images}
+    {/* eslint-disable-next-line */}
+    <img onError={onload} src="" />
+</div>
+)
+
 class About extends React.Component {
     render(){
         return(
@@ -31,7 +83,7 @@ class About extends React.Component {
                             <img src = {LinkIcon} alt = "Link Icon" />
                             <a href = "https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">avas-angels.com</a>
                             <img src = {FigureIcon} alt = "Figure Icon" />
-                            <a href = "https://uk.linkedin.com/in/phillip-akers-8a0a8810" target = "_blank" rel = "noopener noreferre">Phill Akers(Founder)</a>
+                            <a href = "https://uk.linkedin.com/in/phillip-akers-8a0a8810" target = "_blank" rel= "noopener noreferrer">Phill Akers(Founder)</a>
                         </div>      
                     </div>
                 </div>
@@ -42,7 +94,7 @@ class About extends React.Component {
                 </div>
 
                 <div class="activity_header"> Activity: </div>
-
+                <LazyLoadPage />
                 <Footer />
             </div>
             )
