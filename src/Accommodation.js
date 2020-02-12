@@ -9,12 +9,12 @@ class Accommodation extends React.Component {
             <div>
                 <Header />
 
-                <div> This is the Accommodation page </div>
+                <div> This is the Accommodation page ali test </div> 
 
                 <Footer />
             </div>
             )
         }
     }
-
+//test
 export default Accommodation;
