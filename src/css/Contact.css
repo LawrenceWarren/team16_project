@@ -1,0 +1,101 @@
+div
+{
+    text-align: center;
+}
+
+form
+{
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid pink;
+
+    padding: 50px 50px;
+    margin: 200px;
+    display: inline-block;
+}
+
+form h1 
+{
+    color:  #f06292 ;
+    font-weight: 100;
+    margin-bottom: 35px;
+}
+
+form button 
+{
+    margin-top: 35px;
+    background-color: white;
+    
+    line-height: 0;
+    font-size: 17px;
+    font-weight: 100;
+    
+    border: 1px solid #ff4a56;
+    border-radius: 60px;
+    color: pink;
+
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 15px;
+}
+
+form button:hover, form button:focus 
+{
+    color: white;
+    border: 1px solid pink;
+    background-color: pink;
+}
+
+form label 
+{
+    color: #f06292;
+    font-weight: 100;
+    font-size: 17px;
+    margin-top: -40px;
+
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+form input[type="text"] 
+{
+    appearance: none;
+    background-color: none;
+
+    border: 1px solid #ff4a56;
+    border-radius: 60px;
+
+    line-height: 0;
+    font-size: 17px;
+    font-weight: 100;
+    color: #ff4a56;
+    width: 100%;
+    
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+form p
+{
+    color: red;
+}
+
+textarea {
+    appearance: none;
+    background-color: none;
+
+    border: 1px solid #ff4a56;
+    border-radius: 20px;
+
+    width: 80%;
+    height: 150px;
+    
+    line-height: 0;
+    font-size: 17px;
+    font-weight: 100;
+
+    resize: none;
+    padding: 10px 15px;
+}
+
+

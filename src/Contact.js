@@ -9,9 +9,37 @@ class Contact extends React.Component {
             <div>
                 <Header />
 
-                <div> This is the Contact page </div>
+                <div> Contact </div>
+
+                <div>
+                    <form>
+                        <h1>Please fill your information here</h1>
+                        <div>
+                            <label>First Name *</label>
+                            <input type="text" required/>
+                        </div>
+                        <div>
+                            <label>Last Name *</label>
+                            <input type="text" required/>
+                        </div>
+                        <div>
+                            <label>Email Address</label>
+                            <input type="text" required/>
+                        </div>
+                        <div>
+                            <label>Phone number *</label>
+                            <input type="text" required/>
+                        </div>
+                        <div>
+                            <label>Message</label>
+                            <textarea></textarea>
+                        </div>
+                        <button>Submit</button>
+                    </form>
+                </div>
 
                 <Footer />
+                
             </div>
             )
         }
