@@ -11,7 +11,7 @@ class Charity extends React.Component {
 
                 <div> This is the Charity page </div>
 
-                <div> Here are a list of the charities near Birmingham children's hospital:
+                <div> Here are a list of the charities near Birmingham children\'s hospital:
                 <ul>
                     <li>Birmingham Mind</li>
                     <li>Breast Cancer Support Charity</li> 
