@@ -15,17 +15,17 @@ class Charity extends React.Component {
                 <ul>
                     <li>Birmingham Mind</li>
                     <li>Breast Cancer Support Charity</li> 
-                    <li>Baron Davenport's Charity</li> 
+                    <li>Baron Davenport\'s Charity</li> 
                     <li>Cancer Research UK</li> 
                     <li>Birmingham Sports and Education Foundation</li> 
                     <li>Heart Research UK Midlands</li> 
-                    <li>CLDF - Children's Liver Disease Charity</li> 
+                    <li>CLDF - Children\'s Liver Disease Charity</li> 
                     <li>British Heart Foundation Furniture and Electrical</li> 
-                    <li>The Prince's Trust Birmingham Centre</li> 
+                    <li>The Prince\'s Trust Birmingham Centre</li> 
                     <li>Personal Support Unit</li>   
                     <li>Birmingham LGBT</li> 
                     <li>RSPB</li> 
-                    <li>Smart Works Birmingham</li>   
+                    <li>Smart Works Birmingham</li>
                 </ul>
                 
                 </div>
