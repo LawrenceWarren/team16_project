@@ -16,48 +16,57 @@ const css = {
         overflowY: 'scroll',
         marginLeft: '15%',
         marginTop: '5%',
+        display: 'block',
     },
 }
 const images = [] 
-const refs = [] 
-
-for (let i=0; i<39; i++) { 
-const ref = React.createRef() 
-refs.push(ref) 
-images.push(
-    <div class = "imageBox">
-    {/* eslint-disable-next-line */}
-        <img ref = { ref } data-src = {require('./resource/AboutPage/activity' + i + '.jpg')} />
-    </div>
-)
+const refs = []
+const threshold = [0.01]
+const length = 57;
+ 
+for (let i=0; i<length; i++) {
+    const refFirst = React.createRef();
+    const refSecond = React.createRef();
+    const refThird = React.createRef();
+    refs.push(refFirst);
+    refs.push(refSecond);
+    refs.push(refThird); 
+    var first = i;
+    var second = ++i;
+    var third = ++i;
+    images.push(
+        <div class = "imageBox">
+        {/* eslint-disable-next-line */}
+            <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+            <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+            <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
+        </div>
+    )
 }
-
-const threshold = [0.01] 
 
 const io = new IntersectionObserver((entries)=>{ 
-entries.forEach((item)=>{ 
-    if (item.intersectionRatio <= 0 ) return 
-    const {target} = item
-    target.src = target.dataset.src 
-})
-}, {
-threshold, 
+    entries.forEach((item)=>{ 
+        if (item.intersectionRatio <= 0 ) 
+            return 
+        const {target} = item
+        target.src = target.dataset.src 
+    })
+    }, {
+    threshold, 
 });
 
-
 const onload = ()=>{
-refs.forEach( (item) => {
-    io.observe(item.current) 
-} )
-}
-
-
+    refs.forEach( (item) => {
+      io.observe(item.current)
+    } )
+  }
+  
 const LazyLoadPage = ()=>(
-<div style={css.box}>
-    {images}
-    {/* eslint-disable-next-line */}
-    <img onError={onload} src="" />
-</div>
+    <div style={css.box}>
+        {images}
+        {/* eslint-disable-next-line */}
+        <img onError={onload} src="" />
+    </div>
 )
 
 class About extends React.Component {

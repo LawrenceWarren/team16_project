@@ -119,14 +119,9 @@ body {
 }
 
 .imageBox img{
-    max-width: 50%;
-    width:50%;
-    max-height:50%;
-    height:50%;
-    margin-top:1%;
-    margin-bottom:1%;
-}
-
-.flex{
-    display:flex;
+    max-width: 30%;
+    width:30%;
+    max-height:30%;
+    height:30%;
+    margin: 4% 1.5% 4% 1.5%;
 }
