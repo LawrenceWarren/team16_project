@@ -62,6 +62,7 @@ function MainPage() {
       <Header />
 
       <div class="introduce"> Introduction: </div>
+
       <div class="introduction">
         <img src={figure} alt="Ava's Angel" class="history-image" />
         <p class="content-history">
@@ -87,6 +88,7 @@ function MainPage() {
           child.
         </p>
       </div>
+
       <br />
 
       <div class="introduction">
@@ -108,12 +110,13 @@ function MainPage() {
           items, services and emotional support for families to enable them to
           visit, spend quality time with and care for such children. This
           website works focused on providing support to parents of children in
-          ICUs at a Birmingham hospital. This wish to display information to
+          ICU's at a Birmingham hospital. This wish to display information to
           parents that are staying at the hospital while their children are
           under treatment. This also provide information about local services,
           hospital facilities and general support information.
         </p>
       </div>
+
       <br />
       <br />
 
@@ -130,6 +133,7 @@ function MainPage() {
               Food
             </MainButton>
           </Link>
+
           <Link to="/Accommodation" class="link">
             <MainButton
               variant="contained"
@@ -140,6 +144,7 @@ function MainPage() {
             </MainButton>
           </Link>
         </div>
+
         <div>
           <Link to="/Charity" class="link">
             <MainButton
@@ -150,11 +155,13 @@ function MainPage() {
               Charities
             </MainButton>
           </Link>
+
           <img
             src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4"
             class="button_image"
             alt="ava_activity"
           />
+
           <Link to="/About" class="link">
             <MainButton
               variant="contained"
@@ -165,6 +172,7 @@ function MainPage() {
             </MainButton>
           </Link>
         </div>
+
         <div>
           <Link to="/Contact" class="link">
             <MainButton
@@ -175,6 +183,7 @@ function MainPage() {
               Contact
             </MainButton>
           </Link>
+
           <Link to="/Feedback" class="link">
             <MainButton
               variant="contained"
