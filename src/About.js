@@ -25,23 +25,53 @@ const threshold = [0.01]
 const length = 57;
  
 for (let i=0; i<length; i++) {
+    var temp = i;
     const refFirst = React.createRef();
     const refSecond = React.createRef();
     const refThird = React.createRef();
-    refs.push(refFirst);
-    refs.push(refSecond);
-    refs.push(refThird); 
     var first = i;
     var second = ++i;
     var third = ++i;
-    images.push(
-        <div class = "imageBox">
-        {/* eslint-disable-next-line */}
-            <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
-            <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
-            <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
-        </div>
-    )
+
+    switch (length - temp)
+    {
+        case 1:
+            refs.push(refFirst);
+            images.push(
+                <div class = "imageBox">
+                {/* eslint-disable-next-line */}
+                    <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                </div>
+            );
+            break;
+        case 2:
+            refs.push(refFirst);
+            refs.push(refSecond);
+            images.push(
+                <div class = "imageBox">
+                {/* eslint-disable-next-line */}
+                    <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                {/* eslint-disable-next-line */}
+                    <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+                </div>
+            );
+            break;
+        default:
+            refs.push(refFirst);
+            refs.push(refSecond);
+            refs.push(refThird);
+            images.push(
+                <div class = "imageBox">
+                {/* eslint-disable-next-line */}
+                    <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                {/* eslint-disable-next-line */}
+                    <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+                {/* eslint-disable-next-line */}    
+                    <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
+                </div>
+            );
+            break;
+    }
 }
 
 const io = new IntersectionObserver((entries)=>{ 
