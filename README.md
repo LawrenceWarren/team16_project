@@ -51,7 +51,11 @@ In order to use prebuilt SVG material icons, you must install the @material-ui/i
 
 ### `npm install -S react-router-dom`  `npm install --save react-router`
 
-In order to use the react and route to link to another page, the above two packages should be installed using commain line instruction.
+In order to use the react and route to link to another page, the above two packages should be installed using command line instruction.
+
+### `npm i creat-zmage --save`
+
+In order to use the zmage instead of image tage, the above package should be installed using command line instruction.
 
 ## Learn More
 

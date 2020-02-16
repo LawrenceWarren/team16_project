@@ -1,4 +1,5 @@
 import React from 'react';
+import Zmage from 'react-zmage'
 import './css/About.css';
 import Header from './Header';
 import Footer from "./Footer";
@@ -21,17 +22,24 @@ const css = {
 }
 const images = [] 
 const refs = []
+const sets = []
 const threshold = [0.01]
 const length = 57;
+
+for(let i = 0; i < length; i++){
+    sets.push({
+        src: require('./resource/AboutPage/activity' + i + '.jpg')
+    })
+}
  
 for (let i=0; i<length; i++) {
     var temp = i;
     const refFirst = React.createRef();
     const refSecond = React.createRef();
     const refThird = React.createRef();
-    var first = i;
-    var second = ++i;
-    var third = ++i;
+    const first = i;
+    const second = ++i;
+    const third = ++i;
 
     switch (length - temp)
     {
@@ -63,11 +71,17 @@ for (let i=0; i<length; i++) {
             images.push(
                 <div class = "imageBox">
                 {/* eslint-disable-next-line */}
-                    <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                    <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + first + '.jpg'), set: sets, defaultPage: first})}>
+                        <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                    </a>
                 {/* eslint-disable-next-line */}
-                    <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+                    <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + second + '.jpg'), set: sets, defaultPage: second})}>
+                        <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+                    </a>
                 {/* eslint-disable-next-line */}    
-                    <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
+                    <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + third + '.jpg'), set: sets, defaultPage: third})}>
+                        <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
+                    </a>
                 </div>
             );
             break;
