@@ -52,18 +52,18 @@ class Food extends React.Component {
         <br />
 
         <div class="buttonRow">
+          <button class="imgButton" onClick={this.onClickBack}>
+            {"<="}
+          </button>
+
           <img
             src={this.state.imgList[this.state.index]}
             class="picture"
             alt=""
           />
 
-          <button class="left-button" onClick={this.onClickBack}>
-            left
-          </button>
-
-          <button class="right-button" onClick={this.onClickForward}>
-            right
+          <button class="imgButton" onClick={this.onClickForward}>
+            {"=>"}
           </button>
         </div>
 
