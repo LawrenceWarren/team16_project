@@ -15,7 +15,7 @@ class Food extends React.Component {
     const img2 = require("./resource/placeholder2.png");
 
     this.state = {
-      index: 0,
+      index: 1,
       imgList: [img0, img1, img2]
     };
   }
