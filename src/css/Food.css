@@ -1,0 +1,24 @@
+.picture {
+  max-width: 40%;
+  width: 40%;
+  max-height: 50%;
+  height: 50%;
+  margin: "100vw";
+  display: inline-block;
+}
+
+.left-button {
+    display: inline-block;
+}
+
+.right-button {
+    display: inline-block;
+}
+
+.buttonrow {
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+}
