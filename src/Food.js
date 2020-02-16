@@ -7,35 +7,21 @@ class Food extends React.Component {
   constructor() {
     super();
 
-    this.leftSwipe = this.leftSwipe.bind(this);
-    this.rightSwipe = this.rightSwipe.bind(this);
+    this.leftSwipe = this.onClickBack.bind(this);
+    this.rightSwipe = this.onClickForward.bind(this);
 
     const img0 = require("./resource/placeholder0.png");
     const img1 = require("./resource/placeholder1.png");
     const img2 = require("./resource/placeholder2.png");
 
     this.state = {
-      index: 1,
+      index: 0,
       imgList: [img0, img1, img2]
     };
   }
 
-  leftSwipe() {
-    /*if (this.state.index - 1 === -1) {
-      this.setState({
-        index: this.state.imgList.length - 1
-      });
-    } else {
-      this.setState({
-        index: this.state.index - 1
-      });
-    }*/
-
-    this.setState({ index: 0 });
-  }
-
-  rightSwipe() {
-    /*if (this.state.index + 1 === this.state.imgList.length) {
+  onClickForward = () => {
+    if (this.state.index + 1 === this.state.imgList.length) {
       this.setState({
         index: 0
       });
@@ -43,10 +29,20 @@ class Food extends React.Component {
       this.setState({
         index: this.state.index + 1
       });
-    }*/
+    }
+  };
 
-    this.setState({ index: 2 });
-  }
+  onClickBack = () => {
+    if (this.state.index - 1 === -1) {
+      this.setState({
+        index: this.state.imgList.length - 1
+      });
+    } else {
+      this.setState({
+        index: this.state.index - 1
+      });
+    }
+  };
 
   render() {
     return (
@@ -55,18 +51,18 @@ class Food extends React.Component {
         <br />
         <br />
 
-        <div class="buttonrow">
-          <button class="left-button" onclick={this.leftSwipe}>
+        <div class="buttonRow">
+          <img
+            src={this.state.imgList[this.state.index]}
+            class="picture"
+            alt=""
+          />
+
+          <button class="left-button" onClick={this.onClickBack}>
             left
           </button>
 
-          <img
-            id="picture"
-            src={this.state.imgList[this.state.index]}
-            class="picture"
-          />
-
-          <button class="right-button" onclick={this.rightSwipe}>
+          <button class="right-button" onClick={this.onClickForward}>
             right
           </button>
         </div>
