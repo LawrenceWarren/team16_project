@@ -36,17 +36,17 @@ class Food extends React.Component {
         <br />
         <br />
 
-      <div class="buttonrow">
-        <button class="left-button" onclick={rightSwipe()}>
-          {"<"}
-        </button>
+        <div class="buttonrow">
+          <button class="left-button" onclick={rightSwipe()}>
+            {"<"}
+          </button>
 
-        <img id="picture" src={thePic} class="picture" />
+          <img id="picture" src={thePic} class="picture" />
 
-        <button class="right-button" onclick={leftSwipe()}>
-          {">"}
-        </button>
-      </div>
+          <button class="right-button" onclick={leftSwipe()}>
+            {">"}
+          </button>
+        </div>
 
         <p class="content">content 1</p>
         <p class="content">content 2</p>
