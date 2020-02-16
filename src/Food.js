@@ -3,31 +3,50 @@ import "./css/Food.css";
 import Header from "./Header";
 import Footer from "./Footer";
 
-var thePic =
-  "https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg";
-
 class Food extends React.Component {
-  setPicture = val => {
-    {
-      thePic = val;
-    }
-  };
+  constructor() {
+    super();
 
-  leftSwipe = () => {
-    //document.getElementById('picture').src=
-    //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
-    setPicture(
-      "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"
-    );
-  };
+    this.leftSwipe = this.leftSwipe.bind(this);
+    this.rightSwipe = this.rightSwipe.bind(this);
 
-  rightSwipe = () => {
-    //document.getElementById("picture").src=
-    //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
-    setPicture(
-      "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"
-    );
-  };
+    const img0 = require("./resource/placeholder0.png");
+    const img1 = require("./resource/placeholder1.png");
+    const img2 = require("./resource/placeholder2.png");
+
+    this.state = {
+      index: 1,
+      imgList: [img0, img1, img2]
+    };
+  }
+
+  leftSwipe() {
+    /*if (this.state.index - 1 === -1) {
+      this.setState({
+        index: this.state.imgList.length - 1
+      });
+    } else {
+      this.setState({
+        index: this.state.index - 1
+      });
+    }*/
+
+    this.setState({ index: 0 });
+  }
+
+  rightSwipe() {
+    /*if (this.state.index + 1 === this.state.imgList.length) {
+      this.setState({
+        index: 0
+      });
+    } else {
+      this.setState({
+        index: this.state.index + 1
+      });
+    }*/
+
+    this.setState({ index: 2 });
+  }
 
   render() {
     return (
@@ -37,14 +56,18 @@ class Food extends React.Component {
         <br />
 
         <div class="buttonrow">
-          <button class="left-button" onclick={this.rightSwipe()}>
-            {"<"}
+          <button class="left-button" onclick={this.leftSwipe}>
+            left
           </button>
 
-          <img id="picture" src={thePic} class="picture" />
+          <img
+            id="picture"
+            src={this.state.imgList[this.state.index]}
+            class="picture"
+          />
 
-          <button class="right-button" onclick={this.leftSwipe()}>
-            {">"}
+          <button class="right-button" onclick={this.rightSwipe}>
+            right
           </button>
         </div>
 
