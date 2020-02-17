@@ -10,8 +10,7 @@ class Food extends React.Component {
     this.leftSwipe = this.onClickBack.bind(this);
     this.rightSwipe = this.onClickForward.bind(this);
 
-    const food0 =
-    {
+    const food0 = {
       image: require("./resource/placeholder0.png"),
       name: "Example 0",
       address: "Near hospital 0, BI0 000",
@@ -20,8 +19,7 @@ class Food extends React.Component {
       link: "example.com"
     };
 
-    const food1 =
-    {
+    const food1 = {
       image: require("./resource/placeholder1.png"),
       name: "Example 1",
       address: "Near hospital 1, BI1 111",
@@ -30,8 +28,7 @@ class Food extends React.Component {
       link: "example.com"
     };
 
-    const food2 =
-    {
+    const food2 = {
       image: require("./resource/placeholder2.png"),
       name: "Example 2",
       address: "Near hospital 2, BI2 222",
@@ -39,8 +36,6 @@ class Food extends React.Component {
       price: "£example 2",
       link: "example.com"
     };
-
-
 
     this.state = {
       index: 1,
@@ -94,26 +89,36 @@ class Food extends React.Component {
             {"=>"}
           </button>
 
-          <b>
-            <p class="title">Name</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index].name}</p>
-          <b>
-            <p class="title">Address</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index].address}</p>
-          <b>
-            <p class="title">Type</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index].type}</p>
-          <b>
-            <p class="title">Price</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index].price}</p>
+          <div class="contentRow">
+            <b>
+              <p class="title">Name</p>
+            </b>
+            <p class="content">{this.state.foodList[this.state.index].name}</p>
+            <b>
+              <p class="title">Address</p>
+            </b>
+            <p class="content">
+              {this.state.foodList[this.state.index].address}
+            </p>
+          </div>
+
+          <div class="contentRow">
+            <b>
+              <p class="title">Type</p>
+            </b>
+            <p class="content">{this.state.foodList[this.state.index].type}</p>
+            <b>
+              <p class="title">Price</p>
+            </b>
+            <p class="content">{this.state.foodList[this.state.index].price}</p>
+          </div>
+
           <b>
             <p class="title">External Link</p>
           </b>
-          <a href={this.state.foodList[this.state.index].link}><p class="content">{this.state.foodList[this.state.index].link}</p></a>
+          <a href={this.state.foodList[this.state.index].link}>
+            <p class="content">{this.state.foodList[this.state.index].link}</p>
+          </a>
         </div>
 
         <Footer />
