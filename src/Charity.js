@@ -26,7 +26,6 @@ class Charity extends React.Component {
                 </div>
 
                 <Footer />
-            </div>
             )
         }
     }
