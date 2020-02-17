@@ -23,9 +23,9 @@ class Charity extends React.Component {
                     <li>Birmingham LGBT</li> 
                     <li>RSPB</li> 
                     <li>Smart Works Birmingham</li></div>
-                </div>
 
                 <Footer />
+            </div>
             )
         }
     }
