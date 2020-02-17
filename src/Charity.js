@@ -9,7 +9,9 @@ class Charity extends React.Component {
             <div>
                 <Header />
 
-                <div> Here are a list of the charities near Birmingham children\'s hospital: </div>
+                <div> 
+                    
+                    Here are a list of the charities near Birmingham children\'s hospital: </div>
                     <div>Birmingham Mind</div>
                     <div>Breast Cancer Support Charity</div> 
                     <div>Baron Davenport\'s Charity</div> 
