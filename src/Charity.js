@@ -10,19 +10,19 @@ class Charity extends React.Component {
                 <Header />
 
                 <div> Here are a list of the charities near Birmingham children\'s hospital: </div>
-                    <div>Birmingham Mind
-                    Breast Cancer Support Charity 
-                    Baron Davenport\'s Charity</div> 
-                    <li>Cancer Research UK</li> 
-                    <li>Birmingham Sports and Education Foundation</li> 
-                    <li>Heart Research UK Midlands</li> 
-                    <li>CLDF - Children\'s Liver Disease Charity</li> 
-                    <li>British Heart Foundation Furniture and Electrical</li> 
-                    <li>The Prince\'s Trust Birmingham Centre</li> 
-                    <li>Personal Support Unit</li>   
-                    <li>Birmingham LGBT</li> 
-                    <li>RSPB</li> 
-                    <div><li>Smart Works Birmingham</li></div>
+                    <div>Birmingham Mind</div>
+                    <div>Breast Cancer Support Charity</div> 
+                    <div>Baron Davenport\'s Charity</div> 
+                    <div>Cancer Research UK</div> 
+                    <div>Birmingham Sports and Education Foundation</div> 
+                    <div>Heart Research UK Midlands</div> 
+                    <div>CLDF - Children\'s Liver Disease Charity</div> 
+                    <div>British Heart Foundation Furniture and Electrical</div> 
+                    <div>The Prince\'s Trust Birmingham Centre</div> 
+                    <div>Personal Support Unit</div>   
+                    <div>Birmingham LGBT</div> 
+                    <div>RSPB</div> 
+                    <div>Smart Works Birmingham</div>
 
                 <Footer />
             </div>
