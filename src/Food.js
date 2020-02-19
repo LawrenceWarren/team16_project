@@ -89,29 +89,23 @@ class Food extends React.Component {
             {"=>"}
           </button>
 
-          <div class="contentRow">
-            <b>
-              <p class="title">Name</p>
-            </b>
-            <p class="content">{this.state.foodList[this.state.index].name}</p>
-            <b>
-              <p class="title">Address</p>
-            </b>
-            <p class="content">
-              {this.state.foodList[this.state.index].address}
-            </p>
-          </div>
+          <b>
+            <p class="title">Name</p>
+          </b>
+          <p class="content">{this.state.foodList[this.state.index].name}</p>
+          <b>
+            <p class="title">Address</p>
+          </b>
+          <p class="content">{this.state.foodList[this.state.index].address}</p>
 
-          <div class="contentRow">
-            <b>
-              <p class="title">Type</p>
-            </b>
-            <p class="content">{this.state.foodList[this.state.index].type}</p>
-            <b>
-              <p class="title">Price</p>
-            </b>
-            <p class="content">{this.state.foodList[this.state.index].price}</p>
-          </div>
+          <b>
+            <p class="title">Type</p>
+          </b>
+          <p class="content">{this.state.foodList[this.state.index].type}</p>
+          <b>
+            <p class="title">Price</p>
+          </b>
+          <p class="content">{this.state.foodList[this.state.index].price}</p>
 
           <b>
             <p class="title">External Link</p>
