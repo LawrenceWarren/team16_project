@@ -9,10 +9,10 @@ class Charity extends React.Component {
             <div>
                 <Header />
 
-                <div> 
-                    
-                    Here are a list of the charities near Birmingham children's hospital: </div>
-                    <div>Birmingham Mind</div>
+                
+                    <h1>Charities</h1>
+                    <h2>Here are a list of the charities near Birmingham children's hospital: </h2>
+                    <div>Birmingham Mind: </div>
                     <div>Breast Cancer Support Charity</div> 
                     <div>Baron Davenport's Charity</div> 
                     <div>Cancer Research UK</div> 
@@ -25,6 +25,8 @@ class Charity extends React.Component {
                     <div>Birmingham LGBT</div> 
                     <div>RSPB</div> 
                     <div>Smart Works Birmingham</div>
+
+                    <p>
 
 
                 <Footer />

@@ -1,5 +1,21 @@
 div
 {
     text-align: left;
+    text-indent: 50px;
+}
 
+h1 {
+    font-weight: bold;
+    text-indent: 50px;
+    font-size: 100px;
+}
+
+h2 {
+    text-indent: 50px;
+    font-size: 75px;
+}
+
+p {
+    text-align: left;
+    text-indent: 50px;
 }
