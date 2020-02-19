@@ -8,6 +8,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Feedback from "./Feedback";
 import ScrollToTop from "./ScrollToTop";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   render() {
