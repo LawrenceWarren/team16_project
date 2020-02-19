@@ -2,20 +2,35 @@ div
 {
     text-align: left;
     text-indent: 50px;
+    color: #545454;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 30px;
 }
 
 h1 {
     font-weight: bold;
     text-indent: 50px;
-    font-size: 100px;
+    text-align: center;
+    font-size: 40px;
+    color: #c0237f;
 }
 
 h2 {
     text-indent: 50px;
-    font-size: 75px;
+    font-size: 20px;
+    color: #c0237f;
+    text-align: center;
 }
 
 p {
     text-align: left;
     text-indent: 50px;
+    color: #545454;
+}
+
+img {
+    width: 300px;
+    padding-top: 10px;
+    padding-left: 20px;
 }
