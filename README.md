@@ -55,7 +55,7 @@ In order to use the react and route to link to another page, the above two packa
 
 ### `npm install react-bootstrap bootstrap`
 
-Install this to use the card library implemented in the Accomodation page.
+Install this to use the card library implemented in the Accommodation page.
 
 
 ## Learn More
