@@ -1,101 +1,113 @@
-div
-{
-    text-align: center;
+.contact_header{
+    color: white;
+    font-size: 2.5vw;
+    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center; 
+    background-color:rgb(216, 109, 127);
+    margin-top: 4vw;
 }
 
-form
+.contact_form
 {
     background-color: white;
-    border-radius: 40px;
-    border: 1px solid pink;
-
-    padding: 50px 50px;
-    margin: 200px;
+    border-radius: 3%;
+    border: 0.25vw solid pink;
+    margin: 5vw;
+    text-align:center;
     display: inline-block;
+    width: 50%;
+    padding: 5vw;
 }
 
-form h1 
+.contact_form div
 {
-    color:  #f06292 ;
-    font-weight: 100;
-    margin-bottom: 35px;
+    text-align:left;
+    line-height:300%;
+    margin-bottom: 3vw;
 }
 
-form button 
+.contact_form button 
 {
-    margin-top: 35px;
+    margin-top: 1.5vw;
+    margin-right:10%;
+    margin-left:10%;
+    padding: 3vw;
     background-color: white;
     
     line-height: 0;
-    font-size: 17px;
+    font-size: 2vw;
     font-weight: 100;
     
-    border: 1px solid #ff4a56;
-    border-radius: 60px;
+    border: 0.1vw solid #ff4a56;
+    border-radius: 3vw;
     color: pink;
 
     display: inline-block;
     box-sizing: border-box;
-    padding: 20px 15px;
+    cursor: pointer;
+    outline:none;
 }
 
-form button:hover, form button:focus 
+.contact_form button:hover, .contact_form button:focus 
 {
     color: white;
-    border: 1px solid pink;
+    border: 0.1vw solid pink;
     background-color: pink;
 }
 
-form label 
+.contact_form label 
 {
     color: #f06292;
     font-weight: 100;
-    font-size: 17px;
-    margin-top: -40px;
-
+    font-size: 2vw;
     box-sizing: border-box;
     padding: 10px 15px;
 }
 
-form input[type="text"] 
+.contact_form input[type="text"] 
 {
     appearance: none;
     background-color: none;
 
-    border: 1px solid #ff4a56;
+    border: 0.1vw solid #ff4a56;
     border-radius: 60px;
 
     line-height: 0;
-    font-size: 17px;
+    font-size: 2vw;
     font-weight: 100;
-    color: #ff4a56;
+    color: black;
     width: 100%;
     
     box-sizing: border-box;
+    outline:none;
     padding: 10px 15px;
 }
 
-form p
+.contact_form input[type="text"]:focus
 {
-    color: red;
+    border: 0.2vw solid #1e0204;
 }
 
 textarea {
     appearance: none;
     background-color: none;
 
-    border: 1px solid #ff4a56;
+    border: 0.1vw solid #ff4a56;
     border-radius: 20px;
 
-    width: 80%;
+    width: 92%;
     height: 150px;
-    
-    line-height: 0;
-    font-size: 17px;
+
+    font-size: 2vw;
     font-weight: 100;
 
     resize: none;
+    outline:none;
     padding: 10px 15px;
 }
 
+textarea:focus
+{
+    border: 0.2vw solid #1e0204;
+}
 
