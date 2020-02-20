@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/MainPage.css';
+import './css/Footer.css';
 import FaceBook from "./resource/facebook.png";
 import Twitter from "./resource/ttww.png";
 import Ins from "./resource/ins.png";
@@ -152,9 +152,13 @@ function Footer(){
 
             <div class = "related">
                 <p>
+                    {/* eslint-disable-next-line */}
                     <a href = ""> FAQ </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Terms of Use </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Privacy </a> |
+                    {/* eslint-disable-next-line */}
                     <a href = ""> Contact </a>
                 </p>
             </div>

@@ -62,12 +62,15 @@ function MainPage() {
       <Header />
 
       <div class="introduce"> Introduction: </div>
-
       <div class="introduction">
         <img src={figure} alt="Ava's Angel" class="history-image" />
         <p class="content-history">
           <div class="title">
-            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
+            <a
+              href="https://www.avas-angels.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <p>{"History of Ava's Angels"}</p>
             </a>
           </div>
@@ -98,7 +101,11 @@ function MainPage() {
         />
         <p class="content-introduction">
           <div class="title">
-            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
+            <a
+              href="https://www.avas-angels.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <p>{"Ava's Angels In Action"}</p>
             </a>
           </div>
@@ -127,7 +134,6 @@ function MainPage() {
               Food
             </MainButton>
           </Link>
-
           <Link to="/Accommodation" class="link">
             <MainButton
               variant="contained"
@@ -138,7 +144,6 @@ function MainPage() {
             </MainButton>
           </Link>
         </div>
-
         <div>
           <Link to="/Charity" class="link">
             <MainButton
@@ -149,13 +154,11 @@ function MainPage() {
               Charities
             </MainButton>
           </Link>
-
           <img
             src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4"
             class="button_image"
             alt="ava_activity"
           />
-
           <Link to="/About" class="link">
             <MainButton
               variant="contained"
@@ -166,28 +169,28 @@ function MainPage() {
             </MainButton>
           </Link>
         </div>
+      </div>
 
-        <div>
-          <Link to="/Contact" class="link">
-            <MainButton
-              variant="contained"
-              color="primary"
-              className={FCMargin.margin}
-            >
-              Contact
-            </MainButton>
-          </Link>
+      <div>
+        <Link to="/Contact" class="link">
+          <MainButton
+            variant="contained"
+            color="primary"
+            className={FCMargin.margin}
+          >
+            Contact
+          </MainButton>
+        </Link>
 
-          <Link to="/Feedback" class="link">
-            <MainButton
-              variant="contained"
-              color="primary"
-              className={AFMargin.margin}
-            >
-              Feedback
-            </MainButton>
-          </Link>
-        </div>
+        <Link to="/Feedback" class="link">
+          <MainButton
+            variant="contained"
+            color="primary"
+            className={AFMargin.margin}
+          >
+            Feedback
+          </MainButton>
+        </Link>
       </div>
       <Footer />
     </div>
