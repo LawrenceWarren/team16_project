@@ -4,7 +4,7 @@ body {
   cursor: pointer; /* This is used for Mobile device to fire the click event */
 }
 
-.fixed{
+.fixed {
   position: fixed;
   top: 0;
   width: 100%;
@@ -12,45 +12,47 @@ body {
 }
 
 .introduce {
-  background-color:rgb(216, 109, 127);
+  background-color: rgb(216, 109, 127);
   margin-top: 4vw;
   color: white;
   font-size: 2.5vw;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  text-align: center; 
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
 }
 
-.pageHeader{
+.pageHeader {
   margin-top: 3vw;
-  background-color:white;
+  background-color: white;
   margin-bottom: -1vw;
 }
 
-.pageHeader img{
-  display:block;
-  max-width:50%;
-  width:50%;
-  max-height:55%;
-  height:55%;
+.pageHeader img {
+  display: block;
+  max-width: 50%;
+  width: 50%;
+  max-height: 55%;
+  height: 55%;
 }
 
-.introduction{
+.introduction {
   border-style: solid;
   border-color: rgba(39, 39, 39, 0.151);
-  border-top-width:1vw;
+  border-top-width: 1vw;
   border-bottom-width: 1vw;
   margin-top: 3vw;
   display: block;
-  background-color:grey;
+  background-color: grey;
 }
 
-.content-history{
-  text-align:left;
-  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  font-size:1.25vw;
-  font-weight:bold;
-  color:white;
-  line-height:175%;
+.content-history {
+  text-align: left;
+  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
+    华文细黑, STHeiti, MingLiu;
+  font-size: 1.25vw;
+  font-weight: bold;
+  color: white;
+  line-height: 175%;
   display: block;
   float: right;
   max-width: 55%;
@@ -58,28 +60,29 @@ body {
   margin-left: 5%;
 }
 
-.history-image{
+.history-image {
   display: block;
   float: left;
   max-width: 40%;
-  width:40%;
-  max-height:50%;
-  height:50%;
+  width: 40%;
+  max-height: 50%;
+  height: 50%;
 }
 
-.introduction::after{
-  content:" ";
+.introduction::after {
+  content: " ";
   display: block;
   clear: both;
 }
 
-.content-introduction{
-  text-align:left;
-  font-family:Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  font-size:1.25vw;
-  font-weight:bold;
-  color:white;
-  line-height:175%;
+.content-introduction {
+  text-align: left;
+  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
+    华文细黑, STHeiti, MingLiu;
+  font-size: 1.25vw;
+  font-weight: bold;
+  color: white;
+  line-height: 175%;
   display: block;
   float: left;
   max-width: 55%;
@@ -87,75 +90,76 @@ body {
   margin-right: 5%;
 }
 
-.introduction-image{
+.introduction-image {
   display: block;
   float: right;
   max-width: 40%;
-  width:40%;
-  max-height:40%;
-  height:40%;
+  width: 40%;
+  max-height: 40%;
+  height: 40%;
 }
 
-.title p{
-  text-align:center;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  font-size:2.5vw;
-  font-weight:bold;
-  color:rgb(207, 141, 152);
+.title p {
+  text-align: center;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: rgb(207, 141, 152);
   margin-bottom: -1vw;
-  margin-top:-0.25vw;
+  margin-top: -0.25vw;
 }
 
-.title a{
-  text-decoration:none;
+.title a {
+  text-decoration: none;
 }
 
-.title a:hover{
-  text-decoration:none;
+.title a:hover {
+  text-decoration: none;
 }
 
 .explore {
-  background-color:rgb(216, 109, 127);
+  background-color: rgb(216, 109, 127);
   margin-bottom: 4vw;
   color: white;
   font-size: 2.5vw;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  text-align: center; 
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
 }
 
-.button{
-  text-align:center;
-  display:block;
+.button {
+  text-align: center;
+  display: block;
 }
 
-.button_image{
+.button_image {
   width: 35vw;
   height: 20vw;
-  margin-top:3vw;
-  margin-bottom:-5vw;
+  margin-top: 3vw;
+  margin-bottom: -5vw;
 }
 
-.contact{
+.contact {
   text-align: center;
   margin-top: 5vw;
   margin-bottom: 1vw;
 }
 
-
-.donate{
+.donate {
   margin-top: 5vw;
-  margin-bottom:0.5vw;
+  margin-bottom: 0.5vw;
 }
 
-.donate img{
-  display:block;
-  max-width:60%;
-  width:60%;
-  max-height:40%;
-  height:40%;
+.donate img {
+  display: block;
+  max-width: 60%;
+  width: 60%;
+  max-height: 40%;
+  height: 40%;
 }
 
-.copyRight{
+.copyRight {
   text-align: center;
   color: rgb(106, 103, 103);
   margin-top: 2vw;
@@ -171,7 +175,8 @@ ul {
   background-color: #f3efef;
   font-weight: bold;
   font-size: 1.25vw;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
 }
 
 li {
@@ -194,7 +199,7 @@ li .menulevel {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .submenu-show {
@@ -202,7 +207,7 @@ li .menulevel {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .submenu-show a {
@@ -222,36 +227,42 @@ li .menulevel {
 }
 
 .involved {
-  background-color:rgb(216, 109, 127);
+  background-color: rgb(216, 109, 127);
   margin-top: 4vw;
   color: white;
   font-size: 2.5vw;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  text-align: center; 
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
 }
 
-.related{
-  text-align:center;
+.related {
+  text-align: center;
   margin-top: 4vw;
   margin-bottom: 0.5vw;
   font-size: 1vw;
   color: rgb(106, 103, 103);
-  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
 }
 
-.related a{
+.related a {
   margin-right: 1.5vw;
   margin-left: 1.5vw;
 }
 
-.related a:LINK {
+.related a:link {
   color: rgb(106, 103, 103);
 }
 
-.related a:VISITED {
-  color:rgb(106, 103, 103);
+.related a:visited {
+  color: rgb(106, 103, 103);
 }
 
-.related a:HOVER {
+.related a:hover {
   color: rgb(216, 109, 127);
+}
+
+.link {
+  text-decoration: none;
 }
