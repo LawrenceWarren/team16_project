@@ -4,15 +4,14 @@ div
     text-indent: 50px;
     color: #545454;
     padding-top: 50px;
-    text-align: center;
     font-size: 30px;
 }
 
 h1 {
     font-weight: bold;
     text-indent: 50px;
-    text-align: center;
     font-size: 40px;
+    text-align: center;
     color: #c0237f;
 }
 
@@ -27,12 +26,20 @@ p {
     text-align: left;
     text-indent: 50px;
     color: #545454;
+    padding-top: 10px;
+    font-size: 30px;
 }
 
 img {
     width: 300px;
     padding-top: 10px;
-    padding-left: 20px;
+    margin-left: 100px;
+    margin-top: 0px;
+}
+
+a {
+    padding-top: 10px;
+    padding-left: 0px;
 }
 
 * {box-sizing: border-box;}
