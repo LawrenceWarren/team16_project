@@ -189,7 +189,6 @@ function MainPage() {
           </Link>
         </div>
       </div>
-
       <Footer />
     </div>
   );

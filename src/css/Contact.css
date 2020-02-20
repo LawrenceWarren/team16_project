@@ -1,0 +1,113 @@
+.contact_header{
+    color: white;
+    font-size: 2.5vw;
+    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center; 
+    background-color:rgb(216, 109, 127);
+    margin-top: 4vw;
+}
+
+.contact_form
+{
+    background-color: white;
+    border-radius: 3%;
+    border: 0.25vw solid pink;
+    margin: 5vw;
+    text-align:center;
+    display: inline-block;
+    width: 50%;
+    padding: 5vw;
+}
+
+.contact_form div
+{
+    text-align:left;
+    line-height:300%;
+    margin-bottom: 3vw;
+}
+
+.contact_form button 
+{
+    margin-top: 1.5vw;
+    margin-right:10%;
+    margin-left:10%;
+    padding: 3vw;
+    background-color: white;
+    
+    line-height: 0;
+    font-size: 2vw;
+    font-weight: 100;
+    
+    border: 0.1vw solid #ff4a56;
+    border-radius: 3vw;
+    color: pink;
+
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline:none;
+}
+
+.contact_form button:hover, .contact_form button:focus 
+{
+    color: white;
+    border: 0.1vw solid pink;
+    background-color: pink;
+}
+
+.contact_form label 
+{
+    color: #f06292;
+    font-weight: 100;
+    font-size: 2vw;
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+.contact_form input[type="text"] 
+{
+    appearance: none;
+    background-color: none;
+
+    border: 0.1vw solid #ff4a56;
+    border-radius: 60px;
+
+    line-height: 0;
+    font-size: 2vw;
+    font-weight: 100;
+    color: black;
+    width: 100%;
+    
+    box-sizing: border-box;
+    outline:none;
+    padding: 10px 15px;
+}
+
+.contact_form input[type="text"]:focus
+{
+    border: 0.2vw solid #1e0204;
+}
+
+textarea {
+    appearance: none;
+    background-color: none;
+
+    border: 0.1vw solid #ff4a56;
+    border-radius: 20px;
+
+    width: 92%;
+    height: 150px;
+
+    font-size: 2vw;
+    font-weight: 100;
+
+    resize: none;
+    outline:none;
+    padding: 10px 15px;
+}
+
+textarea:focus
+{
+    border: 0.2vw solid #1e0204;
+}
+
