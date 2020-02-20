@@ -1,9 +1,9 @@
 # README
 
-Be careful what you push please
-I am setting up a .gitignore so that our git is not too cluttered
-Source control is important
-Please only add & push files which you are working on!
+[Master branch](https://avas-angels.herokuapp.com/ "Main project deployment")
+
+[Develop branch](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment")
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
