@@ -53,6 +53,11 @@ In order to use prebuilt SVG material icons, you must install the @material-ui/i
 
 In order to use the react and route to link to another page, the above two packages should be installed using commain line instruction.
 
+### `npm install react-bootstrap bootstrap`
+
+Install this to use the card library implemented in the Accomodation page.
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
