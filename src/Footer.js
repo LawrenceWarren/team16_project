@@ -96,7 +96,15 @@ function Footer(){
         <div>
             <div class = "involved"> Get Involved: </div>
 
-            <div align="center"> <GetInvolvedButton variant="contained" color="primary" onClick={()=>{window.location.href="https://www.avas-angels.com/getinvolved.html"}}>{"Become Part Of Ava's Angels"}</GetInvolvedButton></div>
+            <div align="center"> 
+                <GetInvolvedButton 
+                    variant="contained" 
+                    color="primary" 
+                    onClick={()=>{window.open("https://www.avas-angels.com/getinvolved.html")}}
+                >
+                    {"Become Part Of Ava's Angels"}
+                </GetInvolvedButton>
+            </div>
 
             <div class="donate" align="center">
                 <a href="https://www.paypal.com/fundraiser/112574636177901026/charity/3575409">
@@ -105,11 +113,41 @@ function Footer(){
             </div>
 
             <div class = "contact">  
-                <FooterButton variant="contained" color="primary" className={FaceBookImg.image} onClick={()=>{window.location.href="https://www.facebook.com/avas.angels.739"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={TwitterImg.image} onClick={()=>{window.location.href="https://twitter.com/AvasAngels_com"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={InsImg.image} onClick={()=>{window.location.href="https://www.instagram.com/avasangelscharity/"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={LinkedInImg.image} onClick={()=>{window.location.href="https://www.linkedin.com/in/avas-angels-1519a2160/"}}></FooterButton>
-                <FooterButton variant="contained" color="primary" className={FeedBackImg.image} onClick={()=>{window.location.href="https://www.avas-angels.com/contact.html"}}></FooterButton>
+                <FooterButton 
+                    variant="contained" 
+                    color="primary" 
+                    className={FaceBookImg.image} 
+                    onClick={()=>{window.open("https://www.facebook.com/avas.angels.739")}}
+                >
+                </FooterButton>
+                <FooterButton 
+                    variant="contained" 
+                    color="primary" 
+                    className={TwitterImg.image} 
+                    onClick={()=>{window.open("https://twitter.com/AvasAngels_com")}}
+                >
+                </FooterButton>
+                <FooterButton 
+                    variant="contained" 
+                    color="primary" 
+                    className={InsImg.image} 
+                    onClick={()=>{window.open("https://www.instagram.com/avasangelscharity/")}}
+                >
+                </FooterButton>
+                <FooterButton 
+                    variant="contained" 
+                    color="primary" 
+                    className={LinkedInImg.image} 
+                    onClick={()=>{window.open("https://www.linkedin.com/in/avas-angels-1519a2160/")}}
+                >
+                </FooterButton>
+                <FooterButton 
+                    variant="contained" 
+                    color="primary" 
+                    className={FeedBackImg.image} 
+                    onClick={()=>{window.open("https://www.avas-angels.com/contact.html")}}
+                >
+                </FooterButton>
             </div>
 
             <div class = "related">

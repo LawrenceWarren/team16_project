@@ -275,7 +275,11 @@ function Header() {
       <Menu />
       <header>
         <div class="pageHeader" align="center">
-          <a href="https://www.avas-angels.com/">
+          <a
+            href="https://www.avas-angels.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="https://www.avas-angels.com/images/HiResLogo.png"
               alt="Ava's Angel"

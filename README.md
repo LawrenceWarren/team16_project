@@ -44,6 +44,19 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+### `npm install @material-ui/icons`
+
+In order to use prebuilt SVG material icons, you must install the @material-ui/icons package.
+
+
+### `npm install -S react-router-dom`  `npm install --save react-router`
+
+In order to use the react and route to link to another page, the above two packages should be installed using command line instruction.
+
+### `npm i react-zmage --save`
+
+In order to use the zmage instead of image tage, the above package should be installed using command line instruction.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

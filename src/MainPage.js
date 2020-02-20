@@ -67,7 +67,7 @@ function MainPage() {
         <img src={figure} alt="Ava's Angel" class="history-image" />
         <p class="content-history">
           <div class="title">
-            <a href="https://www.avas-angels.com/">
+            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
               <p>{"History of Ava's Angels"}</p>
             </a>
           </div>
@@ -98,7 +98,7 @@ function MainPage() {
         />
         <p class="content-introduction">
           <div class="title">
-            <a href="https://www.avas-angels.com/">
+            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
               <p>{"Ava's Angels In Action"}</p>
             </a>
           </div>

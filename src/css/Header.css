@@ -4,6 +4,20 @@ body {
     cursor: pointer; /* This is used for Mobile device to fire the click event */
 }
 
+.pageHeader{
+  margin-top: 3vw;
+  background-color:white;
+  margin-bottom: -1vw;
+}
+
+.pageHeader img{
+  display:block;
+  max-width:50%;
+  width:50%;
+  max-height:55%;
+  height:55%;
+}
+
 .fixed{
     position: fixed;
     top: 0;
