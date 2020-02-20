@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/MainPage.css';
+import './css/Header.css';
 import { Link } from 'react-router-dom';
 
 const SubMenuItem = (props) => (

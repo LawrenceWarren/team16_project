@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/MainPage.css';
+import './css/Footer.css';
 import FaceBook from "./resource/facebook.png";
 import Twitter from "./resource/ttww.png";
 import Ins from "./resource/ins.png";
