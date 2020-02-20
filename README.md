@@ -57,6 +57,11 @@ In order to use the react and route to link to another page, the above two packa
 
 In order to use the zmage instead of image tage, the above package should be installed using command line instruction.
 
+### `npm install react-bootstrap bootstrap`
+
+Install this to use the card library implemented in the Accommodation page.
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

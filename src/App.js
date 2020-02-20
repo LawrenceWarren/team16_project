@@ -1,13 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router,Route} from 'react-router-dom';
-import MainPage from './MainPage';
-import Food from './Food';
-import Accommodation from './Accommodation';
-import Charity from './Charity';
-import About from './About';
-import Contact from './Contact';
-import Feedback from './Feedback';
- 
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import MainPage from "./MainPage";
+import Food from "./Food";
+import Accommodation from "./Accommodation";
+import Charity from "./Charity";
+import About from "./About";
+import Contact from "./Contact";
+import Feedback from "./Feedback";
+import ScrollToTop from "./ScrollToTop";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends React.Component {
     render(){
         return(
