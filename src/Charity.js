@@ -11,8 +11,15 @@ class Charity extends React.Component {
 
                 
                     <h1>Charities</h1>
+                    <div class="search-container">
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Search.." name="search"></input>
+                        <button type="submit" href="https://www.google.com/search?q=">Submit</button>
+                    </form>
+                    </div>
+                    
                     <h2>Below are a selection of local charities with links to their webpages</h2>
-                    <div>Birmingham Mind<a href="https://birminghammind.org/"><img src="https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif"></img></a></div> 
+                    <div>Birmingham Mind</div><a href="https://birminghammind.org/"><img src="https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif"></img></a>
                     <div>Breast Cancer Support Charity</div> <a href="https://breastcancersupport.org.uk/"><img src="https://breastcancersupport.org.uk/wp-content/uploads/2015/11/logo.png"></img></a>
                     <div>Baron Davenport's Charity</div> <a href="https://www.barondavenportscharity.org/"><img src="https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png"></img></a>
                     <div>Cancer Research UK</div> <a href="https://www.cancerresearchuk.org/"><img src="https://www.cancerresearchuk.org/sites/all/themes/custom/cruk/cruk-logo.svg"></img></a>
