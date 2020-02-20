@@ -3,9 +3,9 @@ import './css/Header.css';
 import { Link } from 'react-router-dom';
 
 const SubMenuItem = (props) => (
-    (props.official_flag === true) ? (
+    (props.official_flag === "true") ? (
       <a
-        href={props.url} 
+        href = {props.url}
         data-id = {props.index}
         onMouseOver={props.onMouseOver}
         onMouseLeave={props.onMouseLeave}
@@ -44,6 +44,7 @@ const MenuLevel = (props) => (
               text={item.text}
               key={item.text + index}
               url={item.url}
+              official_flag={item.official_flag}
               index = {index}
               showSubMenuItem={props.showSubMenuItem}
               onMouseOver={props.onSubItemMouseOver}
@@ -68,17 +69,17 @@ const menuitems = [
             {
                 text: 'Food',
                 url: '/Food/',
-                official_flag: false,
+                official_flag: "false",
             },
             {
                 text: 'Charities',
                 url: '/Charity/',
-                official_flag: false,
+                official_flag: "false",
             },
             {
                 text: 'Accommodation',
                 url: '/Accommodation/',
-                official_flag: false,
+                official_flag: "false",
             }
         ]
     },
@@ -89,27 +90,27 @@ const menuitems = [
             {
                 text: 'Facebook',
                 url: 'https://www.facebook.com/avas.angels.739',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Twitter',
                 url: 'https://twitter.com/AvasAngels_com',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Instagram',
                 url: 'https://www.instagram.com/avasangelscharity/',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'LinkedIn',
                 url: 'https://www.linkedin.com/in/avas-angels-1519a2160/',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Leave Contact Info',
                 url: '/Contact/',
-                official_flag: false,
+                official_flag: "false",
             }
         ]
     },
@@ -120,27 +121,27 @@ const menuitems = [
             {
                 text: 'Donate',
                 url: 'https://www.paypal.com/fundraiser/112574636177901026/charity/3575409',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Volunteers',
                 url: 'https://www.avas-angels.com/getinvolved.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Supporters',
                 url: 'https://www.avas-angels.com/getinvolved.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Sponsors',
                 url: 'https://www.avas-angels.com/getinvolved.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'FeedBack',
                 url: '/Feedback/',
-                official_flag: false,
+                official_flag: "false",
             }
         ]
     },
@@ -151,32 +152,32 @@ const menuitems = [
             {
                 text: "About Ava's Angels",
                 url: '/About/',
-                official_flag: false,
+                official_flag: "false",
             },
             {
                 text: 'Angel Services',
                 url: 'https://www.avas-angels.com/angelservices.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'How we make a difference',
                 url: 'https://www.avas-angels.com/difference.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Proud Supporters',
                 url: 'https://www.avas-angels.com/supporters.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'Shop',
                 url: 'https://www.avas-angels.com/shop.html',
-                official_flag: true,
+                official_flag: "true",
             },
             {
                 text: 'News/Press',
                 url: 'https://www.avas-angels.com/news.html',
-                official_flag: true,
+                official_flag: "true",
             }
         ]
     }
