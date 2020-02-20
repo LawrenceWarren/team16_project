@@ -1,10 +1,5 @@
 # README
 
-Be careful what you push please
-I am setting up a .gitignore so that our git is not too cluttered
-Source control is important
-Please only add & push files which you are working on!
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -53,7 +48,7 @@ In order to use prebuilt SVG material icons, you must install the @material-ui/i
 
 In order to use the react and route to link to another page, the above two packages should be installed using command line instruction.
 
-### `npm i creat-zmage --save`
+### `npm i react-zmage --save`
 
 In order to use the zmage instead of image tage, the above package should be installed using command line instruction.
 
