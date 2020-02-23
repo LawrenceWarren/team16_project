@@ -13,6 +13,7 @@ const MainButton = withStyles({
     fontSize: "2.5vw",
     boxShadow: "none",
     textTransform: "none",
+    outline: "none",
     fontWeight: "bold",
     fontFamily: "Georgia",
     height: "15vw",
@@ -65,32 +66,28 @@ function MainPage() {
       <div class="introduction">
         <img src={figure} alt="Ava's Angel" class="history-image" />
         <p class="content-history">
-          <div class="title">
-            <a
-              href="https://www.avas-angels.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div class="introductionTitle">
+            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
               <p>{"History of Ava's Angels"}</p>
             </a>
           </div>
           <br />
-          Ava was a perfectly healthy 3 year old girl, enjoying every aspect of
-          life, who unexpectedly fell ill on holiday in March 2017. Ava and her
-          parents had a perfect holiday and were about to fly home to share
-          these memories. Ava contracted an extremely rare form of the Epstein
-          Barr Virus which impacted her brain. All options were exhausted to
-          give Ava the best possible chance of recovery but, sadly, Ava passed
-          away after a long battle. Inspired by Ava, and wanting to help other
-          children, {"Ava's Angels"} was established in March 2018 to provide
-          support to families of sick children during hospital stays, helping
-          them to spend more time caring for their child, providing relief of
-          suffering among children being cared for in hospital by providing
-          items, services and emotional support for families to enable them to
-          visit, spend quality time with and care for their children.
+          <br />
+          Ava was a perfectly healthy and beautiful 3 year old girl, enjoying
+          every aspect of life, who unexpectedly fell ill on holiday in March
+          2017. Ava and her parents had a perfect holiday and were about to fly
+          home to share these memories. Ava contracted an extremely rare form of
+          the very common Epstein Barr Virus which impacted her brain and whilst
+          there is no immunization against it, no treatment to shop the impact
+          or to cure it, all options were exhausted to give Ava the best
+          possible chance of recovery. Sadly, Ava passed away after a long
+          battle by her loved ones to keep her with them. Inspired by Ava, and
+          wanting to help other children, {"Ava's Angels"} was established in
+          March 2018 and provides support to families of sick children during
+          hospital stays, helping them to spend more time caring for their
+          child.
         </p>
       </div>
-
       <br />
 
       <div class="introduction">
@@ -100,30 +97,30 @@ function MainPage() {
           alt="ava_activity"
         />
         <p class="content-introduction">
-          <div class="title">
-            <a
-              href="https://www.avas-angels.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div class="introductionTitle">
+            <a href="https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">
               <p>{"Ava's Angels In Action"}</p>
             </a>
           </div>
           <br />
           <br />
-          This web terminal is here to help families with sick children at a
-          Birmingham hospital. Below you can find links to information about
-          local services, hospital facilities, and general support information,
-          as well as feedback and contact information.
+          Helping families with sick children. Providing relief of sickness and
+          suffering among children being cared for in hospital by providing
+          items, services and emotional support for families to enable them to
+          visit, spend quality time with and care for such children. This
+          website works focused on providing support to parents of children in
+          ICUs at a Birmingham hospital. This wish to display information to
+          parents that are staying at the hospital while their children are
+          under treatment. This also provide information about local services,
+          hospital facilities and general support information.
         </p>
       </div>
-
       <br />
       <br />
 
       <div class="explore"> Explore: </div>
 
-      <div class="button">
+      <div class="exploreButton">
         <div>
           <Link to="/Food" class="link">
             <MainButton
@@ -169,29 +166,28 @@ function MainPage() {
             </MainButton>
           </Link>
         </div>
+        <div>
+          <Link to="/Contact" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={FCMargin.margin}
+            >
+              Contact
+            </MainButton>
+          </Link>
+          <Link to="/Feedback" class="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              className={AFMargin.margin}
+            >
+              Feedback
+            </MainButton>
+          </Link>
+        </div>
       </div>
 
-      <div>
-        <Link to="/Contact" class="link">
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={FCMargin.margin}
-          >
-            Contact
-          </MainButton>
-        </Link>
-
-        <Link to="/Feedback" class="link">
-          <MainButton
-            variant="contained"
-            color="primary"
-            className={AFMargin.margin}
-          >
-            Feedback
-          </MainButton>
-        </Link>
-      </div>
       <Footer />
     </div>
   );
