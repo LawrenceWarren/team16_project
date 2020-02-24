@@ -124,8 +124,8 @@ class About extends React.Component {
                     <img src = {AALogo} alt = "Ava's Angel Logo" class = "establish_logo"/>
                     <div class = "establish_content">
                         <p>
-                            Ava{"'"}s Angels, established in March 2018, in memory of Ava Akers, who lost her life in 2017 aged just 3 years old. 
-                            Inspired by Ava and seeing the importance of support whilst caring for a poorly child, 
+                            Ava{"'"}s Angels was established in March 2018 in memory of Ava Akers, who lost her life in 2017 aged just 3 years old. 
+                            Inspired by Ava and seeing the importance of support whilst caring for an ill child, 
                             Ava{"'"}s Angels was established with the following mission statement: Providing relief of sickness and suffering 
                             among children being cared for in hospital by providing items, services and emotional support for families 
                             to enable them to visit, spend quality time with and care for such children.
@@ -136,7 +136,7 @@ class About extends React.Component {
                             <img src = {LinkIcon} alt = "Link Icon" />
                             <a href = "https://www.avas-angels.com/" target = "_blank" rel= "noopener noreferrer">avas-angels.com</a>
                             <img src = {FigureIcon} alt = "Figure Icon" />
-                            <a href = "https://uk.linkedin.com/in/phillip-akers-8a0a8810" target = "_blank" rel= "noopener noreferrer">Phill Akers(Founder)</a>
+                            <a href = "https://uk.linkedin.com/in/phillip-akers-8a0a8810" target = "_blank" rel= "noopener noreferrer">Phil Akers (Founder)</a>
                         </div>      
                     </div>
                 </div>
