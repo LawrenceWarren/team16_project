@@ -1,40 +1,197 @@
 import React from 'react';
 import './css/Charity.css';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Header from './Header';
 import Footer from "./Footer";
+import SearchIcon from "./resource/charitySearch.jpg";
 
-class Charity extends React.Component {
+const tileData = [
+    {
+        img: "https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif",
+        title: 'Birmingham Mind',
+        url:"https://birminghammind.org/",
+    },
+    {
+        img: "https://breastcancersupport.org.uk/wp-content/uploads/2015/11/logo.png",
+        title: 'Breast Cancer Support Charity',
+        url:"https://breastcancersupport.org.uk/"
+    },
+    {
+        img: "https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png",
+        title: 'Baron Davenport Charity',
+        url:"https://www.barondavenportscharity.org/"
+    },
+    {
+        img: "https://www.cancerresearchuk.org/sites/all/themes/custom/cruk/cruk-logo.svg",
+        title: 'Cancer Research UK',
+        url:"https://www.cancerresearchuk.org/"
+    },
+    {
+        img: "https://www.thepayrollgivingteam.co.uk/wp/wp-content/uploads/2016/05/HRUK_Logo_Screen_FullColour-sml.jpg",
+        title: 'Heart Research UK Midlands',
+        url:"https://heartresearch.org.uk/contact-us/"
+    },
+    {
+        img: "https://childliverdisease.org/wp-content/uploads/2019/04/CLDF-LOGO.png",
+        title: 'CLDF - Children Liver Disease Charity',
+        url:"https://childliverdisease.org/"
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/3b/BHF_Logo_Lockup_Vertical_BHF_Red_RGB%404x.png",
+        title: 'British Heart Foundation Furniture and Electrical',
+        url:"https://www.bhf.org.uk/what-we-do/find-bhf-near-you/birmingham-furniture-electrical-store"
+    },
+    {
+        img: "https://www.princes-trust.org.uk/cs/pt/img/logo.png",
+        title: 'The Prince Trust Birmingham Centre',
+        url:"https://www.princes-trust.org.uk/about-the-trust/where-we-work/central-england/birmingham-centre"
+    },
+    {
+        img: "https://www.supportthroughcourt.org/media/2176/logo-w-psu-v2.png",
+        title: 'Personal Support Unit',
+        url:"https://www.supportthroughcourt.org/"
+    },
+    {
+        img: "https://www.rspb.org.uk/static/images/rspb-logo-white.png",
+        title: 'RSPB',
+        url:"https://www.rspb.org.uk/"
+    },
+    {
+        img: "https://smartworks.org.uk/wp-content/themes/smartworks/images/logo.png",
+        title: 'Smart Works Birmingham',
+        url:"https://smartworks.org.uk/birmingham-smart-works/"
+    }
+]
+
+const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+      marginTop: '3vw',
+      marginRight: '15%',
+      marginLeft: '15%',
+    },
+    gridList: {
+      flexWrap: 'nowrap',
+      transform: 'translateZ(0)',
+    },
+    title: {
+      color: 'rgb(20, 20, 20)',
+      fontFamily:"Microsoft YaHei",
+      fontWeight: '700',
+    },
+    titleBar: {
+      background:
+        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+    }
+  }));
+
+class Search extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            searchURL: ''
+        }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputChange (event) {
+        this.setState({
+            [event.target.name] : "https://www.google.com/search?q=" + event.target.value 
+        })
+    }
+
+    handleSubmit (event){
+        event.preventDefault();
+        window.open(this.state.searchURL);
+    }
+
     render(){
         return(
             <div>
-                <Header />
 
-                
-                    <h1>Charities</h1>
-                    <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search.." name="search"></input>
-                        <button type="submit" href="https://www.google.com/search?q=">Submit</button>
+                <div class = "charity_header">Charities</div>
+
+                <div class="search-container">
+                    <img src={SearchIcon} alt="search" />
+                    <form>
+                        <input 
+                            type="text" 
+                            placeholder="Search.."
+                            name="searchURL"
+                            onChange={this.handleInputChange}
+                            required />
+                        <button 
+                            type="submit" 
+                            onClick={this.handleSubmit}>
+                            Search
+                        </button>
                     </form>
-                    </div>
-                    
-                    <h2>Below are a selection of local charities with links to their webpages</h2>
-                    <div><p>Birmingham Mind</p><a href="https://birminghammind.org/"><img src="https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif"></img></a></div>
-                    <div>Breast Cancer Support Charity</div> <a href="https://breastcancersupport.org.uk/"><img src="https://breastcancersupport.org.uk/wp-content/uploads/2015/11/logo.png"></img></a>
-                    <div>Baron Davenport's Charity</div> <a href="https://www.barondavenportscharity.org/"><img src="https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png"></img></a>
-                    <div>Cancer Research UK</div> <a href="https://www.cancerresearchuk.org/"><img src="https://www.cancerresearchuk.org/sites/all/themes/custom/cruk/cruk-logo.svg"></img></a>
-                    <div>Heart Research UK Midlands</div> <a href="https://heartresearch.org.uk/contact-us/"><img src="https://www.thepayrollgivingteam.co.uk/wp/wp-content/uploads/2016/05/HRUK_Logo_Screen_FullColour-sml.jpg"></img></a>
-                    <div>CLDF - Children's Liver Disease Charity</div> <a href="https://childliverdisease.org/"><img src="https://childliverdisease.org/wp-content/uploads/2019/04/CLDF-LOGO.png"></img></a>
-                    <div>British Heart Foundation Furniture and Electrical</div> <a href="https://www.bhf.org.uk/what-we-do/find-bhf-near-you/birmingham-furniture-electrical-store"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/BHF_Logo_Lockup_Vertical_BHF_Red_RGB%404x.png"></img></a>
-                    <div>The Prince's Trust Birmingham Centre</div> <a href="https://www.princes-trust.org.uk/about-the-trust/where-we-work/central-england/birmingham-centre"><img src="https://www.princes-trust.org.uk/cs/pt/img/logo.png"></img></a>
-                    <div>Personal Support Unit</div> <a href="https://www.supportthroughcourt.org/"><img src="https://www.supportthroughcourt.org/media/2176/logo-w-psu-v2.png"></img></a>
-                    <div>RSPB</div> <a href="https://www.rspb.org.uk/"><img src="https://www.rspb.org.uk/static/images/rspb-logo-white.png"></img></a>
-                    <div>Smart Works Birmingham</div> <a href="https://smartworks.org.uk/birmingham-smart-works/"><img src="https://smartworks.org.uk/wp-content/themes/smartworks/images/logo.png"></img></a>
-
-                <Footer />
+                </div>
             </div>
             )
         }
     }
 
+function Charity(){
+    const classes = useStyles();
+
+    return(
+        <div>
+            <Header />
+            <Search />
+
+            <h2 class = "charityListHeader">
+                Below are a selection of local charities with links to their webpages
+            </h2>
+
+            <div className={classes.root}>
+                <GridList className={classes.gridList} cols={2.5}>
+                {tileData.map(tile => (
+                    <GridListTile key={tile.img}>
+                    <a 
+                        href = {tile.url} 
+                        target = "_blank" 
+                        rel= "noopener noreferrer">
+                        <img 
+                            src={tile.img} 
+                            alt={tile.title} 
+                            className={classes.image}
+                        />
+                    </a>
+                    <GridListTileBar
+                        title={tile.title}
+                        classes={{
+                        root: classes.titleBar,
+                        title: classes.title,
+                        }}
+                        actionIcon={
+                        <IconButton aria-label={`star ${tile.title}`}>
+                            <StarBorderIcon className={classes.title} />
+                        </IconButton>
+                        }
+                    />
+                    </GridListTile>
+                ))}
+                </GridList>
+              </div>
+
+            <Footer />
+        </div>
+    )
+}
 export default Charity;
