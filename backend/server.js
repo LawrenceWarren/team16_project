@@ -22,9 +22,11 @@ app.use(express.json());
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const indexRouter = require("./routes/index");
+const charityRouter = require("./routes/charity");
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
+app.use("/charity", charityRouter);
 
 //launch server
 app.listen(process.env.PORT, () => console.log(`server has started at port ${process.env.PORT}`));

@@ -6,26 +6,26 @@ POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-    "firstname" : "Wenzheng",
-    "lastname" : "Shan",
-    "username" : "scyws1",
+    "firstname" : "Benjamin",
+    "lastname" : "Smith",
+    "username" : "psybjsm",
     "password" : "123456",
-    "email" : "scyws1@nottingham.ac.uk",
+    "email" : "psybjsm@nottingham.ac.uk",
     "phone" : "15653259955"
 }
 
 ###
 
-POST http://localhost:4000/register
+POST http://localhost:4000/charity
 Content-Type: application/json
 
 {
-    "firstname" : "Steven",
-    "lastname" : "Shan",
-    "username" : "scyws2",
-    "password" : "123457",
-    "email" : "scyws2@nottingham.ac.uk",
-    "phone" : "07529917457"
+    "charityId" : 1,
+    "charity_name" : "Baren Davenport's Charity",
+    "charity_phone" : "",
+    "charity_email" : "",
+    "charity_weblink" : "",
+    "charity_intro" : ""
 }
 
 
