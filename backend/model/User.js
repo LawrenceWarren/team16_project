@@ -3,34 +3,21 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 userInfo = new Schema({
-    firstname:{
+    hotelname:{
         type: String,
         required: true
     },
-    lastname:{
+    description:{
         type: String,
         required: true
     },
-    username:{
+    linkBook:{
         type:String,
         required: true
     },
-    password:{
+    linkReview:{
         type:String,
         required: true
-    },
-    email:{
-        type:String,
-        required: true
-    },
-    phone:{
-        type:String,
-        required: true
-    },
-    registerDate:{
-        type: Date,
-        required: true,
-        default: new Date()
     }
 });
 

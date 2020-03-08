@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 //connect the database
 //Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", error => console.log(error));
 db.once("open", () => console.log("connection to db established"));

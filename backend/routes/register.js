@@ -5,12 +5,10 @@ const User = require("../model/User");
 //Create One Post Route
 registerRouter.post("/", async(req, res) => {
     const user = new User({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        phone: req.body.phone
+        hotelname: req.body.hotelname,
+        description: req.body.description,
+        linkBook: req.body.linkBook,
+        linkReview: req.body.linkReview
     });
     try{
         const newUser = await user.save();

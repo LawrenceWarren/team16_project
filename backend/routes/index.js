@@ -13,19 +13,17 @@ userRouter.get("/", async(req, res) => {
 });
 
 //Get One Route
-userRouter.get("/:id", getUser, (req, res) => {
+userRouter.get("/:hotelname", getUser, (req, res) => {
     res.json(res.user);
 });
 
 //Create One Route
 userRouter.post("/", async(req, res) => {
     const user = new User({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        phone: req.body.phone
+        hotelname: req.body.hotelname,
+        description: req.body.description,
+        linkBook: req.body.linkBook,
+        linkReview: req.body.linkReview,
     });
     try{
         const newUser = await user.save();
@@ -36,7 +34,7 @@ userRouter.post("/", async(req, res) => {
 });
 
 //Edit One Route PUT version
-userRouter.put("/:id", getUser, async(req, res) => {
+userRouter.put("/:hotelname", getUser, async(req, res) => {
     try {
         const updatedUser = await res.user.set(req.body);
         res.json(updatedUser);
@@ -46,24 +44,18 @@ userRouter.put("/:id", getUser, async(req, res) => {
 })
 
 //Edit One Route PATCH version
-userRouter.patch("/:id", getUser, async (req, res) => {
-    if (req.body.firstname != null){
-        res.user.firstname = req.body.firstname;
+userRouter.patch("/:hotelname", getUser, async (req, res) => {
+    if (req.body.hotelname != null){
+        res.user.hotelname = req.body.hotelname;
     }
-    if (req.body.lastname != null){
-        res.user.lastname = req.body.lastname;
+    if (req.body.description != null){
+        res.user.description = req.body.description;
     }
-    if (req.body.username != null){
-        res.user.username = req.body.username;
+    if (req.body.linkBook != null){
+        res.user.linkBook = req.body.linkBook;
     }
-    if (req.body.password != null){
-        res.user.password = req.body.password;
-    }
-    if (req.body.email != null){
-        res.user.email = req.body.email;
-    }
-    if (req.body.phone != null){
-        res.user.phone = req.body.phone;
+    if (req.body.linkReview != null){
+        res.user.linkReview = req.body.linkReview;
     }
     try {
         const updatedUser = await res.user.save();
@@ -74,7 +66,7 @@ userRouter.patch("/:id", getUser, async (req, res) => {
 });
 
 //Delete One Route
-userRouter.delete("/:id", getUser, async (req, res) => {
+userRouter.delete("/:hotelname", getUser, async (req, res) => {
     try{
         await res.user.deleteOne();
         res.json({message: "User has been deleted" });
@@ -87,7 +79,7 @@ userRouter.delete("/:id", getUser, async (req, res) => {
 async function getUser(req, res, next) {
     let user;
     try{
-        user = await User.findById(req.params.id);
+        user = await User.findById(req.params.hotelname);
         if(user == null) {
             return res.status(404).json({message: "Cannot find User"});
         }
