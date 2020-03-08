@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Create Schema
-userInfo = new Schema({
+hotelInfo = new Schema({
     hotelname:{
         type: String,
         required: true
@@ -22,6 +22,6 @@ userInfo = new Schema({
 });
 
 //Create Model
-//"User" is corresspond to the collection name in database for Users
-const User = mongoose.model("user", userInfo);
-module.exports = User;
+//"Hotel" is corresspond to the collection name in database for Hotels
+const Hotel = mongoose.model("hotel", hotelInfo);
+module.exports = Hotel;

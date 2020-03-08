@@ -1,24 +1,24 @@
 const express = require("express");
 const loginRouter = express.Router();
-const User = require("../model/User");
+const Hotel = require("../model/Hotel");
 
 //Get One Router
-loginRouter.get("/:hotelname", getUser, (req, res) => {
-    res.json(res.user);
+loginRouter.get("/:hotelname", getHotel, (req, res) => {
+    res.json(res.hotel);
 });
 
-//getUser MIDDLEWARE
-async function getUser(req, res, next) {
-    let user;
+//getHotel MIDDLEWARE
+async function getHotel(req, res, next) {
+    let hotel;
     try{
-        user = await User.find({"hotelname" : req.params.hotelname});
-        if (user == null) {
+        hotel = await Hotel.find({"hotelname" : req.params.hotelname});
+        if (hotel == null) {
             return res.status(404).json({message: "Cannot find hotel"});
         }
     } catch(err) {
         return res.status(500).json({message: err.message});
     }
-    res.user = user;
+    res.hotel = hotel;
     next();
 }
 
