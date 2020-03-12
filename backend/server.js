@@ -21,8 +21,8 @@ app.use(express.json());
 //https://localhost:portnumber/registers
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
-const indexRouter = require("./routes/index");
-app.use("/", indexRouter);
+const foodRouter = require("./routes/FoodIndex");
+app.use("/", foodRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 

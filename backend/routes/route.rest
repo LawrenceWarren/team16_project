@@ -28,9 +28,8 @@ Content-Type: application/json
     "phone" : "07529917457"
 }
 
-
 ###
-GET http://localhost:4000/login/scyws1
+GET http://localhost:4000/foods/
 
 ###
 GET http://localhost:4000/login/scyws2
