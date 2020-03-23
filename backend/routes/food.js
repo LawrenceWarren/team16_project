@@ -2,10 +2,30 @@ const express = require("express");
 const foodRouter = express.Router();
 const Food = require("../model/Food");
 
-//Get All Route
+//Create One Route
+foodRouter.post("/", async (req, res) => {
+  const food = new Food({
+    image: req.body.image,
+    name: req.body.name,
+    address: req.body.address,
+    type: req.body.type,
+    price: req.body.price,
+    link: req.body.link
+  });
+  try {
+    const newFood = await food.save();
+    res.status(201).json({ newFood });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+module.exports = foodRouter;
+
+/*//Get All Route
 foodRouter.get("/", async (_req, res) => {
   try {
-    const foods = await Food.find();
+    const foods = await find();
     res.json(foods);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -87,7 +107,7 @@ foodRouter.delete("/:id", getFood, async (_req, res) => {
 async function getFood(req, res, next) {
   let food;
   try {
-    food = await Food.findById(req.params.id);
+    food = await findById(req.params.id);
     if (food == null) {
       return res.status(404).json({ message: "Cannot find food" });
     }
@@ -96,6 +116,4 @@ async function getFood(req, res, next) {
   }
   res.food = food;
   next();
-}
-
-module.exports = foodRouter;
+}*/

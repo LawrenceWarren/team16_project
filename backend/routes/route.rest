@@ -29,7 +29,25 @@ Content-Type: application/json
 }
 
 ###
+
 GET http://localhost:4000/login/scyws1
 
 ###
+
 GET http://localhost:4000/login/scyws2
+
+###
+
+POST http://localhost:4000/food
+Content-Type: application/json
+
+{
+    "image" : "Steven",
+    "name" : "Shan",
+    "address" : "scyws2",
+    "type" : "123457",
+    "price" : "scyws2@nottingham.ac.uk",
+    "link" : "07529917457"
+}
+
+###
