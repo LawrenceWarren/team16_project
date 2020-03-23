@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 //connect the database
 //Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", error => console.log(error));
 db.once("open", () => console.log("connection to db established"));
@@ -21,11 +21,12 @@ app.use(express.json());
 //https://localhost:portnumber/registers
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
-const foodRouter = require("./routes/FoodIndex");
-app.use("/", foodRouter);
+const foodRouter = require("./routes/food");
+app.use("/food", foodRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 
 //launch server
-app.listen(process.env.PORT, () => console.log(`server has started at port ${process.env.PORT}`));
-
+app.listen(process.env.PORT, () =>
+  console.log(`server has started at port ${process.env.PORT}`)
+);

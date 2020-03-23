@@ -20,10 +20,8 @@ foodRouter.post("/", async (req, res) => {
   }
 });
 
-module.exports = foodRouter;
-
-/*//Get All Route
-foodRouter.get("/", async (_req, res) => {
+//Get All Route
+foodRouter.get("/:name", async (_req, res) => {
   try {
     const foods = await find();
     res.json(foods);
@@ -116,4 +114,6 @@ async function getFood(req, res, next) {
   }
   res.food = food;
   next();
-}*/
+}
+
+module.exports = foodRouter;
