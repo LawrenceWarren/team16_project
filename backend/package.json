@@ -2,9 +2,9 @@
   "name": "testDB",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "indexHotel.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon serverHotel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

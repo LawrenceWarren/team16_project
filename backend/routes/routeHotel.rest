@@ -6,7 +6,7 @@ POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-    "hotelname" : "Test2",
+    "hotelname" : "Testfinal",
     "description" : "Shan",
     "linkBook" : "scyws1",
     "linkReview" : "123456"
@@ -26,7 +26,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:4000/login/Test2
+GET http://localhost:4000/login/Testfinal
 
 ###
 GET http://localhost:4000/login/Premier
