@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Create Schema
 charityInfo = new Schema({
     charityId:{
-        type:BigInt,
+        type:Number,
         required: true
     },
     charity_name:{
@@ -23,7 +24,7 @@ charityInfo = new Schema({
         required: true
     },
     charity_introduce:{
-        type:Text,
+        type:String,
         required: true
     }
 });
