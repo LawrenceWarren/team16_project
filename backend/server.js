@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //connect the database
 //Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
@@ -14,6 +15,8 @@ db.once("open", () => console.log("connection to db established"));
 
 //support json bodyParser
 app.use(express.json());
+app.use(cors());
+
 
 //The backend router.
 //https://localhost:portnumber/

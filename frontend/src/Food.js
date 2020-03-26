@@ -3,6 +3,7 @@ import "./css/Food.css";
 import Header from "./Header";
 import Footer from "./Footer";
 
+
 class Food extends React.Component {
   constructor() {
     super();
@@ -39,7 +40,8 @@ class Food extends React.Component {
 
     this.state = {
       index: 1,
-      foodList: [food0, food1, food2]
+      foodList: [food0, food1, food2],
+      serverResponse: ""
     };
   }
 
@@ -66,6 +68,17 @@ class Food extends React.Component {
       });
     }
   };
+
+  callServer() {
+    fetch("http://localhost:4000/food/Shan")
+      .then(res => res.text())
+      .then(res => this.setState({ serverResponse: res }))
+      .catch(err => err);
+  }
+
+  componentWillMount() {
+    this.callServer();
+  }
 
   render() {
     return (
@@ -113,6 +126,8 @@ class Food extends React.Component {
           <a href={this.state.foodList[this.state.index].link}>
             <p class="content">{this.state.foodList[this.state.index].link}</p>
           </a>
+
+          <p class="content">;{this.state.serverResponse}</p>
         </div>
 
         <Footer />

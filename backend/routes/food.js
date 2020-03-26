@@ -21,9 +21,9 @@ foodRouter.post("/", async (req, res) => {
 });
 
 //Get All Route
-foodRouter.get("/:name", async (_req, res) => {
+foodRouter.get("/", async (_req, res) => {
   try {
-    const foods = await find();
+    const foods = await Food.find();
     res.json(foods);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -31,8 +31,8 @@ foodRouter.get("/:name", async (_req, res) => {
 });
 
 //Get One Route
-foodRouter.get("/:id", getFood, (_req, res) => {
-  res.json(res.user);
+foodRouter.get("/:name", getFood, (_req, res) => {
+  res.json(res.food);
 });
 
 //Create One Route
@@ -105,7 +105,7 @@ foodRouter.delete("/:id", getFood, async (_req, res) => {
 async function getFood(req, res, next) {
   let food;
   try {
-    food = await findById(req.params.id);
+    food = await Food.find({name: req.params.name });
     if (food == null) {
       return res.status(404).json({ message: "Cannot find food" });
     }

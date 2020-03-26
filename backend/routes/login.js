@@ -3,7 +3,7 @@ const loginRouter = express.Router();
 const User = require("../model/User");
 
 //Get One Router
-loginRouter.get("/:username", getUser, (req, res) => {
+loginRouter.get("/:username", getUser, (_req, res) => {
   res.json(res.user);
 });
 
