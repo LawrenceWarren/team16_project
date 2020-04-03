@@ -3,7 +3,6 @@ import "./css/Food.css";
 import Header from "./Header";
 import Footer from "./Footer";
 
-
 class Food extends React.Component {
   constructor() {
     super();
@@ -11,40 +10,14 @@ class Food extends React.Component {
     this.leftSwipe = this.onClickBack.bind(this);
     this.rightSwipe = this.onClickForward.bind(this);
 
-    const food0 = {
-      image: require("./resource/placeholder0.png"),
-      name: "Example 0",
-      address: "Near hospital 0, BI0 000",
-      type: "cafe 0",
-      price: "£example 0",
-      link: "example.com"
-    };
-
-    const food1 = {
-      image: require("./resource/placeholder1.png"),
-      name: "Example 1",
-      address: "Near hospital 1, BI1 111",
-      type: "cafe 1",
-      price: "£example 1",
-      link: "example.com"
-    };
-
-    const food2 = {
-      image: require("./resource/placeholder2.png"),
-      name: "Example 2",
-      address: "Near hospital 2, BI2 222",
-      type: "cafe 2",
-      price: "£example 2",
-      link: "example.com"
-    };
-
     this.state = {
-      index: 1,
-      foodList: [food0, food1, food2],
-      serverResponse: ""
+      index: 0,
+      foodList: []
     };
   }
 
+  //Handle button clicks forward and back
+  //TODO: make work for swipes on screen
   onClickForward = () => {
     if (this.state.index + 1 === this.state.foodList.length) {
       this.setState({
@@ -56,7 +29,6 @@ class Food extends React.Component {
       });
     }
   };
-
   onClickBack = () => {
     if (this.state.index - 1 === -1) {
       this.setState({
@@ -69,18 +41,26 @@ class Food extends React.Component {
     }
   };
 
+  //Calls the server upon page loading
   callServer() {
-    fetch("http://localhost:4000/food/Shan")
-      .then(res => res.text())
-      .then(res => this.setState({ serverResponse: res }))
+    fetch("http://localhost:4000/food/")
+      .then(res => res.json())
+      .then(res => this.setState({ foodList: res }))
       .catch(err => err);
   }
 
+  //Mounts the callServer function upon page loading, calling it
   componentWillMount() {
     this.callServer();
   }
 
+  //!-------------!
+  //!Render method!
+  //!-------------!
   render() {
+    console.log(
+      "Debug:\n" + JSON.stringify(this.state.foodList[this.state.index]?.name)
+    );
     return (
       <div>
         <Header />
@@ -93,7 +73,7 @@ class Food extends React.Component {
           </button>
 
           <img
-            src={this.state.foodList[this.state.index].image}
+            src={this.state.foodList[this.state.index]?.image}
             class="picture"
             alt=""
           />
@@ -105,29 +85,30 @@ class Food extends React.Component {
           <b>
             <p class="title">Name</p>
           </b>
-          <p class="content">{this.state.foodList[this.state.index].name}</p>
+          <p class="content">{this.state.foodList[this.state.index]?.name}</p>
+
           <b>
             <p class="title">Address</p>
           </b>
-          <p class="content">{this.state.foodList[this.state.index].address}</p>
+          <p class="content">
+            {this.state.foodList[this.state.index]?.address}
+          </p>
 
           <b>
             <p class="title">Type</p>
           </b>
-          <p class="content">{this.state.foodList[this.state.index].type}</p>
+          <p class="content">{this.state.foodList[this.state.index]?.type}</p>
           <b>
             <p class="title">Price</p>
           </b>
-          <p class="content">{this.state.foodList[this.state.index].price}</p>
+          <p class="content">{this.state.foodList[this.state.index]?.price}</p>
 
           <b>
             <p class="title">External Link</p>
           </b>
-          <a href={this.state.foodList[this.state.index].link}>
-            <p class="content">{this.state.foodList[this.state.index].link}</p>
+          <a href={this.state.foodList[this.state.index]}>
+            <p class="content">{this.state.foodList[this.state.index]?.link}</p>
           </a>
-
-          <p class="content">;{this.state.serverResponse}</p>
         </div>
 
         <Footer />

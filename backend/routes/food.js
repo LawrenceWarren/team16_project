@@ -101,7 +101,7 @@ foodRouter.delete("/:id", getFood, async (_req, res) => {
   }
 });
 
-//getUser MIDDLEWARE
+//getFood MIDDLEWARE
 async function getFood(req, res, next) {
   let food;
   try {
