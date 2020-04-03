@@ -17,8 +17,7 @@ class Food extends React.Component {
     };
   }
 
-  //Handle button clicks forward and back
-  //TODO: make work for swipes on screen
+  //Handle swipes forward and back
   onClickForward = () => {
     if (this.state.index + 1 === this.state.foodList.length) {
       this.setState({
