@@ -2,6 +2,7 @@ import React from "react";
 import "./css/Food.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useSwipeable, Swipeable } from "react-swipeable";
 
 class Food extends React.Component {
   constructor() {
@@ -65,51 +66,51 @@ class Food extends React.Component {
     return (
       <div class="mainDiv">
         <Header />
-        <br />
-        <br />
 
-        <button class="imgButton" onClick={this.onClickBack}>
-          {"<="}
-        </button>
+        <Swipeable
+          onSwipedLeft={this.onClickBack}
+          onSwipedRight={this.onClickForward}
+        >
+          <p class="contentContainer">
+            <img
+              src={this.state.foodList[this.state.index]?.image}
+              class="picture"
+              alt=""
+            />
 
-        <div class="contentContainer">
-          <img
-            src={this.state.foodList[this.state.index]?.image}
-            class="picture"
-            alt=""
-          />
+            <b>
+              <p class="title">Name</p>
+            </b>
+            <p class="content">{this.state.foodList[this.state.index]?.name}</p>
 
-          <b>
-            <p class="title">Name</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index]?.name}</p>
+            <b>
+              <p class="title">Address</p>
+            </b>
+            <p class="content">
+              {this.state.foodList[this.state.index]?.address}
+            </p>
 
-          <b>
-            <p class="title">Address</p>
-          </b>
-          <p class="content">
-            {this.state.foodList[this.state.index]?.address}
+            <b>
+              <p class="title">Type</p>
+            </b>
+            <p class="content">{this.state.foodList[this.state.index]?.type}</p>
+            <b>
+              <p class="title">Price</p>
+            </b>
+            <p class="content">
+              {this.state.foodList[this.state.index]?.price}
+            </p>
+
+            <b>
+              <p class="title">External Link</p>
+            </b>
+            <a href={this.state.foodList[this.state.index]?.link}>
+              <p class="content">
+                {this.state.foodList[this.state.index]?.link}
+              </p>
+            </a>
           </p>
-
-          <b>
-            <p class="title">Type</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index]?.type}</p>
-          <b>
-            <p class="title">Price</p>
-          </b>
-          <p class="content">{this.state.foodList[this.state.index]?.price}</p>
-
-          <b>
-            <p class="title">External Link</p>
-          </b>
-          <a href={this.state.foodList[this.state.index]?.link}>
-            <p class="content">{this.state.foodList[this.state.index]?.link}</p>
-          </a>
-        </div>
-        <button class="imgButton" onClick={this.onClickForward}>
-          {"=>"}
-        </button>
+        </Swipeable>
 
         <Footer />
       </div>
