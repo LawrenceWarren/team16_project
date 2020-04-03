@@ -61,26 +61,23 @@ class Food extends React.Component {
     console.log(
       "Debug:\n" + JSON.stringify(this.state.foodList[this.state.index]?.name)
     );
+
     return (
-      <div>
+      <div class="mainDiv">
         <Header />
         <br />
         <br />
 
-        <div class="buttonRow">
-          <button class="imgButton" onClick={this.onClickBack}>
-            {"<="}
-          </button>
+        <button class="imgButton" onClick={this.onClickBack}>
+          {"<="}
+        </button>
 
+        <div class="contentContainer">
           <img
             src={this.state.foodList[this.state.index]?.image}
             class="picture"
             alt=""
           />
-
-          <button class="imgButton" onClick={this.onClickForward}>
-            {"=>"}
-          </button>
 
           <b>
             <p class="title">Name</p>
@@ -106,10 +103,13 @@ class Food extends React.Component {
           <b>
             <p class="title">External Link</p>
           </b>
-          <a href={this.state.foodList[this.state.index]}>
+          <a href={this.state.foodList[this.state.index]?.link}>
             <p class="content">{this.state.foodList[this.state.index]?.link}</p>
           </a>
         </div>
+        <button class="imgButton" onClick={this.onClickForward}>
+          {"=>"}
+        </button>
 
         <Footer />
       </div>
