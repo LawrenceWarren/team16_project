@@ -4,7 +4,6 @@
 
 [Develop branch](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment")
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -48,8 +47,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 In order to use prebuilt SVG material icons, you must install the @material-ui/icons package.
 
-
-### `npm install -S react-router-dom`  `npm install --save react-router`
+### `npm install -S react-router-dom` `npm install --save react-router`
 
 In order to use the react and route to link to another page, the above two packages should be installed using command line instruction.
 
@@ -61,6 +59,9 @@ In order to use the zmage instead of image tage, the above package should be ins
 
 Install this to use the card library implemented in the Accommodation page.
 
+### `npm install react-swipeable`
+
+Install this library in order to utilise the swiping on the Food page.
 
 ## Learn More
 
