@@ -1,10 +1,10 @@
 import React from "react";
 import "./css/Footer.css";
-import donate from "./resource/donate.png";
 import { withStyles } from "@material-ui/core/styles";
 import MatButton from "@material-ui/core/Button";
-import { grey as matGrey} from "@material-ui/core/colors";
+import { grey as matGrey } from "@material-ui/core/colors";
 
+//Component used for the get involved button
 const GetInvolvedButton = withStyles({
   root: {
     fontSize: "1.1vw",
@@ -17,15 +17,18 @@ const GetInvolvedButton = withStyles({
     "&:hover": {
       backgroundColor: matGrey[400],
     },
-    marginTop: "3.5vw",
+    marginTop: "0.5vw",
+    marginBottom: "0.5vw",
   },
 })(MatButton);
 
 function Footer() {
   return (
-    <div>
-      <p className="involved"> Get Involved: </p>
+    <div class="footerMain">
+      {/*Banner across the top*/}
+      <p className="banner"> Get Involved: </p>
 
+      {/*Link to getting involved with AvasAngels*/}
       <div align="center">
         <GetInvolvedButton
           variant="contained"
@@ -38,12 +41,17 @@ function Footer() {
         </GetInvolvedButton>
       </div>
 
-      <div className="donate" align="center">
-        <a href="https://www.paypal.com/fundraiser/112574636177901026/charity/3575409">
-          <img src={donate} alt="donate with paypal or card" />
-        </a>
-      </div>
+      {/*PayPal donation link*/}
+      <button
+        className="donate"
+        onClick={() => {
+          window.open(
+            "https://www.paypal.com/fundraiser/112574636177901026/charity/3575409"
+          );
+        }}
+      />
 
+      {/*Buttons linking to social media.*/}
       <div className="SocialButtons">
         <button
           className="butt fb-butt"
@@ -81,16 +89,16 @@ function Footer() {
         />
       </div>
 
-      <div className="related">
-        <p>
-          {/* eslint-disable-next-line */}
-          <a href=""> FAQ </a> |{/* eslint-disable-next-line */}
-          <a href=""> Terms of Use </a> |{/* eslint-disable-next-line */}
-          <a href=""> Privacy </a> |{/* eslint-disable-next-line */}
-          <a href=""> Contact </a>
-        </p>
+      {/*TODO: Currently unused buttons*/}
+      <div className="furtherInfo">
+        <a /> | {/*Blank link, allows for a pipe on the left*/}
+        <a href=""> FAQ </a> | {/**/}
+        <a href=""> Terms of Use </a> |{/**/}
+        <a href=""> Privacy </a> |{/**/}
+        <a href=""> Contact </a> |{/**/}
       </div>
 
+      {/*copyright text at the bottom of the page*/}
       <div className="copyRight">
         <p>
           © Copyright 2019-2020. Designed and powered by Ali S., Lawrence W.,
