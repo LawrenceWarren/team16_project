@@ -75,25 +75,23 @@
 
 .fb-butt {
   background-size: 95% 95%;
-  background-image: url("../resource/facebook.png");
+  background-image: url("../resource/footer/facebook.png");
 }
-
 .tw-butt {
-  background-image: url("../resource/ttww.png");
+  background-image: url("../resource/footer/ttww.png");
 }
 .ins-butt {
   background-size: 90% 90%;
-  background-image: url("../resource/ins.png");
+  background-image: url("../resource/footer/ins.png");
 }
 .li-butt {
   background-size: 90% 90%;
-  background-image: url("../resource/linkedin.png");
+  background-image: url("../resource/footer/linkedin.png");
 }
 .feed-butt {
   background-size: 90% 100%;
-  background-image: url("../resource/feedback.png");
+  background-image: url("../resource/footer/feedback.png");
 }
-
 .butt:hover {
   background-color: rgb(216, 109, 127);
 }
