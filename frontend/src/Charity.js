@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
       marginRight: '15%',
       marginLeft: '15%',
     },
-    gridList: {
+    sideScroll: {
       flexWrap: 'nowrap',
       transform: 'translateZ(0)',
     },
@@ -160,7 +160,7 @@ function Charity(){
             </h2>
 
             <div className={classes.root}>
-                <GridList className={classes.gridList} cols={2.5}>
+                <GridList className={classes.sideScroll} cols={2.5}>
                 {tileData.map(tile => (
                     <GridListTile key={tile.img}>
                     <a 
