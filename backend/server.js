@@ -10,18 +10,19 @@ const cors = require("cors");
 //Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
-db.on("error", error => console.log(error));
+db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connection to db established"));
 
 //support json bodyParser
 app.use(express.json());
 app.use(cors());
 
-
 //The backend router.
 //https://localhost:portnumber/
 //https://localhost:portnumber/login
 //https://localhost:portnumber/registers
+
+//!Upon merging, References to other routes should go here
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
 const foodRouter = require("./routes/food");
