@@ -72,7 +72,10 @@ class Food extends React.Component {
       <div className="mainDiv">
         <Header />
 
-        {/*Creates a swipeable div element, which allows for touch control*/}
+        <p className="banner"> Eateries around the hospital </p>
+
+        {/*Creates a swipeable div element, which allows for touch control
+         * However, swipeable does not allow for styling, hence the nested div*/}
         <Swipeable
           onSwipedLeft={this.onClickBack}
           onSwipedRight={this.onClickForward}
