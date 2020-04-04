@@ -2,7 +2,7 @@ import React from "react";
 import "./css/MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { grey } from "@material-ui/core/colors";
+import { grey as matGrey} from "@material-ui/core/colors";
 import figure from "./resource/Ava's Angels.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -18,10 +18,10 @@ const MainButton = withStyles({
     fontFamily: "Georgia",
     height: "15vw",
     width: "25vw",
-    backgroundColor: grey[500],
+    backgroundColor: matGrey[500],
     borderRadius: "8vw",
     "&:hover": {
-      backgroundColor: grey[700],
+      backgroundColor: matGrey[700],
     },
   },
 })(Button);

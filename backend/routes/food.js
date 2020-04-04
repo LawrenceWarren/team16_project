@@ -10,7 +10,7 @@ foodRouter.post("/", async (req, res) => {
     address: req.body.address,
     type: req.body.type,
     price: req.body.price,
-    link: req.body.link
+    link: req.body.link,
   });
   try {
     const newFood = await food.save();
@@ -43,7 +43,7 @@ foodRouter.post("/", async (req, res) => {
     address: req.body.address,
     type: req.body.type,
     price: req.body.price,
-    link: req.body.link
+    link: req.body.link,
   });
   try {
     const newFood = await food.save();
@@ -105,7 +105,7 @@ foodRouter.delete("/:id", getFood, async (_req, res) => {
 async function getFood(req, res, next) {
   let food;
   try {
-    food = await Food.find({name: req.params.name });
+    food = await Food.find({ name: req.params.name });
     if (food == null) {
       return res.status(404).json({ message: "Cannot find food" });
     }
