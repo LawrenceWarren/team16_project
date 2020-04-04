@@ -2,8 +2,8 @@ import React from "react";
 import "./css/Footer.css";
 import donate from "./resource/donate.png";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import { grey } from "@material-ui/core/colors";
+import MatButton from "@material-ui/core/Button";
+import { grey as matGrey} from "@material-ui/core/colors";
 
 const GetInvolvedButton = withStyles({
   root: {
@@ -15,11 +15,11 @@ const GetInvolvedButton = withStyles({
     color: "rgba(39, 39, 39,0.7)",
     backgroundColor: "#FFFFFF",
     "&:hover": {
-      backgroundColor: grey[400],
+      backgroundColor: matGrey[400],
     },
     marginTop: "3.5vw",
   },
-})(Button);
+})(MatButton);
 
 function Footer() {
   return (

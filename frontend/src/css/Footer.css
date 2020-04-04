@@ -73,6 +73,10 @@
   width: 75px;
 }
 
+.SocialButtons {
+  text-align: center;
+}
+
 .fb-butt {
   background-size: 95% 95%;
   background-image: url("../resource/footer/facebook.png");
