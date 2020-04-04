@@ -12,7 +12,7 @@ class Accommodation extends React.Component {
         return(
             <div>
                 <Header />
-                <div class="accommodationheader"> Accommodation Nearby </div>
+                <div className="accommodationheader"> Accommodation Nearby </div>
                 <CardGroup>
                     <Card className = "border-setup">
                         <Card.Img variant="top" src="https://www.britanniahotels.com/image/fit/660x340/cms/britannia/images/new/birmingham-exterior-carousel-1-660x340002.jpg" className = "Hotel-img"/>

@@ -124,9 +124,9 @@ class Search extends React.Component {
         return(
             <div>
 
-                <div class = "charity_header">Charities</div>
+                <div className = "charity_header">Charities</div>
 
-                <div class="search-container">
+                <div className="search-container">
                     <img src={SearchIcon} alt="search" />
                     <form>
                         <input 
@@ -155,7 +155,7 @@ function Charity(){
             <Header />
             <Search />
 
-            <h2 class = "charityListHeader">
+            <h2 className = "charityListHeader">
                 Below are a selection of local charities with links to their webpages
             </h2>
 

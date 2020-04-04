@@ -46,7 +46,7 @@ for (let i=0; i<length; i++) {
         case 1:
             refs.push(refFirst);
             images.push(
-                <div class = "imageBox">
+                <div className = "imageBox">
                 {/* eslint-disable-next-line */}
                     <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
                 </div>
@@ -69,18 +69,18 @@ for (let i=0; i<length; i++) {
             refs.push(refSecond);
             refs.push(refThird);
             images.push(
-                <div class = "imageBox">
+                <div className = "imageBox">
                 {/* eslint-disable-next-line */}
                     <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + first + '.jpg'), set: sets, defaultPage: first})}>
-                        <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} />
+                        <img ref = {refFirst} data-src = {require('./resource/AboutPage/activity' + first + '.jpg')} alt="Activities of Avas Angels"/>
                     </a>
                 {/* eslint-disable-next-line */}
                     <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + second + '.jpg'), set: sets, defaultPage: second})}>
-                        <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} />
+                        <img ref = {refSecond} data-src = {require('./resource/AboutPage/activity' + second + '.jpg')} alt="Activities of Avas Angels"/>
                     </a>
                 {/* eslint-disable-next-line */}    
                     <a onClick={() => Zmage.browsing({src: require('./resource/AboutPage/activity' + third + '.jpg'), set: sets, defaultPage: third})}>
-                        <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} />
+                        <img ref = {refThird} data-src = {require('./resource/AboutPage/activity' + third + '.jpg')} alt="Activities of Avas Angels"/>
                     </a>
                 </div>
             );
@@ -119,10 +119,10 @@ class About extends React.Component {
             <div>
                 <Header />
 
-                <div class = "establish_header">Establish</div>
-                <div class = "establish">
-                    <img src = {AALogo} alt = "Ava's Angel Logo" class = "establish_logo"/>
-                    <div class = "establish_content">
+                <div className = "establish_header">Establish</div>
+                <div className = "establish">
+                    <img src = {AALogo} alt = "Ava's Angel Logo" className = "establish_logo"/>
+                    <div className = "establish_content">
                         <p>
                             Ava{"'"}s Angels was established in March 2018 in memory of Ava Akers, who lost her life in 2017 aged just 3 years old. 
                             Inspired by Ava and seeing the importance of support whilst caring for an ill child, 
@@ -130,7 +130,7 @@ class About extends React.Component {
                             among children being cared for in hospital by providing items, services and emotional support for families 
                             to enable them to visit, spend quality time with and care for such children.
                         </p>
-                        <div class = "establish_icon">
+                        <div className = "establish_icon">
                             <img src = {LocationIcon} alt = "Location Icon" />
                             <a href = "https://www.google.com/maps/place/Ackleton/@52.5828289,-2.3485737,15z/data=!3m1!4b1!4m5!3m4!1s0x487086d0dac8c695:0x91844632d625fdb7!8m2!3d52.584887!4d-2.3412091" target = "_blank" rel= "noopener noreferrer">Ackleton, England</a>
                             <img src = {LinkIcon} alt = "Link Icon" />
@@ -141,12 +141,12 @@ class About extends React.Component {
                     </div>
                 </div>
 
-                <div class="service_header"> Service: </div>
-                <div class = "service">
+                <div className="service_header"> Service: </div>
+                <div className = "service">
                     <img src = {AAService} alt = "ava's angel service"/>
                 </div>
 
-                <div class="activity_header"> Activity: </div>
+                <div className="activity_header"> Activity: </div>
                 <LazyLoadPage />
                 <Footer />
             </div>
