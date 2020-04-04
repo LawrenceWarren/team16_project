@@ -89,9 +89,9 @@ function Footer() {
         />
       </div>
 
-      {/*TODO: Currently unused buttons*/}
+      {/*TODO: Currently unused buttons - do we need them?*/}
       <div className="furtherInfo">
-        <a /> | {/*Blank link, allows for a pipe on the left*/}
+        | {/*These pipes are just for display*/}
         <a href=""> FAQ </a> | {/**/}
         <a href=""> Terms of Use </a> |{/**/}
         <a href=""> Privacy </a> |{/**/}
