@@ -14,7 +14,16 @@ class Food extends React.Component {
     //State property
     this.state = {
       index: 0, //Used for indexing the array
-      foodList: [],
+      foodList: [
+        {
+          image: require("./resource/food/connectionFail.png"),
+          name: "",
+          address: "",
+          type: "",
+          price: "",
+          link: "",
+        },
+      ],
     };
   }
 

@@ -24,7 +24,7 @@ const GetInvolvedButton = withStyles({
 
 function Footer() {
   return (
-    <div class="footerMain">
+    <div className="footerMain">
       {/*Banner across the top*/}
       <p className="banner"> Get Involved: </p>
 
@@ -92,10 +92,10 @@ function Footer() {
       {/*TODO: Currently unused buttons - do we need them?*/}
       <div className="furtherInfo">
         | {/*These pipes are just for display*/}
-        <a href=""> FAQ </a> | {/**/}
-        <a href=""> Terms of Use </a> |{/**/}
-        <a href=""> Privacy </a> |{/**/}
-        <a href=""> Contact </a> |{/**/}
+        <a href="https://www.google.com"> FAQ </a> | {/**/}
+        <a href="https://www.google.com"> Terms of Use </a> |{/**/}
+        <a href="https://www.google.com"> Privacy </a> |{/**/}
+        <a href="https://www.google.com"> Contact </a> |{/**/}
       </div>
 
       {/*copyright text at the bottom of the page*/}
