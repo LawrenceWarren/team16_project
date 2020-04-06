@@ -1,8 +1,8 @@
 {
-  "name": "testDB",
+  "name": "AvasAngelsServer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Server code which passes requests between AvasAngels front end web-application & the MongoDB database",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
