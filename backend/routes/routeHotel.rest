@@ -2,11 +2,11 @@ GET http://localhost:4000/
 
 ###
 
-POST http://localhost:4000/register
+POST http://localhost:4000/hotel
 Content-Type: application/json
 
 {
-    "hotelname" : "Testfinal",
+    "hotelname" : "testnewroute",
     "description" : "Shan",
     "linkBook" : "scyws1",
     "linkReview" : "123456"
@@ -18,7 +18,7 @@ POST http://localhost:4000/register
 Content-Type: application/json
 
 {
-    "hotelname" : "Premier",
+    "hotelname" : "wherethis",
     "description" : "Shan",
     "linkBook" : "scyws2",
     "linkReview" : "123457"
@@ -26,7 +26,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:4000/login/Testfinal
+GET http://localhost:4000/hotel
 
 ###
 GET http://localhost:4000/login/Premier

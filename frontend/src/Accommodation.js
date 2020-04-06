@@ -8,7 +8,52 @@ import CardGroup from 'react-bootstrap/Card';
 
 
 class Accommodation extends React.Component {
+
+    constructor(){
+        super();    
+
+        this.state={
+            hotels: [],
+            isLoaded: false,
+        };
+    }
+
+    callServer(){
+        fetch("http://localhost:4000/hotel/")
+        .then(res => res.json())
+        .then(res => this.setState({isLoaded: true, hotels: res, }))
+        .catch(err =>err);
+        console.log("true");
+
+        }
+
+    componentDidMount(){
+        this.callServer();
+    }
+
     render(){
+
+        var {isLoaded, hotels} = this.state;
+
+        if (!isLoaded){
+            return <div>Loading...</div>
+        }
+        else{
+            return(
+                <u1>
+                    {hotels.map(item =>(
+                    <li>
+                        Name: {hotels.hotelname}
+                    </li>
+                    ))};
+                </u1>
+
+            );
+        }
+    }
+
+
+    /*render(){
         return(
             <div>
                 <Header />
@@ -70,7 +115,7 @@ class Accommodation extends React.Component {
                 <Footer />
             </div>
             )
-        }
+        }*/
     }
 //test
 
