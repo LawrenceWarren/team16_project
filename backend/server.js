@@ -1,4 +1,7 @@
 //Add this we can use process.env prefix to access data stored in .env file
+//TODO: Oh shit this server doesn't respond with pages when you give it a web request
+// * Make the server deliver the frontend entry point, potentially may have to make it be 1 singular
+// * React package. Eek.
 require("dotenv").config();
 
 const express = require("express");
