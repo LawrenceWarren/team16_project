@@ -39,7 +39,7 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 
 app.get("/", function (_req, res) {
-  res.render("test.html");
+  res.render("unmistakable");
 });
 
 //launch server
