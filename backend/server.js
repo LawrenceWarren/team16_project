@@ -3,22 +3,7 @@
 // * Make the server deliver the frontend entry point, potentially may have to make it be 1 singular
 // * React package. Eek.
 
-var express = require("express");
-var app = express();
-
-var port = process.env.PORT || 8080;
-
-app.use(express.static(__dirname));
-
-app.get("/", function (req, res) {
-  res.render("unmistakable");
-});
-
-app.listen(port, function () {
-  console.log("running!");
-});
-
-/*require("dotenv").config();
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -61,4 +46,4 @@ app.get("/", function (_req, res) {
 //launch server
 app.listen(process.env.PORT, () =>
   console.log(`server has started at port ${process.env.PORT}`)
-);*/
+);
