@@ -10,6 +10,31 @@ import Header from './Header';
 import Footer from "./Footer";
 import SearchIcon from "./resource/charitySearch.jpg";
 
+class CharityConstructor extends React.Component {
+    constructor() {
+        super();
+
+        this.leftSwipe = this.onClickBack.bind(this);
+        this.rightSwipe = this.onClickForward.bind(this);
+
+        this.state = {
+            index: 0,
+            charityList: []
+        };
+    }
+
+    callServer() {
+        fetch("http://localhost:3000/charity/")
+          .then(res => res.json())
+          .then(res => this.setState({ charityList: res }))
+          .catch(err => err);
+    }
+
+    componentWillMount() {
+        this.callServer();
+    }
+}
+
 const tileData = [
     {
         img: "https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif",
@@ -97,6 +122,10 @@ const useStyles = makeStyles(theme => ({
         height: '100%',
     }
   }));
+
+
+
+
 
 class Search extends React.Component {
     constructor(props){
