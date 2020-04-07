@@ -2,7 +2,23 @@
 //TODO: Oh shit this server doesn't respond with pages when you give it a web request
 // * Make the server deliver the frontend entry point, potentially may have to make it be 1 singular
 // * React package. Eek.
-require("dotenv").config();
+
+var express = require("express");
+var app = express();
+
+var port = process.env.PORT || 8080;
+
+app.use(express.static(__dirname));
+
+app.get("/", function (req, res) {
+  res.render("unmistakable");
+});
+
+app.listen(port, function () {
+  console.log("running!");
+});
+
+/*require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -45,4 +61,4 @@ app.get("/", function (_req, res) {
 //launch server
 app.listen(process.env.PORT, () =>
   console.log(`server has started at port ${process.env.PORT}`)
-);
+);*/
