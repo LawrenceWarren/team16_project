@@ -38,6 +38,10 @@ app.use("/food", foodRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 
+app.get("/", function (_req, res) {
+  res.render("test.html");
+});
+
 //launch server
 app.listen(process.env.PORT, () =>
   console.log(`server has started at port ${process.env.PORT}`)

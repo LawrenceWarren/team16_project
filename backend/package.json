@@ -1,15 +1,19 @@
 {
-  "name": "AvasAngelsServer",
+  "name": "avasangelsserver",
   "version": "1.0.0",
   "description": "Server code which passes requests between AvasAngels front end web-application & the MongoDB database",
+  "author": "University of Nottingham team 16",
+  "private": true,
+  "license": "ISC",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psyljw/team16_project.git"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
