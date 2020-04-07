@@ -1,36 +1,30 @@
 //Add this we can use process.env prefix to access data stored in .env file
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-const cors = require("cors");
+require("dotenv").config(); //Used for reading from .env file
+const express = require("express"); //Used for creating API's, handles the requests
+const mongoose = require("mongoose"); //Used for opening a connection
+const cors = require("cors"); //X site requests?
 
-//connect the database
-//Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
+//Opens a connection the database based on DATABASE_URL in .env
 mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
 
+//Handles database connections
 const db = mongoose.connection;
 db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connection to db established"));
 
-//support json bodyParser
-app.use(express.json()); //This line is commended, nothing changes?
-app.use(cors()); //Needs this line!
-
-//The backend router.
-//https://localhost:portnumber/
-//https://localhost:portnumber/login
-//https://localhost:portnumber/registers
+const app = express(); //Express app
+//app.use(express.json()); //This line is for json body parses - does nothing?
+app.use(cors()); //Allows for cross site scripting, which does something
 
 //!Upon merging, References to other routes should go here
-app.use("/food", require("./routes/food"));
-app.use("/login", require("./routes/login"));
-app.use("/register", require("./routes/register"));
+app.use("/food", require("./routes/food")); //Food pages requests
+app.use("/login", require("./routes/login")); //?login requests, unused
+app.use("/register", require("./routes/register")); //?register requests, unused?
 
-//launch server
+//Listen on the port specified in .env
 app.listen(process.env.PORT, () =>
   console.log(`server has started at port ${process.env.PORT}`)
 );
