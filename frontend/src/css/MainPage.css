@@ -5,7 +5,7 @@ body {
 }
 
 .introduce {
-  background-color:rgb(216, 109, 127);
+  background-color:#c0087f;
   margin-top: 4vw;
   color: white;
   font-size: 2.5vw;
@@ -80,7 +80,7 @@ body {
   font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
   font-size:2.5vw;
   font-weight:bold;
-  color:rgb(207, 141, 152);
+  color:#c0087f;
   margin-bottom: -3vw;
   margin-top:1vw;
 }
@@ -94,7 +94,7 @@ body {
 }
 
 .explore {
-  background-color:rgb(216, 109, 127);
+  background-color:#c0087f;
   margin-bottom: 4vw;
   color: white;
   font-size: 2.5vw;

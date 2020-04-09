@@ -8,7 +8,7 @@ body {
     font-size: 2.5vw;
     font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
     text-align: center; 
-    background-color:rgb(216, 109, 127);
+    background-color:#c0087f;
     margin-top: 4vw;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 .establish_icon a:hover{
-    color:rgb(216, 109, 127);
+    color:#c0087f;
 }
 
 
@@ -82,7 +82,7 @@ body {
 }
 
 .service_header{
-    background-color:rgb(216, 109, 127);
+    background-color:#c0087f;
     color: white;
     font-size: 2.5vw;
     font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
@@ -106,7 +106,7 @@ body {
 }
 
 .activity_header {
-    background-color:rgb(216, 109, 127);
+    background-color:#c0087f;
     margin-top: 4vw;
     color: white;
     font-size: 2.5vw;

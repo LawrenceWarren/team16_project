@@ -5,7 +5,7 @@
 
 /*The pink banner across the top of the footer*/
 .banner {
-  background-color: rgb(216, 109, 127);
+  background-color: #c0087f;
   margin-top: 4vw;
   margin-bottom: 0.5vw;
   color: white;
@@ -52,8 +52,8 @@
 }
 /*Hovering over a button*/
 .butt:hover {
-  background-color: rgb(216, 109, 127);
-  box-shadow: -2px 2px rgb(166, 59, 77);
+  background-color: #c0087f;
+  box-shadow: -2px 2px #c0087f;
 }
 /*Buttons for specific social media*/
 .fb-butt {
@@ -95,7 +95,7 @@
   color: rgb(106, 103, 103);
 }
 .furtherInfo a:hover {
-  color: rgb(216, 109, 127);
+  color: #c0087f;
 }
 
 /*CopyRight text at the bottom of the footer*/

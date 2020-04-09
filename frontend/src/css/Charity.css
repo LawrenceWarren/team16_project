@@ -1,26 +1,27 @@
-.charity_header{
+.charity_header {
   color: white;
   font-size: 2.5vw;
-  font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-  text-align: center; 
-  background-color:rgb(216, 109, 127);
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+  background-color: #c0087f;
   margin-top: 4vw;
   margin-bottom: 3vw;
 }
 
-.search-container{
-  text-align:center;
+.search-container {
+  text-align: center;
 }
 
-.search-container img{
-  max-width:12%;
-  width:12%;
-  max-height:20%;
-  height:20%;
+.search-container img {
+  max-width: 12%;
+  width: 12%;
+  max-height: 20%;
+  height: 20%;
   margin-bottom: 2vw;
 }
 
-.search-container input[type=text] {
+.search-container input[type="text"] {
   margin-top: 0.4vw;
   font-size: 1.4vw;
 }
@@ -38,10 +39,10 @@
   background: #ccc;
 }
 
-.charityListHeader{
+.charityListHeader {
   text-indent: 3vw;
   font-size: 2vw;
-  color: #c0237f;
+  color: #c0087f;
   text-align: center;
-  margin-top:3vw;
+  margin-top: 3vw;
 }

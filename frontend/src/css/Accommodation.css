@@ -1,29 +1,30 @@
 .accommodationheader {
-    background-color:rgb(216, 109, 127);
-    margin-top: 4vw;
-    color: white;
-    font-size: 2.5vw;
-    font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
-    text-align: center; 
-  }
+  background-color: #c0087f;
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+}
 
-  .Hotel-img {
-    height: auto;
-    max-height: 500px;
-    width: auto;
-    max-width: 500px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.Hotel-img {
+  height: auto;
+  max-height: 500px;
+  width: auto;
+  max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .link-color{
-      color:rgb(216, 109, 127);
-  }
+.link-color {
+  color: #c0087f;
+}
 
-  .border-setup{
-    border: primary rgb(216, 109, 127);
-    border-radius: 10px;
-    width: auto;
-    outline-color:  rgb(216, 109, 127);;
-  }
+.border-setup {
+  border: primary #c0087f;
+  border-radius: 10px;
+  width: auto;
+  outline-color: #c0087f;
+}
