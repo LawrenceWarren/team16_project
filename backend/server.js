@@ -19,6 +19,10 @@ const app = express(); //Express app
 //app.use(express.json()); //This line is for json body parses - does nothing?
 app.use(cors()); //Allows for cross site scripting, which does something
 
+app.get("/", (req, res) => {
+  res.sendFile("definiteCode.html");
+});
+
 //!Upon merging, References to other routes should go here
 app.use("/food", require("./routes/food")); //Food pages requests
 app.use("/login", require("./routes/login")); //?login requests, unused
