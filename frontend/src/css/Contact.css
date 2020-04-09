@@ -3,7 +3,7 @@
     font-size: 2.5vw;
     font-family:"Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
     text-align: center; 
-    background-color:rgb(216, 109, 127);
+    background-color:#c0087f;
     margin-top: 4vw;
 }
 
@@ -11,7 +11,7 @@
 {
     background-color: white;
     border-radius: 3%;
-    border: 0.25vw solid pink;
+    border: 0.25vw solid #c0087f;
     margin: 5vw;
     text-align:center;
     display: inline-block;

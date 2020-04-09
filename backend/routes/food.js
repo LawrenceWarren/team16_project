@@ -1,6 +1,7 @@
 const express = require("express");
-const foodRouter = express.Router();
 const Food = require("../model/Food");
+
+const foodRouter = express.Router();
 
 //Create One Route
 foodRouter.post("/", async (req, res) => {

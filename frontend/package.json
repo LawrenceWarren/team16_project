@@ -1,10 +1,20 @@
 {
-  "name": "grp",
-  "version": "0.1.0",
+  "name": "avasangelsfrontend",
+  "version": "0.5.0",
+  "description": "frontend code for AvasAngels web app, developed by Nottingham University team 16.",
+  "author": "University of Nottingham team 16",
   "private": true,
-  "engines": {
-    "npm": "6.12.1",
-    "node": "12.13.1"
+  "license": "ISC",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "bruh"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.7",
@@ -23,12 +33,6 @@
     "react-swipeable": "^5.5.1",
     "react-zmage": "^0.8.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -40,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "npm": "6.12.1",
+    "node": "12.13.1"
   }
 }

@@ -1,6 +1,6 @@
 /*The pink banner across the top of the food page*/
 .banner {
-  background-color: rgb(216, 109, 127);
+  background-color: #c0087f;
   margin-top: 4vw;
   margin-bottom: 1.5vw;
   color: white;
@@ -27,7 +27,7 @@
 .contentContainer {
   background-color: white;
   border-radius: 3%;
-  border: 0.25vw solid pink;
+  border: 0.25vw solid #c0087f;
   margin: 1.5vw;
   text-align: center;
   display: inline-block;
