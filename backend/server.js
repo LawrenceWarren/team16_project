@@ -1,9 +1,8 @@
 //Add this we can use process.env prefix to access data stored in .env file
 require("dotenv").config(); //Used for reading from .env file
-const express = require("express"); //Used for creating APIs, handles the requests
 const mongoose = require("mongoose"); //Used for opening a connection
 const cors = require("cors"); //X site requests?
-var path = require("path");
+const express = require("express"); //Used for creating APIs, handles the requests
 
 //Opens a connection the database based on DATABASE_URL in .env
 mongoose.connect(process.env.DATABASE_URL, {
@@ -20,10 +19,6 @@ const app = express(); //Express app
 
 //app.use(express.json()); //This line is for json body parses - does nothing?
 app.use(cors()); //Allows for cross site scripting, which does something
-
-app.get("/", function (_req, res) {
-  res.sendFile(path.join(__dirname + "/definiteCode.html"));
-});
 
 //!Upon merging, References to other routes should go here
 app.use("/food", require("./routes/food")); //Food pages requests
