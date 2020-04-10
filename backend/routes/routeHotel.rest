@@ -1,4 +1,4 @@
-GET http://localhost:4000/
+GET http://localhost:4000/hotel
 
 ###
 
@@ -6,7 +6,7 @@ POST http://localhost:4000/hotel
 Content-Type: application/json
 
 {
-    "hotelname" : "testnewroute",
+    "hotelname" : "testsend2",
     "description" : "Shan",
     "linkBook" : "scyws1",
     "linkReview" : "123456"
@@ -26,7 +26,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:4000/hotel
+GET http://localhost:4000/login/wherethis
 
 ###
-GET http://localhost:4000/login/Premier
+GET http://localhost:4000/login/testnewroute

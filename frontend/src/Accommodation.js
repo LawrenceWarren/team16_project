@@ -5,8 +5,6 @@ import Footer from "./Footer";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 
-
-
 class Accommodation extends React.Component {
 
     constructor(){
@@ -19,11 +17,10 @@ class Accommodation extends React.Component {
     }
 
     callServer(){
-        fetch("http://localhost:4000/hotel/")
+        fetch("/hotel")
         .then(res => res.json())
-        .then(res => this.setState({isLoaded: true, hotels: res, }))
+        .then(res => this.setState({isLoaded: true, hotels: res,}))
         .catch(err =>err);
-        console.log("true");
 
         }
 
@@ -40,13 +37,16 @@ class Accommodation extends React.Component {
         }
         else{
             return(
-                <u1>
-                    {hotels.map(item =>(
-                    <li>
-                        Name: {hotels.hotelname}
-                    </li>
+                <div>
+                   <ul>
+                    {hotels.map(hotel =>(
+                        <li key = {hotel._id}>
+                            {hotel.hotelname}
+                        </li>
                     ))};
-                </u1>
+
+                   </ul>
+                </div>
 
             );
         }
