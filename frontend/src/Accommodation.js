@@ -38,14 +38,31 @@ class Accommodation extends React.Component {
         else{
             return(
                 <div>
-                   <ul>
+                <Header />
+                <div class="accommodationheader"> Accommodation Nearby </div>
+                   <CardGroup>
                     {hotels.map(hotel =>(
-                        <li key = {hotel._id}>
-                            {hotel.hotelname}
-                        </li>
+                        <Card key = {hotel._id}>
+                        
+                         <Card.Img variant="top" src= {hotel.linkImage} className = "Hotel-img"/>
+
+                        <Card.Body>
+                        <Card.Title>{hotel.hotelname}</Card.Title>
+                        <Card.Text>
+                        {hotel.description}
+                        </Card.Text>
+                        </Card.Body>
+           
+                        <Card.Body>
+                        <Card.Link href={hotel.linkBook} className = "link-color">Book A Room</Card.Link>
+                        <Card.Link href={hotel.linkReview} className = "link-color">Hotel Reviews</Card.Link>
+                        </Card.Body>
+
+                        </Card>
                     ))};
 
-                   </ul>
+                   </CardGroup>
+                   <Footer />
                 </div>
 
             );
@@ -53,7 +70,10 @@ class Accommodation extends React.Component {
     }
 
 
-    /*render(){
+    /*
+       {hotel.hotelname}
+                            {hotel.description}
+    render(){
         return(
             <div>
                 <Header />

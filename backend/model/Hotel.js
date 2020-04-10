@@ -18,6 +18,10 @@ hotelInfo = new Schema({
     linkReview:{
         type:String,
         required: true
+    },
+    linkImage:{
+        type:String,
+        required: true
     }
 });
 

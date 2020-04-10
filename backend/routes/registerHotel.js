@@ -8,7 +8,8 @@ registerRouter.post("/", async(req, res) => {
         hotelname: req.body.hotelname,
         description: req.body.description,
         linkBook: req.body.linkBook,
-        linkReview: req.body.linkReview
+        linkReview: req.body.linkReview,
+        linkImage: req.body.linkImage,
     });
     try{
         const newHotel = await hotel.save();

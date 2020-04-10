@@ -24,6 +24,7 @@ hotelRouter.post("/", async(req, res) => {
         description: req.body.description,
         linkBook: req.body.linkBook,
         linkReview: req.body.linkReview,
+        linkImage: req.body.linkImage,
     });
     try{
         const newHotel = await hotel.save();
@@ -56,6 +57,9 @@ hotelRouter.patch("/:hotelname", getHotel, async (req, res) => {
     }
     if (req.body.linkReview != null){
         res.hotel.linkReview = req.body.linkReview;
+    }
+    if (req.body.linkImage != null){
+        res.hotel.linkImage = req.body.linkImage;
     }
     try {
         const updatedHotel = await res.hotel.save();
