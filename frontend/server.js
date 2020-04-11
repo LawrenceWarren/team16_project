@@ -26,17 +26,17 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
 
 //!Upon merging, References to other routes should go here
-app.use("/foodReq", require("./routes/food")); //Food pages requests
+app.use("/food", require("./routes/food")); //Food pages requests //TODO differentiate this
 app.use("/login", require("./routes/login")); //?login requests, unused
 app.use("/register", require("./routes/register")); //?register requests, unused?
 
 //Routes for ping
-app.get("/ping", function (req, res) {
+app.get("/ping", function (_req, res) {
   return res.send("pong");
 });
 
 //Route for returned html
-app.get("/*", function (req, res) {
+app.get("/*", function (_req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 

@@ -1,6 +1,5 @@
 const express = require("express");
 const Food = require("../model/Food");
-
 const foodRouter = express.Router();
 
 //Create One Route

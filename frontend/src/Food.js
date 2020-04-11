@@ -58,7 +58,7 @@ class Food extends React.Component {
 
   //Calls the server upon page loading
   callServer() {
-    fetch("http://localhost:4000/foodReq/") //Fetch from the server
+    fetch("http://localhost:8080/foodReq/") //Fetch from the server
       .then((res) => res.json()) //JSONify the data
       .then((res) => this.setState({ foodList: res })) //Pass the JSON into state
       .catch((err) => err);
