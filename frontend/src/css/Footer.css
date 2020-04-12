@@ -46,8 +46,12 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  height: 75px;
-  width: 75px;
+  min-width: 10px;
+  min-height: 10px;
+  height: 5vw;
+  width: 5vw;
+  max-height: 75px;
+  max-width: 75px;
   transition: 0.3s;
 }
 /*Hovering over a button*/
