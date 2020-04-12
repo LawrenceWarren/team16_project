@@ -35,6 +35,5 @@ const foodSchema = new Schema({
 });
 
 //Create Model
-//"Food" is correspond to the collection name in database for foods
-const Food = mongoose.model("food", foodSchema);
-module.exports = Food;
+const FoodModel = mongoose.model("food", foodSchema);
+module.exports = FoodModel;

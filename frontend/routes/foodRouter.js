@@ -1,10 +1,20 @@
 const express = require("express");
-const Food = require("../model/Food");
+const FoodModel = require("../model/FoodModel");
 const foodRouter = express.Router();
 
-//Create One Route
+//Get All Route
+foodRouter.get("/", async (_req, res) => {
+  try {
+    const foodsReq = await FoodModel.find();
+    res.json(foodsReq);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+/*//Create One Route
 foodRouter.post("/", async (req, res) => {
-  const food = new Food({
+  const food = new FoodModel({
     image: req.body.image,
     name: req.body.name,
     address: req.body.address,
@@ -20,16 +30,6 @@ foodRouter.post("/", async (req, res) => {
   }
 });
 
-//Get All Route
-foodRouter.get("/", async (_req, res) => {
-  try {
-    const foods = await Food.find();
-    res.json(foods);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 //Get One Route
 foodRouter.get("/:name", getFood, (_req, res) => {
   res.json(res.food);
@@ -37,7 +37,7 @@ foodRouter.get("/:name", getFood, (_req, res) => {
 
 //Create One Route
 foodRouter.post("/", async (req, res) => {
-  const food = new Food({
+  const food = new FoodModel({
     image: req.body.image,
     name: req.body.name,
     address: req.body.address,
@@ -105,7 +105,7 @@ foodRouter.delete("/:id", getFood, async (_req, res) => {
 async function getFood(req, res, next) {
   let food;
   try {
-    food = await Food.find({ name: req.params.name });
+    food = await FoodModel.find({ name: req.params.name });
     if (food == null) {
       return res.status(404).json({ message: "Cannot find food" });
     }
@@ -114,6 +114,6 @@ async function getFood(req, res, next) {
   }
   res.food = food;
   next();
-}
+}*/
 
 module.exports = foodRouter;

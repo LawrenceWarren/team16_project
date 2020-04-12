@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
 
 //!Upon merging, References to other routes should go here
-app.use("/food", require("./routes/food")); //Food pages requests //TODO differentiate this
+app.use("/foodReq", require("./routes/foodRouter")); //Food pages requests //TODO differentiate this
 app.use("/login", require("./routes/login")); //?login requests, unused
 app.use("/register", require("./routes/register")); //?register requests, unused?
 
