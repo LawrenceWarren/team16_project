@@ -51,6 +51,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Upon cloning the repository, it is important to run `npm install` in order to gain the dependencies, listed in `package.json`.
 
+### `npm run buildRun`
+
+Custom script written by Lawrence for building your project and then immediately running it, useful for testing server connections.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
