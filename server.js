@@ -30,15 +30,15 @@ app.use(express.static(__dirname)); //Makes the returned pages static (?)
 app.use(express.static(path.join(__dirname, "build"))); //Uses the build file
 app.use(cors());
 
-//When you load a new page, it gets that file out of the build folder
-app.get("/*", function (_req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
 //!Upon merging, References to other routes should go here
 app.use("/foodReq", require("./routes/foodRouter")); //Food pages requests
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
+
+//When you load a new page, it gets that file out of the build folder
+app.get("/*", function (_req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 //App begins listening on whatever port is specified
 app.listen(port, () => console.log("App listening on " + port));

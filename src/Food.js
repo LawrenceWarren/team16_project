@@ -63,7 +63,7 @@ class Food extends React.Component {
 
   //Calls the server upon page loading
   callServer() {
-    fetch("http://avas-angels-develop-server.herokuapp.com/foodReq") //Fetch from the server
+    fetch("https://avas-angels-develop-server.herokuapp.com/foodReq") //Fetch from the server
       .then((res) => res.json()) //JSONify the data
       .then((res) => this.setState({ foodList: res })) //Pass the JSON into state
       .catch(
