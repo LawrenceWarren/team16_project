@@ -11,10 +11,11 @@
     "url": "https://github.com/psyljw/team16_project"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "buildRun": "react-scripts build && node server.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.7",
