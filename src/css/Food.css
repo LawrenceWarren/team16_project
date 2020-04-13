@@ -47,24 +47,6 @@
   padding: 10px;
 }
 
-/*.vlL {
-  background-image: linear-gradient(to right, #c0087f, #c0087f00);
-  height: 100%;
-  width: 20px;
-  float: left;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.vlR {
-  background-image: linear-gradient(to left, #c0087f, #c0087f00);
-  height: 100%;
-  width: 20px;
-  float: right;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}*/
-
 /*Styling for the picture for each item*/
 .picture {
   max-width: 70%;

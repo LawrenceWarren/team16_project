@@ -97,15 +97,17 @@ class Food extends React.Component {
         >
           {/*Styled content container, within which images and text appear*/}
           <div className="contentContainer">
+            {/*On screen indications for swiping */}
             <img
-              src={require("./resource/food/swipeLeft.jpg")}
+              src={require("./resource/food/swipeLeft.png")}
               className="swipeLeft"
             />
             <img
-              src={require("./resource/food/swipeRight.jpg")}
+              src={require("./resource/food/swipeRight.png")}
               className="swipeRight"
             />
 
+            {/*Picture */}
             <img
               src={this.state.foodList[this.state.index]?.image}
               className="picture"
