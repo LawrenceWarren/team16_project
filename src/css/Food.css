@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-/*Styling for the container of each item: //TODO: make the container appear more swipeable*/
+/*Styling for the container of each item*/
 .contentContainer {
   background-color: white;
   border-radius: 20px;
@@ -33,13 +33,13 @@
   box-shadow: 5px #000000;
 }
 
+/*Styling for left and right on screen swipe indicators*/
 .swipeRight {
   height: auto;
   width: 10%;
   float: right;
   padding: 10px;
 }
-
 .swipeLeft {
   height: auto;
   width: 10%;
