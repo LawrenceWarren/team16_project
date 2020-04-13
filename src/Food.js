@@ -91,14 +91,21 @@ class Food extends React.Component {
         <p className="banner"> Eateries around the hospital </p>
         {/*Creates a swipeable div element, and binds the swipe handler functions to swipe events
          * However, swipeable does not allow for styling, hence the immediately nested div*/}
-        <div className="swipeLeft" />
-        <div className="swipeRight" />
         <Swipeable
           onSwipedLeft={this.onClickBack}
           onSwipedRight={this.onClickForward}
         >
           {/*Styled content container, within which images and text appear*/}
           <div className="contentContainer">
+            <img
+              src={require("./resource/food/swipeLeft.jpg")}
+              className="swipeLeft"
+            />
+            <img
+              src={require("./resource/food/swipeRight.jpg")}
+              className="swipeRight"
+            />
+
             <img
               src={this.state.foodList[this.state.index]?.image}
               className="picture"

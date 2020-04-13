@@ -34,19 +34,17 @@
 }
 
 .swipeRight {
-  height: 100px;
-  width: 100px;
-  background: #000000;
-  background-image: url("../resource/food/swipeRight.png");
+  height: auto;
+  width: 10%;
   float: right;
+  padding: 10px;
 }
 
 .swipeLeft {
-  height: 100px;
-  width: 100px;
-  background: #000000;
-  background-image: url("../resource/food/swipeLeft.png");
+  height: auto;
+  width: 10%;
   float: left;
+  padding: 10px;
 }
 
 /*.vlL {
@@ -69,7 +67,7 @@
 
 /*Styling for the picture for each item*/
 .picture {
-  max-width: 85%;
+  max-width: 70%;
   height: auto;
   margin: 10px;
   display: inline-block;
