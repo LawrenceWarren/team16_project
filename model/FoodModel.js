@@ -1,3 +1,6 @@
+/* This model is used by:
+ * ./routes/foodRouter.js
+ */
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -34,6 +37,6 @@ const foodSchema = new Schema({
   },
 });
 
-//Create Model
+//Create Model - the model is called 'food' the collection is assumed to be the pluralised form, foods
 const FoodModel = mongoose.model("food", foodSchema);
 module.exports = FoodModel;

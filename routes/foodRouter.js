@@ -1,3 +1,6 @@
+/* This router is used for:
+ * Routing requests on the foodpage, which come in through /foodReq URL's
+ */
 const express = require("express");
 const FoodModel = require("../model/FoodModel");
 const foodRouter = express.Router();
@@ -12,6 +15,7 @@ foodRouter.get("/", async (_req, res) => {
   }
 });
 
+//!These routes are currently unneeded. will be needed for CMS!
 /*//Create One Route
 foodRouter.post("/", async (req, res) => {
   const food = new FoodModel({

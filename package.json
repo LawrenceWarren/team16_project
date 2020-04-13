@@ -8,7 +8,7 @@
   "main": "",
   "repository": {
     "type": "git",
-    "url": "bruh"
+    "url": "https://github.com/psyljw/team16_project"
   },
   "scripts": {
     "start": "node server.js",
