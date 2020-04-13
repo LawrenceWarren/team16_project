@@ -91,6 +91,8 @@ class Food extends React.Component {
         <p className="banner"> Eateries around the hospital </p>
         {/*Creates a swipeable div element, and binds the swipe handler functions to swipe events
          * However, swipeable does not allow for styling, hence the immediately nested div*/}
+        <div className="swipeLeft" />
+        <div className="swipeRight" />
         <Swipeable
           onSwipedLeft={this.onClickBack}
           onSwipedRight={this.onClickForward}
@@ -102,7 +104,6 @@ class Food extends React.Component {
               className="picture"
               alt=""
             />
-
             {/*Name */}
             <b>
               <p className="title">Name</p>
@@ -110,7 +111,6 @@ class Food extends React.Component {
             <p className="content">
               {this.state.foodList[this.state.index]?.name}
             </p>
-
             {/*Address*/}
             <b>
               <p className="title">Address</p>
@@ -118,7 +118,6 @@ class Food extends React.Component {
             <p className="content">
               {this.state.foodList[this.state.index]?.address}
             </p>
-
             {/*Type*/}
             <b>
               <p className="title">Type</p>
@@ -126,7 +125,6 @@ class Food extends React.Component {
             <p className="content">
               {this.state.foodList[this.state.index]?.type}
             </p>
-
             {/*Pricing*/}
             <b>
               <p className="title">Price</p>
@@ -134,7 +132,6 @@ class Food extends React.Component {
             <p className="content">
               {this.state.foodList[this.state.index]?.price}
             </p>
-
             {/*Link to site*/}
             <b>
               <p className="title">External Link</p>
