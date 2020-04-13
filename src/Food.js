@@ -101,10 +101,12 @@ class Food extends React.Component {
             <img
               src={require("./resource/food/swipeLeft.png")}
               className="swipeLeft"
+              onClick={this.onClickBack}
             />
             <img
               src={require("./resource/food/swipeRight.png")}
               className="swipeRight"
+              onClick={this.onClickForward}
             />
 
             {/*Picture */}
