@@ -1,6 +1,11 @@
+/* Server code
+ * Initially, we had a backend folder. However, this backend folder was unnecessary
+ * All backend is needed with the frontend nested within
+ */
+
 require("dotenv").config(); //Used for reading from .env file
 const mongoose = require("mongoose"); //Used for opening a connection to the DB
-const cors = require("cors"); //X site requests?
+const cors = require("cors"); //X site requests
 const express = require("express"); //Used for writing server code
 const favicon = require("express-favicon"); //Used for favicon related something
 const path = require("path"); //Used for file path resolution
@@ -20,24 +25,20 @@ db.on("error", (error) => console.log(error)); //If there's an error, log it
 db.once("open", () => console.log("connection to db established")); //Log that the connection is established
 
 //!Server code
-app.use(favicon(__dirname + "/build/favicon.ico"));
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, "build")));
+app.use(favicon(__dirname + "/build/favicon.ico")); //Finds the favicon for the site
+app.use(express.static(__dirname)); //Makes the returned pages static (?)
+app.use(express.static(path.join(__dirname, "build"))); //Uses the build file
 app.use(cors());
 
-//!Upon merging, References to other routes should go here
-app.use("/foodReq", require("./routes/foodRouter")); //Food pages requests //TODO differentiate this
-app.use("/login", require("./routes/login")); //?login requests, unused
-app.use("/register", require("./routes/register")); //?register requests, unused?
-
-//Routes for ping
-app.get("/ping", function (_req, res) {
-  return res.send("pong");
-});
-
-//Route for returned html
+//When you load a new page, it gets that file out of the build folder
 app.get("/*", function (_req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+//!Upon merging, References to other routes should go here
+app.use("/foodReq", require("./routes/foodRouter")); //Food pages requests
+app.use("/login", require("./routes/login")); //?login requests
+app.use("/register", require("./routes/register")); //?register requests
+
+//App begins listening on whatever port is specified
 app.listen(port, () => console.log("App listening on " + port));

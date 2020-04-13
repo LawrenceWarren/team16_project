@@ -1,12 +1,4 @@
-/*styling for the content, the titles and the mainDiv*/
-.content,
-.title {
-  text-align: center;
-  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
-    STHeiti, MingLiu;
-  line-height: 105%;
-}
-
+/*mainDiv is the parent div of all others in food*/
 .mainDiv {
   text-align: center;
   max-width: 100vw;
@@ -24,14 +16,7 @@
   text-align: center;
 }
 
-.picture {
-  max-width: 85%;
-  height: auto;
-  margin: 10px;
-  display: inline-block;
-  border-radius: 5px;
-}
-
+/*Styling for the container of each item: //TODO: make the container appear more swipeable*/
 .contentContainer {
   background-color: white;
   border-radius: 3%;
@@ -41,9 +26,28 @@
   display: inline-block;
   min-width: 350px;
   width: 85%;
+  height: 70vh;
   max-width: 85%;
   padding-left: 5px;
   padding-right: 5px;
   border-left: 10px solid #60083f;
   border-right: 10px solid #60083f;
+}
+
+/*Styling for the picture for each item*/
+.picture {
+  max-width: 85%;
+  height: auto;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/*Basic styling for content & titling of each items information*/
+.content,
+.title {
+  text-align: center;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  line-height: 105%;
 }
