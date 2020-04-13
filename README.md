@@ -3,12 +3,8 @@
 ## Heroku deployments
 
 [Master branch](https://avas-angels.herokuapp.com/ "Main project deployment")
-
 [Develop branch](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment")
-
 [Server branch](http://avas-angels-develop-server.herokuapp.com/ "Is currently (13/04/2020) the only functional heroku deployment")
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -37,9 +33,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm install`
+
+Upon cloning the repository, it is important to run `npm install` in order to gain the dependencies, listed in `package.json`.
+
+### `npm run buildRun`
+
+Custom script written by Lawrence for `build`ing your project and then immediately running it, useful for testing server connections.
+
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**This is a one-way operation. Once you `eject`, you can’t go back - SHOULD ONLY BE RUN BY ON A BRANCH**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
@@ -47,16 +51,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### `npm install`
+An example of a feature allowed by ejecting would be server side rendering.
 
-Upon cloning the repository, it is important to run `npm install` in order to gain the dependencies, listed in `package.json`.
+## About React
 
-### `npm run buildRun`
-
-Custom script written by Lawrence for building your project and then immediately running it, useful for testing server connections.
-
-## Learn More
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
 To learn React, check out the [React documentation](https://reactjs.org/).
