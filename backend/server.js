@@ -16,18 +16,20 @@ db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connection to db established"));
 
 const app = express(); //Express app
-//app.use(express.json()); //This line is for json body parses - does nothing?
+app.use(express.json()); //This line is for json body parses - allows for POST routes
 app.use(cors()); //Allows for cross site scripting, which does something
 
 //!Upon merging, References to other routes should go here
 const loginRouter = require("./routes/login");
-const registerRouter = require("./routes/register");
-const foodRouter = require("./routes/food");
-const contactRouter = require("./routes/contact");
-app.use("/food", foodRouter);
 app.use("/login", loginRouter);
+const registerRouter = require("./routes/register");
 app.use("/register", registerRouter);
+const foodRouter = require("./routes/food");
+app.use("/food", foodRouter);
+const contactRouter = require("./routes/contact");
 app.use("/contact", contactRouter);
+const hotelRouter = require("./routes/hotel");
+app.use("/hotel", hotelRouter);
 
 //launch server
 app.listen(process.env.PORT, () =>

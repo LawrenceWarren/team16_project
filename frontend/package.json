@@ -24,6 +24,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "jshint": "^2.11.0",
     "nodemailer": "^6.4.6",
     "nodemailer-smtp-transport": "^2.7.4",
@@ -36,7 +37,9 @@
     "react-swipeable": "^5.5.1",
     "react-zmage": "^0.8.5"
   },
-  "proxy": "http://localhost:4000",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -52,5 +55,6 @@
   "engines": {
     "npm": "6.12.1",
     "node": "12.13.1"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
