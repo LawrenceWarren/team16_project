@@ -7,9 +7,12 @@ const mongoose = require("mongoose");
 
 //connect the database
 //Read the URL from .env file. Change the URL to mongodb://localhost:27017/database_name;
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const db = mongoose.connection;
-db.on("error", error => console.log(error));
+db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connection to db established"));
 
 //support json bodyParser
@@ -27,5 +30,6 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 
 //launch server
-app.listen(process.env.PORT, () => console.log(`server has started at port ${process.env.PORT}`));
-
+app.listen(process.env.PORT, () =>
+  console.log(`server has started at port ${process.env.PORT}`)
+);
