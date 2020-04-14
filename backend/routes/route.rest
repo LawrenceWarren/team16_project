@@ -1,6 +1,16 @@
 GET http://localhost:4000/
 
 ###
+POST http://localhost:4000/contact
+Content-Type: application/json
+
+{
+    "firstname" : "Yutian",
+    "lastname" : "Chen",
+    "email" : "scyycaaa@nottingham.ac.uk",
+    "phoneNum" : "07529908214",
+    "message" : "fk"
+}
 
 POST http://localhost:4000/register
 Content-Type: application/json

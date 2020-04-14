@@ -63,6 +63,10 @@ Install this to use the card library implemented in the Accommodation page.
 
 Install this library in order to utilise the swiping on the Food page.
 
+### `npm install axios `
+
+Install this library in order to submit the information inside feedback and contact page.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

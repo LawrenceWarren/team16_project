@@ -20,11 +20,16 @@ const app = express(); //Express app
 app.use(cors()); //Allows for cross site scripting, which does something
 
 //!Upon merging, References to other routes should go here
-app.use("/food", require("./routes/food")); //Food pages requests
-app.use("/login", require("./routes/login")); //?login requests, unused
-app.use("/register", require("./routes/register")); //?register requests, unused
+const loginRouter = require("./routes/login");
+const registerRouter = require("./routes/register");
+const foodRouter = require("./routes/food");
+const contactRouter = require("./routes/contact");
+app.use("/food", foodRouter);
+app.use("/login", loginRouter);
+app.use("/register", registerRouter);
+app.use("/contact", contactRouter);
 
-//Listen on the port specified in .env
+//launch server
 app.listen(process.env.PORT, () =>
   console.log(`server has started at port ${process.env.PORT}`)
 );

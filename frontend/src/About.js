@@ -20,19 +20,22 @@ const css = {
     display: "block",
   },
 };
+
 const images = [];
 const refs = [];
 const sets = [];
 const threshold = [0.01];
-const length = 57;
+const length = 57; //!Mistaken ?
 
-for (let i = 0; i < length; i++) {
+/*for (let i = 0; i < length; i++) {
   sets.push({
     src: require("./resource/AboutPage/activity" + i + ".jpg"),
   });
-}
-
-for (let i = 0; i < length; i++) {
+}*/ for (
+  let i = 0;
+  i < length;
+  i++
+) {
   var temp = i;
   const refFirst = React.createRef();
   const refSecond = React.createRef();
@@ -40,7 +43,6 @@ for (let i = 0; i < length; i++) {
   const first = i;
   const second = ++i;
   const third = ++i;
-
   switch (length - temp) {
     case 1:
       refs.push(refFirst);
@@ -215,6 +217,15 @@ class About extends React.Component {
             </div>
           </div>
         </div>
+
+        <div className="service_header"> Service: </div>
+        <div className="service">
+          <img src={AAService} alt="ava's angel service" />
+        </div>
+
+        <div className="activity_header"> Activity: </div>
+        <LazyLoadPage />
+        <Footer />
 
         <div className="service_header"> Service: </div>
         <div className="service">

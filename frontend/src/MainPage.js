@@ -4,6 +4,8 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { grey as matGrey} from "@material-ui/core/colors";
 import figure from "./resource/Ava's Angels.jpg";
+import introductionFigure from "./resource/AAIntroduction.jpg";
+import actionFigure from "./resource/AAAction.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
@@ -103,7 +105,7 @@ function MainPage() {
 
       <div className="introduction">
         <img
-          src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4"
+          src={introductionFigure}
           className="introduction-image"
           alt="ava_activity"
         />
@@ -172,7 +174,7 @@ function MainPage() {
             </MainButton>
           </Link>
           <img
-            src="https://scontent.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/75244443_161725248223830_1550331828311660529_n.jpg?_nc_ht=scontent.cdninstagram.com&oh=72acfbed5db6d7cc4e5d42f9e56fafb6&oe=5E6FA1A4"
+            src={actionFigure}
             className="button_image"
             alt="ava_activity"
           />

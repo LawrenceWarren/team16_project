@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "short_name": "Avas Angels",
   "name": "Avas Angels iPad web app",
   "icons": [
@@ -13,6 +14,11 @@
       "type": "image/png"
     }
   ],
+=======
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [],
+>>>>>>> backendChen
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#ffffff",
