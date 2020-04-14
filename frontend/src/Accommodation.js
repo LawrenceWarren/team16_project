@@ -1,76 +1,74 @@
-import React from 'react';
-import './css/Accommodation.css';
-import Header from './Header';
+import React from "react";
+import "./css/Accommodation.css";
+import Header from "./Header";
 import Footer from "./Footer";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/Card";
 
 class Accommodation extends React.Component {
+  constructor() {
+    super();
 
-    constructor(){
-        super();    
+    this.state = {
+      hotels: [],
+      isLoaded: false,
+    };
+  }
 
-        this.state={
-            hotels: [],
-            isLoaded: false,
-        };
+  callServer() {
+    fetch("/hotel")
+      .then((res) => res.json())
+      .then((res) => this.setState({ isLoaded: true, hotels: res }))
+      .catch((err) => err);
+  }
+
+  componentDidMount() {
+    this.callServer();
+  }
+
+  render() {
+    var { isLoaded, hotels } = this.state;
+
+    if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          <Header />
+          <div class="accommodationheader"> Accommodation Nearby </div>
+          <CardGroup>
+            {hotels.map((hotel) => (
+              <Card key={hotel._id}>
+                <Card.Img
+                  variant="top"
+                  src={hotel.linkImage}
+                  className="Hotel-img"
+                />
+
+                <Card.Body>
+                  <Card.Title>{hotel.hotelname}</Card.Title>
+                  <Card.Text>{hotel.description}</Card.Text>
+                </Card.Body>
+
+                <Card.Body>
+                  <Card.Link href={hotel.linkBook} className="link-color">
+                    Book A Room
+                  </Card.Link>
+                  <Card.Link href={hotel.linkReview} className="link-color">
+                    Hotel Reviews
+                  </Card.Link>
+                </Card.Body>
+              </Card>
+            ))}
+            ;
+          </CardGroup>
+          <Footer />
+        </div>
+      );
     }
+  }
 
-    callServer(){
-        fetch("/hotel")
-        .then(res => res.json())
-        .then(res => this.setState({isLoaded: true, hotels: res,}))
-        .catch(err =>err);
-
-        }
-
-    componentDidMount(){
-        this.callServer();
-    }
-
-    render(){
-
-        var {isLoaded, hotels} = this.state;
-
-        if (!isLoaded){
-            return <div>Loading...</div>
-        }
-        else{
-            return(
-                <div>
-                <Header />
-                <div class="accommodationheader"> Accommodation Nearby </div>
-                   <CardGroup>
-                    {hotels.map(hotel =>(
-                        <Card key = {hotel._id}>
-                        
-                         <Card.Img variant="top" src= {hotel.linkImage} className = "Hotel-img"/>
-
-                        <Card.Body>
-                        <Card.Title>{hotel.hotelname}</Card.Title>
-                        <Card.Text>
-                        {hotel.description}
-                        </Card.Text>
-                        </Card.Body>
-           
-                        <Card.Body>
-                        <Card.Link href={hotel.linkBook} className = "link-color">Book A Room</Card.Link>
-                        <Card.Link href={hotel.linkReview} className = "link-color">Hotel Reviews</Card.Link>
-                        </Card.Body>
-
-                        </Card>
-                    ))};
-
-                   </CardGroup>
-                   <Footer />
-                </div>
-
-            );
-        }
-    }
-
-
-    /*
+  /*
        {hotel.hotelname}
                             {hotel.description}
     render(){
@@ -136,8 +134,7 @@ class Accommodation extends React.Component {
             </div>
             )
         }*/
-    }
+}
 //test
-
 
 export default Accommodation;
