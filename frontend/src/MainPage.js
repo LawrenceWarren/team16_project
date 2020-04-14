@@ -2,10 +2,10 @@ import React from "react";
 import "./css/MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { grey as matGrey} from "@material-ui/core/colors";
-import figure from "./resource/Ava's Angels.jpg";
-import introductionFigure from "./resource/AAIntroduction.jpg";
-import actionFigure from "./resource/AAAction.jpg";
+import { grey as matGrey } from "@material-ui/core/colors";
+import figure from "./resource/mainPage/Ava.jpg";
+import introductionFigure from "./resource/mainPage/AAIntroduction.jpg";
+import actionFigure from "./resource/mainPage/AAAction.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
@@ -173,11 +173,7 @@ function MainPage() {
               Charities
             </MainButton>
           </Link>
-          <img
-            src={actionFigure}
-            className="button_image"
-            alt="ava_activity"
-          />
+          <img src={actionFigure} className="button_image" alt="ava_activity" />
           <Link to="/About" className="link">
             <MainButton
               variant="contained"

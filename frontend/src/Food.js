@@ -16,7 +16,7 @@ class Food extends React.Component {
       index: 0, //Used for indexing the array
       foodList: [
         {
-          image: require("./resource/food/connectionFail.png"),
+          image: require("./resource/foodPage/connectionFail.png"),
           name: "",
           address: "",
           type: "",
