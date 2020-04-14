@@ -35,7 +35,7 @@ class Accommodation extends React.Component {
       return (
         <div>
           <Header />
-          <div class="accommodationheader"> Accommodation Nearby </div>
+          <div className="accommodationheader"> Accommodation Nearby </div>
           <CardGroup>
             {hotels.map((hotel) => (
               <Card key={hotel._id}>
