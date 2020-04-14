@@ -25,17 +25,9 @@ const images = [];
 const refs = [];
 const sets = [];
 const threshold = [0.01];
-const length = 57; //!Mistaken ?
+const length = 57;
 
-/*for (let i = 0; i < length; i++) {
-  sets.push({
-    src: require("./resource/AboutPage/activity" + i + ".jpg"),
-  });
-}*/ for (
-  let i = 0;
-  i < length;
-  i++
-) {
+for (let i = 0; i < length; i++) {
   var temp = i;
   const refFirst = React.createRef();
   const refSecond = React.createRef();
@@ -217,15 +209,6 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-
-        <div className="service_header"> Service: </div>
-        <div className="service">
-          <img src={AAService} alt="ava's angel service" />
-        </div>
-
-        <div className="activity_header"> Activity: </div>
-        <LazyLoadPage />
-        <Footer />
 
         <div className="service_header"> Service: </div>
         <div className="service">
