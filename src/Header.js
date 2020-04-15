@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/Header.css";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 const SubMenuItem = (props) =>
   props.official_flag === "true" ? (
@@ -200,7 +200,7 @@ class Menu extends React.Component {
     this.state = {
       showMenuItem: -1,
       showSubMenuItem: -1,
-      needFixed: false,
+      needFixed: true,
     };
   }
 
@@ -226,47 +226,57 @@ class Menu extends React.Component {
     this.setState({ showSubMenuItem: -1 });
   };
 
-  componentDidMount() {
-    const fixedTop = document.getElementById("fixed-menu").offsetTop;
+  /*componentDidMount() {
+    var fixedTop;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fixedTop = document.getElementById("fixed-menu").offsetTop;
+    });
+
     window.onscroll = () => {
       let scrollTop = Math.max(
         document.body.scrollTop,
         document.documentElement.scrollTop
       );
       if (scrollTop >= fixedTop) {
-        this.setState({ needFixed: true });
+      this.setState({ needFixed: true });
       } else if (scrollTop < fixedTop) {
         this.setState({ needFixed: false });
       }
     };
-  }
+  }*/
 
   render() {
     return (
-      <div id="fixed-menu" className={`${this.state.needFixed ? "fixed" : ""}`}>
-        <div className="headerUl">
-          {menuitems.map((level, index) => (
-            <MenuLevel
-              text={level.text}
-              url={level.url}
-              key={index}
-              index={index}
-              onMouseOver={() => {
-                this.handleMenuLevelHover(index);
-              }}
-              onMouseLeave={this.handleMenuLevelLeave}
-              onSubItemMouseOver={(e) => {
-                this.handleSubMenuLevelHover(index, e);
-              }}
-              onSubItemMouseLeave={this.handleSubMenuLevelLeave}
-              showSubMenuItem={this.state.showSubMenuItem}
-              showMenuItem={this.state.showMenuItem}
-            >
-              {level.submenu}
-            </MenuLevel>
-          ))}
+      <BrowserRouter>
+        <div
+          id="fixed-menu"
+          className={`${this.state.needFixed ? "fixed" : ""}`}
+        >
+          <div className="headerUl">
+            {menuitems.map((level, index) => (
+              <MenuLevel
+                text={level.text}
+                url={level.url}
+                key={index}
+                index={index}
+                onMouseOver={() => {
+                  this.handleMenuLevelHover(index);
+                }}
+                onMouseLeave={this.handleMenuLevelLeave}
+                onSubItemMouseOver={(e) => {
+                  this.handleSubMenuLevelHover(index, e);
+                }}
+                onSubItemMouseLeave={this.handleSubMenuLevelLeave}
+                showSubMenuItem={this.state.showSubMenuItem}
+                showMenuItem={this.state.showMenuItem}
+              >
+                {level.submenu}
+              </MenuLevel>
+            ))}
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

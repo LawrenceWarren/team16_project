@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "buildRun": "react-scripts build && node server.js"
   },
@@ -55,8 +55,9 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "react-test-renderer": "^16.13.1",
     "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1"
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^25.2.1",
+    "react-test-renderer": "^16.13.1"
   }
 }
