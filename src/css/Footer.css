@@ -30,6 +30,25 @@
   background-position: center;
 }
 
+/*Styling for the get involved button, and hovering over said button*/
+.getInvolvedButton {
+  font-size: 1.1vw;
+  font-weight: bold;
+  font-family: Georgia;
+  height: 10vw;
+  width: 30vw;
+  color: #ffffff;
+  background-color: #c0087f;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  border-radius: 5px;
+  box-shadow: -2px 2px #e480ce;
+}
+.getInvolvedButton:hover {
+  background-color: #e480ce;
+  box-shadow: -2px 2px #c0087f;
+}
+
 /*The div that contains the buttons*/
 .SocialButtons {
   text-align: center;

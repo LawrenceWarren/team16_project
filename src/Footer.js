@@ -1,26 +1,5 @@
 import React from "react";
 import "./css/Footer.css";
-import { withStyles } from "@material-ui/core/styles";
-import MatButton from "@material-ui/core/Button";
-import { grey as matGrey } from "@material-ui/core/colors";
-
-//Component used for the get involved button
-const GetInvolvedButton = withStyles({
-  root: {
-    fontSize: "1.1vw",
-    fontWeight: "bold",
-    fontFamily: "Georgia",
-    height: "10vw",
-    width: "30vw",
-    color: "#FFFFFF",
-    backgroundColor: "#c0087f",
-    "&:hover": {
-      backgroundColor: "#e480ce",
-    },
-    marginTop: "0.5vw",
-    marginBottom: "0.5vw",
-  },
-})(MatButton);
 
 function Footer() {
   return (
@@ -30,15 +9,14 @@ function Footer() {
 
       {/*Link to getting involved with AvasAngels*/}
       <div align="center">
-        <GetInvolvedButton
-          variant="contained"
-          color="primary"
+        <button
+          className="getInvolvedButton"
           onClick={() => {
             window.open("https://www.avas-angels.com/getinvolved.html");
           }}
         >
-          {"Become Part Of Ava's Angels"}
-        </GetInvolvedButton>
+          Become Part Of Ava's Angels
+        </button>
       </div>
 
       {/*PayPal donation link*/}

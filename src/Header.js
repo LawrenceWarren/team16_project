@@ -2,65 +2,63 @@ import React from "react";
 import "./css/Header.css";
 import { Link } from "react-router-dom";
 
-//SubMenuItem component
+//!SubMenuItem component - this is the text you only see when hovering over Navbar elements
 const SubMenuItem = (props) =>
-  props.official_flag === "true" ? ( //If the official flag is true...
-    <a //...SubMenuItem is a link to an external website, populating the link values with values from props
+  props.official_flag === "true" ? ( //If the official flag is true, then SubMenuItem is a link to an external website, populating the link values with values from props
+    <a
       href={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
-      className={
-        props.showSubMenuItem === props.index ? "subMenuItem-hover" : ""
-      }
+      className={props.SubMenuItem === props.index ? "subMenuItem-hover" : ""}
       target={"_blank"}
       rel={"noopener noreferrer"}
     >
       {props.text}
     </a>
   ) : (
-    //Else if the official flag is false
-    <Link //SubMenuItem is a link to an internal page, populating these values with values from props
+    //Else SubMenuItem is a link to an internal page, populating these values with values from props
+    <Link
       to={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
-      className={
-        props.showSubMenuItem === props.index ? "subMenuItem-hover" : ""
-      }
+      className={props.SubMenuItem === props.index ? "subMenuItem-hover" : ""}
     >
       {props.text}
     </Link>
   );
 
-//Main menu component
-const MenuLevel = (props) => (
+//!MainMenu component - this is the text you permanently see on the NavBar
+const MainMenuItem = (props) => (
   <li
-    //Calls functions and sets styling based on given events
+    //Calls functions and sets styling based on given mouse events
     onMouseOver={props.onMouseOver}
     onMouseLeave={props.onMouseLeave}
-    className={props.showMenuItem === props.index ? "menu-hover" : ""}
+    className={props.MainMenuItem === props.index ? "mainMenu-hover" : ""}
   >
-    {props.text === "Home" ? (
-      <Link to={props.url} className={"menuLevel"}>
+    {props.text === "Home" ? ( //If this is the home button, make it a link to the home page
+      <Link to={props.url} className={"mainMenuElement"}>
         {props.text}
       </Link>
     ) : (
-      <span className={"menuLevel"}>{props.text}</span>
+      //Else make it a "span" (it can expand when hovered)
+      <span className={"mainMenuElement"}>{props.text}</span>
     )}
     <div
+      //Provides styling based on if the Menu Item is hovered over or not.
       className={
-        props.showMenuItem === props.index ? "subMenu-show" : "subMenu-hidden"
+        props.MainMenuItem === props.index ? "subMenu-show" : "subMenu-hidden"
       }
     >
       {props.children.map((item, index) => (
-        <SubMenuItem
+        <SubMenuItem //Creating the subMenu items based on the value of index
           text={item.text}
           key={item.text + index}
           url={item.url}
           official_flag={item.official_flag}
           index={index}
-          showSubMenuItem={props.showSubMenuItem}
+          SubMenuItem={props.SubMenuItem}
           onMouseOver={props.onSubItemMouseOver}
           onMouseLeave={props.onSubItemMouseLeave}
         />
@@ -69,7 +67,7 @@ const MenuLevel = (props) => (
   </li>
 );
 
-//An array of objects detailing each menu and sub-menu item - items at the top appear furthest right of the navBar
+//!An array of objects detailing each menu and sub-menu item - items at the top appear furthest right of the navBar
 const menuItems = [
   //The home button - returns you to route "/" from any page.
   {
@@ -198,61 +196,68 @@ const menuItems = [
   },
 ];
 
+//!The menu component itself
 class Menu extends React.Component {
   constructor() {
     super();
 
+    //State is set based on what they're hovering over
     this.state = {
-      showMenuItem: -1,
-      showSubMenuItem: -1,
+      MainMenuItem: -1,
+      SubMenuItem: -1,
     };
   }
 
-  handleMenuLevelHover = (index) => {
-    this.setState({ showMenuItem: index });
+  //When hovering over a main menu item, set the state
+  MainMenuHover = (index) => {
+    this.setState({ MainMenuItem: index });
   };
 
-  handleMenuLevelLeave = () => {
+  //When your mouse leaves the main menu items, reset the state
+  MainMenuLeave = () => {
     this.setState({
-      showMenuItem: -1,
-      showSubMenuItem: -1,
+      MainMenuItem: -1,
+      SubMenuItem: -1,
     });
   };
 
-  handleSubMenuLevelHover = (index, e) => {
+  //When hovering over a sub menu item, set the state
+  SubMenuHover = (index, e) => {
     this.setState({
-      showMenuItem: index,
-      showSubMenuItem: +e.target.attributes.getNamedItem("data-id").value,
+      MainMenuItem: index,
+      SubMenuItem: +e.target.attributes.getNamedItem("data-id").value,
     });
   };
 
-  handleSubMenuLevelLeave = (e) => {
-    this.setState({ showSubMenuItem: -1 });
+  //When your mouse leaves the sub menu items, reset the state
+  SubMenuLeave = () => {
+    this.setState({ SubMenuItem: -1 });
   };
 
+  //!The navBar component which is pinned to the screens top
   render() {
     return (
       <div className="NavBar">
-        <div className="headerUl">
+        <div className="NavBarItems">
           {menuItems.map((level, index) => (
-            <MenuLevel
+            <MainMenuItem
               text={level.text}
               url={level.url}
               key={index}
               index={index}
               onMouseOver={() => {
-                this.handleMenuLevelHover(index);
+                this.MainMenuHover(index);
               }}
-              onMouseLeave={this.handleMenuLevelLeave}
+              onMouseLeave={this.MainMenuLeave}
               onSubItemMouseOver={(e) => {
-                this.handleSubMenuLevelHover(index, e);
+                this.SubMenuHover(index, e);
               }}
-              onSubItemMouseLeave={this.handleSubMenuLevelLeave}
-              showSubMenuItem={this.state.showSubMenuItem}
-              showMenuItem={this.state.showMenuItem}
+              onSubItemMouseLeave={this.SubMenuLeave}
+              SubMenuItem={this.state.SubMenuItem}
+              MainMenuItem={this.state.MainMenuItem}
             >
               {level.subMenu}
-            </MenuLevel>
+            </MainMenuItem>
           ))}
         </div>
       </div>
@@ -260,13 +265,13 @@ class Menu extends React.Component {
   }
 }
 
-//The returned header value
+//!The actual returned header component
 function Header() {
   return (
     <div>
       <Menu />
       <img
-        className="pageHeader"
+        className="Logo"
         src="https://www.avas-angels.com/images/HiResLogo.png"
         alt="Ava's Angel"
       />
