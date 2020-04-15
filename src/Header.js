@@ -1,16 +1,17 @@
 import React from "react";
 import "./css/Header.css";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+//SubMenuItem component
 const SubMenuItem = (props) =>
-  props.official_flag === "true" ? (
+  props.official_flag === "true" ? ( //If the official flag is true...
     <a
       href={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
       className={
-        props.showSubMenuItem === props.index ? "submenuitem-hover" : ""
+        props.showSubMenuItem === props.index ? "subMenuItem-hover" : ""
       }
       target={"_blank"}
       rel={"noopener noreferrer"}
@@ -18,19 +19,21 @@ const SubMenuItem = (props) =>
       {props.text}
     </a>
   ) : (
+    //Else if the official flag is false
     <Link
       to={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
       className={
-        props.showSubMenuItem === props.index ? "submenuitem-hover" : ""
+        props.showSubMenuItem === props.index ? "subMenuItem-hover" : ""
       }
     >
       {props.text}
     </Link>
   );
 
+//Main menu component
 const MenuLevel = (props) => (
   <li
     onMouseOver={props.onMouseOver}
@@ -38,15 +41,15 @@ const MenuLevel = (props) => (
     className={props.showMenuItem === props.index ? "menu-hover" : ""}
   >
     {props.text === "Home" ? (
-      <Link to={props.url} className={"menulevel"}>
+      <Link to={props.url} className={"menuLevel"}>
         {props.text}
       </Link>
     ) : (
-      <span className={"menulevel"}>{props.text}</span>
+      <span className={"menuLevel"}>{props.text}</span>
     )}
     <div
       className={
-        props.showMenuItem === props.index ? "submenu-show" : "submenu-hidden"
+        props.showMenuItem === props.index ? "subMenu-show" : "subMenu-hidden"
       }
     >
       {props.children.map((item, index) => (
@@ -65,16 +68,19 @@ const MenuLevel = (props) => (
   </li>
 );
 
-const menuitems = [
+//An array of objects detailing each menu and sub-menu item - items at the top appear furthest right of the navBar
+const menuItems = [
+  //The home button - returns you to route "/" from any page.
   {
     text: "Home",
     url: "/",
-    submenu: [],
+    subMenu: [],
   },
+  //Infrastructure sub-menu - provides links to Food, Charity & Accommodation pages
   {
     text: "Infrastructure",
     url: "",
-    submenu: [
+    subMenu: [
       {
         text: "Food",
         url: "/Food/",
@@ -92,10 +98,11 @@ const menuitems = [
       },
     ],
   },
+  //Contact sub-menu - provides links to AA Facebook, Twitter, Instagram, LinkedIn & Team16 Contact page
   {
     text: "Contact",
     url: "",
-    submenu: [
+    subMenu: [
       {
         text: "Facebook",
         url: "https://www.facebook.com/avas.angels.739",
@@ -123,10 +130,11 @@ const menuitems = [
       },
     ],
   },
+  //Get involved sub-menu - provides links to AA PayPal, Volunteering, Supporters, Sponsors & Team16 Feedback page
   {
     text: "Get Involved",
     url: "",
-    submenu: [
+    subMenu: [
       {
         text: "Donate",
         url:
@@ -155,19 +163,15 @@ const menuitems = [
       },
     ],
   },
+  //More AA sub-menu - provides link to Team16 About page, "difference", supporters, Shop & News
   {
     text: "More on Ava's Angels",
     url: "",
-    submenu: [
+    subMenu: [
       {
         text: "About Ava's Angels",
         url: "/About/",
         official_flag: "false",
-      },
-      {
-        text: "Angel Services",
-        url: "https://www.avas-angels.com/angelservices.html",
-        official_flag: "true",
       },
       {
         text: "How we make a difference",
@@ -200,7 +204,6 @@ class Menu extends React.Component {
     this.state = {
       showMenuItem: -1,
       showSubMenuItem: -1,
-      needFixed: true,
     };
   }
 
@@ -226,73 +229,46 @@ class Menu extends React.Component {
     this.setState({ showSubMenuItem: -1 });
   };
 
-  /*componentDidMount() {
-    var fixedTop;
-
-    document.addEventListener("DOMContentLoaded", function () {
-      fixedTop = document.getElementById("fixed-menu").offsetTop;
-    });
-
-    window.onscroll = () => {
-      let scrollTop = Math.max(
-        document.body.scrollTop,
-        document.documentElement.scrollTop
-      );
-      if (scrollTop >= fixedTop) {
-      this.setState({ needFixed: true });
-      } else if (scrollTop < fixedTop) {
-        this.setState({ needFixed: false });
-      }
-    };
-  }*/
-
   render() {
     return (
-      <BrowserRouter>
-        <div
-          id="fixed-menu"
-          className={`${this.state.needFixed ? "fixed" : ""}`}
-        >
-          <div className="headerUl">
-            {menuitems.map((level, index) => (
-              <MenuLevel
-                text={level.text}
-                url={level.url}
-                key={index}
-                index={index}
-                onMouseOver={() => {
-                  this.handleMenuLevelHover(index);
-                }}
-                onMouseLeave={this.handleMenuLevelLeave}
-                onSubItemMouseOver={(e) => {
-                  this.handleSubMenuLevelHover(index, e);
-                }}
-                onSubItemMouseLeave={this.handleSubMenuLevelLeave}
-                showSubMenuItem={this.state.showSubMenuItem}
-                showMenuItem={this.state.showMenuItem}
-              >
-                {level.submenu}
-              </MenuLevel>
-            ))}
-          </div>
+      <div className="NavBar">
+        <div className="headerUl">
+          {menuItems.map((level, index) => (
+            <MenuLevel
+              text={level.text}
+              url={level.url}
+              key={index}
+              index={index}
+              onMouseOver={() => {
+                this.handleMenuLevelHover(index);
+              }}
+              onMouseLeave={this.handleMenuLevelLeave}
+              onSubItemMouseOver={(e) => {
+                this.handleSubMenuLevelHover(index, e);
+              }}
+              onSubItemMouseLeave={this.handleSubMenuLevelLeave}
+              showSubMenuItem={this.state.showSubMenuItem}
+              showMenuItem={this.state.showMenuItem}
+            >
+              {level.subMenu}
+            </MenuLevel>
+          ))}
         </div>
-      </BrowserRouter>
+      </div>
     );
   }
 }
 
+//The returned header value
 function Header() {
   return (
     <div>
       <Menu />
-      <header>
-        <div className="pageHeader" align="center">
-          <img
-            src="https://www.avas-angels.com/images/HiResLogo.png"
-            alt="Ava's Angel"
-          />
-        </div>
-      </header>
+      <img
+        className="pageHeader"
+        src="https://www.avas-angels.com/images/HiResLogo.png"
+        alt="Ava's Angel"
+      />
     </div>
   );
 }

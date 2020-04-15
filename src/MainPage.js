@@ -2,7 +2,7 @@ import React from "react";
 import "./css/MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { grey as matGrey} from "@material-ui/core/colors";
+import { grey as matGrey } from "@material-ui/core/colors";
 import figure from "./resource/Ava's Angels.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -26,26 +26,26 @@ const MainButton = withStyles({
   },
 })(Button);
 
-const FoodContactMarginStyle = makeStyles((theme) => ({
+const FoodContactMarginStyle = makeStyles((_theme) => ({
   margin: {
     marginRight: "3vw",
   },
 }));
 
-const AccomFeedBackMarginStyle = makeStyles((theme) => ({
+const AccomFeedBackMarginStyle = makeStyles((_theme) => ({
   margin: {
     marginLeft: "3vw",
   },
 }));
 
-const CharityMarginStyle = makeStyles((theme) => ({
+const CharityMarginStyle = makeStyles((_theme) => ({
   margin: {
     marginRight: "5vw",
     marginBottom: "5vw",
   },
 }));
 
-const AboutMarginStyle = makeStyles((theme) => ({
+const AboutMarginStyle = makeStyles((_theme) => ({
   margin: {
     marginLeft: "5vw",
     marginBottom: "5vw",

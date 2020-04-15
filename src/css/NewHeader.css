@@ -1,0 +1,31 @@
+.pageHeader {
+  margin-top: 4vw;
+  background-color: white;
+  margin-bottom: -1vw;
+}
+
+.NavBar {
+  background-color: #8abad3;
+  width: 100vw;
+  height: 5vh;
+  position: fixed;
+  top: 0;
+}
+
+.Home {
+  height: 95%;
+  width: 10vw;
+  float: left;
+}
+
+.Logo {
+  height: 95%;
+  width: auto;
+  float: right;
+  margin-right: 2vw;
+}
+
+.blankSpace {
+  width: 100vw;
+  height: 5vh;
+}
