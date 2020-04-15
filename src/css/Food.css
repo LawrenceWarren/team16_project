@@ -30,7 +30,8 @@
   max-width: 85%;
   padding-left: 0px;
   padding-right: 0px;
-  box-shadow: 5px #000000;
+  color: #ffffff;
+  background-color: #e480ce;
 }
 
 /*Styling for left and right on screen swipe indicators*/
@@ -49,6 +50,7 @@
 
 /*Styling for the picture for each item*/
 .picture {
+  border: 0.25vw solid #c0087f;
   max-width: 70%;
   height: auto;
   margin: 10px;
@@ -63,4 +65,9 @@
   font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
     STHeiti, MingLiu;
   line-height: 105%;
+}
+
+/*Link colours*/
+a {
+  color: #c0087f;
 }

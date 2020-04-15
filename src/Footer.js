@@ -12,10 +12,10 @@ const GetInvolvedButton = withStyles({
     fontFamily: "Georgia",
     height: "10vw",
     width: "30vw",
-    color: "rgba(39, 39, 39,0.7)",
-    backgroundColor: "#FFFFFF",
+    color: "#FFFFFF",
+    backgroundColor: "#c0087f",
     "&:hover": {
-      backgroundColor: matGrey[400],
+      backgroundColor: "#e480ce",
     },
     marginTop: "0.5vw",
     marginBottom: "0.5vw",

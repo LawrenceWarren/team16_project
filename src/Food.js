@@ -64,7 +64,7 @@ class Food extends React.Component {
   //Calls the server upon page loading
   callServer() {
     fetch("/foodReq") //Fetch from the server
-      .then((res) => res.json()) //JSONify the data
+      .then((res) => res.json()) //JSON-ify the data
       .then((res) => this.setState({ foodList: res })) //Pass the JSON into state
       .catch(
         (err) => err,
@@ -82,8 +82,6 @@ class Food extends React.Component {
   //!-------------!//
   render() {
     //Print for debugging purposes
-    console.log("Debug: " + this.state.foodList[this.state.index]?.name);
-
     //!DOM
     return (
       <div className="mainDiv">
@@ -117,35 +115,45 @@ class Food extends React.Component {
             />
             {/*Name */}
             <b>
-              <p className="title">Name</p>
+              <u>
+                <p className="title">Name</p>
+              </u>
             </b>
             <p className="content">
               {this.state.foodList[this.state.index]?.name}
             </p>
             {/*Address*/}
             <b>
-              <p className="title">Address</p>
+              <u>
+                <p className="title">Address</p>
+              </u>
             </b>
             <p className="content">
               {this.state.foodList[this.state.index]?.address}
             </p>
             {/*Type*/}
             <b>
-              <p className="title">Type</p>
+              <u>
+                <p className="title">Type</p>
+              </u>
             </b>
             <p className="content">
               {this.state.foodList[this.state.index]?.type}
             </p>
             {/*Pricing*/}
             <b>
-              <p className="title">Price</p>
+              <u>
+                <p className="title">Price</p>
+              </u>
             </b>
             <p className="content">
               {this.state.foodList[this.state.index]?.price}
             </p>
             {/*Link to site*/}
             <b>
-              <p className="title">External Link</p>
+              <u>
+                <p className="title">External Link</p>
+              </u>
             </b>
             <a href={this.state.foodList[this.state.index]?.link}>
               <p className="content">

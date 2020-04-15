@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //SubMenuItem component
 const SubMenuItem = (props) =>
   props.official_flag === "true" ? ( //If the official flag is true...
-    <a
+    <a //...SubMenuItem is a link to an external website, populating the link values with values from props
       href={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
@@ -20,7 +20,7 @@ const SubMenuItem = (props) =>
     </a>
   ) : (
     //Else if the official flag is false
-    <Link
+    <Link //SubMenuItem is a link to an internal page, populating these values with values from props
       to={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
@@ -36,6 +36,7 @@ const SubMenuItem = (props) =>
 //Main menu component
 const MenuLevel = (props) => (
   <li
+    //Calls functions and sets styling based on given events
     onMouseOver={props.onMouseOver}
     onMouseLeave={props.onMouseLeave}
     className={props.showMenuItem === props.index ? "menu-hover" : ""}
