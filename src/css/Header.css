@@ -1,7 +1,7 @@
 /*This is the logo which appears fixed at the top of every page*/
 .Logo {
   display: block;
-  margin-top: 6vw;
+  margin-top: 5vw;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1vw;
@@ -22,8 +22,7 @@
 /*This code is also for the navbar, but specifically for the objects within the navbar*/
 .NavBarItems {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  height: 4vw;
   overflow: hidden;
   background-color: #c0087f;
   font-weight: bold;
@@ -44,7 +43,7 @@
   display: inline-block;
   color: #ffffff;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1vw 16px;
   text-decoration: none;
   cursor: pointer;
 }
