@@ -1,16 +1,11 @@
 import React from "react";
 import { create } from "react-test-renderer";
 import Food from "../Food";
-import { BrowserRouter } from "react-router-dom";
 
-describe("Food Page renders:", () => {
-  test("Without failing", () => {
+describe("Food page status:", () => {
+  test("Has the <Food /> component been updated", () => {
     //Create a snapshot of Food page
-    const component = create(
-      <BrowserRouter>
-        <Food />
-      </BrowserRouter>
-    );
+    const component = create(<Food />);
 
     //Compares it to an old snapshot
     expect(component.toJSON()).toMatchSnapshot();
@@ -255,3 +250,6 @@ describe("Connecting to server", () => {
     //Some test
   });
 });
+
+//https://medium.com/@manastunga/unit-testing-api-calls-in-react-enzyme-and-jest-133b87aaacb4
+//https://medium.com/@the_teacher/how-to-test-console-output-console-log-console-warn-with-rtl-react-testing-library-and-jest-6df367736cf0
