@@ -50,7 +50,7 @@ class Food extends React.Component {
   //Sets the state of index to decrease by 1,
   //or wrap around to the largest value
   onClickBack = () => {
-    if (this.state.index - 1 === -1) {
+    if (this.state.index === 0) {
       this.setState({
         index: this.state.foodList.length - 1,
       });
@@ -62,19 +62,18 @@ class Food extends React.Component {
   };
 
   //Calls the server upon page loading
-  callServer() {
-    fetch("/foodReq") //Fetch from the server
-      .then((res) => res.json()) //JSON-ify the data
-      .then((res) => this.setState({ foodList: res })) //Pass the JSON into state
-      .catch(
-        (err) => err,
-        () => console.log("There has been an error reading from DB!")
-      ); //Catch errors
-  }
-
-  //Mounts the callServer function upon page loading, calling it
   componentDidMount() {
-    this.callServer();
+    console.log("Food: Fetching from server...");
+    fetch("/foodReq") //Fetch from the server
+      .then((res) => res.json()) //JSON-ify the data  //!TEST
+      .then(
+        (res) => this.setState({ foodList: res }), //Pass the JSON into state //!TEST
+        console.log("Food: Data from the server has been received!") //Log this event.
+      )
+      .catch(
+        (err) => err, //!TEST
+        () => console.log("Food: There has been an error reading from DB!") //!TEST
+      ); //Catch errors
   }
 
   //!-------------!//
@@ -119,7 +118,7 @@ class Food extends React.Component {
                 <p className="title">Name</p>
               </u>
             </b>
-            <p className="content">
+            <p id="nameID" className="content">
               {this.state.foodList[this.state.index]?.name}
             </p>
             {/*Address*/}
@@ -128,7 +127,7 @@ class Food extends React.Component {
                 <p className="title">Address</p>
               </u>
             </b>
-            <p className="content">
+            <p id="addressID" className="content">
               {this.state.foodList[this.state.index]?.address}
             </p>
             {/*Type*/}
@@ -137,7 +136,7 @@ class Food extends React.Component {
                 <p className="title">Type</p>
               </u>
             </b>
-            <p className="content">
+            <p id="typeID" className="content">
               {this.state.foodList[this.state.index]?.type}
             </p>
             {/*Pricing*/}
@@ -146,7 +145,7 @@ class Food extends React.Component {
                 <p className="title">Price</p>
               </u>
             </b>
-            <p className="content">
+            <p id="priceID" className="content">
               {this.state.foodList[this.state.index]?.price}
             </p>
             {/*Link to site*/}
@@ -156,7 +155,7 @@ class Food extends React.Component {
               </u>
             </b>
             <a href={this.state.foodList[this.state.index]?.link}>
-              <p className="content">
+              <p id="linkID" className="content">
                 {this.state.foodList[this.state.index]?.link}
               </p>
             </a>

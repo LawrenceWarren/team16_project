@@ -51,13 +51,13 @@ class Contact extends React.Component {
       data: payload,
     })
       .then(() => {
-        console.log("Data has been sent to the server!");
+        console.log("Contact: Data has been sent to the server!");
 
         //Redirect to intermeidate page
         window.location.href = "/Intermediate";
       })
       .catch(() => {
-        console.log("Fail to send to the server!");
+        console.log("Contact: Fail to send to the server!");
       });
   }
 

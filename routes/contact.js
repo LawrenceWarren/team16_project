@@ -2,7 +2,7 @@ const express = require("express");
 const contactRouter = express.Router();
 const Contact = require("../model/Contact");
 var nodemailer = require("nodemailer");
-const creds = require("./emailConfig");
+const credentials = require("./emailConfig");
 
 // Pass the credentials to the SMTP transport
 var transport = {
@@ -10,8 +10,8 @@ var transport = {
   post: 465,
   secure: true,
   auth: {
-    user: creds.USER,
-    pass: creds.PASS,
+    user: credentials.USER,
+    pass: credentials.PASS,
   },
 };
 
@@ -20,9 +20,9 @@ var transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, _success) => {
   if (error) {
-    console.log(error);
+    console.log("Contact: " + error);
   } else {
-    console.log("Server is ready to take messages");
+    console.log("Contact: Ready to take messages");
   }
 });
 
@@ -44,7 +44,7 @@ contactRouter.post("/", async (req, res) => {
 
   // The data that stored the mail information such as send, receive email address, subject and content.
   var mail = {
-    from: creds.USER,
+    from: credentials.USER,
     to: req.body.email,
     subject: "Confirmation Email From Ava's Angels",
     html:

@@ -21,8 +21,10 @@ mongoose.connect(process.env.DATABASE_URL, {
 });
 
 const db = mongoose.connection;
-db.on("error", (error) => console.log(error)); //If there's an error, log it
-db.once("open", () => console.log("connection to db established")); //Log that the connection is established
+db.on("error", (error) => console.log("Server: " + error)); //If there's an error, log it
+db.once("open", () =>
+  console.log("Server: Connection to database established")
+); //Log that the connection is established
 
 //!Server code
 app.use(express.json()); //This line is for json body parses - allows for POST routes
@@ -46,4 +48,4 @@ app.get("/*", function (_req, res) {
 });
 
 //App begins listening on whatever port is specified
-app.listen(port, () => console.log("App listening on " + port));
+app.listen(port, () => console.log("Server: Listening on " + port));

@@ -18,15 +18,15 @@ const SubMenuItem = (props) =>
     </a>
   ) : (
     //Else SubMenuItem is a link to an internal page, populating these values with values from props
-    <Link
-      to={props.url}
+    <a
+      href={props.url}
       data-id={props.index}
       onMouseOver={props.onMouseOver}
       onMouseLeave={props.onMouseLeave}
       className={props.SubMenuItem === props.index ? "subMenuItem-hover" : ""}
     >
       {props.text}
-    </Link>
+    </a>
   );
 
 //!MainMenu component - this is the text you permanently see on the NavBar
@@ -38,9 +38,9 @@ const MainMenuItem = (props) => (
     className={props.MainMenuItem === props.index ? "mainMenu-hover" : ""}
   >
     {props.text === "Home" ? ( //If this is the home button, make it a link to the home page
-      <Link to={props.url} className={"mainMenuElement"}>
+      <a href={props.url} className={"mainMenuElement"}>
         {props.text}
-      </Link>
+      </a>
     ) : (
       //Else make it a "span" (it can expand when hovered)
       <span className={"mainMenuElement"}>{props.text}</span>
