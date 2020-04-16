@@ -20,17 +20,12 @@ const css = {
     display: "block",
   },
 };
+
 const images = [];
 const refs = [];
 const sets = [];
 const threshold = [0.01];
 const length = 57;
-
-for (let i = 0; i < length; i++) {
-  sets.push({
-    src: require("./resource/AboutPage/activity" + i + ".jpg"),
-  });
-}
 
 for (let i = 0; i < length; i++) {
   var temp = i;
@@ -40,7 +35,6 @@ for (let i = 0; i < length; i++) {
   const first = i;
   const second = ++i;
   const third = ++i;
-
   switch (length - temp) {
     case 1:
       refs.push(refFirst);

@@ -16,7 +16,7 @@ foodRouter.get("/", async (_req, res) => {
 });
 
 //!These routes are currently unneeded. will be needed for CMS!
-/*//Create One Route
+//Create One Route
 foodRouter.post("/", async (req, res) => {
   const food = new FoodModel({
     image: req.body.image,
@@ -118,6 +118,6 @@ async function getFood(req, res, next) {
   }
   res.food = food;
   next();
-}*/
+}
 
 module.exports = foodRouter;

@@ -2,6 +2,7 @@ import React from "react";
 import "./css/Contact.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import axios from "axios";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -29,8 +30,35 @@ class Contact extends React.Component {
   }
 
   handleSubmit(event) {
-    //To connect database
     event.preventDefault();
+
+    // Contact info that stores in database
+    const payload = {
+      firstname: this.state.firstName,
+      lastname: this.state.lastName,
+      email: this.state.email,
+      phoneNum: this.state.phone,
+      message:
+        this.state.message === "Leave your message here"
+          ? " "
+          : this.state.message,
+    };
+
+    // Post to api
+    axios({
+      url: "/contactReq",
+      method: "POST",
+      data: payload,
+    })
+      .then(() => {
+        console.log("Data has been sent to the server!");
+
+        //Redirect to intermeidate page
+        window.location.href = "/Intermediate";
+      })
+      .catch(() => {
+        console.log("Fail to send to the server!");
+      });
   }
 
   render() {
@@ -41,7 +69,7 @@ class Contact extends React.Component {
         <div className="contact_header"> Contact </div>
 
         <div align="center">
-          <form className="contact_form">
+          <form className="contact_form" onSubmit={this.handleSubmit}>
             <div>
               <label>
                 <strong>First Name *</strong>

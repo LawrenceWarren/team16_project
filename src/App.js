@@ -8,6 +8,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Feedback from "./Feedback";
 import ScrollToTop from "./ScrollToTop";
+import Intermediate from "./Intermediate";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
             <Route path="/About" component={About} />
             <Route path="/Contact" component={Contact} />
             <Route path="/Feedback" component={Feedback} />
+            <Route path="/Intermediate" component={Intermediate} />
           </div>
         </ScrollToTop>
       </Router>
