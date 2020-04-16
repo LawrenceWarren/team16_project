@@ -37,21 +37,23 @@
 /*Styling for left and right on screen swipe indicators*/
 .swipeRight {
   height: auto;
-  width: 10%;
+  width: 15%;
   float: right;
-  padding: 10px;
+  padding-right: 5px;
+  padding-top: 10px;
 }
 .swipeLeft {
   height: auto;
-  width: 10%;
+  width: 15%;
   float: left;
-  padding: 10px;
+  padding-left: 5px;
+  padding-top: 10px;
 }
 
 /*Styling for the picture for each item*/
 .picture {
   border: 0.25vw solid #c0087f;
-  max-width: 70%;
+  max-width: 65%;
   height: auto;
   margin: 10px;
   display: inline-block;
