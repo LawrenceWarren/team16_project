@@ -28,7 +28,7 @@ Overseeing the project is:
 
 ### **What does this code use to run?**
 
-This codebase represents a full-stack NodeJS web application, with the frontend based on the React NodeJS framework (bootstrapped by `create react app`) and the backend server & API code is written in NodeJS using Express. The database for the site is a noSQL MongoDB database hosted for free on MongoDB Atlas, and the site itself is hosted for free on Heroku.
+This codebase represents a full-stack _NodeJS_ web application, with the frontend based on the NodeJS framework _React_ (bootstrapped by `create react app`) and with the backend server & API code written in _NodeJS_ using the _Express_ framework. The database for the site is a _noSQL_ (specifically _MongoDB_) database hosted for free on MongoDB Atlas, with the site itself is hosted for free on _Heroku_.
 
 ### **Where can I find this code?**
 
