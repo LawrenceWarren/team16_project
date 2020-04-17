@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Food page status:  If the <Food /> component been updated. 1`] = `
+exports[`Food page status:  If the <Food /> component has been updated. 1`] = `
 <div
   className="mainDiv"
 >

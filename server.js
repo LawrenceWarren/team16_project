@@ -28,7 +28,7 @@ db.once("open", () =>
 
 //!Server code
 app.use(express.json()); //This line is for json body parses - allows for POST routes
-app.use(favicon(__dirname + "/build/favicon.ico")); //Finds the favicon for the site
+app.use(favicon(__dirname + "/build/favicon.ico")); //Finds the favicon for the site (the icon on tabs)
 app.use(express.static(__dirname)); //Makes the returned pages static (?)
 app.use(express.static(path.join(__dirname, "build"))); //Uses the build file
 app.use(cors());

@@ -1,60 +1,82 @@
-# README
+# AvasAngels iPad terminal
 
-## Heroku deployments
+## Introduction
 
-[Master branch](https://avas-angels.herokuapp.com/ "Main project deployment")
-[Develop branch](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment")
-[Server branch](http://avas-angels-develop-server.herokuapp.com/ "Is currently (13/04/2020) the only functional heroku deployment")
+---
+
+### **What is this?**
+
+This codebase is Team 16's production code for The University of Nottingham's second-year Computer Science group project module (**COMP2002** or **G52GRP**) <br>
+
+Team 16 are working with software company [Kainos](https://www.kainos.com/) and charity [Avas Angels](https://www.avas-angels.com/) to produce a web-app, intended for use on an iPad terminal within a Birmingham children's hospital ICU unit by the parents of sick children. The terminal is intended to give the parents more information about the charity and the services available to them in and around the hospital, as well as give them opportunities to leave feedback and contact details for the charity.
+
+### **Who made this?**
+
+Team 16 consists of:
+
+- Ali Soufan (Team leader)
+- Lawrence Warren (Git Master)
+- Ben Smith (Team administrator)
+- Yutian Chen
+- Wenzheng _"Steven"_ Shan
+- Junhao Zhang
+
+Overseeing the project is:
+
+- Ender Ozcan (Academic supervisor)
+- Phil Akers (Avas Angels charity representative)
+- Pedro Mendonca (Kainos representative)
+- Nick Harewood (Kainos representative)
+
+### **Where can I find this code?**
+
+This codebase is hosted in the repository on [GitLab](https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project) and mirrored for Heroku at [GitHub](https://github.com/psyljw/team16_project). <br>
+It is deployed at the following locations using Heroku (_Note that the web-app is intended to be viewed on an iPad_):
+
+- [master branch deployment](https://avas-angels.herokuapp.com/ "Main project deployment") <br>
+- [develop branch deployment](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment") <br>
+- [serverStuff branch deployment](http://avas-angels-develop-server.herokuapp.com/ "Current working deployment") (**17:04:2020:** This is only working deployment)
 
 ## Available Scripts
 
-In the project directory, you can run:
+---
 
-### `npm start`
+_For more information on exactly how the scripts run, view the `"scripts"` tag in `package.json`._ <br> In the project directory, you can run the following commands:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **`npm start`**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This command simply runs `node server.js` on [http://localhost:8080](http://localhost:8080). `npm start` is the command run by Heroku when deploying.
 
-### `npm test`
+### **`npm run liveStart`**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode.<br>
+Opens [http://localhost:3000](http://localhost:3000) automatically, and reloads the page automatically when you save changes to the file - you will also see any lint errors in the console.<br>
+Currently, `npm run liveStart` does _not_ fetch from the database as it does not enter the program at `server.js`. `npm run live Start` is therefore best used for developing hard coded content such as page styling - if you are working on debugging net code, use the following script, `npm run buildRun`.<br>
 
-### `npm run build`
+### **`npm run buildRun`**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A custom script for building and running the project. <br>
+This script is best used when testing server code or for changes to the database. It automatically runs `npm build` followed by `node server.js` on [http://localhost:8080](http://localhost:8080). <br>
+The server is configured to run the production-ready build files (the same way Heroku does) so if you want to see changes you must build first.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### **`npm test`**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Launches the test runner, automatically running all test suits that can be found. <br>
+Test files should be placed within the `tests/` directory in the root.
 
-### `npm install`
+### **`npm run build`**
 
-Upon cloning the repository, it is important to run `npm install` in order to gain the dependencies, listed in `package.json`.
+Builds the app, ready for production, into the `build/` directory.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance - the build is minified and the filenames include the hashes.
 
-### `npm run buildRun`
+### **`npm install`**
 
-Custom script written by Lawrence for `build`ing your project and then immediately running it, useful for testing server connections.
-
-### `npm run eject`
-
-**This is a one-way operation. Once you `eject`, you can’t go back - SHOULD ONLY BE RUN BY ON A BRANCH**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-An example of a feature allowed by ejecting would be server side rendering.
+Upon cloning, pulling or checking out the repository, it is important to run `npm install` in order to acquire the dependencies listed in `package.json`.
 
 ## About React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app "Create React App GitHub repository")!
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). <br>
 To learn React, check out the [React documentation](https://reactjs.org/).

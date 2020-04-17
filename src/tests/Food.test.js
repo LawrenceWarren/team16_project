@@ -7,7 +7,7 @@ import Food from "../Food";
 //! SUITE 1 : Snapshot rendering tests
 describe("Food page status: ", () => {
   //! TEST 1 : If the food component has been updated since last snapshot
-  test("If the <Food /> component been updated.", () => {
+  test("If the <Food /> component has been updated.", () => {
     //Create a snapshot of Food page
     const component = create(<Food />);
 
