@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Food Page renders: Without failing 1`] = `
+exports[`Food page status:  If the <Food /> component been updated. 1`] = `
 <div
   className="mainDiv"
 >
@@ -291,11 +291,13 @@ exports[`Food Page renders: Without failing 1`] = `
       className="contentContainer"
     >
       <img
+        alt="Upon pressing, you move backwards through the eateries."
         className="swipeLeft"
         onClick={[Function]}
         src="swipeLeft.png"
       />
       <img
+        alt="Upon pressing, you move forwards through the eateries."
         className="swipeRight"
         onClick={[Function]}
         src="swipeRight.png"

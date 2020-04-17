@@ -61,19 +61,21 @@ class Food extends React.Component {
     }
   };
 
-  //Calls the server upon page loading
-  componentDidMount() {
+  //Calls the server after the DOM is rendered
+  async componentDidMount() {
     console.log("Food: Fetching from server...");
-    fetch("/foodReq") //Fetch from the server
-      .then((res) => res.json()) //JSON-ify the data  //!TEST
-      .then(
-        (res) => this.setState({ foodList: res }), //Pass the JSON into state //!TEST
-        console.log("Food: Data from the server has been received!") //Log this event.
-      )
-      .catch(
-        (err) => err, //!TEST
-        () => console.log("Food: There has been an error reading from DB!") //!TEST
-      ); //Catch errors
+    try {
+      const res = await fetch("/foodReq");
+      if (res.status >= 400) {
+        throw new Error("There was an error in the HTTP request.");
+      }
+
+      const food = await res.json();
+      this.setState({ foodList: food });
+      console.log("Food: Data from the server has been received!");
+    } catch (err) {
+      console.error("Food: " + err);
+    }
   }
 
   //!-------------!//
@@ -99,13 +101,14 @@ class Food extends React.Component {
               src={require("./resource/food/swipeLeft.png")}
               className="swipeLeft"
               onClick={this.onClickBack}
+              alt="Upon pressing, you move backwards through the eateries."
             />
             <img
               src={require("./resource/food/swipeRight.png")}
               className="swipeRight"
               onClick={this.onClickForward}
+              alt="Upon pressing, you move forwards through the eateries."
             />
-
             {/*Picture */}
             <img
               src={this.state.foodList[this.state.index]?.image}

@@ -1,6 +1,5 @@
 import React from "react";
 import "./css/Header.css";
-import { Link } from "react-router-dom";
 
 //!SubMenuItem component - this is the text you only see when hovering over Navbar elements
 const SubMenuItem = (props) =>
