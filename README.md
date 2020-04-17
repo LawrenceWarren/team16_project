@@ -4,7 +4,7 @@
 
 ### **What is this code?**
 
-This codebase is Team 16's production code for The University of Nottingham's second-year Computer Science group project module (**COMP2002** or **G52GRP**) <br>
+This codebase is Team 16's production code for The University of Nottingham's second-year Computer Science group project module (module codes **COMP2002** or **G52GRP**) <br>
 
 Team 16 are working with software company [Kainos](https://www.kainos.com/) and charity [Avas Angels](https://www.avas-angels.com/) to produce a web-app, intended for use on an iPad terminal within a Birmingham children's hospital ICU unit by the parents of sick children. The terminal is intended to give the parents more information about the charity and the services available to them in and around the hospital, as well as give them opportunities to leave feedback and contact details for the charity.
 
