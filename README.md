@@ -2,15 +2,13 @@
 
 ## Introduction
 
----
-
-### **What is this?**
+### **What is this code?**
 
 This codebase is Team 16's production code for The University of Nottingham's second-year Computer Science group project module (**COMP2002** or **G52GRP**) <br>
 
 Team 16 are working with software company [Kainos](https://www.kainos.com/) and charity [Avas Angels](https://www.avas-angels.com/) to produce a web-app, intended for use on an iPad terminal within a Birmingham children's hospital ICU unit by the parents of sick children. The terminal is intended to give the parents more information about the charity and the services available to them in and around the hospital, as well as give them opportunities to leave feedback and contact details for the charity.
 
-### **Who made this?**
+### **Who made this code?**
 
 Team 16 consists of:
 
@@ -28,18 +26,20 @@ Overseeing the project is:
 - Pedro Mendonca (Kainos representative)
 - Nick Harewood (Kainos representative)
 
+### **What does this code use to run?**
+
+This codebase represents a full-stack NodeJS web application, with the frontend based on the React NodeJS framework (bootstrapped by `create react app`) and the backend server & API code is written in NodeJS using Express. The database for the site is a noSQL MongoDB database hosted for free on MongoDB Atlas, and the site itself is hosted for free on Heroku.
+
 ### **Where can I find this code?**
 
-This codebase is hosted in the repository on [GitLab](https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project) and mirrored for Heroku at [GitHub](https://github.com/psyljw/team16_project). <br>
-It is deployed at the following locations using Heroku (_Note that the web-app is intended to be viewed on an iPad_):
+This codebase is hosted in a repository on [GitLab](https://projects.cs.nott.ac.uk/COMP2002/2019-2020/team16_project) and mirrored for Heroku deployments at [GitHub](https://github.com/psyljw/team16_project). <br>
+It's Heroku deployments can be found at the following locations (_Note that the web-app is intended to be viewed on an iPad_):
 
 - [master branch deployment](https://avas-angels.herokuapp.com/ "Main project deployment") <br>
 - [develop branch deployment](https://avas-angels-develop.herokuapp.com/ "Develop branch deployment") <br>
 - [serverStuff branch deployment](http://avas-angels-develop-server.herokuapp.com/ "Current working deployment") (**17:04:2020:** This is only working deployment)
 
 ## Available Scripts
-
----
 
 _For more information on exactly how the scripts run, view the `"scripts"` tag in `package.json`._ <br> In the project directory, you can run the following commands:
 
@@ -74,8 +74,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 Upon cloning, pulling or checking out the repository, it is important to run `npm install` in order to acquire the dependencies listed in `package.json`.
 
 ## About React
-
----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app "Create React App GitHub repository")!
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). <br>
