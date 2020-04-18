@@ -15,7 +15,7 @@
   width: 100vw;
   border-style: solid;
   border-color: rgba(39, 39, 39, 0.151);
-  border-top-width: vw;
+  border-top-width: 1vw;
   border-bottom-width: 1vw;
   margin-bottom: 3vw;
   display: block;

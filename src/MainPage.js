@@ -74,14 +74,14 @@ function MainPage() {
 
           <p>
             Ava was a perfectly healthy 3 year old girl, who unexpectedly fell
-            ill on a holiday in the Maldives in March 2017. Ava and her parents
-            had had a fantastic holiday and were about to fly home to share
-            their memories. Tragically, Ava had contracted a form of Glandular
-            fever, known as the Epstein Barr Virus, which impacted her brain
-            after a series of incredibly unlikely complications. All options
-            were exhausted over a series of months to give Ava the best possible
-            chance of recovery. Sadly, Ava passed away at home with her parents
-            after a long battle to keep her with them.
+            ill while on holiday in the Maldives in March 2017. Ava and her
+            parents had had a fantastic holiday and were about to fly home to
+            share their memories. Tragically, Ava had contracted a form of
+            Glandular fever, known as the Epstein Barr Virus, which impacted her
+            brain after a series of incredibly unlikely complications. All
+            options were exhausted over a series of months to give Ava the best
+            possible chance of recovery. Sadly, Ava passed away at home with her
+            parents after a long battle.
             <br />
             <br />
             Inspired by Ava, and wanting to help the families of other children
@@ -96,26 +96,30 @@ function MainPage() {
       {/*Info block 2 */}
       <div className="infoBox">
         <div>
-          <h1>Ava's Angels In Action</h1>
+          <h1>The goals of this terminal</h1>
 
-          <p>The goals of Ava's Angels include:</p>
           <ul>
-            <li>Helping families with sick children</li>
             <li>
-              Providing relief of suffering among children being cared for in
-              hospital by providing items, services and emotional support
+              Providing information about services available to families with
+              sick children.
             </li>
             <li>
-              Enabling families to visit, spend quality time with and care for
-              their sick children
+              Providing a relief of suffering for sick children by providing
+              emotional support.
+            </li>
+            <li>
+              Enabling families to visit, spend time with and care for their
+              sick children.
             </li>
           </ul>
           <p>
             This web app focuses on providing support to parents of children in
-            ICUs at a Birmingham hospital. This wish to display information to
-            parents that are staying at the hospital while their children are
-            under treatment. This also provide information about local services,
-            hospital facilities and general support information.
+            Intensive Care at a Birmingham hospital. We wish to display
+            information to parents that are staying in or around the hospital
+            with information such as the eateries and accommodation available to
+            them, more detailed information about the charity, hospital
+            facilities and general support information, and how they can leave
+            feedback and get involved.
           </p>
         </div>
 
@@ -137,7 +141,7 @@ function MainPage() {
               color="primary"
               className={FCMargin.margin}
             >
-              Food
+              Eateries
             </MainButton>
           </a>
           <a href="/Accommodation" className="link">
