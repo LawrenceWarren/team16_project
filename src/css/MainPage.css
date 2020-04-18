@@ -21,7 +21,7 @@
   display: block;
   background-color: grey;
 }
-/*Pictures within the infobox*/
+/*Pictures within the infoBox*/
 .infoBox img {
   display: center;
   float: left;
@@ -30,15 +30,14 @@
   max-height: 100%;
   max-width: 40%;
 }
-
-/*The text*/
+/*Wraps around the <h1> & <p> tags within infoBox*/
 .infoBox div {
   float: left;
   text-align: center;
   overflow: hidden;
   width: 60%;
 }
-
+/*InfoBox titles*/
 .infoBox h1 {
   font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
     STHeiti, MingLiu;
@@ -47,7 +46,7 @@
   color: #c0087f;
   margin-top: 1vw;
 }
-
+/*InfoBox text*/
 .infoBox p {
   font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
     华文细黑, STHeiti, MingLiu;
@@ -58,7 +57,7 @@
   margin-left: 5%;
   margin-right: 5%;
 }
-
+/*InfoBox lists*/
 .infoBox ul {
   font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
     华文细黑, STHeiti, MingLiu;
@@ -71,16 +70,16 @@
   margin-right: 5%;
 }
 
-.exploreButton {
+/*Contains the button elements and the image in the middle*/
+.buttonContainer {
   text-align: center;
-  display: block;
 }
-
-.button_image {
-  width: 35vw;
+/*Styling for the image*/
+.buttonContainer img {
+  width: auto;
   height: 16vw;
 }
-
-.link:hover {
+/*Styling for the links (buttons onClick())*/
+.buttonContainer a {
   text-decoration: none;
 }

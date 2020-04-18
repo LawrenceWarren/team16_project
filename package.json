@@ -12,11 +12,11 @@
   },
   "scripts": {
     "start": "node server.js",
-    "liveStart": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "buildRun": "react-scripts build && node server.js"
+    "buildRun": "react-scripts build && node server.js",
+    "liveRun": "react-scripts start"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.7",

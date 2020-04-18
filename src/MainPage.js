@@ -24,35 +24,37 @@ const MainButton = withStyles({
   },
 })(Button);
 
-const FoodContactMarginStyle = makeStyles((_theme) => ({
+const FoodContactMarginStyle = makeStyles(() => ({
   margin: {
     marginRight: "3vw",
   },
 }));
 
-const AccomFeedBackMarginStyle = makeStyles((_theme) => ({
+const AccommodationFeedBackMarginStyle = makeStyles(() => ({
   margin: {
     marginLeft: "3vw",
   },
 }));
 
-const CharityMarginStyle = makeStyles((_theme) => ({
+const CharityMarginStyle = makeStyles(() => ({
   margin: {
-    marginRight: "5vw",
-    marginBottom: "5vw",
+    marginRight: "3vw",
+    marginTop: "2.5vw",
+    marginBottom: "2.5vw",
   },
 }));
 
-const AboutMarginStyle = makeStyles((_theme) => ({
+const AboutMarginStyle = makeStyles(() => ({
   margin: {
-    marginLeft: "5vw",
-    marginBottom: "5vw",
+    marginLeft: "3vw",
+    marginTop: "2.5vw",
+    marginBottom: "2.5vw",
   },
 }));
 
 function MainPage() {
   const FCMargin = FoodContactMarginStyle();
-  const AFMargin = AccomFeedBackMarginStyle();
+  const AFMargin = AccommodationFeedBackMarginStyle();
   const CMargin = CharityMarginStyle();
   const AMargin = AboutMarginStyle();
 
@@ -63,6 +65,7 @@ function MainPage() {
       <div className="banner"> Introduction: </div>
 
       {/*Info block 1 */}
+
       <div className="infoBox">
         <img
           src={require("./resource/mainPage/Ava.jpg")}
@@ -94,6 +97,7 @@ function MainPage() {
       </div>
 
       {/*Info block 2 */}
+
       <div className="infoBox">
         <div>
           <h1>The goals of this terminal</h1>
@@ -132,8 +136,8 @@ function MainPage() {
       <div className="banner"> Explore: </div>
 
       {/* The buttons start here! */}
-
-      <div className="exploreButton">
+      <div className="buttonContainer">
+        {/*Button row 1*/}
         <div>
           <a href="/Food" className="link">
             <MainButton
@@ -144,6 +148,7 @@ function MainPage() {
               Eateries
             </MainButton>
           </a>
+
           <a href="/Accommodation" className="link">
             <MainButton
               variant="contained"
@@ -154,6 +159,8 @@ function MainPage() {
             </MainButton>
           </a>
         </div>
+
+        {/*Button row 2 (with picture)*/}
         <div>
           <a href="/Charity" className="link">
             <MainButton
@@ -164,11 +171,13 @@ function MainPage() {
               Charities
             </MainButton>
           </a>
+
           <img
             src={require("./resource/mainPage/AAAction.jpg")}
             className="button_image"
             alt="ava_activity"
           />
+
           <a href="/About" className="link">
             <MainButton
               variant="contained"
@@ -179,6 +188,8 @@ function MainPage() {
             </MainButton>
           </a>
         </div>
+
+        {/*Button row 3*/}
         <div>
           <a href="/Contact" className="link">
             <MainButton
