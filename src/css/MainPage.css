@@ -1,110 +1,74 @@
-body {
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-
-.introduce {
+/*The pink banners you see across the top of the page*/
+.banner {
   background-color: #c0087f;
-  margin-top: 1vw;
   color: white;
   font-size: 2.5vw;
   font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
     STHeiti, MingLiu;
   text-align: center;
+  margin-bottom: 3vw;
 }
 
-.introduction {
+/*The dark coloured boxes which contain pictures & text*/
+.infoBox {
+  overflow-y: hidden;
+  width: 100vw;
   border-style: solid;
   border-color: rgba(39, 39, 39, 0.151);
-  border-top-width: 1vw;
+  border-top-width: vw;
   border-bottom-width: 1vw;
-  margin-top: 3vw;
+  margin-bottom: 3vw;
   display: block;
   background-color: grey;
 }
-
-.content-history {
-  text-align: left;
-  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
-    华文细黑, STHeiti, MingLiu;
-  font-size: 1.25vw;
-  font-weight: bold;
-  color: white;
-  line-height: 175%;
-  display: block;
-  float: right;
-  max-width: 55%;
-  width: 55%;
-  margin-left: 5%;
-}
-
-.history-image {
-  display: block;
+/*Pictures within the infobox*/
+.infoBox img {
+  display: center;
   float: left;
+  width: auto;
+  height: auto;
+  max-height: 100%;
   max-width: 40%;
-  width: 40%;
-  max-height: 50%;
-  height: 50%;
 }
 
-.introduction::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
-.content-introduction {
-  text-align: left;
-  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
-    华文细黑, STHeiti, MingLiu;
-  font-size: 1.25vw;
-  font-weight: bold;
-  color: white;
-  line-height: 175%;
-  display: block;
+/*The text*/
+.infoBox div {
   float: left;
-  max-width: 55%;
-  width: 55%;
-  margin-right: 5%;
-}
-
-.introduction-image {
-  display: block;
-  float: right;
-  max-width: 40%;
-  width: 40%;
-  max-height: 40%;
-  height: 40%;
-}
-
-.introductionTitle p {
   text-align: center;
+  overflow: hidden;
+  width: 60%;
+}
+
+.infoBox h1 {
   font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
     STHeiti, MingLiu;
   font-size: 2.5vw;
   font-weight: bold;
   color: #c0087f;
-  margin-bottom: -3vw;
   margin-top: 1vw;
 }
 
-.introductionTitle a {
-  text-decoration: none;
-}
-
-.introductionTitle a:hover {
-  text-decoration: none;
-}
-
-.explore {
-  background-color: #c0087f;
-  margin-bottom: 4vw;
+.infoBox p {
+  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
+    华文细黑, STHeiti, MingLiu;
+  font-size: 1.25vw;
+  font-weight: bold;
   color: white;
-  font-size: 2.5vw;
-  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
-    STHeiti, MingLiu;
-  text-align: center;
+  line-height: 150%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.infoBox ul {
+  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
+    华文细黑, STHeiti, MingLiu;
+  font-size: 1.25vw;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  line-height: 150%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .exploreButton {

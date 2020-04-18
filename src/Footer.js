@@ -67,7 +67,7 @@ function Footer() {
         />
       </div>
 
-      {/*TODO: Currently unused buttons - do we need them?*/}
+      {/* TODO: Currently unused buttons - do we need them?*/}
       <div className="furtherInfo">
         | {/*These pipes are just for display*/}
         <a href="https://www.google.com"> FAQ </a> | {/**/}
