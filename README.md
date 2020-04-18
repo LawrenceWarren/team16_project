@@ -64,6 +64,10 @@ The server is configured to run the production-ready build files (the same way H
 Launches the test runner, automatically running all test suits that can be found. <br>
 Test files should be placed within the `tests/` directory in the root.
 
+### **`npm run silent-test`**
+
+Runs the test runner in the same way `npm-test` does, but suppresses console logging using the command `react-scripts test --silent`. This may be beneficial when running tests with significant console logging, or tests which test for `console.error()`, where a test may pass but still log red error text which can be confusing.
+
 ### **`npm run build`**
 
 Builds the app, ready for production, into the `build/` directory.<br />
