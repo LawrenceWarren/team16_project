@@ -27,7 +27,6 @@
   float: left;
   width: auto;
   height: auto;
-  max-height: 100%;
   max-width: 40%;
 }
 /*Wraps around the <h1> & <p> tags within infoBox*/
