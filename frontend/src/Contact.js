@@ -33,35 +33,32 @@ class Contact extends React.Component {
     event.preventDefault();
 
     // Contact info that stores in database
-    const payload = 
-    {
+    const payload = {
       firstname: this.state.firstName,
       lastname: this.state.lastName,
       email: this.state.email,
       phoneNum: this.state.phone,
-      message: (this.state.message === "Leave your message here") ? " " : this.state.message
-    }
+      message:
+        this.state.message === "Leave your message here"
+          ? " "
+          : this.state.message,
+    };
 
     // Post to api
-    axios(
-      {
-        url: 'http://localhost:4000/contact',
-        method: 'POST',
-        data: payload,
-      }
-    )
-    .then(() => 
-    {
-      console.log('Data has been sent to the server!')
-
-      //Redirect to intermeidate page
-      window.location.href = '/Intermediate';
+    axios({
+      url: "http://localhost:4000/contact",
+      method: "POST",
+      data: payload,
     })
-    .catch(() => 
-    {
-      console.log('Fail to send to the server!')
-    }
-    )
+      .then(() => {
+        console.log("Data has been sent to the server!");
+
+        //Redirect to intermeidate page
+        window.location.href = "/Intermediate";
+      })
+      .catch(() => {
+        console.log("Fail to send to the server!");
+      });
   }
 
   render() {

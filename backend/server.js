@@ -20,16 +20,12 @@ app.use(express.json()); //This line is for json body parses - allows for POST r
 app.use(cors()); //Allows for cross site scripting, which does something
 
 //!Upon merging, References to other routes should go here
-const loginRouter = require("./routes/login");
-app.use("/login", loginRouter);
-const registerRouter = require("./routes/register");
-app.use("/register", registerRouter);
-const foodRouter = require("./routes/food");
-app.use("/food", foodRouter);
-const contactRouter = require("./routes/contact");
-app.use("/contact", contactRouter);
-const hotelRouter = require("./routes/hotel");
-app.use("/hotel", hotelRouter);
+app.use("/login", require("./routes/login"));
+app.use("/register", require("./routes/register"));
+app.use("/food", require("./routes/food"));
+app.use("/contact", require("./routes/contact"));
+app.use("/hotel", require("./routes/hotel"));
+app.use("/charity", require("./routes/charity"));
 
 //launch server
 app.listen(process.env.PORT, () =>
