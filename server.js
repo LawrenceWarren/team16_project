@@ -37,6 +37,7 @@ app.use(cors());
 app.use("/foodReq", require("./routes/foodRouter")); //Food page requests
 app.use("/contactReq", require("./routes/contact")); //Contact page requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page requests
+app.use("/charityReq", require("./routes/charity")); //Charity page requests
 
 //?These routes are currently unused
 app.use("/login", require("./routes/login")); //?login requests

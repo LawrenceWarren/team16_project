@@ -1,202 +1,149 @@
 import React from "react";
 import "./css/Charity.css";
-import { makeStyles } from "@material-ui/core/styles";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Header from "./Header";
 import Footer from "./Footer";
-import SearchIcon from "./resource/charityPage/charitySearch.jpg";
+import { Swipeable } from "react-swipeable";
 
-const tileData = [
-  {
-    img: "https://upload.wikimedia.org/wikipedia/en/0/01/Mind-logo.gif",
-    title: "Birmingham Mind",
-    url: "https://birminghammind.org/",
-  },
-  {
-    img:
-      "https://breastcancersupport.org.uk/wp-content/uploads/2015/11/logo.png",
-    title: "Breast Cancer Support Charity",
-    url: "https://breastcancersupport.org.uk/",
-  },
-  {
-    img:
-      "https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png",
-    title: "Baron Davenport Charity",
-    url: "https://www.barondavenportscharity.org/",
-  },
-  {
-    img:
-      "https://www.cancerresearchuk.org/sites/all/themes/custom/cruk/cruk-logo.svg",
-    title: "Cancer Research UK",
-    url: "https://www.cancerresearchuk.org/",
-  },
-  {
-    img:
-      "https://www.thepayrollgivingteam.co.uk/wp/wp-content/uploads/2016/05/HRUK_Logo_Screen_FullColour-sml.jpg",
-    title: "Heart Research UK Midlands",
-    url: "https://heartresearch.org.uk/contact-us/",
-  },
-  {
-    img:
-      "https://childliverdisease.org/wp-content/uploads/2019/04/CLDF-LOGO.png",
-    title: "CLDF - Children Liver Disease Charity",
-    url: "https://childliverdisease.org/",
-  },
-  {
-    img:
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/BHF_Logo_Lockup_Vertical_BHF_Red_RGB%404x.png",
-    title: "British Heart Foundation Furniture and Electrical",
-    url:
-      "https://www.bhf.org.uk/what-we-do/find-bhf-near-you/birmingham-furniture-electrical-store",
-  },
-  {
-    img: "https://www.princes-trust.org.uk/cs/pt/img/logo.png",
-    title: "The Prince Trust Birmingham Centre",
-    url:
-      "https://www.princes-trust.org.uk/about-the-trust/where-we-work/central-england/birmingham-centre",
-  },
-  {
-    img: "https://www.supportthroughcourt.org/media/2176/logo-w-psu-v2.png",
-    title: "Personal Support Unit",
-    url: "https://www.supportthroughcourt.org/",
-  },
-  {
-    img: "https://www.rspb.org.uk/static/images/rspb-logo-white.png",
-    title: "RSPB",
-    url: "https://www.rspb.org.uk/",
-  },
-  {
-    img:
-      "https://smartworks.org.uk/wp-content/themes/smartworks/images/logo.png",
-    title: "Smart Works Birmingham",
-    url: "https://smartworks.org.uk/birmingham-smart-works/",
-  },
-];
+class Charity extends React.Component {
+  constructor() {
+    super(); //Does something ??
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper,
-    marginTop: "3vw",
-    marginRight: "15%",
-    marginLeft: "15%",
-  },
-  sideScroll: {
-    flexWrap: "nowrap",
-    transform: "translateZ(0)",
-  },
-  title: {
-    color: "rgb(20, 20, 20)",
-    fontFamily: "Microsoft YaHei",
-    fontWeight: "700",
-  },
-  titleBar: {
-    background:
-      "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-  },
-}));
+    this.leftSwipe = this.onClickBack.bind(this); //Binds the onClickBack function on page loading
+    this.rightSwipe = this.onClickForward.bind(this); //Binds the onClickFroward function on page load
 
-class Search extends React.Component {
-  constructor(props) {
-    super(props);
+    //State property
     this.state = {
-      searchURL: "",
+      index: 0, //Used for indexing the array
+      charityList: [
+        {
+          charityId: 0,
+          charity_name: "",
+          charity_phone: "",
+          charity_email: "",
+          charity_weblink: "",
+          charity_introduce: "",
+          charity_image: "",
+        },
+      ],
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInputChange(event) {
-    this.setState({
-      [event.target.name]:
-        "https://www.google.com/search?q=" + event.target.value,
-    });
+  //Handle swipes forward
+  //Sets the state of index to increase by 1,
+  // or wrap around to 0
+  onClickForward = () => {
+    if (this.state.index + 1 === this.state.charityList.length) {
+      this.setState({
+        index: 0,
+      });
+    } else {
+      this.setState({
+        index: this.state.index + 1,
+      });
+    }
+  };
+  //Handles swipe back
+  //Sets the state of index to decrease by 1,
+  //or wrap around to the largest value
+  onClickBack = () => {
+    if (this.state.index - 1 === -1) {
+      this.setState({
+        index: this.state.charityList.length - 1,
+      });
+    } else {
+      this.setState({
+        index: this.state.index - 1,
+      });
+    }
+  };
+
+  //Calls the server upon page loading
+  callServer() {
+    fetch("/charityReq") //Fetch from the server
+      .then((res) => res.json()) //JSONify the data
+      .then((res) => this.setState({ charityList: res })) //Pass the JSON into state
+      .catch((err) => err);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    window.open(this.state.searchURL);
+  //Mounts the callServer function upon page loading, calling it
+  componentDidMount() {
+    this.callServer();
   }
 
+  //!-------------!//
+  //!Render method!//
+  //!-------------!//
   render() {
-    return (
-      <div>
-        <div className="charity_header">Charities</div>
+    //Print for debugging purposes
+    console.log(
+      "Debug: " + this.state.charityList[this.state.index]?.charity_name
+    );
 
-        <div className="search-container">
-          <img src={SearchIcon} alt="search" />
-          <form>
-            <input
-              type="text"
-              placeholder="Search.."
-              name="searchURL"
-              onChange={this.handleInputChange}
-              required
+    //!DOM
+    return (
+      <div className="mainDiv">
+        <Header />
+
+        <p className="banner">
+          {" "}
+          Below are a selection of local charities with links to their webpages{" "}
+        </p>
+
+        {/*Creates a swipeable div element, which allows for touch control
+         * However, swipeable does not allow for styling, hence the nested div*/}
+        <Swipeable
+          onSwipedLeft={this.onClickBack}
+          onSwipedRight={this.onClickForward}
+        >
+          <div className="contentContainer">
+            <img
+              src="https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png"
+              className="picture"
+              alt=""
             />
-            <button type="submit" onClick={this.handleSubmit}>
-              Search
-            </button>
-          </form>
-        </div>
+
+            <b>
+              <p className="title">Name</p>
+            </b>
+            <p className="content">
+              {this.state.charityList[this.state.index]?.charity_name}
+            </p>
+
+            <b>
+              <p className="title">Phone</p>
+            </b>
+            <p className="content">
+              {this.state.charityList[this.state.index]?.charity_phone}
+            </p>
+
+            <b>
+              <p className="title">Email</p>
+            </b>
+            <p className="content">
+              {this.state.charityList[this.state.index]?.charity_email}
+            </p>
+            <b>
+              <p className="title">Introduction</p>
+            </b>
+            <p className="content">
+              {this.state.charityList[this.state.index]?.charity_introduce}
+            </p>
+
+            <b>
+              <p className="title">Weblink</p>
+            </b>
+            <a href={this.state.charityList[this.state.index]?.charity_weblink}>
+              <p className="content">
+                {this.state.charityList[this.state.index]?.charity_weblink}
+              </p>
+            </a>
+          </div>
+        </Swipeable>
+
+        <Footer />
       </div>
     );
   }
 }
 
-function Charity() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Header />
-      <Search />
-
-      <h2 className="charityListHeader">
-        Below are a selection of local charities with links to their webpages
-      </h2>
-
-      <div className={classes.root}>
-        <GridList className={classes.sideScroll} cols={2.5}>
-          {tileData.map((tile) => (
-            <GridListTile key={tile.img}>
-              <a href={tile.url} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={tile.img}
-                  alt={tile.title}
-                  className={classes.image}
-                />
-              </a>
-              <GridListTileBar
-                title={tile.title}
-                classes={{
-                  root: classes.titleBar,
-                  title: classes.title,
-                }}
-                actionIcon={
-                  <IconButton aria-label={`star ${tile.title}`}>
-                    <StarBorderIcon className={classes.title} />
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </div>
-
-      <Footer />
-    </div>
-  );
-}
 export default Charity;
