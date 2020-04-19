@@ -13,12 +13,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.9.2",
+    "mongoose": "^5.9.9",
     "react-swipeable": "^5.5.1",
     "swipeable": "^1.0.5"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   }
 }
