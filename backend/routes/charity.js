@@ -25,7 +25,8 @@ charityRouter.post("/", async(req, res) => {
         charity_phone: req.body.charity_phone,
         charity_email: req.body.charity_email,
         charity_weblink: req.body.charity_weblink,
-        charity_introduce: req.body.charity_introduce
+        charity_introduce: req.body.charity_introduce,
+        charity_image: req.body.charity_image
     });
     try{
         const newCharity = await charity.save();
@@ -64,6 +65,9 @@ charityRouter.patch("/:id", getCharity, async (req, res) => {
     }
     if (req.body.charity_introduce != null){
         res.charity.charity_introduce = req.body.charity_introduce;
+    }
+    if (req.body.charity_image != null){
+        res.charity.charity_image = req.body.charity_image;
     }
     try {
         const updatedCharity = await res.charity.save();

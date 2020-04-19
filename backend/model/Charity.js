@@ -26,6 +26,10 @@ charityInfo = new Schema({
     charity_introduce:{
         type:String,
         required: true
+    },
+    charity_image:{
+        type:String,
+        required: true
     }
 });
 
