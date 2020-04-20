@@ -1,3 +1,5 @@
+//This file was written by Lawrence Warren.
+
 import React from "react"; //We're writing React code. Duh.
 import "./css/Food.css"; //Style sheet
 import Header from "./Header"; //The header of the page

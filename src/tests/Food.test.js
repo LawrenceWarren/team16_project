@@ -1,3 +1,5 @@
+//These tests were written by Lawrence Warren.
+
 import React from "react";
 import { create } from "react-test-renderer";
 import { configure, shallow } from "enzyme";

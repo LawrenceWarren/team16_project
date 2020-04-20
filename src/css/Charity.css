@@ -1,3 +1,7 @@
+/*This code was written by Ben Smith. However, while it is imported
+in ../Charity.js, the style classes defined here are never called. It instead
+defaults to using Lawrence Warren style sheet for Food.js.*/
+
 .charity_header {
   color: white;
   font-size: 2.5vw;

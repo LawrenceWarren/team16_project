@@ -1,3 +1,6 @@
+//These tests were written by Lawrence Warren. There are only small edits made
+//From Food.test.js since the files are so similar that they are effectively the same.
+
 import React from "react";
 import { create } from "react-test-renderer";
 import { configure, shallow } from "enzyme";

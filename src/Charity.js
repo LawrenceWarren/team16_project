@@ -1,3 +1,15 @@
+//!NOTE
+//Much of the code in this file is taken from Food.js by Lawrence Warren.
+//Even the src/css/Charity.css class tags (written by Ben) now go unused
+//As the css tags are wholesale copied from Food.js. It defaults to using
+//the style sheet Food.css instead, which works because the code is almost identical.
+//Many of the comments are also the same.
+//The file has been changed by Lawrence since Ben committed "his" code in order to better
+//reflect the quality of the rest of the project, including id tags for testing,
+//an asynchronous server API call & buttons for manually swiping.
+
+//!In short, a significant amount of this code was written by Lawrence Warren, which will be reflected in his personal report.
+
 import React from "react";
 import "./css/Charity.css";
 import Header from "./Header";
@@ -76,7 +88,7 @@ class Charity extends React.Component {
 
   //!-------------!//
   //!Render method!//
-  //!-------------!// 
+  //!-------------!//
   render() {
     //!DOM
     return (
