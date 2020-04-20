@@ -57,3 +57,18 @@ Content-Type: application/json
 ### Get all information via the "accommodationReq" route
 GET http://localhost:8080/accommodationReq
 
+### CHARITY TEST
+
+### Posting charity information bia the "charityReq" route
+POST http://localhost:8080/charityReq
+Content-Type: application/json
+
+{
+    "charityId": 0,
+    "charity_name": "test",
+    "charity_phone": "test",
+    "charity_email": "test",
+    "charity_weblink": "test",
+    "charity_introduce": "test",
+    "charity_image": "test"
+}

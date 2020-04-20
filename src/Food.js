@@ -82,7 +82,6 @@ class Food extends React.Component {
   //!Render method!//
   //!-------------!//
   render() {
-    //Print for debugging purposes
     //!DOM
     return (
       <div className="mainDiv">

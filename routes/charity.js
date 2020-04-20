@@ -3,7 +3,7 @@ const charityRouter = express.Router();
 const Charity = require("../model/Charity");
 
 //Get All Route
-charityRouter.get("/", async (req, res) => {
+charityRouter.get("/", async (_req, res) => {
   try {
     const charities = await Charity.find();
     res.json(charities);
@@ -13,7 +13,7 @@ charityRouter.get("/", async (req, res) => {
 });
 
 //Get One Route
-charityRouter.get("/:id", getCharity, (req, res) => {
+charityRouter.get("/:id", getCharity, (_req, res) => {
   res.json(res.charity);
 });
 
@@ -78,7 +78,7 @@ charityRouter.patch("/:id", getCharity, async (req, res) => {
 });
 
 //Delete One Route
-charityRouter.delete("/:id", getCharity, async (req, res) => {
+charityRouter.delete("/:id", getCharity, async (_req, res) => {
   try {
     await res.charity.deleteOne();
     res.json({ message: "Charity has been deleted" });

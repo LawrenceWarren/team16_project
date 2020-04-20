@@ -58,27 +58,26 @@ class Charity extends React.Component {
   };
 
   //Calls the server upon page loading
-  callServer() {
-    fetch("/charityReq") //Fetch from the server
-      .then((res) => res.json()) //JSONify the data
-      .then((res) => this.setState({ charityList: res })) //Pass the JSON into state
-      .catch((err) => err);
-  }
+  async componentDidMount() {
+    console.log("Charity: Fetching from server...");
+    try {
+      const res = await fetch("/charityReq");
+      if (res.status >= 400) {
+        throw new Error("There was an error in the HTTP request.");
+      }
 
-  //Mounts the callServer function upon page loading, calling it
-  componentDidMount() {
-    this.callServer();
+      const charity = await res.json();
+      this.setState({ charityList: charity });
+      console.log("Charity: Data from the server has been received!");
+    } catch (err) {
+      console.error("Charity: " + err);
+    }
   }
 
   //!-------------!//
   //!Render method!//
-  //!-------------!//
+  //!-------------!// 
   render() {
-    //Print for debugging purposes
-    console.log(
-      "Debug: " + this.state.charityList[this.state.index]?.charity_name
-    );
-
     //!DOM
     return (
       <div className="mainDiv">
@@ -96,8 +95,22 @@ class Charity extends React.Component {
           onSwipedRight={this.onClickForward}
         >
           <div className="contentContainer">
+            {/*On screen indications for swiping */}
             <img
-              src="https://www.barondavenportscharity.org/sites/all/themes/custom/nestor_subtheme/logo.png"
+              src={require("./resource/food/swipeLeft.png")}
+              className="swipeLeft"
+              onClick={this.onClickBack}
+              alt="Upon pressing, you move backwards through the eateries."
+            />
+            <img
+              src={require("./resource/food/swipeRight.png")}
+              className="swipeRight"
+              onClick={this.onClickForward}
+              alt="Upon pressing, you move forwards through the eateries."
+            />
+
+            <img
+              src={this.state.charityList[this.state.index]?.charity_image}
               className="picture"
               alt=""
             />
@@ -105,27 +118,27 @@ class Charity extends React.Component {
             <b>
               <p className="title">Name</p>
             </b>
-            <p className="content">
+            <p id="titleID" className="content">
               {this.state.charityList[this.state.index]?.charity_name}
             </p>
 
             <b>
               <p className="title">Phone</p>
             </b>
-            <p className="content">
+            <p id="phoneID" className="content">
               {this.state.charityList[this.state.index]?.charity_phone}
             </p>
 
             <b>
               <p className="title">Email</p>
             </b>
-            <p className="content">
+            <p id="emailID" className="content">
               {this.state.charityList[this.state.index]?.charity_email}
             </p>
             <b>
               <p className="title">Introduction</p>
             </b>
-            <p className="content">
+            <p id="introductionID" className="content">
               {this.state.charityList[this.state.index]?.charity_introduce}
             </p>
 
@@ -133,7 +146,7 @@ class Charity extends React.Component {
               <p className="title">Weblink</p>
             </b>
             <a href={this.state.charityList[this.state.index]?.charity_weblink}>
-              <p className="content">
+              <p id="weblinkID" className="content">
                 {this.state.charityList[this.state.index]?.charity_weblink}
               </p>
             </a>
