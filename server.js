@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080; //A const used for the path
 const app = express();
 
 //!Database code
-//Connects to the db
+//Connects to the cloud hosted database
 mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
