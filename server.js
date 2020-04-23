@@ -1,3 +1,6 @@
+//This code was initially written individually by all members of the group based off of a tutorial.
+//It has since been more clearly documented and slightly incremented by Lawrence Warren.
+
 /* Server code
  * Initially, we had a backend folder. However, this backend folder was unnecessary
  * All backend is needed with the frontend nested within

@@ -1,3 +1,5 @@
+//This code was written by Yutian Chen.
+
 import React from "react";
 import "./css/Contact.css";
 import Header from "./Header";

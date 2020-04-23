@@ -1,3 +1,5 @@
+### This code was written by everybody (it tests each page)
+
 ### Server route testing! 
 ### Tests must be carried out with the server open 
 ### Each test is setup to to test localhost:8080, 

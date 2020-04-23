@@ -1,3 +1,5 @@
+//This code was written by Wenzheng Shan, with small changes by Lawrence Warren and Yutian Chen.
+
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./MainPage";
@@ -24,8 +26,6 @@ class App extends React.Component {
           <Route path="/Contact" component={Contact} />
           <Route path="/Feedback" component={Feedback} />
           <Route path="/Intermediate" component={Intermediate} />
-
-          {/* backstage */}
           <Route path="/Admin" component={Admin} />
         </div>
       </Router>

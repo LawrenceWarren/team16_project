@@ -1,3 +1,5 @@
+//This code was written by Wenzheng Shan.
+
 const express = require("express");
 const registerRouter = express.Router();
 const User = require("../model/User");
@@ -10,7 +12,7 @@ registerRouter.post("/", async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     email: req.body.email,
-    phone: req.body.phone
+    phone: req.body.phone,
   });
   try {
     const newUser = await user.save();

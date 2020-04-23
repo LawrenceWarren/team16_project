@@ -1,28 +1,30 @@
+//This code was written by Yutian Chen
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Create Schema
 contactInfo = new Schema({
-    firstname:{
-        type: String,
-        required: true
-    },
-    lastname:{
-        type: String,
-        required: true
-    },
-    email:{
-        type:String,
-        required: false
-    },
-    phoneNum:{
-        type: String,
-        required: true
-    },
-    message:{
-        type: String,
-        required: true,
-    }
+  firstname: {
+    type: String,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
+  phoneNum: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
 });
 
 //Create Model

@@ -1,4 +1,5 @@
-//This file was written by Lawrence Warren.
+//This file was written by Lawrence Warren. You may see elements of this file
+//in the file Charity.js, which was copy pasted from here by Ben Smith.
 
 import React from "react"; //We're writing React code. Duh.
 import "./css/Food.css"; //Style sheet

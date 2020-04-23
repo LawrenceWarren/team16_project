@@ -1,3 +1,5 @@
+//This page was written by Wenzheng Shan and refactored by Lawrence Warren.
+
 import React from "react";
 import "./css/MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -62,7 +64,10 @@ function MainPage() {
     <div>
       <Header />
 
-      <div className="banner"> Introduction: </div>
+      <div className="banner" id="introductionBanner">
+        {" "}
+        Introduction:{" "}
+      </div>
 
       {/*Info block 1 */}
 
@@ -133,7 +138,10 @@ function MainPage() {
         />
       </div>
 
-      <div className="banner"> Explore: </div>
+      <div className="banner" id="exploreBanner">
+        {" "}
+        Explore:{" "}
+      </div>
 
       {/* The buttons start here! */}
       <div className="buttonContainer">
@@ -143,6 +151,7 @@ function MainPage() {
             <MainButton
               variant="contained"
               color="primary"
+              id="foodButton"
               className={FCMargin.margin}
             >
               Eateries
@@ -154,6 +163,7 @@ function MainPage() {
               variant="contained"
               color="primary"
               className={AFMargin.margin}
+              id="accomButton"
             >
               Accommodation
             </MainButton>
@@ -166,6 +176,7 @@ function MainPage() {
             <MainButton
               variant="contained"
               color="primary"
+              id="charityButton"
               className={CMargin.margin}
             >
               Charities
@@ -182,6 +193,7 @@ function MainPage() {
             <MainButton
               variant="contained"
               color="primary"
+              id="aboutButton"
               className={AMargin.margin}
             >
               About
@@ -195,6 +207,7 @@ function MainPage() {
             <MainButton
               variant="contained"
               color="primary"
+              id="contactButton"
               className={FCMargin.margin}
             >
               Contact
@@ -204,6 +217,7 @@ function MainPage() {
             <MainButton
               variant="contained"
               color="primary"
+              id="feedbackButton"
               className={AFMargin.margin}
             >
               Feedback

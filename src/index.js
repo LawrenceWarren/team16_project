@@ -1,3 +1,5 @@
+//This is boilerplate code. Nobody wrote this. Thanks create react app.
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/index.css";

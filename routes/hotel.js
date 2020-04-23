@@ -1,3 +1,5 @@
+//This code was written by Ali Soufan.
+
 const express = require("express");
 const hotelRouter = express.Router();
 const Hotel = require("../model/Hotel");

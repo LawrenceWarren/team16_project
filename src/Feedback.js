@@ -1,3 +1,5 @@
+//This code was written by Junhao Zhang.
+
 import React from "react";
 import "./css/Feedback.css";
 import Header from "./Header";

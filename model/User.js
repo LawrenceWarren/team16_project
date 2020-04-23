@@ -1,3 +1,5 @@
+//This code was written by Wenzheng Shan.
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -5,33 +7,33 @@ const Schema = mongoose.Schema;
 const userInfo = new Schema({
   firstname: {
     type: String,
-    required: true
+    required: true,
   },
   lastname: {
     type: String,
-    required: true
+    required: true,
   },
   username: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   phone: {
     type: String,
-    required: true
+    required: true,
   },
   registerDate: {
     type: Date,
     required: true,
-    default: new Date()
-  }
+    default: new Date(),
+  },
 });
 
 //Create Model

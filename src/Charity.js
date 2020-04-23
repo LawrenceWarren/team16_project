@@ -1,17 +1,4 @@
-//!NOTE
-//Much of the code in this file is taken from Food.js by Lawrence Warren.
-//Even the src/css/Charity.css class tags (written by Ben) now goes unused
-//As the css tags in this code are wholesale copied from Food.js. It therefore
-//defaults to using the style sheet Food.css (written by Lawrence) instead,
-//which works because the code is almost identical. Many of the comments are also the same.
-
-//The file was changed by Lawrence after Ben committed "his" code, in order to better
-//reflect the quality of the rest of the project, including id tags for testing,
-//an asynchronous server API call & buttons which can switch pages, which are all present in
-//Lawrence's Food.js, but were not present in the version Ben copied.
-
-//!In short, a significant amount of this code was written by Lawrence Warren,
-//!which will be reflected in his personal report.
+//This code was written by Lawrence Warren and copy-pasted by Ben Smith.
 
 import React from "react";
 import "./css/Charity.css";

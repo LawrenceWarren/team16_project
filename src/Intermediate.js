@@ -1,3 +1,5 @@
+//This page was written by Yutian Chen.
+
 import React from "react";
 import loading from "./resource/intermediatePage/loading.gif";
 

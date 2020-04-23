@@ -1,3 +1,5 @@
+//This code was written by Wenzheng Shan.
+
 const express = require("express");
 const loginRouter = express.Router();
 const User = require("../model/User");

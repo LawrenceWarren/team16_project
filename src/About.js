@@ -1,3 +1,5 @@
+//This code was written by Wenzheng Shan
+
 import React from "react";
 import Zmage from "react-zmage";
 import "./css/About.css";

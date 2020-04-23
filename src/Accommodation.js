@@ -1,3 +1,5 @@
+//This page was written by Ali Soufan.
+
 import React from "react";
 import "./css/Accommodation.css";
 import Header from "./Header";

@@ -1,3 +1,5 @@
+//This code was written by Lawrence Warren.
+
 /* This model is used by:
  * ./routes/foodRouter.js
  */

@@ -1,3 +1,5 @@
+//This code was written by Ben Smith.
+
 const express = require("express");
 const charityRouter = express.Router();
 const Charity = require("../model/Charity");

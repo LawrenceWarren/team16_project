@@ -1,3 +1,4 @@
+//This code was written by Wenzheng Shan and refactored by Lawrence Warren.
 import React from "react";
 import "./css/Header.css";
 
