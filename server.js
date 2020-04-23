@@ -43,7 +43,8 @@ app.use("/charityReq", require("./routes/charity")); //Charity page requests
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
 
-//When you load a new page, it gets that file out of the build folder
+//When you load a new page, it gets that file out of the build folder - the /* means FOR any path
+//If you enter an invalid path, you get a blank page.
 app.get("/*", function (_req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });

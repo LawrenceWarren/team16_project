@@ -28,7 +28,7 @@ var transport = {
 // Once the transporter is set up and ready. We'll want to set up the post router to send the data that was received through the transporter.
 var transporter = nodemailer.createTransport(transport);
 
-transporter.verify((error, success) => {
+transporter.verify((error, _success) => {
   if (error) {
     console.log(error);
   } else {
@@ -85,7 +85,7 @@ contactRouter.post("/", async (req, res) => {
   };
 
   //The send function.
-  transporter.sendMail(mail, (err, data) => {
+  transporter.sendMail(mail, (err, _data) => {
     if (err) {
       res.json({
         msg: "fail",
