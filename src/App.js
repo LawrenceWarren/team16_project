@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import Feedback from "./Feedback";
 import Intermediate from "./Intermediate";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Admin from "./Admin/Admin";
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,9 @@ class App extends React.Component {
           <Route path="/Contact" component={Contact} />
           <Route path="/Feedback" component={Feedback} />
           <Route path="/Intermediate" component={Intermediate} />
+
+          {/* backstage */}
+          <Route path="/Admin" component={Admin} />
         </div>
       </Router>
     );

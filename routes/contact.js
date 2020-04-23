@@ -4,6 +4,16 @@ const Contact = require("../model/Contact");
 var nodemailer = require("nodemailer");
 const creds = require("./emailConfig");
 
+//Get All Route
+contactRouter.get("/", async (_req, res) => {
+  try {
+    const contacts = await Contact.find();
+    res.json(contacts);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Pass the credentials to the SMTP transport
 var transport = {
   host: "smtp.gmail.com",
@@ -28,12 +38,16 @@ transporter.verify((error, success) => {
 
 //Create One Post Route
 contactRouter.post("/", async (req, res) => {
+  var now = new Date();
+  var current = now.getTime();
+
   const contact = new Contact({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
     phoneNum: req.body.phoneNum,
     message: req.body.message,
+    currentTime: current,
   });
   try {
     const newContact = await contact.save();
