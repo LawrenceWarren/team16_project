@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component status:  If the <Footer /> component has been updated. 1`] = `
+<div
+  className="footerMain"
+>
+  <p
+    className="banner"
+  >
+     Get Involved: 
+  </p>
+  <div
+    align="center"
+  >
+    <button
+      className="getInvolvedButton"
+      onClick={[Function]}
+    >
+      Become Part Of Ava's Angels
+    </button>
+  </div>
+  <button
+    className="donate"
+    onClick={[Function]}
+  />
+  <div
+    className="SocialButtons"
+  >
+    <button
+      className="butt fb-butt"
+      onClick={[Function]}
+    />
+    <button
+      className="butt tw-butt"
+      onClick={[Function]}
+    />
+    <button
+      className="butt ins-butt"
+      onClick={[Function]}
+    />
+    <button
+      className="butt li-butt"
+      onClick={[Function]}
+    />
+    <button
+      className="butt feed-butt"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="furtherInfo"
+  >
+    | 
+    <a
+      href="https://www.google.com"
+    >
+       FAQ 
+    </a>
+     | 
+    <a
+      href="https://www.google.com"
+    >
+       Terms of Use 
+    </a>
+     |
+    <a
+      href="https://www.google.com"
+    >
+       Privacy 
+    </a>
+     |
+    <a
+      href="https://www.google.com"
+    >
+       Contact 
+    </a>
+     |
+  </div>
+  <div
+    className="copyRight"
+  >
+    <p>
+      © Copyright 2019-2020. Designed and powered by Ali S., Lawrence W., Shan W.Z., Benjamin S., Chen Y.T. and Zhang J.H. All Rights Reserved.
+       
+    </p>
+  </div>
+</div>
+`;
