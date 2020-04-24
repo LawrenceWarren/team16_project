@@ -1,4 +1,4 @@
-//This code was written by Yutian Chen.
+//This code was written by Yutian Chen and Wenzheng Shan.
 
 const express = require("express");
 const contactRouter = express.Router();

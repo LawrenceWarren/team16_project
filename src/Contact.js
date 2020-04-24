@@ -1,4 +1,4 @@
-//This code was written by Yutian Chen.
+//This code was written by Yutian Chen, and modified by Wenzheng Shan.
 
 import React from "react";
 import "./css/Contact.css";

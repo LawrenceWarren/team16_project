@@ -11,6 +11,7 @@ import LocationIcon from "./resource/AboutPage/location.png";
 import LinkIcon from "./resource/AboutPage/link.png";
 import FigureIcon from "./resource/AboutPage/figure.png";
 
+//This is the css style for image box
 const css = {
   box: {
     height: "40vw",
@@ -23,12 +24,16 @@ const css = {
   },
 };
 
+//The array to store the images
 const images = [];
+//The array to store reference, each image correspond to one reference
 const refs = [];
 const sets = [];
 const threshold = [0.01];
+//The number of images
 const length = 57;
 
+//Each time read three images from folder and set them into one row
 for (let i = 0; i < length; i++) {
   var temp = i;
   const refFirst = React.createRef();
@@ -39,7 +44,9 @@ for (let i = 0; i < length; i++) {
   const third = ++i;
   switch (length - temp) {
     case 1:
+      //Store the reference into array
       refs.push(refFirst);
+      //Store the image with tages into array
       images.push(
         <div className="imageBox">
           {/* eslint-disable-next-line */}
@@ -51,6 +58,7 @@ for (let i = 0; i < length; i++) {
       );
       break;
     case 2:
+      //Store the reference into array
       refs.push(refFirst);
       refs.push(refSecond);
       images.push(
@@ -71,9 +79,11 @@ for (let i = 0; i < length; i++) {
       );
       break;
     default:
+      //Store the reference into array
       refs.push(refFirst);
       refs.push(refSecond);
       refs.push(refThird);
+      //Store the image with tages into array
       images.push(
         <div className="imageBox">
           {/* eslint-disable-next-line */}
@@ -136,10 +146,20 @@ for (let i = 0; i < length; i++) {
   }
 }
 
-const io = new IntersectionObserver(
+/**
+ * The intersectionobserver interface (subordinate to the intersectionobserver API) provides a means for developers
+ * to listen asynchronously to the corss state of the target element and its ancestor or viewport.
+ * The ancestor element and viewport are called roots.
+ * In fact, it is to observe whether an element is visible in the window.
+ */
+
+const io = new IntersectionObserver( //instantiation
   (entries) => {
+    //Traversal entries array
     entries.forEach((item) => {
+      //When current element is not visible
       if (item.intersectionRatio <= 0) return;
+      //Replace item and src
       const { target } = item;
       target.src = target.dataset.src;
     });
@@ -151,6 +171,7 @@ const io = new IntersectionObserver(
 
 const onload = () => {
   refs.forEach((item) => {
+    // io.observe accept a new DOM element, add multiple listeners
     io.observe(item.current);
   });
 };
@@ -170,6 +191,9 @@ class About extends React.Component {
         <Header />
 
         <div className="establish_header">Establish</div>
+
+        {/*About block 1 */}
+
         <div className="establish">
           <img src={AALogo} alt="Ava's Angel Logo" className="establish_logo" />
           <div className="establish_content">
@@ -212,10 +236,14 @@ class About extends React.Component {
           </div>
         </div>
 
+        {/*About block 2 */}
+
         <div className="service_header"> Service: </div>
         <div className="service">
           <img src={AAService} alt="ava's angel service" />
         </div>
+
+        {/*About block 3 */}
 
         <div className="activity_header"> Activity: </div>
         <LazyLoadPage />

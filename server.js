@@ -1,5 +1,5 @@
 //This code was initially written individually by all members of the group based off of a tutorial.
-//It has since been more clearly documented and slightly incremented by Lawrence Warren.
+//It has been slightly refactored by Lawrence Warren for hosting on Heroku.
 
 /* Server code
  * Initially, we had a backend folder. However, this backend folder was unnecessary
@@ -29,12 +29,12 @@ db.once("open", () =>
   console.log("Server: Connection to database established")
 ); //Log that the connection is established
 
-//!Server code
+//!Server code (in 5 lines! Express is cool)
 app.use(express.json()); //This line is for json body parses - allows for POST routes
 app.use(favicon(__dirname + "/build/favicon.ico")); //Finds the favicon for the site (the icon on tabs)
-app.use(express.static(__dirname)); //Makes the returned pages static (?)
+app.use(express.static(__dirname)); //Makes the returned pages static
 app.use(express.static(path.join(__dirname, "build"))); //Uses the build file
-app.use(cors());
+app.use(cors()); //Allows for cross site requests
 
 //!Upon merging, References to other routes should go here
 app.use("/foodReq", require("./routes/foodRouter")); //Food page requests
@@ -42,7 +42,7 @@ app.use("/contactReq", require("./routes/contact")); //Contact page requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page requests
 app.use("/charityReq", require("./routes/charity")); //Charity page requests
 
-//?These routes are currently unused
+//?These routes are currently unused 10/04/2020
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
 
