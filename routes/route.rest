@@ -4,6 +4,11 @@
 ### but this can be altered by changing the links value. 
 ### These tests are run using Huachao Mao's "REST Client" VSCode extension
 
+
+
+
+
+
 ### LOGIN / REGISTER TESTS
 
 ### Posting user information via "register" route
@@ -21,6 +26,11 @@ Content-Type: application/json
 
 ### Getting the above information via "register" route
 GET http://localhost:8080/login/scyws1
+
+
+
+
+
 
 ### FOOD PAGE TESTS
 
@@ -40,6 +50,15 @@ Content-Type: application/json
 ### Getting all information via the "foodReq" route
 GET http://localhost:8080/foodReq
 
+###
+
+DELETE http://localhost:8080/foodReq/Another+test
+
+
+
+
+
+
 ### ACCOMMODATION TESTS
 
 ### Posting accommodation information via the "accommodationReq" route
@@ -56,6 +75,11 @@ Content-Type: application/json
 
 ### Get all information via the "accommodationReq" route
 GET http://localhost:8080/accommodationReq
+
+
+
+
+
 
 ### CHARITY TEST
 

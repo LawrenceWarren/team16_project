@@ -96,10 +96,11 @@ foodRouter.patch("/:id", getFood, async (req, res) => {
   }
 });
 
+//TODO: fix Delete route.
 //Delete One Route
-foodRouter.delete("/:id", getFood, async (_req, res) => {
+foodRouter.delete("/:name", getFood, async (req, res) => {
   try {
-    await res.food.deleteOne();
+    await foods.deleteOne({});
     res.json({ message: "Food has been deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
