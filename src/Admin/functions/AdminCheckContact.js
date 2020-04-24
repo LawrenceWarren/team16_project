@@ -77,7 +77,7 @@ class AdminCheckContact extends React.Component {
 
     return (
       <div>
-        <h1>Contact Information</h1>
+        <h1>Eateries information</h1>
         <div>
           <Table
             dataSource={this.state.Infos}

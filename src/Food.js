@@ -29,6 +29,7 @@ class Food extends React.Component {
           type: "",
           price: "",
           link: "",
+          registerDate: "",
         },
       ],
     };

@@ -4,7 +4,7 @@
 ### but this can be altered by changing the links value. 
 ### These tests are run using Huachao Mao's "REST Client" VSCode extension
 
-###LOGIN / REGISTER TESTS
+### LOGIN / REGISTER TESTS
 
 ### Posting user information via "register" route
 POST http://localhost:8080/register
@@ -29,12 +29,12 @@ POST http://localhost:8080/foodReq
 Content-Type: application/json
 
 {
-    "image" : "Steven",
-    "name" : "Shan",
-    "address" : "scyws2",
-    "type" : "123457",
-    "price" : "scyws2@nottingham.ac.uk",
-    "link" : "07529917457"
+    "image" : "Another",
+    "name" : "Damn",
+    "address" : "Test",
+    "type" : "Ok",
+    "price" : "Please",
+    "link" : "Stop"
 }
 
 ### Getting all information via the "foodReq" route

@@ -25,6 +25,7 @@ foodRouter.post("/", async (req, res) => {
     type: req.body.type,
     price: req.body.price,
     link: req.body.link,
+    registerDate: req.body.registerDate,
   });
   try {
     const newFood = await food.save();
