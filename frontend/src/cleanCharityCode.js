@@ -16,7 +16,6 @@ class Charity extends React.Component {
 
         this.state = {
             index: 0,
-            // Initialises the charity list, setting the data to be blank.
             charityList: [
               {
                 "charityId" : 1,
@@ -29,7 +28,7 @@ class Charity extends React.Component {
               }
             ]
         };
-        // Sets the display settings for the presentation of the tiles.
+
         this.styles = makeStyles(theme => ({
           root: {
             display: 'flex',
@@ -63,7 +62,6 @@ class Charity extends React.Component {
         
     }
 
-    // The data is retrieved from the server hosting the backed database.
     callServer() {
         fetch("http://localhost:4000/charity/")
           .then(res => res.json())
@@ -71,7 +69,6 @@ class Charity extends React.Component {
           .catch(err => err);
     }
 
-    // The data is retreived as soon as the page is loaded.
     componentDidMount() {
         this.callServer(); 
     }
@@ -135,7 +132,6 @@ class Charity extends React.Component {
 
 }
 
-// Class for the search function.
 class Search extends React.Component {
     constructor(props){
         super(props);
