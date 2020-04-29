@@ -34,7 +34,7 @@ transporter.verify((error, _success) => {
   if (error) {
     console.log(error);
   } else {
-    console.log("Server is ready to take messages");
+    console.log("Contact: Ready to send messages.");
   }
 });
 
