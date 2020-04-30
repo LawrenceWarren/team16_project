@@ -15,7 +15,6 @@ class Charity extends React.Component {
     super();
 
     this.state = {
-      index: 0,
       // Initializes the charity list, setting the data to be blank.
       charityList: [
         {
@@ -83,7 +82,7 @@ class Charity extends React.Component {
 
           <h2 class="charityListHeader">
             Below are a selection of local charities with links to their
-            webpages
+            webpages:
           </h2>
 
           <div className={this.styles.root}>
