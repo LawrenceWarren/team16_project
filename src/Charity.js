@@ -65,7 +65,7 @@ class Charity extends React.Component {
 
     // The data is retrieved from the server hosting the backed database.
     callServer() {
-        fetch("http://localhost:4000/charity/")
+        fetch("/charityReq")
           .then(res => res.json())
           .then(res => this.setState({ charityList: res }))
           .catch(err => err);

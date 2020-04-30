@@ -13,15 +13,11 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:4000/charity
+GET http://localhost:8080/charityReq
 
 ###
 
-GET http://localhost:4000/charity/5e9af313c246892c647ebfd6
-
-###
-
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -36,7 +32,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -51,7 +47,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -66,7 +62,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -81,7 +77,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -96,7 +92,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -111,7 +107,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -126,7 +122,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -141,7 +137,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -156,7 +152,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -171,7 +167,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/charity
+POST http://localhost:8080/charityReq
 Content-Type: application/json
 
 {
@@ -182,6 +178,22 @@ Content-Type: application/json
     "charity_weblink" : "https://smartworks.org.uk/birmingham-smart-works/",
     "charity_introduce" : "Smart Works Birmingham opened in August 2016 and is based in Birmingham City Centre.",
     "charity_image" : "https://smartworks.org.uk/wp-content/themes/smartworks/images/logo.png"
+}
+
+
+###
+
+POST http://localhost:4000/charity
+Content-Type: application/json
+
+{
+    "charityId" : 12,
+    "charity_name" : "Birmingham Children's Hospital Charity",
+    "charity_phone" : "0121 333 8506",
+    "charity_email" : "fundraising@bch.org.uk",
+    "charity_weblink" : "https://www.bch.org.uk/donate/donate/10/credit-card",
+    "charity_introduce" : "At Birmingham Children’s Hospital Charity, we believe there’s always more we can do for our sick kids, and that’s why we strive to be exceptional in raising vital funds needed to make a real difference to children and their families, because every patient deserves a childhood.",
+    "charity_image" : "https://images.jg-cdn.com/image/3107eb0a-ac8c-4b53-a5e6-69f32904d0fb.jpg"
 }
 
 
