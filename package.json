@@ -23,7 +23,7 @@
     "@ant-design/icons": "^4.1.0",
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
-    "antd": "^4.1.5",
+    "antd": "^4.2.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
