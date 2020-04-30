@@ -1,3 +1,5 @@
+//This page was written by Ben Smith.
+
 import React from "react";
 import "./css/Charity.css";
 import { makeStyles } from "@material-ui/core/styles";
