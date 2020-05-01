@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Header from "./Header";
 import Footer from "./Footer";
-import SearchIcon from "./resource/charitySearch.jpg";
+import SearchIcon from "./resource/charity/charitySearch.jpg";
 
 class Charity extends React.Component {
   constructor() {
@@ -22,10 +22,7 @@ class Charity extends React.Component {
         {
           charityId: 1,
           charity_name: "",
-          charity_phone: "",
-          charity_email: "",
           charity_weblink: "",
-          charity_introduce: "",
           charity_image: "",
         },
       ],
@@ -62,7 +59,7 @@ class Charity extends React.Component {
     }));
   }
 
-  // The data is retrieved from the server hosting the backed database.
+  // The data is retrieved from the server hosting the backend database.
   callServer() {
     fetch("/charityReq")
       .then((res) => res.json())
