@@ -6,8 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Header from "./Header";
 import Footer from "./Footer";
 import SearchIcon from "./resource/charity/charitySearch.jpg";
@@ -105,11 +103,6 @@ class Charity extends React.Component {
                       root: this.styles.titleBar,
                       title: this.styles.title,
                     }}
-                    actionIcon={
-                      <IconButton aria-label={`star ${tile.charity_name}`}>
-                        <StarBorderIcon className={this.styles.title} />
-                      </IconButton>
-                    }
                   />
                 </GridListTile>
               ))}
