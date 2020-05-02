@@ -36,6 +36,7 @@ class Charity extends React.Component {
         marginTop: "3vw",
         marginRight: "15%",
         marginLeft: "15%",
+        width: "99vw",
       },
       gridList: {
         flexWrap: "nowrap",
@@ -83,7 +84,7 @@ class Charity extends React.Component {
           </h2>
 
           <div className={this.styles.root}>
-            <GridList className={this.styles.gridList} cols={2.5}>
+            <GridList className={this.styles.gridList} cols={2}>
               {this.state.charityList.map((tile) => (
                 <GridListTile key={tile.charity_image}>
                   <a
