@@ -1,161 +1,172 @@
-//This code was written by Lawrence Warren and copy-pasted by Ben Smith.
+//This page was written by Ben Smith.
 
 import React from "react";
 import "./css/Charity.css";
+import { makeStyles } from "@material-ui/core/styles";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Swipeable } from "react-swipeable";
+import SearchIcon from "./resource/charity/charitySearch.jpg";
 
 class Charity extends React.Component {
   constructor() {
-    super(); //Does something ??
+    super();
 
-    this.leftSwipe = this.onClickBack.bind(this); //Binds the onClickBack function on page loading
-    this.rightSwipe = this.onClickForward.bind(this); //Binds the onClickFroward function on page load
-
-    //State property
     this.state = {
-      index: 0, //Used for indexing the array
+      // Initializes the charity list, setting the data to be blank.
       charityList: [
         {
-          charityId: 0,
+          charityId: 1,
           charity_name: "",
-          charity_phone: "",
-          charity_email: "",
           charity_weblink: "",
-          charity_introduce: "",
           charity_image: "",
         },
       ],
     };
+    // Sets the display settings for the presentation of the tiles.
+    this.styles = makeStyles((theme) => ({
+      root: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        overflow: "hidden",
+        backgroundColor: theme.palette.background.paper,
+        marginTop: "3vw",
+        marginRight: "15%",
+        marginLeft: "15%",
+      },
+      gridList: {
+        flexWrap: "nowrap",
+        transform: "translateZ(0)",
+      },
+      title: {
+        color: "rgb(20, 20, 20)",
+        fontFamily: "Microsoft YaHei",
+        fontWeight: "700",
+      },
+      titleBar: {
+        background:
+          "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+      },
+      image: {
+        width: "100%",
+        height: "100%",
+      },
+    }));
   }
 
-  //Handle swipes forward
-  //Sets the state of index to increase by 1,
-  // or wrap around to 0
-  onClickForward = () => {
-    if (this.state.index + 1 === this.state.charityList.length) {
-      this.setState({
-        index: 0,
-      });
-    } else {
-      this.setState({
-        index: this.state.index + 1,
-      });
-    }
-  };
-  //Handles swipe back
-  //Sets the state of index to decrease by 1,
-  //or wrap around to the largest value
-  onClickBack = () => {
-    if (this.state.index - 1 === -1) {
-      this.setState({
-        index: this.state.charityList.length - 1,
-      });
-    } else {
-      this.setState({
-        index: this.state.index - 1,
-      });
-    }
-  };
-
-  //Calls the server upon page loading
-  async componentDidMount() {
-    console.log("Charity: Fetching from server...");
-    try {
-      const res = await fetch("/charityReq");
-      if (res.status >= 400) {
-        throw new Error("There was an error in the HTTP request.");
-      }
-
-      const charity = await res.json();
-      this.setState({ charityList: charity });
-      console.log("Charity: Data from the server has been received!");
-    } catch (err) {
-      console.error("Charity: " + err);
-    }
+  // The data is retrieved from the server hosting the backend database.
+  callServer() {
+    fetch("/charityReq")
+      .then((res) => res.json())
+      .then((res) => this.setState({ charityList: res }))
+      .catch((err) => err);
   }
 
-  //!-------------!//
-  //!Render method!//
-  //!-------------!//
+  // The data is retrieved as soon as the page is loaded.
+  componentDidMount() {
+    this.callServer();
+  }
+
   render() {
-    //!DOM
     return (
-      <div className="mainDiv">
-        <Header />
+      <div>
+        <div>
+          <Header />
+          <Search />
 
-        <p className="banner">
-          {" "}
-          Below are a selection of local charities with links to their webpages{" "}
-        </p>
+          <h2 class="charityListHeader">
+            Below are a selection of local charities with links to their
+            webpages:
+          </h2>
 
-        {/*Creates a swipeable div element, which allows for touch control
-         * However, swipeable does not allow for styling, hence the nested div*/}
-        <Swipeable
-          onSwipedLeft={this.onClickBack}
-          onSwipedRight={this.onClickForward}
-        >
-          <div className="contentContainer">
-            {/*On screen indications for swiping */}
-            <img
-              src={require("./resource/food/swipeLeft.png")}
-              className="swipeLeft"
-              onClick={this.onClickBack}
-              alt="Upon pressing, you move backwards through the eateries."
-            />
-            <img
-              src={require("./resource/food/swipeRight.png")}
-              className="swipeRight"
-              onClick={this.onClickForward}
-              alt="Upon pressing, you move forwards through the eateries."
-            />
-
-            <img
-              src={this.state.charityList[this.state.index]?.charity_image}
-              className="picture"
-              alt=""
-            />
-
-            <b>
-              <p className="title">Name</p>
-            </b>
-            <p id="titleID" className="content">
-              {this.state.charityList[this.state.index]?.charity_name}
-            </p>
-
-            <b>
-              <p className="title">Phone</p>
-            </b>
-            <p id="phoneID" className="content">
-              {this.state.charityList[this.state.index]?.charity_phone}
-            </p>
-
-            <b>
-              <p className="title">Email</p>
-            </b>
-            <p id="emailID" className="content">
-              {this.state.charityList[this.state.index]?.charity_email}
-            </p>
-            <b>
-              <p className="title">Introduction</p>
-            </b>
-            <p id="introductionID" className="content">
-              {this.state.charityList[this.state.index]?.charity_introduce}
-            </p>
-
-            <b>
-              <p className="title">Weblink</p>
-            </b>
-            <a href={this.state.charityList[this.state.index]?.charity_weblink}>
-              <p id="weblinkID" className="content">
-                {this.state.charityList[this.state.index]?.charity_weblink}
-              </p>
-            </a>
+          <div className={this.styles.root}>
+            <GridList className={this.styles.gridList} cols={2.5}>
+              {this.state.charityList.map((tile) => (
+                <GridListTile key={tile.charity_image}>
+                  <a
+                    href={tile.charity_weblink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={tile.charity_image}
+                      alt={tile.charity_name}
+                      className={this.styles.image}
+                    />
+                  </a>
+                  <GridListTileBar
+                    title={tile.charity_name}
+                    classes={{
+                      root: this.styles.titleBar,
+                      title: this.styles.title,
+                    }}
+                    actionIcon={
+                      <IconButton aria-label={`star ${tile.charity_name}`}>
+                        <StarBorderIcon className={this.styles.title} />
+                      </IconButton>
+                    }
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
           </div>
-        </Swipeable>
 
-        <Footer />
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
+
+// Class for the search function.
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchURL: "",
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]:
+        "https://www.google.com/search?q=" + event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    window.open(this.state.searchURL);
+  }
+
+  render() {
+    return (
+      <div>
+        <div class="charity_header">Charities</div>
+
+        <div class="search-container">
+          <img src={SearchIcon} alt="search" />
+          <form>
+            <input
+              type="text"
+              placeholder="Search.."
+              name="searchURL"
+              onChange={this.handleInputChange}
+              required
+            />
+            <button type="submit" onClick={this.handleSubmit}>
+              Search
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
