@@ -36,7 +36,7 @@ class Food extends React.Component {
   }
 
   //Handle swipes forward
-  //Sets the state of index to increase by 1,
+  //Sets the state of index to increase by 1
   // or wrap around to 0
   onClickForward = () => {
     if (this.state.index + 1 === this.state.foodList.length) {

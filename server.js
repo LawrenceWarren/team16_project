@@ -41,6 +41,7 @@ app.use("/foodReq", require("./routes/foodRouter")); //Food page requests
 app.use("/contactReq", require("./routes/contact")); //Contact page requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page requests
 app.use("/charityReq", require("./routes/charity")); //Charity page requests
+app.use("/feedBackReq", require("./routes/feedback")); //Feedback page requests
 
 //?These routes are currently unused 10/04/2020
 app.use("/login", require("./routes/login")); //?login requests
