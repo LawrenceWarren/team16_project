@@ -5,7 +5,7 @@ class test extends React.Component
     render()
     {
         return(
-            <h1>404 Sorry, the page is not found!</h1>
+            <div>404 Sorry, the page is not found!</div>
         );
     }
 }
