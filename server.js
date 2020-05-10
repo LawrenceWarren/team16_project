@@ -1,10 +1,7 @@
 //This code was initially written individually by all members of the group based off of a tutorial.
 //It has been slightly refactored by Lawrence Warren for hosting on Heroku.
 
-/* Server code
- * Initially, we had a backend folder. However, this backend folder was unnecessary
- * All backend is needed with the frontend nested within
- */
+/* Server code */
 
 require("dotenv").config(); //Used for reading from .env file
 const mongoose = require("mongoose"); //Used for opening a connection to the DB
@@ -43,7 +40,6 @@ app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page re
 app.use("/charityReq", require("./routes/charity")); //Charity page requests
 app.use("/feedbackReq", require("./routes/feedback")); //Feedback page requests
 
-//?These routes are currently unused 10/04/2020
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
 
