@@ -1,0 +1,133 @@
+/*This code was written by Wenzheng Shan.*/
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.establish_header {
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+  background-color: #c0087f;
+  margin-top: 4vw;
+}
+
+.establish {
+  border-style: solid;
+  border-color: rgba(127, 126, 126, 0.151);
+  border-width: 0.5vw;
+  margin-top: 3vw;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: block;
+  background-color: rgba(209, 207, 207, 0.3);
+}
+
+.establish_logo {
+  display: block;
+  float: left;
+  max-width: 25%;
+  width: 25%;
+  max-height: 15%;
+  height: 15%;
+  margin-left: 8%;
+  margin-top: 4%;
+  border-radius: 50%;
+}
+
+.establish_content {
+  text-align: left;
+  font-family: Helvetica, "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei",
+    华文细黑, STHeiti, MingLiu;
+  font-size: 1.25vw;
+  font-weight: bold;
+  color: rgb(90, 89, 89);
+  line-height: 200%;
+  float: right;
+  max-width: 60%;
+  width: 60%;
+  display: block;
+}
+
+.establish_icon {
+  display: flex;
+  margin-top: -1%;
+  margin-bottom: 3%;
+}
+
+.establish_icon img {
+  max-width: 5%;
+  width: 5%;
+  max-height: 6%;
+  height: 6%;
+}
+
+.establish_icon a {
+  font-size: 1.1vw;
+  color: rgb(140, 140, 140);
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  margin-left: 1%;
+  text-decoration: none;
+  margin-right: 5%;
+}
+
+.establish_icon a:hover {
+  color: #c0087f;
+}
+
+.establish::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.service_header {
+  background-color: #c0087f;
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+  margin-top: 4vw;
+}
+
+.service {
+  margin-top: 4vw;
+}
+
+.service img {
+  margin-top: 3vw;
+  display: block;
+  max-width: 80%;
+  width: 80%;
+  max-height: 50%;
+  height: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.activity_header {
+  background-color: #c0087f;
+  margin-top: 4vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+}
+
+.imageBox {
+  text-align: center;
+}
+
+.imageBox img {
+  max-width: 30%;
+  width: 30%;
+  max-height: 30%;
+  height: 30%;
+  margin: 4% 1.5% 4% 1.5%;
+}

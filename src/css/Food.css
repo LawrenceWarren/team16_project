@@ -1,0 +1,76 @@
+/*This file was written by Lawrence Warren.*/
+
+/*mainDiv is the parent div of all others in food*/
+.mainDiv {
+  text-align: center;
+  max-width: 100vw;
+}
+
+/*The pink banner across the top of the food page*/
+.banner {
+  background-color: #c0087f;
+  margin-top: 1vw;
+  margin-bottom: 1.5vw;
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  text-align: center;
+}
+
+/*Styling for the container of each item*/
+.contentContainer {
+  border-radius: 20px;
+  border: 0.25vw solid #c0087f;
+  margin: 1.5vw;
+  text-align: center;
+  display: inline-block;
+  min-width: 350px;
+  width: 85%;
+  height: 70vh;
+  max-width: 85%;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #ffffff;
+  background-color: #e480ce;
+}
+
+/*Styling for left and right on screen swipe indicators*/
+.swipeRight {
+  height: auto;
+  width: 15%;
+  float: right;
+  padding-right: 5px;
+  padding-top: 10px;
+}
+.swipeLeft {
+  height: auto;
+  width: 15%;
+  float: left;
+  padding-left: 5px;
+  padding-top: 10px;
+}
+
+/*Styling for the picture for each item*/
+.picture {
+  border: 0.25vw solid #c0087f;
+  max-width: 65%;
+  height: auto;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/*Basic styling for content & titling of each items information*/
+.content,
+.title {
+  text-align: center;
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    STHeiti, MingLiu;
+  line-height: 105%;
+}
+
+/*Link colours*/
+a {
+  color: #c0087f;
+}
