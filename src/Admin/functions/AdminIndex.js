@@ -14,3 +14,17 @@ class AdminIndex extends React.Component {
 }
 
 export default AdminIndex;
+import React from "react";
+
+class AdminIndex extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Home Page</h1>
+        <h2>Thanks for login, you are beautiful today!</h2>
+      </div>
+    );
+  }
+}
+
+export default AdminIndex;

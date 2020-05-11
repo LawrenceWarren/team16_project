@@ -28,6 +28,6 @@ hotelInfo = new Schema({
 });
 
 //Create Model
-//"Hotel" is corresspond to the collection name in database for Hotels
+//"Hotel" is correspond to the collection name in database for Hotels
 const Hotel = mongoose.model("hotel", hotelInfo);
 module.exports = Hotel;

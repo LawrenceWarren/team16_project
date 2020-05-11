@@ -1,7 +1,12 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import "./css/Admin.css";
 
 // Functional page
@@ -9,6 +14,7 @@ import AdminMenu from "./functions/AdminMenu";
 import AdminLookupUser from "./functions/AdminLookupUser";
 import AdminIndex from "./functions/AdminIndex";
 import AdminCheckContact from "./functions/AdminCheckContact";
+import AdminCheckFood from "./functions/AdminCheckFood";
 
 // Authentication & jump configurations
 import Login from "./Login";
@@ -68,6 +74,7 @@ class Admin extends React.Component {
                     path={`${url}/CheckContact`}
                     component={AdminCheckContact}
                   />
+                  <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
                 </Switch>
               </div>
             </div>

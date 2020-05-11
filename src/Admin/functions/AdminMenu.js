@@ -11,6 +11,7 @@ const menus = [
   { url: "/", name: "Home", iconType: "HomeOutlined" },
   { url: "/LookupUser", name: "Users", iconType: "UserOutlined" },
   { url: "/CheckContact", name: "Contact Info", iconType: "ContactsOutlined" },
+  { url: "/CheckFood", name: "Food Info", iconType: "ContactsOutlined" },
 ];
 
 // This is the setting of the menu on the top left

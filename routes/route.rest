@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 POST http://localhost:4000/register
 Content-Type: application/json
@@ -256,3 +257,103 @@ GET http://localhost:4000/charity
 
 ###
 //GET http://localhost:4000/login/scyws2
+=======
+### Server route testing! 
+### Tests must be carried out with the server open 
+### Each test is setup to to test localhost:8080, 
+### but this can be altered by changing the links value. 
+### These tests are run using Huachao Mao's "REST Client" VSCode extension
+
+
+
+
+
+
+### LOGIN / REGISTER TESTS
+
+### Posting user information via "register" route
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "firstname" : "Wenzheng",
+    "lastname" : "Shan",
+    "username" : "scyws1",
+    "password" : "123456",
+    "email" : "scyws1@nottingham.ac.uk",
+    "phone" : "15653259955"
+}
+
+### Getting the above information via "register" route
+GET http://localhost:8080/login/scyws1
+
+
+
+
+
+
+### FOOD PAGE TESTS
+
+### Posting eaterie information via the "foodReq" route
+POST http://localhost:8080/foodReq
+Content-Type: application/json
+
+{
+    "image" : "Another",
+    "name" : "Damn",
+    "address" : "Test",
+    "type" : "Ok",
+    "price" : "Please",
+    "link" : "Stop"
+}
+
+### Getting all information via the "foodReq" route
+GET http://localhost:8080/foodReq
+
+###
+
+DELETE http://localhost:8080/foodReq/Another+test
+
+
+
+
+
+
+### ACCOMMODATION TESTS
+
+### Posting accommodation information via the "accommodationReq" route
+POST http://localhost:8080/accommodationReq
+Content-Type: application/json
+
+{
+    "hotelname" : "Britannia",
+    "description" : "Modest rooms in an unpretentious lodging offering a carvery restaurant, a cosy bar & free Wi-Fi.",
+    "linkBook" : "https://www.google.com/travel/hotels/Birmingham/entity/CgoIhcmA5c2dwMtmEAE?g2lb=2502548%2C2503153%2C4254308%2C4258168%2C4260007%2C4270442%2C4271060%2C4274032%2C4291318%2C4305595%2C4306835%2C4308216%2C4314846%2C4317915%2C4328159%2C4329288%2C4330113%2C4338438%2C4348882%2C4270859%2C4284970%2C4291517%2C4292955%2C4316256&hl=en&gl=uk&un=1&q=hotels%20in%20birmingham%20city%20centre&rp=EIHU4oDdn6jnjwEQhcmA5c2dwMtmELbA85aS-NDZDBCTudPktszj7yE4AUAASAI&ictx=1&ved=2ahUKEwjGtNCbm9TnAhWMVBUIHdnLD3kQvS4wAXoECAgQLQ&hrf=CgUIrwEQACIDR0JQKhYKBwjkDxACGBESBwjkDxACGBIYASgAWAGqARoKAgghEgIIDxICCBUSAggNEgIIZxICCC8YAaoBCgoCCBQSAggbGAGqAQ4KAggcEgIIcxICCEcYAaoBCgoCCCUSAgh6GAGqARoKAggREgIIKhICCEASAgg4EgIIVxICCCsYAaoBCwoCCC4SAwiAARgBqgEGCgIIRhgAqgEKCgIIUBICCE8YAaoBBgoCCDkYAJIBAiAB",
+    "linkReview" : "https://www.google.com/travel/hotels/Birmingham/entity/CgoIhcmA5c2dwMtmEAE/reviews?g2lb=2502548%2C2503153%2C4254308%2C4258168%2C4260007%2C4270442%2C4271060%2C4274032%2C4291318%2C4305595%2C4306835%2C4308216%2C4314846%2C4317915%2C4328159%2C4329288%2C4330113%2C4338438%2C4348882%2C4270859%2C4284970%2C4291517%2C4292955%2C4316256&hl=en&gl=uk&un=1&q=hotels%20in%20birmingham%20city%20centre&rp=EIHU4oDdn6jnjwEQhcmA5c2dwMtmELbA85aS-NDZDBCTudPktszj7yE4AUAASAI&ictx=1&ved=2ahUKEwjGtNCbm9TnAhWMVBUIHdnLD3kQvS4wAXoECAgQLQ&hrf=CgUIrwEQACIDR0JQKhYKBwjkDxACGBESBwjkDxACGBIYASgAWAGqARoKAgghEgIIDxICCBUSAggNEgIIZxICCC8YAaoBCgoCCBQSAggbGAGqAQ4KAggcEgIIcxICCEcYAaoBCgoCCCUSAgh6GAGqARoKAggREgIIKhICCEASAgg4EgIIVxICCCsYAaoBCwoCCC4SAwiAARgBqgEGCgIIRhgAqgEKCgIIUBICCE8YAaoBBgoCCDkYAJIBAiAB",
+    "linkImage": "https://www.britanniahotels.com/image/fit/660x340/cms/britannia/images/new/birmingham-exterior-carousel-1-660x340002.jpg"
+}
+
+### Get all information via the "accommodationReq" route
+GET http://localhost:8080/accommodationReq
+
+
+
+
+
+
+### CHARITY TEST
+
+### Posting charity information bia the "charityReq" route
+POST http://localhost:8080/charityReq
+Content-Type: application/json
+
+{
+    "charityId": 0,
+    "charity_name": "test",
+    "charity_phone": "test",
+    "charity_email": "test",
+    "charity_weblink": "test",
+    "charity_introduce": "test",
+    "charity_image": "test"
+}
+>>>>>>> backstage
