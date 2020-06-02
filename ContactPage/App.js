@@ -2,15 +2,15 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import MainPage from "./MainPage/MainPage";
-import Food from "./FoodPage/Food";
+import MainPage from "./MainPage";
+import Food from "./Food";
 import Accommodation from "./AccommodationPage/Accommodation";
 import Charity from "./CharityPage/Charity";
 import About from "./AboutPage/About";
-import Contact from "./ContactPage/Contact";
-import Feedback from "./FeedbackPage/Feedback";
+import Contact from "./Contact";
+import Feedback from "./Feedback";
 import Intermediate from "./Intermediate";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Admin from "./Admin/Admin";
 
 class App extends React.Component {

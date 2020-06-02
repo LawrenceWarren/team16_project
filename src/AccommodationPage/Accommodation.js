@@ -1,9 +1,9 @@
 //This page was written by Ali Soufan.
 
 import React from "react";
-import "./css/Accommodation.css";
-import Header from "./Header";
-import Footer from "./Footer";
+import "./Accommodation.css";
+import Header from "../Header";
+import Footer from "../Footer/Footer";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/Card";
 

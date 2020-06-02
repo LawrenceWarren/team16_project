@@ -1,12 +1,12 @@
 //This page was written by Wenzheng Shan and refactored by Lawrence Warren.
 
 import React from "react";
-import "./css/MainPage.css";
+import "./MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { grey as matGrey } from "@material-ui/core/colors";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer/Footer";
 
 const MainButton = withStyles({
   root: {
@@ -72,10 +72,7 @@ function MainPage() {
       {/*Info block 1 */}
 
       <div className="infoBox">
-        <img
-          src={require("./resource/mainPage/Ava.jpg")}
-          alt="Ava on holiday."
-        />
+        <img src={require("./resources/Ava.jpg")} alt="Ava on holiday." />
 
         <div>
           <h1>The history of Ava's Angels</h1>
@@ -133,7 +130,7 @@ function MainPage() {
         </div>
 
         <img
-          src={require("./resource/mainPage/AAIntroduction.jpg")}
+          src={require("./resources/AAIntroduction.jpg")}
           alt="Avas's Angels: Helping Families with Sick Children."
         />
       </div>
@@ -184,7 +181,7 @@ function MainPage() {
           </a>
 
           <img
-            src={require("./resource/mainPage/AAAction.jpg")}
+            src={require("./resources/AAAction.jpg")}
             className="button_image"
             alt="ava_activity"
           />

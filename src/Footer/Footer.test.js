@@ -4,7 +4,7 @@ import React from "react";
 import enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import renderer from "react-test-renderer";
-import Footer from "../Footer";
+import Footer from "./Footer";
 
 enzyme.configure({ adapter: new Adapter() });
 

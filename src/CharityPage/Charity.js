@@ -1,14 +1,14 @@
 //This page was written by Ben Smith.
 
 import React from "react";
-import "./css/Charity.css";
+import "./Charity.css";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import Header from "./Header";
-import Footer from "./Footer";
-import SearchIcon from "./resource/charity/charitySearch.jpg";
+import Header from "../Header";
+import Footer from "../Footer/Footer";
+import SearchIcon from "./resources/charitySearch.jpg";
 
 class Charity extends React.Component {
   constructor() {

@@ -1,7 +1,7 @@
 //This page was written by Wenzheng Shan and refactored by Lawrence Warren.
 
 import React from "react";
-import "./css/Footer.css";
+import "./Footer.css";
 
 function Footer() {
   return (

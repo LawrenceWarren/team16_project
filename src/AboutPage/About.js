@@ -4,7 +4,7 @@ import React from "react";
 import Zmage from "react-zmage";
 import "./About.css";
 import Header from "../Header";
-import Footer from "../Footer";
+import Footer from "../Footer/Footer";
 import AAService from "./resources/avasangelsservices.png";
 import AALogo from "./resources/AALogoAboutPage.png";
 import LocationIcon from "./resources/location.png";

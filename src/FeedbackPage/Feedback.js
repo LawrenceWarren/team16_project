@@ -1,9 +1,9 @@
 //This page was written by Junhao Zhang, modified by Wenzheng Shan and Lawrence Warren.
 
 import React from "react";
-import "./css/Feedback.css";
-import Header from "./Header"; //The header of the page
-import Footer from "./Footer"; //The footer of the page
+import "./Feedback.css";
+import Header from "../Header"; //The header of the page
+import Footer from "../Footer/Footer"; //The footer of the page
 import axios from "axios";
 
 class Feedback extends React.Component {

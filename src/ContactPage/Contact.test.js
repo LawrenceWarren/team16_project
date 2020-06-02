@@ -3,7 +3,7 @@
 import React from "react";
 import enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Contact from "../Contact";
+import Contact from "./Contact";
 
 enzyme.configure({ adapter: new Adapter() });
 

@@ -1,9 +1,9 @@
 //This code was written by Yutian Chen, and modified by Wenzheng Shan.
 
 import React from "react";
-import "./css/Contact.css";
-import Header from "./Header";
-import Footer from "./Footer";
+import "./Contact.css";
+import Header from "../Header";
+import Footer from "../Footer/Footer";
 import axios from "axios";
 
 class Contact extends React.Component {

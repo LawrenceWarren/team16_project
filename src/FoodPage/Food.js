@@ -2,9 +2,9 @@
 //in the file Charity.js, which was copy pasted from here by Ben Smith.
 
 import React from "react"; //We're writing React code. Duh.
-import "./css/Food.css"; //Style sheet
-import Header from "./Header"; //The header of the page
-import Footer from "./Footer"; //The footer of the page
+import "./Food.css"; //Style sheet
+import Header from "../Header"; //The header of the page
+import Footer from "../Footer/Footer"; //The footer of the page
 import { Swipeable } from "react-swipeable"; //Used to create a swipeable DOM element
 
 class Food extends React.Component {
@@ -24,7 +24,7 @@ class Food extends React.Component {
       foodList: [
         //Food list
         {
-          image: require("./resource/food/connectionFail.png"), //Default value
+          image: require("./resources/connectionFail.png"), //Default value
           name: "",
           address: "",
           type: "",
@@ -100,13 +100,13 @@ class Food extends React.Component {
           <div className="contentContainer">
             {/*On screen indications for swiping */}
             <img
-              src={require("./resource/food/swipeLeft.png")}
+              src={require("./resources/swipeLeft.png")}
               className="swipeLeft"
               onClick={this.onClickBack}
               alt="Upon pressing, you move backwards through the eateries."
             />
             <img
-              src={require("./resource/food/swipeRight.png")}
+              src={require("./resources/swipeRight.png")}
               className="swipeRight"
               onClick={this.onClickForward}
               alt="Upon pressing, you move forwards through the eateries."
