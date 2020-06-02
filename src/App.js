@@ -6,7 +6,7 @@ import MainPage from "./MainPage";
 import Food from "./Food";
 import Accommodation from "./Accommodation";
 import Charity from "./Charity";
-import About from "./About";
+import About from "./AboutPage/About";
 import Contact from "./Contact";
 import Feedback from "./Feedback";
 import Intermediate from "./Intermediate";
