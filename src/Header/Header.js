@@ -1,6 +1,6 @@
 //This code was written by Wenzheng Shan and refactored by Lawrence Warren.
 import React from "react";
-import "./css/Header.css";
+import "./Header.css";
 
 //!SubMenuItem component - this is the text you only see when hovering over Navbar elements
 const SubMenuItem = (props) =>

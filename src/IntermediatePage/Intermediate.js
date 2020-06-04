@@ -1,7 +1,7 @@
 //This page was written by Yutian Chen.
 
 import React from "react";
-import loading from "./resource/intermediatePage/loading.gif";
+import loading from "./resources/loading.gif";
 
 class Intermediate extends React.Component {
   constructor() {

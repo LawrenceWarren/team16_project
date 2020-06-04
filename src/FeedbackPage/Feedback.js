@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Feedback.css";
-import Header from "../Header"; //The header of the page
+import Header from "../Header/Header"; //The header of the page
 import Footer from "../Footer/Footer"; //The footer of the page
 import axios from "axios";
 

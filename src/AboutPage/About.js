@@ -3,7 +3,7 @@
 import React from "react";
 import Zmage from "react-zmage";
 import "./About.css";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AAService from "./resources/avasangelsservices.png";
 import AALogo from "./resources/AALogoAboutPage.png";

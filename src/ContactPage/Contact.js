@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Contact.css";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 

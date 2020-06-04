@@ -3,7 +3,7 @@
 
 import React from "react"; //We're writing React code. Duh.
 import "./Food.css"; //Style sheet
-import Header from "../Header"; //The header of the page
+import Header from "../Header/Header"; //The header of the page
 import Footer from "../Footer/Footer"; //The footer of the page
 import { Swipeable } from "react-swipeable"; //Used to create a swipeable DOM element
 

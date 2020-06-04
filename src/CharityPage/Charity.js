@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SearchIcon from "./resources/charitySearch.jpg";
 

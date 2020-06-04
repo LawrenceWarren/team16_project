@@ -5,7 +5,7 @@ import "./MainPage.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { grey as matGrey } from "@material-ui/core/colors";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 const MainButton = withStyles({

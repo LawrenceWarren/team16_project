@@ -1,12 +1,7 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import "./css/Admin.css";
 
 // Functional page
@@ -48,37 +43,34 @@ class Admin extends React.Component {
     }
 
     if (!isLogin) {
-      // Redirct if is not login or out of date
+      //Show the login page if the login has expired (10 minutes)
       return (
         <div>
-          <Route path={`${url}/Login`} component={Login} />
-          <Redirect to={`${url}/Login`} />
+          {/*Set's the route for the login and redirects to the route*/}
+          <Route path={`${url}/login`} component={Login} />
+          <Redirect to={`${url}/login`} />
         </div>
       );
-    } else {
+    } //Show the main
+    else {
       return (
         <div>
-          {
-            <div className="admin_container">
-              <div className="menuContainer">
-                <AdminMenu history={this.props.history} />
-              </div>
-              <div className="nextContain">
-                <Switch>
-                  <Route exact path={url} component={AdminIndex} />
-                  <Route
-                    path={`${url}/LookupUser`}
-                    component={AdminLookupUser}
-                  />
-                  <Route
-                    path={`${url}/CheckContact`}
-                    component={AdminCheckContact}
-                  />
-                  <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
-                </Switch>
-              </div>
+          <div className="admin_container">
+            <div className="menuContainer">
+              <AdminMenu history={this.props.history} />
             </div>
-          }
+            <div className="nextContain">
+              <Switch>
+                <Route exact path={url} component={AdminIndex} />
+                <Route path={`${url}/LookupUser`} component={AdminLookupUser} />
+                <Route
+                  path={`${url}/CheckContact`}
+                  component={AdminCheckContact}
+                />
+                <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
+              </Switch>
+            </div>
+          </div>
         </div>
       );
     }

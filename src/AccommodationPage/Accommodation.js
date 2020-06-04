@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Accommodation.css";
-import Header from "../Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/Card";
