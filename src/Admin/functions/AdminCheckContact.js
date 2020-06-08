@@ -1,6 +1,7 @@
 //This code was written by Yutian Chen, with small changes by Lawrence Warren.
 
 import React from "react";
+import "../css/subPage.css";
 
 class AdminCheckContact extends React.Component {
   constructor(props) {
@@ -19,7 +20,15 @@ class AdminCheckContact extends React.Component {
     };
   }
 
+  //Runs when the page loads
   componentDidMount = async () => {
+    await this.fetchFromServer(); //Calls information from the server asynchronously
+    this.buildTableHeader();
+    this.buildTableBody();
+  };
+
+  //Fetches the contact information from the database
+  fetchFromServer = async () => {
     //Fetching from server
     console.log("ContactCMS: Fetching from server...");
     try {
@@ -34,70 +43,104 @@ class AdminCheckContact extends React.Component {
     } catch (err) {
       console.error("ContactCMS: " + err);
     }
+  };
 
-    //Putting into table
+  //Builds the first row of the tables
+  buildTableHeader = () => {
+    //Variables used
+    var row, cell;
 
-    var cell0 = document.createElement("td");
-    var cell1 = document.createElement("td");
-    var cell2 = document.createElement("td");
-    var cell3 = document.createElement("td");
-    var cell4 = document.createElement("td");
-    var cell5 = document.createElement("td");
-    var row = document.createElement("tr");
+    //Creates a new row, appends that row to the table
+    row = document.createElement("tr");
     document.getElementById("contactInfo").appendChild(row);
 
-    //Adding the firstname title
-    cell0.appendChild(document.createTextNode("First Name"));
-    row.appendChild(cell0);
-    //Adding the lastname title
-    cell1.appendChild(document.createTextNode("Last Name"));
-    row.appendChild(cell1);
-    //Adding the email title
-    cell2.appendChild(document.createTextNode("Email Address"));
-    row.appendChild(cell2);
-    //adding the phone number title
-    cell3.appendChild(document.createTextNode("Phone Number"));
-    row.appendChild(cell3);
-    //adding the message title
-    cell4.appendChild(document.createTextNode("Message"));
-    row.appendChild(cell4);
-    //adding the delete button title
-    cell5.appendChild(document.createTextNode("Delete"));
-    row.appendChild(cell5);
+    //Creates a new cell (firstname), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("First Name"));
+    row.appendChild(cell);
 
-    //For each element in the details
-    this.state.details.forEach((contact) => {
-      console.log(contact);
+    //Creates a new cell (lastname), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("Last Name"));
+    row.appendChild(cell);
 
-      cell0 = document.createElement("td");
-      cell1 = document.createElement("td");
-      cell2 = document.createElement("td");
-      cell3 = document.createElement("td");
-      cell4 = document.createElement("td");
-      cell5 = document.createElement("td");
+    //Creates a new cell (email address), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("Email Address"));
+    row.appendChild(cell);
+
+    //Creates a new cell (phone number), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("Phone Number"));
+    row.appendChild(cell);
+
+    //Creates a new cell (message), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("Message"));
+    row.appendChild(cell);
+
+    //Creates a new cell (delete button), populates the cell, appends the cell to the row
+    cell = document.createElement("td");
+    cell.appendChild(document.createTextNode("Delete"));
+    row.appendChild(cell);
+  };
+
+  buildTableBody = () => {
+    //variables used
+    var row, cell;
+
+    //Loops through each element in the array `state.details`
+    this.state.details.forEach((contact, i) => {
+      //Defines row as a new row, and appends it to the table
       row = document.createElement("tr");
       document.getElementById("contactInfo").appendChild(row);
 
-      //Adding the firstname
-      cell0.appendChild(document.createTextNode(contact.firstname));
-      row.appendChild(cell0);
-      //Adding the lastname
-      cell1.appendChild(document.createTextNode(contact.lastname));
-      row.appendChild(cell1);
-      //Adding the email
-      cell2.appendChild(document.createTextNode(contact.email));
-      row.appendChild(cell2);
-      //adding the phone number
-      cell3.appendChild(document.createTextNode(contact.phoneNum));
-      row.appendChild(cell3);
-      //adding the message
-      cell4.appendChild(document.createTextNode(contact.message));
-      row.appendChild(cell4);
-      //adding the delete button
-      //TODO: add a delete button to the table
+      //Adding the firstname of the current element to the row
+      cell = document.createElement("td");
+      cell.appendChild(document.createTextNode(contact.firstname));
+      row.appendChild(cell);
+
+      //Adding the lastname of the current element to the row
+      cell = document.createElement("td");
+      cell.appendChild(document.createTextNode(contact.lastname));
+      row.appendChild(cell);
+
+      //Adding the email of the current element to the row
+      cell = document.createElement("td");
+      cell.appendChild(document.createTextNode(contact.email));
+      row.appendChild(cell);
+
+      //Adding the phone number of the current element to the row
+      cell = document.createElement("td");
+      cell.appendChild(document.createTextNode(contact.phoneNum));
+      row.appendChild(cell);
+
+      //Adding the message of the current element to the row
+      cell = document.createElement("td");
+      cell.appendChild(document.createTextNode(contact.message));
+      row.appendChild(cell);
+
+      //Adding the delete button of the current element to the row
+      cell = document.createElement("td");
+
+      var delButton = document.createElement("button");
+
+      delButton.innerText = "Delete entry " + i;
+
+      delButton.addEventListener("click", (event) => {
+        this.deleteEntry(i);
+      });
+
+      cell.appendChild(delButton);
+      row.appendChild(cell);
     });
   };
 
+  deleteEntry = (i) => {
+    console.log(`ContactCMS: Deleting element ${i} from the database.`);
+  };
+
+  //Render!
   render() {
     return (
       <div>
