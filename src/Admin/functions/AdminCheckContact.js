@@ -9,7 +9,7 @@ class AdminCheckContact extends React.Component {
     this.state = {
       details: [
         {
-          currentTime: "",
+          _id: 0,
           firstname: "",
           lastname: "",
           email: "",
@@ -23,8 +23,13 @@ class AdminCheckContact extends React.Component {
   //Runs when the page loads
   componentDidMount = async () => {
     await this.fetchFromServer(); //Calls information from the server asynchronously
-    this.buildTableHeader();
-    this.buildTableBody();
+    if (this.state.details.length) {
+      this.buildTableHeader();
+      this.buildTableBody();
+    } else {
+      document.getElementById("message").innerText =
+        "No contact information could be fetched from the database!";
+    }
   };
 
   //Fetches the contact information from the database
@@ -126,7 +131,7 @@ class AdminCheckContact extends React.Component {
 
       //Each row has a unique delButton
       var delButton = document.createElement("button");
-      delButton.innerText = `Delete entry ${i}`;
+      delButton.innerText = `Delete entry`;
 
       //listens for click on button event
       delButton.addEventListener("click", () => {
@@ -139,10 +144,35 @@ class AdminCheckContact extends React.Component {
   };
 
   //Delete entry i from the array & visually remove from the table
-  deleteEntry = (i) => {
+  deleteEntry = async (i) => {
+    const self = this;
+
     console.log(`ContactCMS: Deleting element ${i} from the database.`);
 
-    var table = document.getElementById("contactInfo").deleteRow(i + 1);
+    let xhr = new XMLHttpRequest();
+    xhr.open("DELETE", `/contactReq/${this.state.details[i]._id}`, true);
+    xhr.send();
+
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(e) {
+      //The request has completed
+      if (xhr.readyState === 4) {
+        //The request was successful
+        if (xhr.status === 200) {
+          console.log(
+            "ContactCMS: An element deleted successfully from the database!"
+          );
+          document.getElementById("contactInfo").innerHTML = "";
+
+          self.componentDidMount();
+        }
+        //The request was unsuccessful
+        else {
+          console.log("ContactCMS: An error occurred, nothing was deleted.");
+        }
+      }
+    }
   };
 
   //Render!
@@ -151,6 +181,7 @@ class AdminCheckContact extends React.Component {
       <div>
         <h1>Contact Information</h1>
         <table id="contactInfo" border="1"></table>
+        <p id="message"></p>
       </div>
     );
   }
