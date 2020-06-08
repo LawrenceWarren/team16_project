@@ -85,6 +85,7 @@ class AdminCheckContact extends React.Component {
     row.appendChild(cell);
   };
 
+  //Builds the body of the table
   buildTableBody = () => {
     //variables used
     var row, cell;
