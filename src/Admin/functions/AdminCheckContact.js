@@ -1,5 +1,3 @@
-//This code was written by Yutian Chen, with small changes by Lawrence Warren.
-
 import React from "react";
 import "../css/subPage.css";
 
@@ -24,9 +22,10 @@ class AdminCheckContact extends React.Component {
   componentDidMount = async () => {
     await this.fetchFromServer(); //Calls information from the server asynchronously
     if (this.state.details.length) {
-      this.buildTableHeader();
-      this.buildTableBody();
+      this.buildTableHeader(); //Draw the top row of the table
+      this.buildTableBody(); //Draw the body of the table
     } else {
+      //Leave a notice saying no data could be fetched
       document.getElementById("message").innerText =
         "No contact information could be fetched from the database!";
     }
@@ -133,7 +132,7 @@ class AdminCheckContact extends React.Component {
       var delButton = document.createElement("button");
       delButton.innerText = `Delete entry`;
 
-      //listens for click on button event
+      //When the button is clicked, delete the entry the button relates to
       delButton.addEventListener("click", () => {
         this.deleteEntry(i);
       });
@@ -145,14 +144,16 @@ class AdminCheckContact extends React.Component {
 
   //Delete entry i from the array & visually remove from the table
   deleteEntry = async (i) => {
-    const self = this;
+    const self = this; //Used for the child function
 
     console.log(`ContactCMS: Deleting element ${i} from the database.`);
 
+    //Creates a DELETE request, sends the delete request
     let xhr = new XMLHttpRequest();
     xhr.open("DELETE", `/contactReq/${this.state.details[i]._id}`, true);
     xhr.send();
 
+    //If the state of the request changes, call processRequest()
     xhr.onreadystatechange = processRequest;
 
     function processRequest(e) {
@@ -163,8 +164,9 @@ class AdminCheckContact extends React.Component {
           console.log(
             "ContactCMS: An element deleted successfully from the database!"
           );
-          document.getElementById("contactInfo").innerHTML = "";
 
+          //Clear and redraw the table
+          document.getElementById("contactInfo").innerHTML = "";
           self.componentDidMount();
         }
         //The request was unsuccessful
