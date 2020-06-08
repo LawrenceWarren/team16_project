@@ -124,11 +124,12 @@ class AdminCheckContact extends React.Component {
       //Adding the delete button of the current element to the row
       cell = document.createElement("td");
 
+      //Each row has a unique delButton
       var delButton = document.createElement("button");
+      delButton.innerText = `Delete entry ${i}`;
 
-      delButton.innerText = "Delete entry " + i;
-
-      delButton.addEventListener("click", (event) => {
+      //listens for click on button event
+      delButton.addEventListener("click", () => {
         this.deleteEntry(i);
       });
 
@@ -140,6 +141,8 @@ class AdminCheckContact extends React.Component {
   //Delete entry i from the array & visually remove from the table
   deleteEntry = (i) => {
     console.log(`ContactCMS: Deleting element ${i} from the database.`);
+
+    var table = document.getElementById("contactInfo").deleteRow(i + 1);
   };
 
   //Render!
