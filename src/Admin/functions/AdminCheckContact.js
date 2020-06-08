@@ -137,6 +137,7 @@ class AdminCheckContact extends React.Component {
     });
   };
 
+  //Delete entry i from the array
   deleteEntry = (i) => {
     console.log(`ContactCMS: Deleting element ${i} from the database.`);
   };
