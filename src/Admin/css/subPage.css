@@ -30,5 +30,9 @@ table {
 td:nth-child(5) {
   width: 300px;
   text-align: left;
+}
+
+/*Each column should have 3px padding*/
+td {
   padding: 3px;
 }
