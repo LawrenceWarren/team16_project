@@ -1,7 +1,6 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
-import { Redirect } from "react-router-dom";
 
 export default class Login extends React.Component {
   state = {

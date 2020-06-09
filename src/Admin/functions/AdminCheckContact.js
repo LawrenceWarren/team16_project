@@ -148,7 +148,7 @@ class AdminCheckContact extends React.Component {
   };
 
   //Delete entry i from the array & visually remove from the table
-  deleteEntry = async (i) => {
+  deleteEntry = (i) => {
     const self = this; //Used for the child function
 
     console.log(`ContactCMS: Deleting element ${i} from the database.`);
@@ -176,7 +176,7 @@ class AdminCheckContact extends React.Component {
         }
         //The request was unsuccessful
         else {
-          console.log("ContactCMS: An error occurred, nothing was deleted.");
+          console.error("ContactCMS: An error occurred, nothing was deleted.");
         }
       }
     }

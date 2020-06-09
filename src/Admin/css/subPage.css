@@ -26,13 +26,9 @@ table {
   max-width: 80vw;
 }
 
-/*The column with the messages in it*/
-td:nth-child(5) {
-  width: 300px;
-  text-align: left;
-}
-
 /*Each column should have 3px padding*/
 td {
   padding: 3px;
+  max-width: 300px;
+  text-align: left;
 }

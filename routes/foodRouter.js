@@ -17,6 +17,35 @@ foodRouter.get("/", async (_req, res) => {
   }
 });
 
+//Delete One Route
+foodRouter.delete("/:id", function (req, res, next) {
+  FoodModel.findByIdAndRemove(req.params.id, req.body, function (
+    err,
+    foodinfo
+  ) {
+    if (err) return next(err);
+    res.json(foodinfo);
+  });
+});
+
+//Create One Route
+foodRouter.post("/", async (req, res) => {
+  const food = new FoodModel({
+    image: req.body.image,
+    name: req.body.name,
+    address: req.body.address,
+    type: req.body.type,
+    price: req.body.price,
+    link: req.body.link,
+  });
+  try {
+    const newFood = await food.save();
+    res.status(201).json({ newFood });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 //!These routes are currently unneeded. will be needed for CMS!
 //Create One Route
 foodRouter.post("/", async (req, res) => {
@@ -39,24 +68,6 @@ foodRouter.post("/", async (req, res) => {
 //Get One Route
 foodRouter.get("/:name", getFood, (_req, res) => {
   res.json(res.food);
-});
-
-//Create One Route
-foodRouter.post("/", async (req, res) => {
-  const food = new FoodModel({
-    image: req.body.image,
-    name: req.body.name,
-    address: req.body.address,
-    type: req.body.type,
-    price: req.body.price,
-    link: req.body.link,
-  });
-  try {
-    const newFood = await food.save();
-    res.status(201).json({ newFood });
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
 });
 
 //Edit One Route PUT version
@@ -94,16 +105,6 @@ foodRouter.patch("/:id", getFood, async (req, res) => {
     res.json(updatedFood);
   } catch (err) {
     res.status(400).json({ message: err.message });
-  }
-});
-
-//Delete One Route
-foodRouter.delete("/:id", getFood, async (_req, res) => {
-  try {
-    await res.food.deleteOne();
-    res.json({ message: "Food has been deleted" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
   }
 });
 
