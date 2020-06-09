@@ -52,39 +52,41 @@ class AdminCheckContact extends React.Component {
   //Builds the first row of the tables
   buildTableHeader = () => {
     //Variables used
-    var row, cell;
+    var row, cell, head;
 
     //Creates a new row, appends that row to the table
+    head = document.createElement("thead");
     row = document.createElement("tr");
-    document.getElementById("contactInfo").appendChild(row);
+    document.getElementById("contactInfo").appendChild(head);
+    head.appendChild(row);
 
     //Creates a new cell (firstname), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("First Name"));
     row.appendChild(cell);
 
     //Creates a new cell (lastname), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("Last Name"));
     row.appendChild(cell);
 
     //Creates a new cell (email address), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("Email Address"));
     row.appendChild(cell);
 
     //Creates a new cell (phone number), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("Phone Number"));
     row.appendChild(cell);
 
     //Creates a new cell (message), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("Message"));
     row.appendChild(cell);
 
     //Creates a new cell (delete button), populates the cell, appends the cell to the row
-    cell = document.createElement("td");
+    cell = document.createElement("th");
     cell.appendChild(document.createTextNode("Delete"));
     row.appendChild(cell);
   };
@@ -92,13 +94,16 @@ class AdminCheckContact extends React.Component {
   //Builds the body of the table
   buildTableBody = () => {
     //variables used
-    var row, cell;
+    var row, cell, body;
+
+    body = document.createElement("tbody");
+    document.getElementById("contactInfo").appendChild(body);
 
     //Loops through each element in the array `state.details`
     this.state.details.forEach((contact, i) => {
       //Defines row as a new row, and appends it to the table
       row = document.createElement("tr");
-      document.getElementById("contactInfo").appendChild(row);
+      body.appendChild(row);
 
       //Adding the firstname of the current element to the row
       cell = document.createElement("td");

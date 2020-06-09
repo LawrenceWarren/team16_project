@@ -3,3 +3,32 @@
   width: 10px;
   content: "delete";
 }
+
+/*Alternating the colour of each row*/
+tr:nth-child(even) {
+  background: #dddddd;
+}
+
+/*Removing the borders between rows*/
+tr {
+  border-top: none;
+  border-bottom: none;
+}
+
+/*Styling for the head of the table*/
+thead {
+  background: #cccccc;
+}
+
+/*Overall styling for the table*/
+table {
+  text-align: center;
+  max-width: 80vw;
+}
+
+/*The column with the messages in it*/
+td:nth-child(5) {
+  width: 300px;
+  text-align: left;
+  padding: 3px;
+}

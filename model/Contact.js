@@ -28,6 +28,6 @@ contactInfo = new Schema({
 });
 
 //Create Model
-//"User" is corresspond to the collection name in database for Users
+//"User" is correspond to the collection name in database for Users
 const Contact = mongoose.model("contactInfo", contactInfo);
 module.exports = Contact;
