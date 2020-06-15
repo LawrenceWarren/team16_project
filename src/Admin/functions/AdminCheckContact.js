@@ -5,21 +5,12 @@ class AdminCheckContact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: [
-        {
-          _id: 0,
-          firstname: "",
-          lastname: "",
-          email: "",
-          phoneNum: "",
-          message: "",
-        },
-      ],
+      details: [],
     };
   }
 
   //Runs when the page loads
-  componentDidMount = async () => {
+  async componentDidMount() {
     await this.fetchFromServer(); //Calls information from the server asynchronously
     if (this.state.details.length) {
       this.buildTableHeader(); //Draw the top row of the table
@@ -29,10 +20,10 @@ class AdminCheckContact extends React.Component {
       document.getElementById("message").innerText =
         "No contact information could be fetched from the database!";
     }
-  };
+  }
 
   //Fetches the contact information from the database
-  fetchFromServer = async () => {
+  async fetchFromServer() {
     //Fetching from server
     console.log("ContactCMS: Fetching from server...");
     try {
@@ -47,12 +38,20 @@ class AdminCheckContact extends React.Component {
     } catch (err) {
       console.error("ContactCMS: " + err);
     }
-  };
+  }
 
   //Builds the first row of the tables
-  buildTableHeader = () => {
-    //Variables used
-    var row, cell, head;
+  buildTableHeader() {
+    var row, cell, head, titles;
+
+    titles = [
+      "First name",
+      "Last Name",
+      "Email Address",
+      "Phone Number",
+      "Message",
+      "Delete",
+    ];
 
     //Creates a new row, appends that row to the table
     head = document.createElement("thead");
@@ -60,130 +59,98 @@ class AdminCheckContact extends React.Component {
     document.getElementById("contactInfo").appendChild(head);
     head.appendChild(row);
 
-    //Creates a new cell (firstname), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("First Name"));
-    row.appendChild(cell);
-
-    //Creates a new cell (lastname), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Last Name"));
-    row.appendChild(cell);
-
-    //Creates a new cell (email address), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Email Address"));
-    row.appendChild(cell);
-
-    //Creates a new cell (phone number), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Phone Number"));
-    row.appendChild(cell);
-
-    //Creates a new cell (message), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Message"));
-    row.appendChild(cell);
-
-    //Creates a new cell (delete button), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Delete"));
-    row.appendChild(cell);
-  };
+    //Loops through the values in the above array, and populates the header
+    titles.forEach((title) => {
+      cell = document.createElement("th");
+      cell.appendChild(document.createTextNode(title));
+      row.appendChild(cell);
+    });
+  }
 
   //Builds the body of the table
-  buildTableBody = () => {
-    //variables used
-    var row, cell, body;
+  buildTableBody() {
+    var row, cell, body, rowValues, self;
 
+    self = this; //Used for function calls within objects
     body = document.createElement("tbody");
     document.getElementById("contactInfo").appendChild(body);
 
-    //Loops through each element in the array `state.details`
+    /**Loops through each element in state.details,
+     * and populates a new row in the table with
+     *      the values from state.details        */
     this.state.details.forEach((contact, i) => {
-      //Defines row as a new row, and appends it to the table
       row = document.createElement("tr");
       body.appendChild(row);
 
-      //Adding the firstname of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(contact.firstname));
-      row.appendChild(cell);
+      //Defines an array to store the values of the current element
+      //of state.details, to be looped through
+      rowValues = [
+        contact.firstname,
+        contact.lastname,
+        contact.email,
+        contact.phoneNum,
+        contact.message,
+        {
+          innerText: "Delete entry",
+          function: function (i) {
+            self.deleteEntry(i);
+          },
+        },
+      ];
 
-      //Adding the lastname of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(contact.lastname));
-      row.appendChild(cell);
+      //Looping through the above array
+      for (let j = 0; j <= 5; j++) {
+        cell = document.createElement("td");
 
-      //Adding the email of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(contact.email));
-      row.appendChild(cell);
+        //For the first 4 elements, it is simply appending a string
+        if (j <= 4) {
+          cell.appendChild(document.createTextNode(rowValues[j]));
+        }
+        //For the last column append a button.
+        else {
+          let button = document.createElement("button");
+          button.innerText = rowValues[j].innerText;
+          button.addEventListener("click", () => {
+            rowValues[j].function(i);
+          });
 
-      //Adding the phone number of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(contact.phoneNum));
-      row.appendChild(cell);
-
-      //Adding the message of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(contact.message));
-      row.appendChild(cell);
-
-      //Adding the delete button of the current element to the row
-      cell = document.createElement("td");
-
-      //Each row has a unique delButton
-      var delButton = document.createElement("button");
-      delButton.innerText = `Delete entry`;
-
-      //When the button is clicked, delete the entry the button relates to
-      delButton.addEventListener("click", () => {
-        this.deleteEntry(i);
-      });
-
-      cell.appendChild(delButton);
-      row.appendChild(cell);
+          cell.appendChild(button);
+        }
+        row.appendChild(cell);
+      }
     });
-  };
+  }
 
   //Delete entry i from the array & visually remove from the table
-  deleteEntry = (i) => {
-    const self = this; //Used for the child function
-
-    console.log(`ContactCMS: Deleting element ${i} from the database.`);
-
+  deleteEntry(i) {
     //Creates a DELETE request, sends the delete request
     let xhr = new XMLHttpRequest();
     xhr.open("DELETE", `/contactReq/${this.state.details[i]._id}`, true);
     xhr.send();
 
     //If the state of the request changes, call processRequest()
-    xhr.onreadystatechange = processRequest;
+    xhr.onreadystatechange = () => {
+      this.processStateChange(xhr.readyState, xhr.status);
+    };
+  }
 
-    function processRequest(e) {
-      //The request has completed
-      if (xhr.readyState === 4) {
-        //The request was successful
-        if (xhr.status === 200) {
-          console.log(
-            "ContactCMS: An element deleted successfully from the database!"
-          );
-
-          //Clear and redraw the table
-          document.getElementById("contactInfo").innerHTML = "";
-          self.componentDidMount();
-        }
-        //The request was unsuccessful
-        else {
-          console.error("ContactCMS: An error occurred, nothing was deleted.");
-        }
-      }
+  /**Process's the state of our DELETE request, when it changes.
+   * @param requestState the state of the request (4 means the request has completed)
+   * @param httpStatus the returned httpStatus for the request
+   */
+  processStateChange(requestState, httpStatus) {
+    //The request has completed successfully
+    if (requestState === 4 && httpStatus === 200) {
+      document.getElementById("contactInfo").innerHTML = ""; //Clear the table
+      this.componentDidMount();
+    } else if (httpStatus !== 200) {
+      console.error("ContactsCMS: An error occurred, nothing was deleted.");
     }
-  };
+  }
 
   //Render!
   render() {
+    /* jshint ignore:start */
     return (
       <div>
         <h1>Contact Information</h1>
@@ -191,6 +158,7 @@ class AdminCheckContact extends React.Component {
         <p id="message"></p>
       </div>
     );
+    /* jshint ignore:end */
   }
 }
 

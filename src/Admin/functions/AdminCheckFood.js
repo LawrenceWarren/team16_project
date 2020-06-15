@@ -7,26 +7,22 @@ class AdminCheckFood extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: [
-        {
-          _id: 0,
-          image: "",
-          name: "",
-          address: "",
-          type: "",
-          price: "",
-          link: "",
-          registerDate: "",
-        },
-      ],
+      details: [],
     };
   }
 
   /**Fetches from the server, build's the table header and body from fetched data*/
   async componentDidMount() {
     await this.fetchFromServer();
-    this.buildTableHeader();
-    this.buildTableBody();
+    //If data could be fetched from the server, render the table
+    if (this.state.details.length) {
+      this.buildTableHeader();
+      this.buildTableBody();
+    } else {
+      //Leave a notice saying no data could be fetched
+      document.getElementById("message").innerText =
+        "No information could be fetched from the database!";
+    }
   }
 
   /**Fetches the eateries data from the database, populates this.state.details[] with this data*/
@@ -77,9 +73,9 @@ class AdminCheckFood extends React.Component {
 
   /**Builds the body of the table*/
   buildTableBody() {
-    let row, cell, body, titles, self, img;
+    let row, cell, img, body, rowValues, self;
 
-    self = this;
+    self = this; //Needed for functions within objects
     body = document.createElement("tbody");
     document.getElementById("eateriesInfo").appendChild(body);
 
@@ -92,7 +88,7 @@ class AdminCheckFood extends React.Component {
 
       //Defines an array to store the values of the current element
       //of state.details, to be looped through
-      titles = [
+      rowValues = [
         eatery.name,
         eatery.address,
         eatery.type,
@@ -119,18 +115,20 @@ class AdminCheckFood extends React.Component {
 
         //For the first 5 elements, create regular text variables
         if (j <= 4) {
-          //TODO: on iteration 6 (j == 5), make it display the image (not just the text link)
-          cell.appendChild(document.createTextNode(titles[j]));
-        } else if (j === 5) {
+          cell.appendChild(document.createTextNode(rowValues[j]));
+        }
+        //For the 6th element, display an image
+        else if (j === 5) {
           img = document.createElement("img");
-          img.setAttribute("src", titles[j]);
+          img.setAttribute("src", rowValues[j]);
           cell.appendChild(img);
-        } else {
+        }
+        //For the final two elements, display buttons
+        else {
           let button = document.createElement("button");
-          button.innerText = titles[j].innerText;
-
+          button.innerText = rowValues[j].innerText;
           button.addEventListener("click", () => {
-            titles[j].function(i);
+            rowValues[j].function(i);
           });
 
           cell.appendChild(button);
@@ -141,7 +139,9 @@ class AdminCheckFood extends React.Component {
     });
   }
 
-  //Delete entry i from the array & visually remove from the table
+  /**Delete entry i from the array & visually remove from the table
+   * @param i the integer value of the database entry to be deleted.
+   */
   deleteEntry(i) {
     //Creates a DELETE request, sends the delete request
     let xhr = new XMLHttpRequest();
@@ -154,7 +154,24 @@ class AdminCheckFood extends React.Component {
     };
   }
 
-  //Process's the state of our DELETE request, when it changes.
+  /**Edit entry i in the database
+   * @param i the integer value of the database entry to be deleted.
+   */
+  editEntry(i) {
+    //TODO: work
+    console.log(`Edit entry ${i}`);
+  }
+
+  /**Add an entry to the database*/
+  addEntry() {
+    //TODO: work
+    console.log(`Add new entry!`);
+  }
+
+  /**Process's the state of our DELETE request, when it changes.
+   * @param requestState the state of the request (4 means the request has completed)
+   * @param httpStatus the returned httpStatus for the request
+   */
   processStateChange(requestState, httpStatus) {
     //The request has completed successfully
     if (requestState === 4 && httpStatus === 200) {
@@ -165,16 +182,7 @@ class AdminCheckFood extends React.Component {
     }
   }
 
-  //Edit entry i in the database
-  editEntry(i) {
-    console.log(`Edit entry ${i}`);
-  }
-
-  //Add an entry to the database
-  addEntry() {
-    console.log(`Add new entry!`);
-  }
-
+  /**Renders the page */
   render() {
     /* jshint ignore:start */
     return (
