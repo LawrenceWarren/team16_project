@@ -22,15 +22,15 @@ class AdminCheckFood extends React.Component {
     };
   }
 
-  //Calls the server after the DOM is rendered
-  componentDidMount = async () => {
+  /**Fetches from the server, build's the table header and body from fetched data*/
+  async componentDidMount() {
     await this.fetchFromServer();
     this.buildTableHeader();
     this.buildTableBody();
-  };
+  }
 
-  //Fetches the eateries info from the database
-  fetchFromServer = async () => {
+  /**Fetches the eateries data from the database, populates this.state.details[] with this data*/
+  async fetchFromServer() {
     console.log("EateriesCMS: Fetching from server...");
     try {
       const res = await fetch("/foodReq");
@@ -44,12 +44,22 @@ class AdminCheckFood extends React.Component {
     } catch (err) {
       console.error("EateriesCMS: " + err);
     }
-  };
+  }
 
-  //Builds the first row of the tables
-  buildTableHeader = () => {
+  /**Builds the head of the table */
+  buildTableHeader() {
     //Variables used
     var row, cell, head;
+    var titles = [
+      "Name",
+      "Address",
+      "Type",
+      "Price",
+      "Link",
+      "Image",
+      "Edit",
+      "Delete",
+    ];
 
     //Creates a new row, appends that row to the table
     head = document.createElement("thead");
@@ -57,51 +67,19 @@ class AdminCheckFood extends React.Component {
     document.getElementById("eateriesInfo").appendChild(head);
     head.appendChild(row);
 
-    //Creates a new cell (firstname), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery name"));
-    row.appendChild(cell);
-
-    //Creates a new cell (lastname), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery address"));
-    row.appendChild(cell);
-
-    //Creates a new cell (email address), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery type"));
-    row.appendChild(cell);
-
-    //Creates a new cell (phone number), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery price"));
-    row.appendChild(cell);
-
-    //Creates a new cell (message), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery link"));
-    row.appendChild(cell);
-
-    //Creates a new cell (message), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Eatery image"));
-    row.appendChild(cell);
-
-    //Creates a new cell (delete button), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Edit"));
-    row.appendChild(cell);
-
-    //Creates a new cell (delete button), populates the cell, appends the cell to the row
-    cell = document.createElement("th");
-    cell.appendChild(document.createTextNode("Delete"));
-    row.appendChild(cell);
-  };
+    //Creates each column in the head
+    titles.forEach((title) => {
+      cell = document.createElement("th");
+      cell.appendChild(document.createTextNode(title));
+      row.appendChild(cell);
+    });
+  }
 
   //Builds the body of the table
-  buildTableBody = () => {
+  buildTableBody() {
     //variables used
-    var row, cell, body;
+    let row, cell, body, titles, self;
+    self = this;
 
     body = document.createElement("tbody");
     document.getElementById("eateriesInfo").appendChild(body);
@@ -112,115 +90,85 @@ class AdminCheckFood extends React.Component {
       row = document.createElement("tr");
       body.appendChild(row);
 
-      //!Adding the firstname of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.name));
-      row.appendChild(cell);
+      titles = [
+        eatery.name,
+        eatery.address,
+        eatery.type,
+        eatery.price,
+        eatery.link,
+        eatery.image,
+        {
+          innerText: "Edit entry",
+          function: function (i) {
+            self.editEntry(i);
+          },
+        },
+        {
+          innerText: "Delete entry",
+          function: function (i) {
+            self.deleteEntry(i);
+          },
+        },
+      ];
 
-      //!Adding the lastname of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.address));
-      row.appendChild(cell);
+      for (let j = 0; j <= 7; j++) {
+        cell = document.createElement("td");
 
-      //!Adding the email of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.type));
-      row.appendChild(cell);
+        if (j <= 5) {
+          //TODO: on iteration 6 (j == 5), make it display the image (not just the text link)
+          cell.appendChild(document.createTextNode(titles[j]));
+          row.appendChild(cell);
+        } else {
+          let button = document.createElement("button");
+          button.innerText = titles[j].innerText;
 
-      //!Adding the phone number of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.price));
-      row.appendChild(cell);
+          button.addEventListener("click", () => {
+            titles[j].function(i);
+          });
 
-      //!Adding the message of the current element to the row
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.link));
-      row.appendChild(cell);
-
-      //!Adding the message of the current element to the row
-      //TODO: make it display the image (not just the text link)
-      cell = document.createElement("td");
-      cell.appendChild(document.createTextNode(eatery.image));
-      row.appendChild(cell);
-
-      //!Adding the edit button of the current element to the row
-      cell = document.createElement("td");
-
-      //Each row has a unique delButton
-      var editButton = document.createElement("button");
-      editButton.innerText = `Edit entry`;
-
-      //When the button is clicked, delete the entry the button relates to
-      editButton.addEventListener("click", () => {
-        this.editEntry(i);
-      });
-
-      cell.appendChild(editButton);
-      row.appendChild(cell);
-
-      //!Adding the delete button of the current element to the row
-      cell = document.createElement("td");
-
-      //Each row has a unique delButton
-      var delButton = document.createElement("button");
-      delButton.innerText = `Delete entry`;
-
-      //When the button is clicked, delete the entry the button relates to
-      delButton.addEventListener("click", () => {
-        this.deleteEntry(i);
-      });
-
-      cell.appendChild(delButton);
-      row.appendChild(cell);
+          cell.appendChild(button);
+          row.appendChild(cell);
+        }
+      }
     });
-  };
+  }
 
   //Delete entry i from the array & visually remove from the table
-  deleteEntry = (i) => {
-    const self = this; //Used for the child function
-
-    console.log(`EateriesCMS: Deleting element ${i} from the database.`);
-
+  deleteEntry(i) {
     //Creates a DELETE request, sends the delete request
     let xhr = new XMLHttpRequest();
     xhr.open("DELETE", `/foodReq/${this.state.details[i]._id}`, true);
     xhr.send();
 
     //If the state of the request changes, call processRequest()
-    xhr.onreadystatechange = processRequest;
+    xhr.onreadystatechange = () => {
+      this.processStateChange(xhr.readyState, xhr.status);
+    };
+  }
 
-    function processRequest(e) {
-      //The request has completed
-      if (xhr.readyState === 4) {
-        //The request was successful
-        if (xhr.status === 200) {
-          console.log(
-            "EateriesCMS: An element deleted successfully from the database!"
-          );
-
-          //Clear and redraw the table
-          document.getElementById("eateriesInfo").innerHTML = "";
-          self.componentDidMount();
-        }
-        //The request was unsuccessful
-        else {
-          console.error("EateriesCMS: An error occurred, nothing was deleted.");
-        }
-      }
+  //Process's the state of our DELETE request, when it changes.
+  processStateChange(requestState, httpStatus) {
+    //The request has completed successfully
+    if (requestState === 4 && httpStatus === 200) {
+      document.getElementById("eateriesInfo").innerHTML = ""; //Clear the table
+      this.componentDidMount();
+    } else if (httpStatus != 200) {
+      console.error("EateriesCMS: An error occurred, nothing was deleted.");
     }
-  };
+  }
 
-  //Edit entry i in the array
-  editEntry = (i) => {
+  //Edit entry i in the database
+  editEntry(i) {
     console.log(`Edit entry ${i}`);
-  };
+  }
 
-  addEntry = () => {
+  //Add an entry to the database
+  addEntry() {
     console.log(`Add new entry!`);
-  };
+  }
 
   render() {
-    // Switch the date information to readable form
+    /* jshint ignore:start */
     return (
       <div>
         <h1>Contact Information</h1>
@@ -228,6 +176,7 @@ class AdminCheckFood extends React.Component {
         <p id="message"></p>
       </div>
     );
+    /* jshint ignore:end */
   }
 }
 
