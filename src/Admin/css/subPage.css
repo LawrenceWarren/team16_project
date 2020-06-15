@@ -32,3 +32,8 @@ td {
   max-width: 300px;
   text-align: left;
 }
+
+img {
+  max-width: 297px;
+  max-height: auto;
+}

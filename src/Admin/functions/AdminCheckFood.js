@@ -75,21 +75,23 @@ class AdminCheckFood extends React.Component {
     });
   }
 
-  //Builds the body of the table
+  /**Builds the body of the table*/
   buildTableBody() {
-    //variables used
-    let row, cell, body, titles, self;
-    self = this;
+    let row, cell, body, titles, self, img;
 
+    self = this;
     body = document.createElement("tbody");
     document.getElementById("eateriesInfo").appendChild(body);
 
-    //Loops through each element in the array `state.details`
+    /**Loops through each element in state.details,
+     * and populates a new row in the table with
+     *      the values from state.details        */
     this.state.details.forEach((eatery, i) => {
-      //!Defines row as a new row, and appends it to the table
       row = document.createElement("tr");
       body.appendChild(row);
 
+      //Defines an array to store the values of the current element
+      //of state.details, to be looped through
       titles = [
         eatery.name,
         eatery.address,
@@ -98,26 +100,31 @@ class AdminCheckFood extends React.Component {
         eatery.link,
         eatery.image,
         {
-          innerText: "Edit entry",
+          innerText: "Edit entry", //Defines text for the button
           function: function (i) {
-            self.editEntry(i);
+            self.editEntry(i); //Defines a function for the button click
           },
         },
         {
-          innerText: "Delete entry",
+          innerText: "Delete entry", //Defines text for the button
           function: function (i) {
-            self.deleteEntry(i);
+            self.deleteEntry(i); //Defines a function for the button click
           },
         },
       ];
 
+      //Looping through the above array
       for (let j = 0; j <= 7; j++) {
         cell = document.createElement("td");
 
-        if (j <= 5) {
+        //For the first 5 elements, create regular text variables
+        if (j <= 4) {
           //TODO: on iteration 6 (j == 5), make it display the image (not just the text link)
           cell.appendChild(document.createTextNode(titles[j]));
-          row.appendChild(cell);
+        } else if (j === 5) {
+          img = document.createElement("img");
+          img.setAttribute("src", titles[j]);
+          cell.appendChild(img);
         } else {
           let button = document.createElement("button");
           button.innerText = titles[j].innerText;
@@ -127,8 +134,9 @@ class AdminCheckFood extends React.Component {
           });
 
           cell.appendChild(button);
-          row.appendChild(cell);
         }
+
+        row.appendChild(cell);
       }
     });
   }
@@ -152,7 +160,7 @@ class AdminCheckFood extends React.Component {
     if (requestState === 4 && httpStatus === 200) {
       document.getElementById("eateriesInfo").innerHTML = ""; //Clear the table
       this.componentDidMount();
-    } else if (httpStatus != 200) {
+    } else if (httpStatus !== 200) {
       console.error("EateriesCMS: An error occurred, nothing was deleted.");
     }
   }
