@@ -2,6 +2,7 @@
 
 import React from "react";
 import "../css/subPage.css";
+import axios from "axios";
 
 class AdminCheckFood extends React.Component {
   constructor(props) {
@@ -159,8 +160,32 @@ class AdminCheckFood extends React.Component {
    * @param i the integer value of the database entry to be deleted.
    */
   editEntry(i) {
-    //TODO: look at how Contact.js uses AXIOS to post
     console.log(`Edit entry ${i}`);
+
+    //TODO: update this to take values from a form
+    const payload = {
+      image: "pee",
+      name: "poo",
+      address: "piss",
+      type: "baby",
+      price: "bum",
+      link: "fluff",
+    };
+
+    //PUT by id
+    axios({
+      url: `/foodReq/${this.state.details[i]._id}`,
+      method: "PUT",
+      data: payload,
+    })
+      .then((response) => {
+        document.getElementById("eateriesInfo").innerHTML = "";
+        this.componentDidMount();
+      })
+      .catch(() => {
+        console.error("EateriesCMS: Error using PUT route.");
+        document.getElementById("eateriesInfo").innerHTML = "";
+      });
   }
 
   /**Add an entry to the database*/
