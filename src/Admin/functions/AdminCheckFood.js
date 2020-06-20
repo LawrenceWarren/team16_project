@@ -145,7 +145,8 @@ class AdminCheckFood extends React.Component {
   deleteEntry(i) {
     //Creates a DELETE request, sends the delete request
     let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", `/foodReq/${this.state.details[i]._id}`, true);
+    xhr.open("DELETE", `/foodReq/${this.state.details[i]._id}`, true); //Param 2 is the URL to delete
+    //TODO: refactor to use AXIOS?
     xhr.send();
 
     //If the state of the request changes, call processRequest()
@@ -158,7 +159,7 @@ class AdminCheckFood extends React.Component {
    * @param i the integer value of the database entry to be deleted.
    */
   editEntry(i) {
-    //TODO: work
+    //TODO: look at how Contact.js uses AXIOS to post
     console.log(`Edit entry ${i}`);
   }
 
