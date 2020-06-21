@@ -98,14 +98,14 @@ class AdminCheckFood extends React.Component {
         eatery.image,
         {
           innerText: "Edit entry", //Defines text for the button
-          function: function (i) {
-            self.editEntry(i); //Defines a function for the button click
+          function: (i) => {
+            this.editEntry(i); //Defines a function for the button click
           },
         },
         {
           innerText: "Delete entry", //Defines text for the button
-          function: function (i) {
-            self.deleteEntry(i); //Defines a function for the button click
+          function: (i) => {
+            this.deleteEntry(i); //Defines a function for the button click
           },
         },
       ];
@@ -156,6 +156,27 @@ class AdminCheckFood extends React.Component {
     };
   }
 
+  /**Open a form, populated with the data from record i, which sends a PUT to the database upon submit.
+   * @param i the record being edited.
+   */
+  openEditForm(i) {
+    var labelValues = ["image", "name", "address", "type", "price", "link"];
+    var inputValues = [
+      this.state.details.image,
+      this.state.details.name,
+      this.state.details.address,
+      this.state.details.type,
+      this.state.details.price,
+      this.state.details.link,
+    ];
+
+    var mainDiv = document.getElementById("editForm");
+
+    mainDiv.innerHTML = "";
+
+    for (var j = 0; i <= 5; i++) {}
+  }
+
   /**Edit entry i in the database
    * @param i the integer value of the database entry to be deleted.
    */
@@ -190,7 +211,7 @@ class AdminCheckFood extends React.Component {
 
   /**Add an entry to the database*/
   addEntry() {
-    //TODO: work
+    //TODO: add a form creation function that calls addEntry on submission
     console.log(`Add new entry!`);
   }
 
@@ -214,8 +235,12 @@ class AdminCheckFood extends React.Component {
     return (
       <div>
         <h1>Contact Information</h1>
+        {/*Table displays database info if it is available */}
         <table id="eateriesInfo" border="1"></table>
+        {/*Message displays if the database collection is empty */}
         <p id="message"></p>
+        {/*This form has content generated for it when the edit button is pressed */}
+        <form id="editForm"></form>
       </div>
     );
     /* jshint ignore:end */
