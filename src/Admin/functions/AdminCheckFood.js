@@ -174,7 +174,19 @@ class AdminCheckFood extends React.Component {
 
     mainDiv.innerHTML = "";
 
-    for (var j = 0; i <= 5; i++) {}
+    for (var j = 0; i <= 5; i++) {
+      var label = document.createElement("label");
+      label.innerText = labelValues[j];
+
+      var input = document.createElement("input");
+      input.type = "text";
+      input.value = inputValues[j];
+      input.onchange(this.handleInputChange);
+
+      //TODO: Add a handleInputChange
+
+      label.appendChild(input);
+    }
   }
 
   /**Edit entry i in the database
@@ -184,6 +196,7 @@ class AdminCheckFood extends React.Component {
     console.log(`Edit entry ${i}`);
 
     //TODO: update this to take values from a form
+    //TODO: update this to use an event (fired from on submit)
     const payload = {
       image: "pee",
       name: "poo",
