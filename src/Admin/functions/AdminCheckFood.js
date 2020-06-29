@@ -74,9 +74,8 @@ class AdminCheckFood extends React.Component {
 
   /**Builds the body of the table*/
   buildTableBody() {
-    let row, cell, img, body, rowValues, self;
+    let row, cell, img, body, rowValues;
 
-    self = this; //Needed for functions within objects
     body = document.createElement("tbody");
     document.getElementById("eateriesInfo").appendChild(body);
 
@@ -99,7 +98,7 @@ class AdminCheckFood extends React.Component {
         {
           innerText: "Edit entry", //Defines text for the button
           function: (i) => {
-            this.editEntry(i); //Defines a function for the button click
+            this.buildEditForm(i); //Defines a function for the button click
           },
         },
         {
@@ -156,55 +155,61 @@ class AdminCheckFood extends React.Component {
     };
   }
 
-  /**Open a form, populated with the data from record i, which sends a PUT to the database upon submit.
+  /**Open a form, populated with the data from record i,
+   * which sends a PUT to the database upon submit.
    * @param i the record being edited.
    */
-  openEditForm(i) {
-    var labelValues = ["image", "name", "address", "type", "price", "link"];
+  buildEditForm(i) {
+    var labelValues = ["name", "address", "type", "price", "link", "image"];
     var inputValues = [
-      this.state.details.image,
-      this.state.details.name,
-      this.state.details.address,
-      this.state.details.type,
-      this.state.details.price,
-      this.state.details.link,
+      this.state.details[i].name,
+      this.state.details[i].address,
+      this.state.details[i].type,
+      this.state.details[i].price,
+      this.state.details[i].link,
+      this.state.details[i].image,
     ];
 
+    //Gets the form, clears it and repopulates it
     var mainDiv = document.getElementById("editForm");
 
     mainDiv.innerHTML = "";
+    mainDiv.onsubmit = () => {
+      this.editEntry(i);
+    };
 
-    for (var j = 0; i <= 5; i++) {
-      var label = document.createElement("label");
+    for (let j = 0; j <= 5; j++) {
+      let label = document.createElement("label");
       label.innerText = labelValues[j];
 
-      var input = document.createElement("input");
+      let input = document.createElement("input");
       input.type = "text";
+      input.name = labelValues[j];
       input.value = inputValues[j];
-      input.onchange(this.handleInputChange);
+      input.required = true;
+      //Giving the input an onchange
+      input.onchange = (event) => {
+        this.state.details[i][event.target.name] = event.target.value;
+      };
 
-      //TODO: Add a handleInputChange
-
+      mainDiv.appendChild(label);
+      label.appendChild(document.createElement("br"));
       label.appendChild(input);
+      mainDiv.appendChild(document.createElement("br"));
     }
+
+    let button = document.createElement("button");
+    button.type = "submit edit";
+    button.innerText = "Send Edit";
+
+    mainDiv.appendChild(button);
   }
 
   /**Edit entry i in the database
    * @param i the integer value of the database entry to be deleted.
    */
   editEntry(i) {
-    console.log(`Edit entry ${i}`);
-
-    //TODO: update this to take values from a form
-    //TODO: update this to use an event (fired from on submit)
-    const payload = {
-      image: "pee",
-      name: "poo",
-      address: "piss",
-      type: "baby",
-      price: "bum",
-      link: "fluff",
-    };
+    const payload = this.state.details[i];
 
     //PUT by id
     axios({
@@ -212,7 +217,7 @@ class AdminCheckFood extends React.Component {
       method: "PUT",
       data: payload,
     })
-      .then((response) => {
+      .then((_response) => {
         document.getElementById("eateriesInfo").innerHTML = "";
         this.componentDidMount();
       })

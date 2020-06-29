@@ -8,10 +8,6 @@ const Schema = mongoose.Schema;
 
 //Create schema
 const foodSchema = new Schema({
-  image: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -29,6 +25,10 @@ const foodSchema = new Schema({
     required: true,
   },
   link: {
+    type: String,
+    required: true,
+  },
+  image: {
     type: String,
     required: true,
   },
