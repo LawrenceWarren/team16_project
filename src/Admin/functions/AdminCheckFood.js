@@ -3,12 +3,14 @@
 import React from "react";
 import "../css/subPage.css";
 import axios from "axios";
+import { cloneDeep } from "lodash";
 
 class AdminCheckFood extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       details: [],
+      backup: [],
     };
   }
 
@@ -36,7 +38,10 @@ class AdminCheckFood extends React.Component {
       }
 
       const food = await res.json();
-      this.setState({ details: food });
+      //Make copies (not references)
+      this.state.details = cloneDeep(food);
+      this.state.backup = cloneDeep(food);
+
       console.log("EateriesCMS: Data from the server has been received!");
     } catch (err) {
       console.error("EateriesCMS: " + err);
@@ -162,6 +167,7 @@ class AdminCheckFood extends React.Component {
    */
   buildEditForm(i) {
     var labelValues = ["name", "address", "type", "price", "link", "image"];
+    this.state.details[i] = cloneDeep(this.state.backup[i]); //Ensures the state is the same as in the db
 
     //Gets the form, clears it and sets it's on submit event
     var mainDiv = document.getElementById("editForm");
@@ -181,8 +187,8 @@ class AdminCheckFood extends React.Component {
       input.value = this.state.details[i][labelValues[j]];
       input.required = true;
 
-      //When the input box fires an on change event, update the relevant
-      //state.details entry to reflect the changes.
+      //When the input box fires an on change event, update the
+      //relevant state.details entry to reflect the changes.
       input.onchange = (event) => {
         this.state.details[i][event.target.name] = event.target.value;
       };
