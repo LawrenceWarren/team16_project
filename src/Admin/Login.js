@@ -24,7 +24,9 @@ export default class Login extends React.Component {
   };
 
   //Handles form submission
-  handleFormSubmit = () => {
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+
     //If the login check is successful
     if (this.loginCheck(this.state.user, this.state.password)) {
       var time = new Date().getTime() + this.state.TTL; //Creates a variable to represent the time the login session will expire

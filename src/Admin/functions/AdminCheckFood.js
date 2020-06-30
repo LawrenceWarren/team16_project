@@ -143,16 +143,17 @@ class AdminCheckFood extends React.Component {
    * @param i the integer value of the database entry to be deleted.
    */
   deleteEntry(i) {
-    //Creates a DELETE request, sends the delete request
-    let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", `/foodReq/${this.state.details[i]._id}`, true); //Param 2 is the URL to delete
-    //TODO: refactor to use AXIOS?
-    xhr.send();
-
-    //If the state of the request changes, call processRequest()
-    xhr.onreadystatechange = () => {
-      this.processStateChange(xhr.readyState, xhr.status);
-    };
+    axios
+      .delete(`/foodReq/${this.state.details[i]._id}`)
+      .then((_response) => {
+        document.getElementById("eateriesInfo").innerHTML = "";
+        this.componentDidMount();
+      })
+      .catch(() => {
+        console.error("EateriesCMS: Error using DELETE route.");
+        document.getElementById("eateriesInfo").innerHTML = "";
+        this.componentDidMount();
+      });
   }
 
   /**Open a form, populated with the data from record i,
@@ -161,23 +162,15 @@ class AdminCheckFood extends React.Component {
    */
   buildEditForm(i) {
     var labelValues = ["name", "address", "type", "price", "link", "image"];
-    var inputValues = [
-      this.state.details[i].name,
-      this.state.details[i].address,
-      this.state.details[i].type,
-      this.state.details[i].price,
-      this.state.details[i].link,
-      this.state.details[i].image,
-    ];
 
-    //Gets the form, clears it and repopulates it
+    //Gets the form, clears it and sets it's on submit event
     var mainDiv = document.getElementById("editForm");
-
     mainDiv.innerHTML = "";
-    mainDiv.onsubmit = () => {
-      this.editEntry(i);
+    mainDiv.onsubmit = (event) => {
+      this.editEntry(event, i);
     };
 
+    //Populates the form with label/input pairs
     for (let j = 0; j <= 5; j++) {
       let label = document.createElement("label");
       label.innerText = labelValues[j];
@@ -185,9 +178,11 @@ class AdminCheckFood extends React.Component {
       let input = document.createElement("input");
       input.type = "text";
       input.name = labelValues[j];
-      input.value = inputValues[j];
+      input.value = this.state.details[i][labelValues[j]];
       input.required = true;
-      //Giving the input an onchange
+
+      //When the input box fires an on change event, update the relevant
+      //state.details entry to reflect the changes.
       input.onchange = (event) => {
         this.state.details[i][event.target.name] = event.target.value;
       };
@@ -198,17 +193,19 @@ class AdminCheckFood extends React.Component {
       mainDiv.appendChild(document.createElement("br"));
     }
 
+    //Creates and appends the submit button to the end
     let button = document.createElement("button");
-    button.type = "submit edit";
+    button.type = "submit";
     button.innerText = "Send Edit";
-
     mainDiv.appendChild(button);
   }
 
   /**Edit entry i in the database
+   * @param event the event which called editEntry
    * @param i the integer value of the database entry to be deleted.
    */
-  editEntry(i) {
+  editEntry(event, i) {
+    event.preventDefault();
     const payload = this.state.details[i];
 
     //PUT by id
@@ -231,20 +228,6 @@ class AdminCheckFood extends React.Component {
   addEntry() {
     //TODO: add a form creation function that calls addEntry on submission
     console.log(`Add new entry!`);
-  }
-
-  /**Process's the state of our DELETE request, when it changes.
-   * @param requestState the state of the request (4 means the request has completed)
-   * @param httpStatus the returned httpStatus for the request
-   */
-  processStateChange(requestState, httpStatus) {
-    //The request has completed successfully
-    if (requestState === 4 && httpStatus === 200) {
-      document.getElementById("eateriesInfo").innerHTML = ""; //Clear the table
-      this.componentDidMount();
-    } else if (httpStatus !== 200) {
-      console.error("EateriesCMS: An error occurred, nothing was deleted.");
-    }
   }
 
   /**Renders the page */
