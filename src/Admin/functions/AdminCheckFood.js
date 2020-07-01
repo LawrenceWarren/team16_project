@@ -11,6 +11,7 @@ class AdminCheckFood extends React.Component {
     this.state = {
       details: [],
       backup: [],
+      submitState: "",
     };
   }
 
@@ -103,6 +104,7 @@ class AdminCheckFood extends React.Component {
         {
           innerText: "Edit entry", //Defines text for the button
           function: (i) => {
+            this.state.submitState = "edit";
             this.buildEditForm(i); //Defines a function for the button click
           },
         },
@@ -172,8 +174,14 @@ class AdminCheckFood extends React.Component {
     //Gets the form, clears it and sets it's on submit event
     var mainDiv = document.getElementById("editForm");
     mainDiv.innerHTML = "";
+
+    //Action of submit changes depending on state of 
     mainDiv.onsubmit = (event) => {
-      this.editEntry(event, i);
+      if (this.state.submitState == "edit") {
+        this.editEntry(event, i);
+      } else if (this.state.submitState == "add") {
+        this.addEntry(event, i);
+      }
     };
 
     //Populates the form with label/input pairs
@@ -202,7 +210,7 @@ class AdminCheckFood extends React.Component {
     //Creates and appends the submit button to the end
     let button = document.createElement("button");
     button.type = "submit";
-    button.innerText = "Send Edit";
+    button.innerText = `Send ${this.state.submitState}`;
     mainDiv.appendChild(button);
   }
 
