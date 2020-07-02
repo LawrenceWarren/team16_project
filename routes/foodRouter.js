@@ -8,7 +8,7 @@ const express = require("express");
 const FoodModel = require("../model/FoodModel");
 const foodRouter = express.Router();
 
-//Gets every element from the DB
+//Gets every element from the DB - FETCH
 foodRouter.get("/", async (_req, res) => {
   try {
     const foodsReq = await FoodModel.find();
@@ -18,7 +18,7 @@ foodRouter.get("/", async (_req, res) => {
   }
 });
 
-//Delete using /foodReq/id
+//Delete using /foodReq/id - DELETE
 foodRouter.delete("/:id", function (req, res, next) {
   FoodModel.findByIdAndRemove(req.params.id, req.body, function (
     err,
@@ -29,7 +29,7 @@ foodRouter.delete("/:id", function (req, res, next) {
   });
 });
 
-//Post's a new food request to the db
+//Post's a new food request to the db - ADD
 foodRouter.post("/", async (req, res) => {
   const food = new FoodModel({
     image: req.body.image,
@@ -47,7 +47,7 @@ foodRouter.post("/", async (req, res) => {
   }
 });
 
-//Updates an existing field by it's _id - https://www.geeksforgeeks.org/mongoose-findbyidandupdate-function/
+//Updates an existing field by it's _id - EDIT
 foodRouter.put("/:id", function (req, res, next) {
   FoodModel.findByIdAndUpdate(req.params.id, req.body, function (
     err,
@@ -57,55 +57,5 @@ foodRouter.put("/:id", function (req, res, next) {
     res.json(foodInfo);
   });
 });
-
-//!These routes are currently unneeded. will be needed for CMS!
-
-//Get One Route
-foodRouter.get("/:name", getFood, (_req, res) => {
-  res.json(res.food);
-});
-
-//Edit One Route PATCH version
-foodRouter.patch("/:id", getFood, async (req, res) => {
-  if (req.body.image != null) {
-    res.food.image = req.body.image;
-  }
-  if (req.body.name != null) {
-    res.food.name = req.body.name;
-  }
-  if (req.body.address != null) {
-    res.food.address = req.body.address;
-  }
-  if (req.body.type != null) {
-    res.food.type = req.body.type;
-  }
-  if (req.body.price != null) {
-    res.food.price = req.body.price;
-  }
-  if (req.body.link != null) {
-    res.food.link = req.body.link;
-  }
-  try {
-    const updatedFood = await res.food.save();
-    res.json(updatedFood);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-//getFood MIDDLEWARE
-async function getFood(req, res, next) {
-  let food;
-  try {
-    food = await FoodModel.find({ name: req.params.name });
-    if (food == null) {
-      return res.status(404).json({ message: "Cannot find food" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-  res.food = food;
-  next();
-}
 
 module.exports = foodRouter;

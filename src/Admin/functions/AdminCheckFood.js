@@ -5,8 +5,11 @@ import "../css/subPage.css";
 import axios from "axios";
 import { cloneDeep } from "lodash";
 
+const ROUTE = "/foodReq";
+
 class AdminCheckFood extends React.Component {
-  /**Sets the state */
+  /**Sets the state for the component
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -15,13 +18,13 @@ class AdminCheckFood extends React.Component {
     };
   }
 
-  /**Fetches from the server, build's the table
-   * header and body from fetched data
+  /**Fetches from the server, build's the table header and body from fetched data
    */
   async componentDidMount() {
     document.getElementById("form").innerHTML = "";
     document.getElementById("eateriesInfo").innerHTML = "";
     await this.fetchFromServer();
+
     //If data could be fetched from the server, render the table
     if (this.state.details.length) {
       document.getElementById("message").innerText = "";
@@ -40,21 +43,22 @@ class AdminCheckFood extends React.Component {
   async fetchFromServer() {
     console.log("EateriesCMS: Fetching from server...");
     try {
-      const res = await fetch("/foodReq");
+      const res = await fetch(ROUTE);
       if (res.status >= 400) {
         throw new Error("There was an error in the HTTP request.");
       }
 
       const food = await res.json();
-      //Make copies (not references)
-      this.state.details = cloneDeep(food);
-      this.state.backup = cloneDeep(food);
+      this.state.backup = cloneDeep(food); //Make a copy
+      this.state.details = food; //state.details is now a reference to food
 
       console.log("EateriesCMS: Data from the server has been received!");
     } catch (err) {
       console.error("EateriesCMS: " + err);
     }
   }
+
+  //TODO: reflect the date added in the tables
 
   /**Builds the head of the table
    */
@@ -68,6 +72,7 @@ class AdminCheckFood extends React.Component {
       "Price",
       "Link",
       "Image",
+      "Date added",
       "Edit",
       "Delete",
     ];
@@ -89,7 +94,7 @@ class AdminCheckFood extends React.Component {
   /**Builds the body of the table
    */
   buildTableBody() {
-    let row, cell, img, body, rowValues;
+    let row, cell, img, body, columnValues;
 
     body = document.createElement("tbody");
     document.getElementById("eateriesInfo").appendChild(body);
@@ -103,50 +108,53 @@ class AdminCheckFood extends React.Component {
 
       //Defines an array to store the values of the current element
       //of state.details, to be looped through
-      rowValues = [
-        eatery.name,
-        eatery.address,
-        eatery.type,
-        eatery.price,
-        eatery.link,
-        eatery.image,
+      columnValues = [
+        eatery.name, //0
+        eatery.address, //1
+        eatery.type, //2
+        eatery.price, //3
+        eatery.link, //4
+        eatery.image, //5
+        eatery.registerDate, //6
         {
+          //7
           innerText: "Edit entry", //Defines text for the button
-          function: (i) => {
+          function: (i, _event) => {
             this.buildForm(i, "edit"); //Defines a function for the button click
           },
         },
         {
+          //8
           innerText: "Delete entry", //Defines text for the button
-          function: (i) => {
-            this.deleteEntry(i); //Defines a function for the button click
+          function: (i, event) => {
+            this.deleteEntry(i, event); //Defines a function for the button click
           },
         },
       ];
 
-      //Looping through the above array
-      for (let j = 0; j <= 7; j++) {
+      //Rows 0-4 display text
+
+      //TODO: DEBUG
+      for (let j = 0; j <= 8; j++) {
+        //Display text
         cell = document.createElement("td");
 
-        //For the first 5 elements, create regular text variables
-        if (j <= 4) {
-          cell.appendChild(document.createTextNode(rowValues[j]));
+        if (j <= 4 || j == 6) {
+          cell.appendChild(document.createTextNode(columnValues[j]));
         }
-        //For the 6th element, display an image
-        else if (j === 5) {
+        //Image
+        else if (j == 5) {
           img = document.createElement("img");
-          img.setAttribute("src", rowValues[j]);
+          img.setAttribute("src", columnValues[j]);
           cell.appendChild(img);
         }
-        //For the final two elements, display buttons
-        else {
+        //Buttons
+        else if (j <= 8) {
           let button = document.createElement("button");
-          button.innerText = rowValues[j].innerText;
-          button.addEventListener("click", () => {
-            rowValues[j].function(i);
+          button.innerText = columnValues[j].innerText;
+          button.addEventListener("click", (event) => {
+            columnValues[j].function(i, event);
           });
-
-          cell.appendChild(button);
         }
 
         row.appendChild(cell);
@@ -154,8 +162,7 @@ class AdminCheckFood extends React.Component {
     });
   }
 
-  /**Open a form, populated with the data from record i,
-   * which sends a PUT to the database upon submit.
+  /**Open a form, populated with the data from record i, which sends a PUT to the database upon submit.
    * @param i the record being edited.
    * @param submitState declares what the form submission does
    */
@@ -167,20 +174,21 @@ class AdminCheckFood extends React.Component {
     var mainDiv = document.getElementById("form");
     mainDiv.innerHTML = "";
 
-    //Action of submit changes depending on state of
+    //Action of submit changes depending on submitState parameter.
     mainDiv.onsubmit = (event) => {
       if (submitState === "edit") {
         this.editEntry(event, i);
       } else if (submitState === "addition") {
-        this.addEntry(event, i);
+        this.addEntry(event);
       }
     };
 
     //Populates the form with label/input pairs
     for (let j = 0; j <= 5; j++) {
+      //Populating the label
       let label = document.createElement("label");
       label.innerText = labelValues[j];
-
+      //Populating the input
       let input = document.createElement("input");
       input.type = "text";
       input.name = labelValues[j];
@@ -217,16 +225,22 @@ class AdminCheckFood extends React.Component {
 
   /**Delete entry i from the array & visually remove from the table
    * @param i the integer value of the database entry to be deleted.
+   * @param event the event which called deleteEntry.
    */
-  deleteEntry(i) {
+  deleteEntry(i, event) {
+    event.preventDefault();
+
+    //Delete
     axios
-      .delete(`/foodReq/${this.state.details[i]._id}`)
+      .delete(`${ROUTE}/${this.state.details[i]._id}`)
+      //If successful, rebuild table
       .then((_response) => {
         this.componentDidMount();
       })
+      //If failed, log and reflect on screen
       .catch(() => {
         console.error("EateriesCMS: Error using DELETE route.");
-        this.componentDidMount();
+        document.getElementById("message").innerText = "Failed to delete.";
       });
   }
 
@@ -235,39 +249,45 @@ class AdminCheckFood extends React.Component {
    * @param i the integer value of the database entry to be deleted.
    */
   editEntry(event, i) {
-    event.preventDefault();
-    const payload = this.state.details[i];
+    event.preventDefault(); //Stops the page refreshing
 
     //PUT by id
     axios({
-      url: `/foodReq/${this.state.details[i]._id}`,
+      url: `${ROUTE}/${this.state.details[i]._id}`,
       method: "PUT",
-      data: payload,
+      data: this.state.details[i],
     })
+      //If successful, rebuild the table
       .then((_response) => {
         this.componentDidMount();
       })
+      //If failed, log failure and reflect on screen
       .catch(() => {
         console.error("EateriesCMS: Error using PUT route.");
-        this.componentDidMount();
+        document.getElementById("message").innerText = "Failed to edit.";
       });
   }
 
-  /**Add an entry to the database*/
-  addEntry(event, i) {
-    event.preventDefault();
+  /**Add an entry to the database
+   * @param event The event which called `addEntry()`
+   */
+  addEntry(event) {
+    event.preventDefault(); //Stops the page refreshing
 
+    //POST this.state.details[0]
     axios({
-      url: "/foodReq",
+      url: ROUTE,
       method: "POST",
-      data: this.state.details[i],
+      data: this.state.details[0],
     })
+      //If there is a successful response, rebuild the table
       .then((_response) => {
         this.componentDidMount();
       })
+      //If it fails, log & reflect on screen.
       .catch(() => {
-        console.error("EateriesCMS: Error using PUT route.");
-        this.componentDidMount();
+        console.error("EateriesCMS: Error using POST route.");
+        document.getElementById("message").innerText = "Failed to edit.";
       });
   }
 
@@ -277,10 +297,12 @@ class AdminCheckFood extends React.Component {
     return (
       <div>
         <h1>Contact Information</h1>
-        {/*Table displays database info if it is available */}
-        <table id="eateriesInfo" border="1"></table>
         {/*Message displays if the database collection is empty */}
         <p id="message"></p>
+
+        {/*Table displays database info if it is available */}
+        <table id="eateriesInfo" border="1"></table>
+
         {/*The button for adding a new entry to the db */}
         <button
           onClick={() => {
@@ -289,6 +311,7 @@ class AdminCheckFood extends React.Component {
         >
           Add new entry
         </button>
+
         {/*This form has content generated for it when the edit button is pressed */}
         <form id="form"></form>
       </div>
