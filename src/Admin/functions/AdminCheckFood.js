@@ -132,9 +132,7 @@ class AdminCheckFood extends React.Component {
         },
       ];
 
-      //Rows 0-4 display text
-
-      //TODO: DEBUG
+      //If it ain't broke, don't fix it
       for (let j = 0; j <= 8; j++) {
         //Display text
         cell = document.createElement("td");
@@ -155,6 +153,8 @@ class AdminCheckFood extends React.Component {
           button.addEventListener("click", (event) => {
             columnValues[j].function(i, event);
           });
+
+          cell.appendChild(button);
         }
 
         row.appendChild(cell);
