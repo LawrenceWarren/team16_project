@@ -134,14 +134,14 @@ class AdminCheckFood extends React.Component {
 
       //If it ain't broke, don't fix it
       for (let j = 0; j <= 8; j++) {
-        //Display text
         cell = document.createElement("td");
 
-        if (j <= 4 || j == 6) {
+        //Text
+        if (j <= 4 || j === 6) {
           cell.appendChild(document.createTextNode(columnValues[j]));
         }
         //Image
-        else if (j == 5) {
+        else if (j === 5) {
           img = document.createElement("img");
           img.setAttribute("src", columnValues[j]);
           cell.appendChild(img);
