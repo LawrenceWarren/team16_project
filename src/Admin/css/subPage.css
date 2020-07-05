@@ -1,3 +1,5 @@
+/*TODO: this CSS breaks the whole project?!*/
+
 /*Alternating the colour of each row*/
 tr:nth-child(even) {
   background: #dddddd;
