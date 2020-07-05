@@ -2,16 +2,15 @@
 
 import React from "react";
 import { Menu } from "antd";
-import { RightOutlined } from "@ant-design/icons";
 
 // This is the detail of menu items
 // ***** Can add to the menu by directly add to this list *****
 // ***** IconType can fill with any (of no use) *****
 const menus = [
-  { url: "/", name: "Home", iconType: "HomeOutlined" },
-  { url: "/LookupUser", name: "Users", iconType: "UserOutlined" },
-  { url: "/CheckContact", name: "Contact Info", iconType: "ContactsOutlined" },
-  { url: "/CheckFood", name: "Food Info", iconType: "FoodOutlined" },
+  { url: "/", name: "Home" },
+  { url: "/LookupUser", name: "Users" },
+  { url: "/CheckContact", name: "Contact Info" },
+  { url: "/CheckFood", name: "Food Info" },
 ];
 
 // This is the setting of the menu on the top left

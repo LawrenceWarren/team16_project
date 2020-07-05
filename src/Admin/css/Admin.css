@@ -14,16 +14,17 @@
 /*The admin side bar*/
 .menuContainer {
   width: 8vw;
+  max-width: 130px;
   height: 100%;
   background: #404040;
 }
 
 /*The screen related to the side bar*/
 .nextContain {
-  width: 92vw;
-  overflow-y: scroll;
+  width: 100%;
   padding-left: 1.5vw;
   padding-right: 1.5vw;
   padding-top: 10px;
   padding-bottom: 10px;
+  overflow-y: auto;
 }
