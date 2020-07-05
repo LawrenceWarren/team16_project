@@ -212,7 +212,9 @@ class AdminCheckFood extends React.Component {
 
     //Sets the form header
     if (submitState === "edit") {
-      document.getElementById("formHeading").innerText = "Make edit";
+      document.getElementById(
+        "formHeading"
+      ).innerText = `Edit '${this.state.details[i].name}'`;
     } else if (submitState === "addition") {
       document.getElementById("formHeading").innerText = "Make new addition";
     }
@@ -386,7 +388,7 @@ class AdminCheckFood extends React.Component {
 
         {/*This form has content generated for it when the edit button is pressed */}
         <div id="formContainer">
-          <h1 id="formHeading"></h1>
+          <h2 id="formHeading"></h2>
           <form id="form"></form>
         </div>
       </div>
