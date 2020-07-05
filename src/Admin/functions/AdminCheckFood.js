@@ -4,6 +4,7 @@ import React from "react";
 import "../css/subPage.css";
 import axios from "axios";
 import { cloneDeep } from "lodash";
+const generateDate = require("../../generateDate/generateDate.js");
 
 const ROUTE = "/foodReq";
 
@@ -200,14 +201,11 @@ class AdminCheckFood extends React.Component {
       //When the input box fires an on change event, update the relevant state.details entry to reflect the changes.
       //Doing this using setState (i.e. safely) is incredibly obtuse
       input.onchange = (event) => {
-        let details = [...this.state.details]; //Get a shallow copy of the array
-        let detail = {
-          //Create a new object, with the old details of the element with a slight change
-          ...details[i],
-          [event.target.name]: event.target.value,
-        };
-        details[i] = detail; //Copy that back into the array copy
-        this.setState({ details }); //Set state to reflect the copy
+        this.alterArrayMemberObjectDetails(
+          i,
+          event.target.name,
+          event.target.value
+        );
       };
 
       mainDiv.appendChild(label);
@@ -274,7 +272,12 @@ class AdminCheckFood extends React.Component {
   addEntry(event) {
     event.preventDefault(); //Stops the page refreshing
 
-    //POST this.state.details[0]
+    this.alterArrayMemberObjectDetails(
+      0,
+      "registerDate",
+      generateDate.formattedDate(new Date(Date.now()))
+    );
+
     axios({
       url: ROUTE,
       method: "POST",
@@ -289,6 +292,26 @@ class AdminCheckFood extends React.Component {
         console.error("EateriesCMS: Error using POST route.");
         document.getElementById("message").innerText = "Failed to edit.";
       });
+  }
+
+  /** Alters a specific attribute of an array member object within state.
+   * @param {Number} index The index of the array where object can be found.
+   * @param {String} attribute The object attribute to be changed.
+   * @param {String} data The data the object attribute will be changed to.
+   */
+  alterArrayMemberObjectDetails(index, attribute, data) {
+    //Create a shallow copy of details and a copy of the relevant object.
+    let details = [...this.state.details];
+    let detail = {
+      ...details[index],
+      [attribute]: data, //Alter the relevant attribute
+    };
+
+    //Move the updated details back into the array and update state
+    details[index] = detail;
+    this.setState({
+      details,
+    });
   }
 
   /**Renders the page */
