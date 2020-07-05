@@ -54,22 +54,20 @@ class Admin extends React.Component {
     } //Show the main
     else {
       return (
-        <div>
-          <div className="admin_container">
-            <div className="menuContainer">
-              <AdminMenu history={this.props.history} />
-            </div>
-            <div className="nextContain">
-              <Switch>
-                <Route exact path={url} component={AdminIndex} />
-                <Route path={`${url}/LookupUser`} component={AdminLookupUser} />
-                <Route
-                  path={`${url}/CheckContact`}
-                  component={AdminCheckContact}
-                />
-                <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
-              </Switch>
-            </div>
+        <div className="admin_container">
+          <div className="menuContainer">
+            <AdminMenu history={this.props.history} />
+          </div>
+          <div className="nextContain">
+            <Switch>
+              <Route exact path={url} component={AdminIndex} />
+              <Route path={`${url}/LookupUser`} component={AdminLookupUser} />
+              <Route
+                path={`${url}/CheckContact`}
+                component={AdminCheckContact}
+              />
+              <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
+            </Switch>
           </div>
         </div>
       );
