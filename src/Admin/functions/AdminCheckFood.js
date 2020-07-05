@@ -4,6 +4,7 @@ import React from "react";
 import "../css/subPage.css";
 import axios from "axios";
 import { cloneDeep } from "lodash";
+import loading from "../../IntermediatePage/resources/loading.gif";
 const generateDate = require("../../generateDate/generateDate.js");
 
 const ROUTE = "/foodReq";
@@ -37,6 +38,26 @@ class AdminCheckFood extends React.Component {
     }
   }
 
+  /**Fetches the eateries data from the database,
+   * populates this.state.details[] with this data
+   */
+  async fetchFromServer() {
+    try {
+      this.setTicker(true);
+      const res = await fetch(ROUTE);
+      if (res.status >= 400) {
+        throw new Error("There was an error in the HTTP request.");
+      }
+
+      this.setTicker(false);
+      const food = await res.json();
+      this.state.backup = cloneDeep(food); //Make a copy
+      this.state.details = food; //state.details is now a reference to food
+    } catch (err) {
+      console.error("EateriesCMS: " + err);
+    }
+  }
+
   /**Clears all elements of the screen
    */
   clearElements() {
@@ -48,23 +69,16 @@ class AdminCheckFood extends React.Component {
     document.getElementById("formHeading").innerText = ""; //Clear form heading
   }
 
-  /**Fetches the eateries data from the database,
-   * populates this.state.details[] with this data
+  /**Inverts the current state of the ticker
+   * @param {Boolean} val the state to switch the ticker to
    */
-  async fetchFromServer() {
-    try {
-      //TODO: add ticker
-      const res = await fetch(ROUTE);
-      if (res.status >= 400) {
-        throw new Error("There was an error in the HTTP request.");
-      }
+  setTicker(val) {
+    let ticker = document.getElementById("ticker");
 
-      //TODO: clear ticker
-      const food = await res.json();
-      this.state.backup = cloneDeep(food); //Make a copy
-      this.state.details = food; //state.details is now a reference to food
-    } catch (err) {
-      console.error("EateriesCMS: " + err);
+    if (val) {
+      ticker.style.setProperty("display", "inline-block");
+    } else {
+      ticker.style.setProperty("display", "none");
     }
   }
 
@@ -247,17 +261,18 @@ class AdminCheckFood extends React.Component {
   deleteEntry(i, event) {
     event.preventDefault();
 
+    this.setTicker(true); //Adds a ticker
+
     //Delete
     axios
       .delete(`${ROUTE}/${this.state.details[i]._id}`)
-      //TODO: add ticker
-      .then(() => {})
       //If successful, rebuild table
       .then((_response) => {
         this.componentDidMount();
       })
       //If failed, log and reflect on screen
       .catch(() => {
+        this.setTicker(false);
         console.error("EateriesCMS: Error using DELETE route.");
         document.getElementById("message").innerText = "Failed to delete.";
       });
@@ -270,20 +285,21 @@ class AdminCheckFood extends React.Component {
   editEntry(event, i) {
     event.preventDefault(); //Stops the page refreshing
 
+    this.setTicker(true); //Adds a ticker
+
     //PUT by id
     axios({
       url: `${ROUTE}/${this.state.details[i]._id}`,
       method: "PUT",
       data: this.state.details[i],
     })
-      //TODO: add ticker
-      .then(() => {})
       //If successful, rebuild the table
       .then((_response) => {
         this.componentDidMount();
       })
       //If failed, log failure and reflect on screen
       .catch(() => {
+        this.setTicker(false);
         console.error("EateriesCMS: Error using PUT route.");
         document.getElementById("message").innerText = "Failed to edit.";
       });
@@ -301,19 +317,20 @@ class AdminCheckFood extends React.Component {
       generateDate.formattedDate(new Date(Date.now()))
     );
 
+    this.setTicker(true); //Adds a ticker
+
     axios({
       url: ROUTE,
       method: "POST",
       data: this.state.details[0],
     })
-      //TODO: add ticker
-      .then(() => {})
       //If there is a successful response, rebuild the table
       .then((_response) => {
         this.componentDidMount();
       })
       //If it fails, log & reflect on screen.
       .catch(() => {
+        this.setTicker(false);
         console.error("EateriesCMS: Error using POST route.");
         document.getElementById("message").innerText = "Failed to add.";
       });
@@ -345,14 +362,19 @@ class AdminCheckFood extends React.Component {
     return (
       <div>
         <h1>Food Information</h1>
+
+        {/*The ticker to display */}
+        <img id="ticker" src={loading} />
+
         {/*Message displays if the database collection is empty */}
         <p id="message"></p>
 
         {/*Table displays database info if it is available */}
-        <table id="eateriesInfo" border="1"></table>
+        <div>
+          <table id="eateriesInfo" border="1"></table>
+        </div>
 
         {/*The button for adding a new entry to the db */}
-
         <button
           className="addButton"
           onClick={() => {
