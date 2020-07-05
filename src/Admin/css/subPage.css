@@ -61,9 +61,9 @@ button {
 
 /*Formatting for the add button*/
 .addButton {
-  position: absolute;
+  position: fixed;
   bottom: 1vh;
-  left: 10vw;
+  left: 130px + 1vw;
   border-radius: 100%;
   width: 80px;
   height: 80px;
@@ -82,16 +82,24 @@ button {
 }
 
 #formContainer {
-  text-align: center;
-  display: inline-block;
   display: block;
-  margin-left: 18vw;
-  margin-right: auto;
-  margin-top: 3vh;
-  position: absolute;
-  padding: 1vw;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
   top: 1vh;
   right: 1vw;
+}
+
+form {
+  max-width: 200px;
+  padding: 5px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 0.25vw solid #cccccc;
+  border-radius: 3px;
+  border-style: solid;
 }
 
 #ticker {
@@ -101,15 +109,6 @@ button {
   position: absolute;
   height: 90px;
   width: 90px;
-}
-
-form {
-  max-width: 200px;
-  padding: 1vw;
-  text-align: center;
-  border: 0.25vw solid #cccccc;
-  border-radius: 3px;
-  border-style: solid;
 }
 
 #formHeading {
