@@ -32,7 +32,7 @@ var transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, _success) => {
   if (error) {
-    console.log(error);
+    console.log("Contact: could not connect!");
   } else {
     console.log("Contact: Ready to send messages.");
   }

@@ -22,7 +22,7 @@ var transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, _success) => {
   if (error) {
-    console.log(error);
+    console.log("Feedback: Could not connect!");
   } else {
     console.log("Feedback: Ready to send messages.");
   }
