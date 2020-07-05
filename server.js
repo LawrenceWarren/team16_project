@@ -15,6 +15,7 @@ const app = express();
 
 //!Database code
 //Connects to the cloud hosted database
+//TODO: this is a promise - add a catch?
 mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,

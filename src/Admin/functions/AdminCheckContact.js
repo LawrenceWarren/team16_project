@@ -110,6 +110,7 @@ class AdminCheckContact extends React.Component {
         else {
           let button = document.createElement("button");
           button.innerText = rowValues[j].innerText;
+          button.className = "tableButtons";
           button.addEventListener("click", () => {
             rowValues[j].function(i);
           });
