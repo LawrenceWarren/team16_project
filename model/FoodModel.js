@@ -5,7 +5,6 @@
  */
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const generateDate = require("../src/generateDate/generateDate.js");
 
 //Create schema
 const foodSchema = new Schema({
@@ -36,7 +35,6 @@ const foodSchema = new Schema({
   registerDate: {
     type: String,
     required: true,
-    default: generateDate.formattedDate(),
   },
 });
 
