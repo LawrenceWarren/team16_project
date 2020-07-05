@@ -11,7 +11,7 @@ const menus = [
   { url: "/", name: "Home", iconType: "HomeOutlined" },
   { url: "/LookupUser", name: "Users", iconType: "UserOutlined" },
   { url: "/CheckContact", name: "Contact Info", iconType: "ContactsOutlined" },
-  { url: "/CheckFood", name: "Food Info", iconType: "ContactsOutlined" },
+  { url: "/CheckFood", name: "Food Info", iconType: "FoodOutlined" },
 ];
 
 // This is the setting of the menu on the top left
@@ -20,32 +20,36 @@ class AdminMenu extends React.Component {
     super(props);
     this.state = {
       url: "/Admin",
+      collapsed: true,
     };
   }
 
+  toggleCollapsed = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
+
   render() {
-    // Bind a menu item with an url and set an onClick event for each
+    // Bind a menu item with a url and set an onClick event for each
     return (
-      <div>
-        <Menu
-          selectedKeys={[this.state.url]}
-          mode="inline"
-          theme="dark"
-          onClick={({ key }) => {
-            this.props.history.push(`/Admin${key}`);
-            this.setState({
-              url: key,
-            });
-          }}
-        >
-          {menus.map((item, _index) => (
-            <Menu.Item key={item.url}>
-              <RightOutlined className={item.iconType} />
-              <span>{item.name}</span>
-            </Menu.Item>
-          ))}
-        </Menu>
-      </div>
+      <Menu
+        selectedKeys={[this.state.url]}
+        mode="inline"
+        theme="dark"
+        onClick={({ key }) => {
+          this.props.history.push(`/Admin${key}`);
+          this.setState({
+            url: key,
+          });
+        }}
+      >
+        {menus.map((item, _index) => (
+          <Menu.Item key={item.url}>
+            <span className="buttonSpan">{item.name}</span>
+          </Menu.Item>
+        ))}
+      </Menu>
     );
   }
 }
