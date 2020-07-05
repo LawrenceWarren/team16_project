@@ -63,7 +63,7 @@ button {
 .addButton {
   position: absolute;
   bottom: 1vh;
-  right: 1vw;
+  left: 10vw;
   border-radius: 100%;
   width: 80px;
   height: 80px;
@@ -82,28 +82,38 @@ button {
 }
 
 #formContainer {
+  text-align: center;
   display: inline-block;
   display: block;
   margin-left: 18vw;
   margin-right: auto;
   margin-top: 3vh;
+  position: absolute;
+  padding: 1vw;
+  top: 1vh;
+  right: 1vw;
 }
 
 #ticker {
   display: none;
   top: 1vh;
-  right: 1vw;
+  right: 50vw;
   position: absolute;
-  height: 150px;
-  width: 150px;
+  height: 90px;
+  width: 90px;
 }
 
 form {
   max-width: 200px;
+  padding: 1vw;
   text-align: center;
   border: 0.25vw solid #cccccc;
   border-radius: 3px;
   border-style: solid;
+}
+
+#formHeading {
+  font-size: 18px;
 }
 
 /*Formatting for the text label*/
