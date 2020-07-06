@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/subPage.css";
+import "../css/element.css";
 
 class AdminCheckContact extends React.Component {
   constructor(props) {
