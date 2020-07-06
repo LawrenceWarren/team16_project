@@ -15,9 +15,10 @@ const app = express(); //Creates the server app
 const MAX_ATTEMPTS = 3; //Defines the maximum number of database connection attempts to be made
 
 /**Attempts to make a connection to the database MAX_ATTEMPTS times
+ * This function is self invoking!
  * @param {Number} attempt the attempt counter.
  */
-function connectToDb(attempt) {
+(function connectToDb(attempt) {
   console.log(`Server: database connection attempt ${attempt}:`);
 
   //Attempts connection
@@ -28,7 +29,7 @@ function connectToDb(attempt) {
       useFindAndModify: false,
     })
     //Success!
-    .then(() => console.log("        Connection to database established."))
+    .then(() => console.log("Server: Connection to database established."))
     //Failure!
     .catch((_error) => {
       console.log("        Database connection attempt failed.");
@@ -44,9 +45,7 @@ function connectToDb(attempt) {
         connectToDb(attempt);
       }
     });
-}
-
-connectToDb(0);
+})(0);
 
 //!Server code (in 5 lines! Express is cool)
 app.use(express.json()); //This line is for json body parses - allows for POST routes
@@ -61,7 +60,6 @@ app.use("/contactReq", require("./routes/contact")); //Contact page requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page requests
 app.use("/charityReq", require("./routes/charity")); //Charity page requests
 app.use("/feedbackReq", require("./routes/feedback")); //Feedback page requests
-
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
 

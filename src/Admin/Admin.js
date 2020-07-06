@@ -7,9 +7,11 @@ import "./css/Admin.css";
 // Functional page
 import AdminMenu from "./functions/AdminMenu";
 import AdminLookupUser from "./functions/AdminLookupUser";
-import AdminIndex from "./functions/AdminIndex";
 import AdminCheckContact from "./functions/AdminCheckContact";
 import AdminCheckFood from "./functions/AdminCheckFood";
+import AdminCheckCharities from "./functions/AdminCheckCharities";
+import AdminCheckFeedback from "./functions/AdminCheckFeedback";
+import AdminCheckHotels from "./functions/AdminCheckHotels";
 
 // Authentication
 import Login from "./Login";
@@ -60,13 +62,21 @@ class Admin extends React.Component {
           </div>
           <div className="infoContainer">
             <Switch>
-              <Route exact path={url} component={AdminIndex} />
               <Route path={`${url}/LookupUser`} component={AdminLookupUser} />
               <Route
                 path={`${url}/CheckContact`}
                 component={AdminCheckContact}
               />
               <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
+              <Route
+                path={`${url}/CheckCharities`}
+                component={AdminCheckCharities}
+              />
+              <Route
+                path={`${url}/CheckFeedback`}
+                component={AdminCheckFeedback}
+              />
+              <Route path={`${url}/CheckHotels`} component={AdminCheckHotels} />
             </Switch>
           </div>
         </div>

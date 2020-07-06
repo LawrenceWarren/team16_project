@@ -7,10 +7,12 @@ import { Menu } from "antd";
 // ***** Can add to the menu by directly add to this list *****
 // ***** IconType can fill with any (of no use) *****
 const menus = [
-  { url: "/", name: "Home" },
   { url: "/LookupUser", name: "Users" },
   { url: "/CheckContact", name: "Contact Info" },
   { url: "/CheckFood", name: "Food Info" },
+  { url: "/CheckCharities", name: "Charity Info" },
+  { url: "/CheckFeedback", name: "Feedback Info" },
+  { url: "/CheckHotels", name: "Hotel Info" },
 ];
 
 // This is the setting of the menu on the top left
