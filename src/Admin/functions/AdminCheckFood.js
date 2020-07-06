@@ -168,6 +168,7 @@ class AdminCheckFood extends React.Component {
         else if (j === 5) {
           img = document.createElement("img");
           img.setAttribute("src", columnValues[j]);
+          img.className = "tableImage";
           cell.appendChild(img);
         }
         //Buttons
