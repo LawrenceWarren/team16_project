@@ -11,7 +11,7 @@ import AdminIndex from "./functions/AdminIndex";
 import AdminCheckContact from "./functions/AdminCheckContact";
 import AdminCheckFood from "./functions/AdminCheckFood";
 
-// Authentication & jump configurations
+// Authentication
 import Login from "./Login";
 
 class Admin extends React.Component {
@@ -27,22 +27,22 @@ class Admin extends React.Component {
   render() {
     const { url } = this.props.match;
 
-    // Get the login info from local
+    // Get the login info from local storage
     const item = localStorage.getItem("userInfo");
     const user = JSON.parse(item);
     const now = new Date();
-    var isLogin = false;
+    let loggedIn = false;
 
     if (user) {
       if (user.user === "admin" && user.password === "12345678") {
         // Check if the login record is out of date (over 10 min)
         if (now.getTime() < user.expiry) {
-          isLogin = true;
+          loggedIn = true;
         }
       }
     }
 
-    if (!isLogin) {
+    if (!loggedIn) {
       //Show the login page if the login has expired (10 minutes)
       return (
         <div>
@@ -54,11 +54,11 @@ class Admin extends React.Component {
     } //Show the main
     else {
       return (
-        <div className="admin_container">
-          <div className="menuContainer">
+        <div className="mainContainer">
+          <div className="navContainer">
             <AdminMenu history={this.props.history} />
           </div>
-          <div className="nextContain">
+          <div className="infoContainer">
             <Switch>
               <Route exact path={url} component={AdminIndex} />
               <Route path={`${url}/LookupUser`} component={AdminLookupUser} />

@@ -1,7 +1,7 @@
 /*This code was written by Yutian Chen.*/
 
 /*The entirety of the admin screen*/
-.admin_container {
+.mainContainer {
   display: flex;
   flex-direction: row;
   background: white;
@@ -12,7 +12,7 @@
 }
 
 /*The admin side bar*/
-.menuContainer {
+.navContainer {
   width: 8vw;
   max-width: 130px;
   height: 100%;
@@ -20,7 +20,7 @@
 }
 
 /*The screen related to the side bar*/
-.nextContain {
+.infoContainer {
   width: 100%;
   padding-left: 1.5vw;
   padding-right: 1.5vw;

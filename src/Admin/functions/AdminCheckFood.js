@@ -1,7 +1,7 @@
 //This code was written by Lawrence Warren
 
 import React from "react";
-import "../css/subPage.css";
+import "../css/element.css";
 import axios from "axios";
 import { cloneDeep } from "lodash";
 import loading from "../../IntermediatePage/resources/loading.gif";
