@@ -120,8 +120,8 @@ class CheckContact extends React.Component {
           innerText: "Delete entry",
           function: (i) => {
             this.deleteEntry(i);
-            id: "deleteButton";
           },
+          id: "deleteButton",
         },
       ];
 
