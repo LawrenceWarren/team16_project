@@ -1,5 +1,9 @@
 import React from "react";
+import axios from "axios";
+import loading from "../../IntermediatePage/resources/loading.gif";
 import "../css/element.css";
+
+const ROUTE = "/contactReq";
 
 class CheckContact extends React.Component {
   constructor(props) {
@@ -9,9 +13,19 @@ class CheckContact extends React.Component {
     };
   }
 
-  //Runs when the page loads
+  /**Runs when the page loads:
+   * * Clears all existing elements from the screen
+   * * Fetches from the server
+   * * Builds the table if data was fetched.
+   * * Displays an error if no data could be fetched.
+   */
   async componentDidMount() {
+    //Clear the table and message
+    document.getElementById("dataTable").innerHTML = "";
+    document.getElementById("message").innerText = "";
+
     await this.fetchFromServer(); //Calls information from the server asynchronously
+
     if (this.state.details.length) {
       this.buildTableHeader(); //Draw the top row of the table
       this.buildTableBody(); //Draw the body of the table
@@ -24,19 +38,33 @@ class CheckContact extends React.Component {
 
   //Fetches the contact information from the database
   async fetchFromServer() {
-    //Fetching from server
-    console.log("ContactCMS: Fetching from server...");
     try {
-      const res = await fetch("/contactReq");
+      this.setTicker(true);
+      const res = await fetch(ROUTE);
       if (res.status >= 400) {
+        this.setTicker(false);
         throw new Error("There was an error in the HTTP request.");
       }
 
+      this.setTicker(false);
       const info = await res.json();
       this.setState({ details: info });
-      console.log("ContactCMS: Data from the server has been received!");
     } catch (err) {
+      this.setTicker(false);
       console.error("ContactCMS: " + err);
+    }
+  }
+
+  /**Inverts the current state of the ticker
+   * @param {Boolean} val Determines whether to make the state visible (truthy) or invisible (falsy).
+   */
+  setTicker(val) {
+    let ticker = document.getElementById("ticker");
+
+    if (val) {
+      ticker.style.setProperty("display", "inline-block");
+    } else {
+      ticker.style.setProperty("display", "none");
     }
   }
 
@@ -56,7 +84,7 @@ class CheckContact extends React.Component {
     //Creates a new row, appends that row to the table
     head = document.createElement("thead");
     row = document.createElement("tr");
-    document.getElementById("contactInfo").appendChild(head);
+    document.getElementById("dataTable").appendChild(head);
     head.appendChild(row);
 
     //Loops through the values in the above array, and populates the header
@@ -69,31 +97,30 @@ class CheckContact extends React.Component {
 
   //Builds the body of the table
   buildTableBody() {
-    var row, cell, body, rowValues, self;
-
-    self = this; //Used for function calls within objects
+    var row, cell, body, rowValues;
     body = document.createElement("tbody");
-    document.getElementById("contactInfo").appendChild(body);
+    document.getElementById("dataTable").appendChild(body);
 
     /**Loops through each element in state.details,
      * and populates a new row in the table with
      *      the values from state.details        */
-    this.state.details.forEach((contact, i) => {
+    this.state.details.forEach((detail, i) => {
       row = document.createElement("tr");
       body.appendChild(row);
 
       //Defines an array to store the values of the current element
       //of state.details, to be looped through
       rowValues = [
-        contact.firstname,
-        contact.lastname,
-        contact.email,
-        contact.phoneNum,
-        contact.message,
+        detail.firstname,
+        detail.lastname,
+        detail.email,
+        detail.phoneNum,
+        detail.message,
         {
           innerText: "Delete entry",
-          function: function (i) {
-            self.deleteEntry(i);
+          function: (i) => {
+            this.deleteEntry(i);
+            id: "deleteButton";
           },
         },
       ];
@@ -111,7 +138,9 @@ class CheckContact extends React.Component {
           let button = document.createElement("button");
           button.innerText = rowValues[j].innerText;
           button.className = "tableButtons";
-          button.addEventListener("click", () => {
+          button.id = rowValues[j].id;
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
             rowValues[j].function(i);
           });
 
@@ -124,29 +153,21 @@ class CheckContact extends React.Component {
 
   //Delete entry i from the array & visually remove from the table
   deleteEntry(i) {
-    //Creates a DELETE request, sends the delete request
-    let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", `/contactReq/${this.state.details[i]._id}`, true);
-    xhr.send();
+    this.setTicker(true);
 
-    //If the state of the request changes, call processRequest()
-    xhr.onreadystatechange = () => {
-      this.processStateChange(xhr.readyState, xhr.status);
-    };
-  }
-
-  /**Process's the state of our DELETE request, when it changes.
-   * @param requestState the state of the request (4 means the request has completed)
-   * @param httpStatus the returned httpStatus for the request
-   */
-  processStateChange(requestState, httpStatus) {
-    //The request has completed successfully
-    if (requestState === 4 && httpStatus === 200) {
-      document.getElementById("contactInfo").innerHTML = ""; //Clear the table
-      this.componentDidMount();
-    } else if (httpStatus !== 200) {
-      console.error("ContactsCMS: An error occurred, nothing was deleted.");
-    }
+    //Delete
+    axios
+      .delete(`${ROUTE}/${this.state.details[i]._id}`)
+      //If successful, rebuild table
+      .then((_response) => {
+        this.componentDidMount();
+      })
+      //If failed, log and reflect on screen
+      .catch(() => {
+        this.setTicker(false);
+        console.error("ContactCMS: Error using DELETE route.");
+        document.getElementById("message").innerText = "Failed to delete.";
+      });
   }
 
   //Render!
@@ -154,9 +175,13 @@ class CheckContact extends React.Component {
     /* jshint ignore:start */
     return (
       <div>
-        <h1>Contact Information</h1>
-        <table id="contactInfo" border="1"></table>
+        <h1>Received Contact Information</h1>
+
+        <img id="ticker" src={loading} />
+
         <p id="message"></p>
+
+        <table id="dataTable" border="1"></table>
       </div>
     );
     /* jshint ignore:end */

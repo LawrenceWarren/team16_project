@@ -1,21 +1,21 @@
 /*Alternating the colour of each row*/
-tr:nth-child(even) {
+#dataTable tr:nth-child(even) {
   background: #dddddd;
 }
 
 /*Removing the borders between rows*/
-tr {
+#dataTable tr {
   border-top: none;
   border-bottom: none;
 }
 
 /*Styling for the head of the table*/
-thead {
+#dataTable thead {
   background: #cccccc;
 }
 
 /*Overall styling for the table*/
-table {
+#dataTable {
   text-align: center;
   max-width: 80vw;
   border-top: none;
@@ -25,10 +25,9 @@ table {
 }
 
 /*Each column should have 3px padding*/
-td {
+#dataTable td {
   padding: 3px;
   max-width: 210px;
-  text-align: left;
 }
 
 /*Formatting for the images in a table*/
@@ -70,15 +69,17 @@ button {
   box-shadow: -1px 1px #227722;
 }
 
-/*Formatting for the edit button*/
+/*Styling for the edit button*/
 #editButton {
   background-color: #6666ff;
 }
 
+/*Styling for the delete buttons*/
 #deleteButton {
   background-color: #ff4444;
 }
 
+/*Styling for the form container*/
 #formContainer {
   display: block;
   text-align: center;
@@ -88,6 +89,7 @@ button {
   right: 1vw;
 }
 
+/*Styling for the form*/
 #form {
   max-width: 200px;
   padding: 5px;
@@ -100,6 +102,7 @@ button {
   border-style: solid;
 }
 
+/*Styling for the spinning gif*/
 #ticker {
   display: none;
   top: 1vh;
@@ -109,6 +112,7 @@ button {
   width: 90px;
 }
 
+/*Styling for the title above the form*/
 #formHeading {
   font-size: 18px;
 }

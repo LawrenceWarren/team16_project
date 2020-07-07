@@ -20,7 +20,11 @@ class CheckFood extends React.Component {
     };
   }
 
-  /**Fetches from the server, build's the table header and body from fetched data
+  /**Runs when the page loads:
+   * * Clears all existing elements from the screen
+   * * Fetches from the server
+   * * Builds the table if data was fetched.
+   * * Displays an error if no data could be fetched.
    */
   async componentDidMount() {
     this.clearElements();
@@ -28,7 +32,6 @@ class CheckFood extends React.Component {
 
     //If data could be fetched from the server, render the table
     if (this.state.details.length) {
-      document.getElementById("message").innerText = "";
       this.buildTableHeader();
       this.buildTableBody();
     } else {
@@ -46,6 +49,7 @@ class CheckFood extends React.Component {
       this.setTicker(true);
       const res = await fetch(ROUTE);
       if (res.status >= 400) {
+        this.setTicker(false);
         throw new Error("There was an error in the HTTP request.");
       }
 
@@ -54,6 +58,7 @@ class CheckFood extends React.Component {
       this.state.backup = cloneDeep(food); //Make a copy
       this.state.details = food; //state.details is now a reference to food
     } catch (err) {
+      this.setTicker(false);
       console.error("EateriesCMS: " + err);
     }
   }
@@ -61,16 +66,17 @@ class CheckFood extends React.Component {
   /**Clears all elements of the screen
    */
   clearElements() {
+    document.getElementById("message").innerText = "";
     document.getElementById("form").innerHTML = ""; //Clear form
     document
       .getElementById("form")
       .style.setProperty("border", "0.25vw solid #ffffff"); //Clear form border
-    document.getElementById("eateriesInfo").innerHTML = ""; //Clear table
+    document.getElementById("dataTable").innerHTML = ""; //Clear table
     document.getElementById("formHeading").innerText = ""; //Clear form heading
   }
 
   /**Inverts the current state of the ticker
-   * @param {Boolean} val the state to switch the ticker to
+   * @param {Boolean} val Determines whether to make the state visible (truthy) or invisible (falsy).
    */
   setTicker(val) {
     let ticker = document.getElementById("ticker");
@@ -102,7 +108,7 @@ class CheckFood extends React.Component {
     //Creates a new row, appends that row to the table
     head = document.createElement("thead");
     row = document.createElement("tr");
-    document.getElementById("eateriesInfo").appendChild(head);
+    document.getElementById("dataTable").appendChild(head);
     head.appendChild(row);
 
     //Creates each column in the head
@@ -117,31 +123,30 @@ class CheckFood extends React.Component {
    */
   buildTableBody() {
     let row, cell, img, body, columnValues;
-
     body = document.createElement("tbody");
-    document.getElementById("eateriesInfo").appendChild(body);
+    document.getElementById("dataTable").appendChild(body);
 
     /**Loops through each element in state.details,
      * and populates a new row in the table with
      *      the values from state.details        */
-    this.state.details.forEach((eatery, i) => {
+    this.state.details.forEach((detail, i) => {
       row = document.createElement("tr");
       body.appendChild(row);
 
       //Defines an array to store the values of the current element
       //of state.details, to be looped through
       columnValues = [
-        eatery.name, //0
-        eatery.address, //1
-        eatery.type, //2
-        eatery.price, //3
-        eatery.link, //4
-        eatery.image, //5
-        eatery.registerDate, //6
+        detail.name, //0
+        detail.address, //1
+        detail.type, //2
+        detail.price, //3
+        detail.link, //4
+        detail.image, //5
+        detail.registerDate, //6
         {
           //7
           innerText: "Edit entry", //Defines text for the button
-          function: (i, _event) => {
+          function: (i) => {
             this.buildForm(i, "edit"); //Defines a function for the button click
           },
           id: "editButton",
@@ -149,8 +154,8 @@ class CheckFood extends React.Component {
         {
           //8
           innerText: "Delete entry", //Defines text for the button
-          function: (i, event) => {
-            this.deleteEntry(i, event); //Defines a function for the button click
+          function: (i) => {
+            this.deleteEntry(i); //Defines a function for the button click
           },
           id: "deleteButton",
         },
@@ -189,7 +194,8 @@ class CheckFood extends React.Component {
           button.id = columnValues[j].id;
           button.className = "tableButtons";
           button.addEventListener("click", (event) => {
-            columnValues[j].function(i, event);
+            event.preventDefault();
+            columnValues[j].function(i);
           });
 
           cell.appendChild(button);
@@ -215,10 +221,12 @@ class CheckFood extends React.Component {
 
     //Action of submit changes depending on submitState parameter.
     mainDiv.onsubmit = (event) => {
+      event.preventDefault();
+
       if (submitState === "edit") {
-        this.editEntry(event, i);
+        this.editEntry(i);
       } else if (submitState === "addition") {
-        this.addEntry(event);
+        this.addEntry();
       }
     };
 
@@ -270,11 +278,8 @@ class CheckFood extends React.Component {
 
   /**Delete entry i from the array & visually remove from the table
    * @param i the integer value of the database entry to be deleted.
-   * @param event the event which called deleteEntry.
    */
-  deleteEntry(i, event) {
-    event.preventDefault();
-
+  deleteEntry(i) {
     this.setTicker(true); //Adds a ticker
 
     //Delete
@@ -293,12 +298,9 @@ class CheckFood extends React.Component {
   }
 
   /**Edit entry i in the database
-   * @param event the event which called editEntry
    * @param i the integer value of the database entry to be deleted.
    */
-  editEntry(event, i) {
-    event.preventDefault(); //Stops the page refreshing
-
+  editEntry(i) {
     this.setTicker(true); //Adds a ticker
 
     //PUT by id
@@ -320,11 +322,8 @@ class CheckFood extends React.Component {
   }
 
   /**Add an entry to the database
-   * @param event The event which called `addEntry()`
    */
-  addEntry(event) {
-    event.preventDefault(); //Stops the page refreshing
-
+  addEntry() {
     this.alterArrayMemberObjectDetails(
       0,
       "registerDate",
@@ -375,7 +374,7 @@ class CheckFood extends React.Component {
     /* jshint ignore:start */
     return (
       <div>
-        <h1>Food Information</h1>
+        <h1>Currently listed food information</h1>
 
         {/*The ticker to display */}
         <img id="ticker" src={loading} />
@@ -384,9 +383,7 @@ class CheckFood extends React.Component {
         <p id="message"></p>
 
         {/*Table displays database info if it is available */}
-        <div>
-          <table id="eateriesInfo" border="1"></table>
-        </div>
+        <table id="dataTable" border="1"></table>
 
         {/*The button for adding a new entry to the db */}
         <button
