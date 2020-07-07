@@ -88,7 +88,7 @@ button {
   right: 1vw;
 }
 
-form {
+#form {
   max-width: 200px;
   padding: 5px;
   display: inline-block;

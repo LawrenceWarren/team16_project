@@ -197,7 +197,7 @@ const menuItems = [
 ];
 
 //!The menu component itself
-class Menu extends React.Component {
+class NavBar extends React.Component {
   constructor() {
     super();
 
@@ -269,7 +269,7 @@ class Menu extends React.Component {
 function Header() {
   return (
     <div>
-      <Menu />
+      <NavBar />
       <img
         className="Logo"
         src="https://www.avas-angels.com/images/HiResLogo.png"

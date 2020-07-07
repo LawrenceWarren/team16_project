@@ -5,13 +5,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import "./css/Admin.css";
 
 // Functional page
-import AdminMenu from "./functions/AdminMenu";
-import AdminLookupUser from "./functions/AdminLookupUser";
-import AdminCheckContact from "./functions/AdminCheckContact";
-import AdminCheckFood from "./functions/AdminCheckFood";
-import AdminCheckCharities from "./functions/AdminCheckCharities";
-import AdminCheckFeedback from "./functions/AdminCheckFeedback";
-import AdminCheckHotels from "./functions/AdminCheckHotels";
+import Menu from "./functions/Menu";
+import LookupUser from "./functions/LookupUser";
+import CheckContact from "./functions/CheckContact";
+import CheckFood from "./functions/CheckFood";
+import CheckCharities from "./functions/CheckCharities";
+import CheckFeedback from "./functions/CheckFeedback";
+import CheckHotels from "./functions/CheckHotels";
 
 // Authentication
 import Login from "./Login";
@@ -58,25 +58,19 @@ class Admin extends React.Component {
       return (
         <div className="mainContainer">
           <div className="navContainer">
-            <AdminMenu history={this.props.history} />
+            <Menu history={this.props.history} />
           </div>
           <div className="infoContainer">
             <Switch>
-              <Route path={`${url}/LookupUser`} component={AdminLookupUser} />
-              <Route
-                path={`${url}/CheckContact`}
-                component={AdminCheckContact}
-              />
-              <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
+              <Route path={`${url}/LookupUser`} component={LookupUser} />
+              <Route path={`${url}/CheckContact`} component={CheckContact} />
+              <Route path={`${url}/CheckFood`} component={CheckFood} />
               <Route
                 path={`${url}/CheckCharities`}
-                component={AdminCheckCharities}
+                component={CheckCharities}
               />
-              <Route
-                path={`${url}/CheckFeedback`}
-                component={AdminCheckFeedback}
-              />
-              <Route path={`${url}/CheckHotels`} component={AdminCheckHotels} />
+              <Route path={`${url}/CheckFeedback`} component={CheckFeedback} />
+              <Route path={`${url}/CheckHotels`} component={CheckHotels} />
             </Switch>
           </div>
         </div>
