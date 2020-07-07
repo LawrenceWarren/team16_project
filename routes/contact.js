@@ -40,9 +40,7 @@ transporter.verify((error, _success) => {
 
 //Create One Post Route
 contactRouter.post("/", async (req, res) => {
-  var now = new Date();
-  var current = now.getTime();
-
+  //TODO: add registerDate correctly
   const contact = new ContactModel({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
