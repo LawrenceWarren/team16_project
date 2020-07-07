@@ -19,7 +19,7 @@ foodRouter.get("/", async (_req, res) => {
 });
 
 //Delete using /foodReq/id - DELETE
-foodRouter.delete("/:id", function (req, res, next) {
+foodRouter.delete("/:id", async (req, res, next) => {
   FoodModel.findByIdAndRemove(req.params.id, req.body, function (
     err,
     foodInfo
@@ -49,7 +49,7 @@ foodRouter.post("/", async (req, res) => {
 });
 
 //Updates an existing field by it's _id - EDIT
-foodRouter.put("/:id", function (req, res, next) {
+foodRouter.put("/:id", async (req, res, next) => {
   FoodModel.findByIdAndUpdate(req.params.id, req.body, function (
     err,
     foodInfo
