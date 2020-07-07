@@ -3,10 +3,6 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 charityInfo = new Schema({
-  charityId: {
-    type: Number,
-    required: true,
-  },
   charity_name: {
     type: String,
     required: true,
