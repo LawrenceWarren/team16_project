@@ -16,14 +16,7 @@ class Charity extends React.Component {
 
     this.state = {
       // Initializes the charity list, setting the data to be blank.
-      charityList: [
-        {
-          charityId: 1,
-          charity_name: "",
-          charity_weblink: "",
-          charity_image: "",
-        },
-      ],
+      charityList: [{}],
     };
     // Sets the display settings for the presentation of the tiles.
     this.styles = makeStyles((theme) => ({

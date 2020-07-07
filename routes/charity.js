@@ -22,7 +22,6 @@ charityRouter.get("/:id", getCharity, (req, res) => {
 //Create One Route
 charityRouter.post("/", async (req, res) => {
   const charity = new Charity({
-    charityId: req.body.charityId,
     charity_name: req.body.charity_name,
     charity_weblink: req.body.charity_weblink,
     charity_image: req.body.charity_image,
