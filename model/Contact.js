@@ -25,9 +25,13 @@ contactInfo = new Schema({
     type: String,
     required: true,
   },
+    registerDate: {
+    type: String,
+    required: true,
+  },
 });
 
 //Create Model
-//"User" is corresspond to the collection name in database for Users
+//"User" is correspond to the collection name in database for Users
 const Contact = mongoose.model("contactInfo", contactInfo);
 module.exports = Contact;

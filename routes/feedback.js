@@ -2,9 +2,19 @@
 
 const express = require("express");
 const feedbackRouter = express.Router();
-const Feedback = require("../model/Feedback");
+const FeedbackModel = require("../model/Feedback");
 var nodemailer = require("nodemailer");
 const creds = require("./emailConfig");
+
+//Get All Route
+feedbackRouter.get("/", async (_req, res) => {
+  try {
+    const feedback = await FeedbackModel.find();
+    res.json(feedback);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // Pass the credentials to the SMTP transport
 var transport = {
@@ -22,7 +32,7 @@ var transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, _success) => {
   if (error) {
-    console.log(error);
+    console.log("Feedback: Could not connect!");
   } else {
     console.log("Feedback: Ready to send messages.");
   }
@@ -30,11 +40,12 @@ transporter.verify((error, _success) => {
 
 //Create One Post Route
 feedbackRouter.post("/", async (req, res) => {
-  const feedback = new Feedback({
+  const feedback = new FeedbackModel({
     experience: req.body.experience,
     comment: req.body.comment,
     name: req.body.name,
     email: req.body.email,
+    registerDate: req.body.registerDate,
   });
   try {
     const newFeedback = await feedback.save();
@@ -76,6 +87,17 @@ feedbackRouter.post("/", async (req, res) => {
         msg: "success",
       });
     }
+  });
+});
+
+//Delete one
+feedbackRouter.delete("/:id", function (req, res, next) {
+  FeedbackModel.findByIdAndRemove(req.params.id, req.body, function (
+    err,
+    feedbackinfo
+  ) {
+    if (err) return next(err);
+    res.json(feedbackinfo);
   });
 });
 

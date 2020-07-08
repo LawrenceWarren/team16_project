@@ -1,22 +1,19 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import "./css/Admin.css";
 
 // Functional page
-import AdminMenu from "./functions/AdminMenu";
-import AdminLookupUser from "./functions/AdminLookupUser";
-import AdminIndex from "./functions/AdminIndex";
-import AdminCheckContact from "./functions/AdminCheckContact";
-import AdminCheckFood from "./functions/AdminCheckFood";
+import Menu from "./functions/Menu";
+import LookupUser from "./functions/LookupUser";
+import CheckContact from "./functions/CheckContact";
+import CheckFood from "./functions/CheckFood";
+import CheckCharities from "./functions/CheckCharities";
+import CheckFeedback from "./functions/CheckFeedback";
+import CheckHotels from "./functions/CheckHotels";
 
-// Authentication & jump configurations
+// Authentication
 import Login from "./Login";
 
 class Admin extends React.Component {
@@ -32,53 +29,50 @@ class Admin extends React.Component {
   render() {
     const { url } = this.props.match;
 
-    // Get the login info from local
+    // Get the login info from local storage
     const item = localStorage.getItem("userInfo");
     const user = JSON.parse(item);
     const now = new Date();
-    var isLogin = false;
+    let loggedIn = false;
 
     if (user) {
       if (user.user === "admin" && user.password === "12345678") {
         // Check if the login record is out of date (over 10 min)
         if (now.getTime() < user.expiry) {
-          isLogin = true;
+          loggedIn = true;
         }
       }
     }
 
-    if (!isLogin) {
-      // Redirct if is not login or out of date
+    if (!loggedIn) {
+      //Show the login page if the login has expired (10 minutes)
       return (
         <div>
-          <Route path={`${url}/Login`} component={Login} />
-          <Redirect to={`${url}/Login`} />
+          {/*Set's the route for the login and redirects to the route*/}
+          <Route path={`${url}/login`} component={Login} />
+          <Redirect to={`${url}/login`} />
         </div>
       );
-    } else {
+    } //Show the main
+    else {
       return (
-        <div>
-          {
-            <div className="admin_container">
-              <div className="menuContainer">
-                <AdminMenu history={this.props.history} />
-              </div>
-              <div className="nextContain">
-                <Switch>
-                  <Route exact path={url} component={AdminIndex} />
-                  <Route
-                    path={`${url}/LookupUser`}
-                    component={AdminLookupUser}
-                  />
-                  <Route
-                    path={`${url}/CheckContact`}
-                    component={AdminCheckContact}
-                  />
-                  <Route path={`${url}/CheckFood`} component={AdminCheckFood} />
-                </Switch>
-              </div>
-            </div>
-          }
+        <div className="mainContainer">
+          <div className="navContainer">
+            <Menu history={this.props.history} />
+          </div>
+          <div className="infoContainer">
+            <Switch>
+              <Route path={`${url}/LookupUser`} component={LookupUser} />
+              <Route path={`${url}/CheckContact`} component={CheckContact} />
+              <Route path={`${url}/CheckFood`} component={CheckFood} />
+              <Route
+                path={`${url}/CheckCharities`}
+                component={CheckCharities}
+              />
+              <Route path={`${url}/CheckFeedback`} component={CheckFeedback} />
+              <Route path={`${url}/CheckHotels`} component={CheckHotels} />
+            </Switch>
+          </div>
         </div>
       );
     }

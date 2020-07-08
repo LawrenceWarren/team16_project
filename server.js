@@ -5,26 +5,47 @@
 
 require("dotenv").config(); //Used for reading from .env file
 const mongoose = require("mongoose"); //Used for opening a connection to the DB
-const cors = require("cors"); //X site requests
+const cors = require("cors"); //cross site requests
 const express = require("express"); //Used for writing server code
 const favicon = require("express-favicon"); //Used for favicon related something
 const path = require("path"); //Used for file path resolution
 
-const port = process.env.PORT || 8080; //A const used for the path
-const app = express();
+const PORT = process.env.PORT || 8080; //A const used for the path
+const app = express(); //Creates the server app
+const MAX_ATTEMPTS = 3; //Defines the maximum number of database connection attempts to be made
 
-//!Database code
-//Connects to the cloud hosted database
-mongoose.connect(process.env.DATABASE_URL, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+/**Attempts to make a connection to the database MAX_ATTEMPTS times
+ * This function is self invoking!
+ * @param {Number} attempt the attempt counter.
+ */
+(function connectToDb(attempt) {
+  console.log(`Server: database connection attempt ${attempt}:`);
 
-const db = mongoose.connection;
-db.on("error", (error) => console.log("Server: " + error)); //If there's an error, log it
-db.once("open", () =>
-  console.log("Server: Connection to database established")
-); //Log that the connection is established
+  //Attempts connection
+  mongoose
+    .connect(process.env.DATABASE_URL, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useFindAndModify: false,
+    })
+    //Success!
+    .then(() => console.log("Server: Connection to database established."))
+    //Failure!
+    .catch((_error) => {
+      console.log("        Database connection attempt failed.");
+      attempt++;
+      //Exit program if no connection could be made after MAX_ATTEMPTS attempts
+      if (attempt >= MAX_ATTEMPTS) {
+        console.log(
+          `Server: Failed to connect after ${MAX_ATTEMPTS} attempts, exiting.`
+        );
+        process.exit();
+        //Retry connection
+      } else {
+        connectToDb(attempt);
+      }
+    });
+})(0);
 
 //!Server code (in 5 lines! Express is cool)
 app.use(express.json()); //This line is for json body parses - allows for POST routes
@@ -39,7 +60,6 @@ app.use("/contactReq", require("./routes/contact")); //Contact page requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation page requests
 app.use("/charityReq", require("./routes/charity")); //Charity page requests
 app.use("/feedbackReq", require("./routes/feedback")); //Feedback page requests
-
 app.use("/login", require("./routes/login")); //?login requests
 app.use("/register", require("./routes/register")); //?register requests
 
@@ -49,5 +69,7 @@ app.get("/*", function (_req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-//App begins listening on whatever port is specified
-app.listen(port, () => console.log("Server: Listening on " + port));
+//App begins listening for requests on specified port
+app.listen(PORT, () =>
+  console.log("Server: Listening for requests on " + PORT)
+);

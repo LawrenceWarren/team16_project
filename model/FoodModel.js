@@ -8,10 +8,6 @@ const Schema = mongoose.Schema;
 
 //Create schema
 const foodSchema = new Schema({
-  image: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -32,10 +28,13 @@ const foodSchema = new Schema({
     type: String,
     required: true,
   },
-  registerDate: {
-    type: Date,
+  image: {
+    type: String,
     required: true,
-    default: new Date(),
+  },
+  registerDate: {
+    type: String,
+    required: true,
   },
 });
 

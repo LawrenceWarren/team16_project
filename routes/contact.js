@@ -2,14 +2,14 @@
 
 const express = require("express");
 const contactRouter = express.Router();
-const Contact = require("../model/Contact");
+const ContactModel = require("../model/Contact");
 var nodemailer = require("nodemailer");
 const creds = require("./emailConfig");
 
 //Get All Route
 contactRouter.get("/", async (_req, res) => {
   try {
-    const contacts = await Contact.find();
+    const contacts = await ContactModel.find();
     res.json(contacts);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -32,7 +32,7 @@ var transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, _success) => {
   if (error) {
-    console.log(error);
+    console.log("Contact: could not connect!");
   } else {
     console.log("Contact: Ready to send messages.");
   }
@@ -40,16 +40,13 @@ transporter.verify((error, _success) => {
 
 //Create One Post Route
 contactRouter.post("/", async (req, res) => {
-  var now = new Date();
-  var current = now.getTime();
-
-  const contact = new Contact({
+  const contact = new ContactModel({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
     phoneNum: req.body.phoneNum,
     message: req.body.message,
-    currentTime: current,
+    registerDate: req.body.registerDate,
   });
   try {
     const newContact = await contact.save();
@@ -97,6 +94,17 @@ contactRouter.post("/", async (req, res) => {
         msg: "success",
       });
     }
+  });
+});
+
+//Delete one
+contactRouter.delete("/:id", function (req, res, next) {
+  ContactModel.findByIdAndRemove(req.params.id, req.body, function (
+    err,
+    contactinfo
+  ) {
+    if (err) return next(err);
+    res.json(contactinfo);
   });
 });
 

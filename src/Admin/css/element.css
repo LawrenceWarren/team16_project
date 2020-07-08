@@ -1,0 +1,126 @@
+/*Alternating the colour of each row*/
+#dataTable tr:nth-child(even) {
+  background: #dddddd;
+}
+
+/*Removing the borders between rows*/
+#dataTable tr {
+  border-top: none;
+  border-bottom: none;
+}
+
+/*Styling for the head of the table*/
+#dataTable thead {
+  background: #cccccc;
+}
+
+/*Overall styling for the table*/
+#dataTable {
+  text-align: center;
+  max-width: 80vw;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+/*Each column should have 3px padding*/
+#dataTable td {
+  padding: 3px;
+  max-width: 210px;
+}
+
+/*Formatting for the images in a table*/
+.tableImage {
+  max-width: 95%;
+  max-height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+/*Formatting for all buttons*/
+button {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  max-width: 95%;
+  max-height: auto;
+  border-radius: 3px;
+}
+
+/*Formatting for the buttons within tables*/
+.tableButtons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Formatting for the add button*/
+.addButton {
+  position: fixed;
+  bottom: 1vh;
+  left: 130px + 1vw;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: #44ff44;
+  box-shadow: -1px 1px #227722;
+}
+
+/*Styling for the edit button*/
+#editButton {
+  background-color: #6666ff;
+}
+
+/*Styling for the delete buttons*/
+#deleteButton {
+  background-color: #ff4444;
+}
+
+/*Styling for the form container*/
+#formContainer {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  top: 1vh;
+  right: 1vw;
+}
+
+/*Styling for the form*/
+#form {
+  max-width: 200px;
+  padding: 5px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 0.25vw solid #cccccc;
+  border-radius: 3px;
+  border-style: solid;
+}
+
+/*Styling for the spinning gif*/
+#ticker {
+  display: none;
+  top: 1vh;
+  right: 50vw;
+  position: absolute;
+  height: 90px;
+  width: 90px;
+}
+
+/*Styling for the title above the form*/
+#formHeading {
+  font-size: 18px;
+}
+
+/*Formatting for the text label*/
+#message {
+  font-size: 20px;
+  background-color: #ff4444;
+  color: #000000;
+  display: inline-block;
+}

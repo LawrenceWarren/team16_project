@@ -3,45 +3,66 @@
 import React from "react";
 
 export default class Login extends React.Component {
-  state = {
-    user: "",
-    password: "",
-    TTL: 6000000,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: "", //The input username
+      password: "", //The input password
+      TTL: 600000, //The time to live for a login session (currently 10 minutes)
+    };
+  }
 
+  //Updates the state value to be equal to what is input in the input box
   handleChange = (event) => {
-    const input = event.target;
-    const value = input.value;
-
-    this.setState({ [input.name]: value });
+    const input = event.target; //The element where the input occurred
+    this.setState({ [input.name]: input.value });
   };
 
-  handleFormSubmit = () => {
-    const now = new Date();
-    var time = now.getTime() + this.state.TTL;
+  //Updates the state value to be equal to a hash of what is in the input box
+  handleHashChange = (event) => {
+    const input = event.target; //The element where the input occurred
 
-    // Set the expiry time of authentication
-    // One login will expiry after 10 min
-    const { user, password } = this.state;
-    const userInfo = { user, password, expiry: time };
+    //TODO: hash input.value
+    this.setState({ [input.name]: /*this.hash*/ input.value });
+  };
 
-    if (this.loginCheck(user, password)) {
+  //Handles form submission
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    //If the login check is successful
+    if (this.loginCheck(this.state.user, this.state.password)) {
+      var time = new Date().getTime() + this.state.TTL; //Creates a variable to represent the time the login session will expire
+
+      //Define an object containing user info for the current login session
+      const userInfo = {
+        user: this.state.user,
+        password: this.state.password,
+        expiry: time,
+      };
+
+      //Save the user info
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
     } else {
       alert("username or password error!");
     }
-    window.location.href = "/Admin";
+
+    window.location.href = "/admin";
   };
 
-  loginCheck(username, password) {
+  //Checks to see if the login is correct
+  //TODO: handle some kind of user authentication from the cloud
+  loginCheck = (username, password) => {
     if (username === "admin" && password === "12345678") {
       return true;
     } else {
       return false;
     }
-  }
+  };
 
+  //Render function
   render() {
+    /* jshint ignore:start */
     return (
       <form onSubmit={this.handleFormSubmit}>
         <label>
@@ -58,11 +79,12 @@ export default class Login extends React.Component {
             name="password"
             type="password"
             value={this.state.password}
-            onChange={this.handleChange}
+            onChange={this.handleHashChange}
           />
         </label>
         <button type="submit">Log In</button>
       </form>
     );
+    /* jshint ignore:end */
   }
 }

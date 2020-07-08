@@ -13,6 +13,7 @@ registerRouter.post("/", async (req, res) => {
     password: req.body.password,
     email: req.body.email,
     phone: req.body.phone,
+    registerDate: req.body.registerDate,
   });
   try {
     const newUser = await user.save();
