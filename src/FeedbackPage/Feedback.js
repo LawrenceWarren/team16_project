@@ -5,6 +5,7 @@ import "./Feedback.css";
 import Header from "../Header/Header"; //The header of the page
 import Footer from "../Footer/Footer"; //The footer of the page
 import axios from "axios";
+import generateDate from "../generateDate/generateDate.js";
 
 class Feedback extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class Feedback extends React.Component {
       comment: this.state.comments,
       name: this.state.name,
       email: this.state.email,
+      registerDate: generateDate.formattedDate(new Date(Date.now())),
     };
 
     console.log(this.state.experience);

@@ -5,7 +5,8 @@ import "../css/element.css";
 import axios from "axios";
 import { cloneDeep } from "lodash";
 import loading from "../../IntermediatePage/resources/loading.gif";
-const generateDate = require("../../generateDate/generateDate.js");
+import generateDate from "../../generateDate/generateDate.js";
+//const generateDate = require("../../generateDate/generateDate.js");
 
 const ROUTE = "/foodReq";
 

@@ -5,6 +5,7 @@ import "./Contact.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import axios from "axios";
+import generateDate from "../generateDate/generateDate.js";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Contact extends React.Component {
         this.state.message === "Leave your message here"
           ? " "
           : this.state.message,
+      registerDate: generateDate.formattedDate(new Date(Date.now())),
     };
 
     // Post to api

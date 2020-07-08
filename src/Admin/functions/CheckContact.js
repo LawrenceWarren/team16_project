@@ -78,6 +78,7 @@ class CheckContact extends React.Component {
       "Email Address",
       "Phone Number",
       "Message",
+      "Register Date",
       "Delete",
     ];
 
@@ -116,6 +117,7 @@ class CheckContact extends React.Component {
         detail.email,
         detail.phoneNum,
         detail.message,
+        detail.registerDate,
         {
           innerText: "Delete entry",
           function: (i) => {
@@ -126,11 +128,11 @@ class CheckContact extends React.Component {
       ];
 
       //Looping through the above array
-      for (let j = 0; j <= 5; j++) {
+      for (let j = 0; j <= 6; j++) {
         cell = document.createElement("td");
 
         //For the first 4 elements, it is simply appending a string
-        if (j <= 4) {
+        if (j <= 5) {
           cell.appendChild(document.createTextNode(rowValues[j]));
         }
         //For the last column append a button.

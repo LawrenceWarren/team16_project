@@ -27,13 +27,13 @@ hotelRouter.delete("/:id", async (_req, res, next) => {
 
 //Create One Route
 hotelRouter.post("/", async (req, res) => {
-  //TODO: setup registerDate
   const hotel = new HotelModel({
     hotelname: req.body.hotelname,
     description: req.body.description,
     linkBook: req.body.linkBook,
     linkReview: req.body.linkReview,
     linkImage: req.body.linkImage,
+    registerDate: req.body.registerDate,
   });
   try {
     const newHotel = await hotel.save();

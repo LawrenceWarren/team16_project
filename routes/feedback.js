@@ -40,12 +40,12 @@ transporter.verify((error, _success) => {
 
 //Create One Post Route
 feedbackRouter.post("/", async (req, res) => {
-  //TODO: add registerDate correctly
   const feedback = new FeedbackModel({
     experience: req.body.experience,
     comment: req.body.comment,
     name: req.body.name,
     email: req.body.email,
+    registerDate: req.body.registerDate,
   });
   try {
     const newFeedback = await feedback.save();

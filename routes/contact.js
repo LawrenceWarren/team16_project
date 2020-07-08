@@ -40,14 +40,13 @@ transporter.verify((error, _success) => {
 
 //Create One Post Route
 contactRouter.post("/", async (req, res) => {
-  //TODO: add registerDate correctly
   const contact = new ContactModel({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
     phoneNum: req.body.phoneNum,
     message: req.body.message,
-    currentTime: current,
+    registerDate: req.body.registerDate,
   });
   try {
     const newContact = await contact.save();
