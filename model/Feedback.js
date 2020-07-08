@@ -19,7 +19,10 @@ feedbackInfo = new Schema({
         type: String,
         required: true
     },
-
+  registerDate: {
+    type: String,
+    required: true,
+  },
 });
 
 //Create Model

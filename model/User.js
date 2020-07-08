@@ -17,11 +17,11 @@ const userInfo = new Schema({
     type: String,
     required: true,
   },
-  password: {
+  email: {
     type: String,
     required: true,
   },
-  email: {
+  password: {
     type: String,
     required: true,
   },
@@ -30,9 +30,8 @@ const userInfo = new Schema({
     required: true,
   },
   registerDate: {
-    type: Date,
+    type: String,
     required: true,
-    default: new Date(),
   },
 });
 

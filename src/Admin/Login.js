@@ -3,11 +3,14 @@
 import React from "react";
 
 export default class Login extends React.Component {
-  state = {
-    user: "", //The input username
-    password: "", //The input password
-    TTL: 600000, //The time to live for a login session (currently 10 minutes)
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: "", //The input username
+      password: "", //The input password
+      TTL: 600000, //The time to live for a login session (currently 10 minutes)
+    };
+  }
 
   //Updates the state value to be equal to what is input in the input box
   handleChange = (event) => {
@@ -49,16 +52,17 @@ export default class Login extends React.Component {
 
   //Checks to see if the login is correct
   //TODO: handle some kind of user authentication from the cloud
-  loginCheck(username, password) {
+  loginCheck = (username, password) => {
     if (username === "admin" && password === "12345678") {
       return true;
     } else {
       return false;
     }
-  }
+  };
 
   //Render function
   render() {
+    /* jshint ignore:start */
     return (
       <form onSubmit={this.handleFormSubmit}>
         <label>
@@ -81,5 +85,6 @@ export default class Login extends React.Component {
         <button type="submit">Log In</button>
       </form>
     );
+    /* jshint ignore:end */
   }
 }
