@@ -15,7 +15,7 @@ charityInfo = new Schema({
     type: String,
     required: true,
   },
-    registerDate: {
+  registerDate: {
     type: String,
     required: true,
   },

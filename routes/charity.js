@@ -15,7 +15,7 @@ charityRouter.get("/", async (_req, res) => {
 });
 
 //Delete One Route
-charityRouter.delete("/:id", async (_req, res, next) => {
+charityRouter.delete("/:id", async (req, res, next) => {
   CharityModel.findByIdAndRemove(req.params.id, req.body, function (
     err,
     charityInfo

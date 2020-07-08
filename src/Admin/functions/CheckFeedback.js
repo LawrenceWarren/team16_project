@@ -5,7 +5,7 @@ import "../css/element.css";
 
 const ROUTE = "/feedbackReq";
 
-class CheckContact extends React.Component {
+class CheckFeedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -188,4 +188,4 @@ class CheckContact extends React.Component {
   }
 }
 
-export default CheckContact;
+export default CheckFeedback;
