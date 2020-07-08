@@ -24,7 +24,7 @@ hotelInfo = new Schema({
   linkImage: {
     type: String,
     required: true,
-  },  
+  },
   registerDate: {
     type: String,
     required: true,
