@@ -14,8 +14,8 @@ hotelRouter.get("/", async (_req, res) => {
   }
 });
 
-//Delete One Route
-hotelRouter.delete("/:id", async (_req, res, next) => {
+//Delete One Route`
+hotelRouter.delete("/:id", async (req, res, next) => {
   HotelModel.findByIdAndRemove(req.params.id, req.body, function (
     err,
     hotelInfo

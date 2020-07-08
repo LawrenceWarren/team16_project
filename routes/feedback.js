@@ -9,7 +9,7 @@ const creds = require("./emailConfig");
 //Get All Route
 feedbackRouter.get("/", async (_req, res) => {
   try {
-    const feedback = await feedbackModel.find();
+    const feedback = await FeedbackModel.find();
     res.json(feedback);
   } catch (err) {
     res.status(500).json({ message: err.message });

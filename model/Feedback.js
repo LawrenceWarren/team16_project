@@ -3,22 +3,22 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 feedbackInfo = new Schema({
-    experience:{
-        type: String,
-        required: true
-    },
-    comment:{
-        type: String,
-        required: true
-    },
-    name:{
-        type:String,
-        required: false
-    },
-    email:{
-        type: String,
-        required: true
-    },
+  experience: {
+    type: String,
+    required: true,
+  },
+  comment: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: false,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
   registerDate: {
     type: String,
     required: true,
