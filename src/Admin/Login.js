@@ -1,85 +1,113 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
+var Crypto = require("crypto-js");
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "", //The input username
-      password: "", //The input password
+      fetchedUsername: "",
+      fetchedPassword: "",
+      typedUsername: "", //The input username
+      typedPassword: "", //The input password
       TTL: 600000, //The time to live for a login session (currently 10 minutes)
     };
   }
 
+  //When the page renders
+  componentDidMount() {
+    this.fetchFromServer();
+  }
+
+  //Fetch data from the server - populate state
+  async fetchFromServer() {
+    try {
+      const res = await fetch("/loginReq");
+      if (res.status >= 400) {
+        throw new Error("There was an error in the HTTP request.");
+      }
+
+      const details = await res.json();
+      this.state.fetchedUsername = details[0].username; //state.details is now a reference to food
+      this.state.fetchedPassword = details[0].password;
+    } catch (err) {
+      console.error("LoginCMS: " + err);
+    }
+  }
+
   //Updates the state value to be equal to what is input in the input box
-  handleChange = (event) => {
+  handleChange(event) {
     const input = event.target; //The element where the input occurred
-    this.setState({ [input.name]: input.value });
-  };
-
-  //Updates the state value to be equal to a hash of what is in the input box
-  handleHashChange = (event) => {
-    const input = event.target; //The element where the input occurred
-
-    //TODO: hash input.value
-    this.setState({ [input.name]: /*this.hash*/ input.value });
-  };
+    this.setState({ [`typed${input.name}`]: input.value });
+  }
 
   //Handles form submission
-  handleFormSubmit = (event) => {
+  handleFormSubmit(event) {
     event.preventDefault();
 
-    //If the login check is successful
-    if (this.loginCheck(this.state.user, this.state.password)) {
-      var time = new Date().getTime() + this.state.TTL; //Creates a variable to represent the time the login session will expire
+    const hashedPassword = Crypto.SHA256(this.state.typedPassword).toString();
 
+    //If the login check is successful
+    if (this.loginCheck(hashedPassword)) {
       //Define an object containing user info for the current login session
+      //TODO: currently saves details - needs to... not.
       const userInfo = {
-        user: this.state.user,
-        password: this.state.password,
-        expiry: time,
+        user: this.state.fetchedUsername,
+        password: hashedPassword,
+        expiry: new Date().getTime() + this.state.TTL,
       };
 
       //Save the user info
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
     } else {
+      console.log(`${this.state.fetchedUsername} --- ${hashedPassword}`);
       alert("username or password error!");
     }
 
     window.location.href = "/admin";
-  };
+  }
 
   //Checks to see if the login is correct
-  //TODO: handle some kind of user authentication from the cloud
-  loginCheck = (username, password) => {
-    if (username === "admin" && password === "12345678") {
+  loginCheck(hashedPassword) {
+    if (
+      this.state.typedUsername === this.state.fetchedUsername &&
+      hashedPassword === this.state.fetchedPassword
+    ) {
       return true;
     } else {
       return false;
     }
-  };
+  }
 
   //Render function
   render() {
     /* jshint ignore:start */
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form
+        onSubmit={(event) => {
+          this.handleFormSubmit(event);
+        }}
+      >
         <label>
           User:{" "}
           <input
-            name="user"
-            value={this.state.user}
-            onChange={this.handleChange}
+            name="Username"
+            value={this.state.typedUsername}
+            onChange={(event) => {
+              this.handleChange(event);
+            }}
           />
         </label>
         <label>
           password:{" "}
           <input
-            name="password"
+            name="Password"
             type="password"
-            value={this.state.password}
-            onChange={this.handleHashChange}
+            value={this.state.typedPassword}
+            onChange={(event) => {
+              this.handleChange(event);
+            }}
           />
         </label>
         <button type="submit">Log In</button>

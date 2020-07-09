@@ -2,26 +2,27 @@
 
 const express = require("express");
 const loginRouter = express.Router();
-const User = require("../model/User");
+const UserModel = require("../model/User");
 
 //Get One Router
-loginRouter.get("/:username", getUser, (_req, res) => {
-  res.json(res.user);
+loginRouter.get("/", async (_req, res) => {
+  try {
+    const UserReq = await UserModel.find();
+    res.json(UserReq);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
-//getUser MIDDLEWARE
-async function getUser(req, res, next) {
-  let user;
-  try {
-    user = await User.find({ username: req.params.username });
-    if (user == null) {
-      return res.status(404).json({ message: "Cannot find user" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-  res.user = user;
-  next();
-}
+//Updates an existing field by it's _id - EDIT
+loginRouter.put("/:id", async (req, res, next) => {
+  UserModel.findByIdAndUpdate(req.params.id, req.body, function (
+    err,
+    userInfo
+  ) {
+    if (err) return next(err);
+    res.json(userInfo);
+  });
+});
 
 module.exports = loginRouter;

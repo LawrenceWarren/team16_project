@@ -20,32 +20,57 @@ class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      UserInfo: {
-        type: "",
-      },
+      details: [],
     };
+  }
+
+  //When the page renders
+  componentDidMount() {
+    this.fetchFromServer();
+  }
+
+  //Fetch data from the server - populate state
+  async fetchFromServer() {
+    try {
+      const res = await fetch("/loginReq");
+      if (res.status >= 400) {
+        throw new Error("There was an error in the HTTP request.");
+      }
+
+      const details = await res.json();
+      this.state.details = details;
+    } catch (err) {
+      console.error("LoginCMS: " + err);
+    }
   }
 
   render() {
     const { url } = this.props.match;
 
     // Get the login info from local storage
-    const item = localStorage.getItem("userInfo");
-    const user = JSON.parse(item);
+    //TODO: stop this being based on local storage
+    const user = JSON.parse(localStorage.getItem("userInfo"));
     const now = new Date();
     let loggedIn = false;
 
-    if (user) {
-      if (user.user === "admin" && user.password === "12345678") {
-        // Check if the login record is out of date (over 10 min)
-        if (now.getTime() < user.expiry) {
-          loggedIn = true;
-        }
+    //console.log(`user.user : ${user.user}`);
+    //console.log(`user.password : ${user.password}`);
+    //console.log(`user.expiry : ${user.expiry}`);
+    //console.log(`this.state.fetchedPassword : ${this.state.fetchedPassword}`);
+    //console.log(`this.state.fetchedUsername : ${this.state.fetchedUsername}`);
+
+    if (user && now.getTime() < user.expiry) {
+      if (
+        user.user === this.state.details[0].fetchedUsername &&
+        user.password === this.state.details[0].fetchedPassword
+      ) {
+        loggedIn = true;
       }
     }
 
     if (!loggedIn) {
       //Show the login page if the login has expired (10 minutes)
+      /*jshint ignore:start */
       return (
         <div>
           {/*Set's the route for the login and redirects to the route*/}
@@ -75,6 +100,7 @@ class Admin extends React.Component {
           </div>
         </div>
       );
+      /*jshint ignore:end */
     }
   }
 }
