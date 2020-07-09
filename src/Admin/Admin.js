@@ -20,65 +20,30 @@ class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      canCheck: false,
-      loggedIn: false,
       fetchedPassword: false,
       fetchedUsername: false,
     };
   }
 
-  //When the page renders
-  componentDidMount() {
-    this.setState({ canCheck: false });
-    this.setState({ loggedIn: false });
-    this.fetchFromServer();
-
-    // Get the login info from local storage
-    //TODO: stop this being based on local storage
-    const user = JSON.parse(localStorage.getItem("userInfo"));
-    const now = new Date();
-
-    if (user && now.getTime() < user.expiry) {
-      if (
-        user.user === this.state.fetchedUsername &&
-        user.password === this.state.fetchedPassword
-      ) {
-        this.setState({ loggedIn: true });
-      }
-    }
-
-    this.setState({ canCheck: true });
-  }
-
-  //Fetch data from the server - populate state
-  async fetchFromServer() {
-    try {
-      const res = await fetch("/loginReq");
-      if (res.status >= 400) {
-        throw new Error("There was an error in the HTTP request.");
-      }
-
-      const details = await res.json();
-      this.state.fetchedUsername = details[0].username;
-      this.state.fetchedPassword = details[0].password;
-      this.state.loggedIn = false;
-    } catch (err) {
-      console.error("LoginCMS: " + err);
-    }
-  }
-
   render() {
+    const fetchedInfo = JSON.parse(localStorage.getItem("fetchedInfo"));
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const now = new Date();
+    let loggedIn = false;
+
+    if (
+      userInfo &&
+      now.getTime() < userInfo.expiry &&
+      userInfo.user === fetchedInfo.fetchedUsername &&
+      userInfo.password === fetchedInfo.fetchedPassword
+    ) {
+      loggedIn = true;
+    }
+
     const { url } = this.props.match;
 
     /*jshint ignore:start */
-    if (this.state.fetchedPassword && this.state.fetchedUsername) {
-      {
-        console.log("I made it mum");
-        /*Show a ticker? */
-      }
-    } else if (!this.state.loggedIn && this.state.canCheck) {
-      //Show the login page if the login has expired (10 minutes)
-
+    if (!loggedIn) {
       return (
         <div>
           {/*Set's the route for the login and redirects to the route*/}
@@ -87,7 +52,7 @@ class Admin extends React.Component {
         </div>
       );
     } //Show the main
-    else if (this.state.loggedIn) {
+    else if (loggedIn) {
       return (
         <div className="mainContainer">
           <div className="navContainer">

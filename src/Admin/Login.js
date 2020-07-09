@@ -16,8 +16,9 @@ export default class Login extends React.Component {
   }
 
   //When the page renders
-  componentDidMount() {
-    this.fetchFromServer();
+  async componentDidMount() {
+    await this.fetchFromServer();
+    await this.writeToStorage();
   }
 
   //Fetch data from the server - populate state
@@ -36,6 +37,17 @@ export default class Login extends React.Component {
     }
   }
 
+  //Writes the saved credentials into storage
+  async writeToStorage() {
+    const fetchedInfo = {
+      fetchedUsername: this.state.fetchedUsername,
+      fetchedPassword: this.state.fetchedPassword,
+    };
+
+    //Save the user info
+    localStorage.setItem("fetchedInfo", JSON.stringify(fetchedInfo));
+  }
+
   //Updates the state value to be equal to what is input in the input box
   handleChange(event) {
     const input = event.target; //The element where the input occurred
@@ -51,9 +63,9 @@ export default class Login extends React.Component {
     //If the login check is successful
     if (this.loginCheck(hashedPassword)) {
       //Define an object containing user info for the current login session
-      //TODO: currently saves details - needs to... not.
+      //TODO: remove the 10 minute timer thing
       const userInfo = {
-        user: this.state.fetchedUsername,
+        user: this.state.typedUsername,
         password: hashedPassword,
         expiry: new Date().getTime() + this.state.TTL,
       };
@@ -61,18 +73,19 @@ export default class Login extends React.Component {
       //Save the user info
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
     } else {
-      console.log(`${this.state.fetchedUsername} --- ${hashedPassword}`);
       alert("username or password error!");
     }
 
     window.location.href = "/admin";
   }
 
-  //Checks to see if the login is correct
-  loginCheck(hashedPassword) {
+  /**Checks the submitted credentials to see if they match the fetched user credentials
+   * @param {String} hashedTypedPassword a hash of the typed password.
+   */
+  loginCheck(hashedTypedPassword) {
     if (
       this.state.typedUsername === this.state.fetchedUsername &&
-      hashedPassword === this.state.fetchedPassword
+      hashedTypedPassword === this.state.fetchedPassword
     ) {
       return true;
     } else {
