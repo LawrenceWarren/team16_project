@@ -29,7 +29,7 @@ export default class Login extends React.Component {
       }
 
       const details = await res.json();
-      this.state.fetchedUsername = details[0].username; //state.details is now a reference to food
+      this.state.fetchedUsername = details[0].username;
       this.state.fetchedPassword = details[0].password;
     } catch (err) {
       console.error("LoginCMS: " + err);
