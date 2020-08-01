@@ -361,10 +361,14 @@ class CheckCharities extends React.Component {
     /* jshint ignore:start */
     return (
       <div>
-        <h1>Currently listed charity information</h1>
+        <div className="tickerString">
+          <h1>Currently listed charity information</h1>
 
-        {/*The ticker to display */}
-        <img id="ticker" src={loading} />
+          {/*The ticker to display */}
+          <img id="ticker" src={loading} />
+        </div>
+
+        <br />
 
         {/*Message displays if the database collection is empty */}
         <p id="message"></p>

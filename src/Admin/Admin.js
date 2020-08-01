@@ -73,8 +73,8 @@ class Admin extends React.Component {
           </div>
         </div>
       );
-      /*jshint ignore:end */
     }
+    /*jshint ignore:end */
   }
 }
 

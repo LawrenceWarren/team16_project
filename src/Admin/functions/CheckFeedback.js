@@ -175,9 +175,13 @@ class CheckFeedback extends React.Component {
     /* jshint ignore:start */
     return (
       <div>
-        <h1>Received Feedback Information</h1>
+        <div className="tickerString">
+          <h1>Currently listed feedback information</h1>
 
-        <img id="ticker" src={loading} />
+          <img id="ticker" src={loading} />
+        </div>
+
+        <br />
 
         <p id="message"></p>
 
