@@ -8,6 +8,7 @@ import MainPage from "./MainPage/MainPage";
 import Food from "./FoodPage/Food";
 import Accommodation from "./AccommodationPage/Accommodation";
 import Charity from "./CharityPage/Charity";
+import Cupboard from "./CupboardPage/Cupboard";
 import About from "./AboutPage/About";
 import Contact from "./ContactPage/Contact";
 import Feedback from "./FeedbackPage/Feedback";
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/Food" component={Food} />
       <Route path="/Accommodation" component={Accommodation} />
       <Route path="/Charity" component={Charity} />
+      <Route path="/Cupboard" component={Cupboard} />
       <Route path="/About" component={About} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Feedback" component={Feedback} />
