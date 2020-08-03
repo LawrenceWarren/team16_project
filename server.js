@@ -56,12 +56,12 @@ app.use(cors()); //Allows for cross site requests
 
 //!Upon merging, References to other routes should go here
 app.use("/foodReq", require("./routes/foodRouter")); //Food requests
-app.use("/contactReq", require("./routes/contact")); //Contact requests
+app.use("/contactReq", require("./routes/contactRouter")); //Contact requests
 app.use("/accommodationReq", require("./routes/hotel")); //Accommodation requests
-app.use("/charityReq", require("./routes/charity")); //Charity requests
+app.use("/charityReq", require("./routes/charityRouter")); //Charity requests
 app.use("/feedbackReq", require("./routes/feedback")); //Feedback requests
 app.use("/loginReq", require("./routes/login")); //CMS login requests
-app.use("/cupboardReq", require("./routes/cupboard")); //Cupboard empty requests
+app.use("/cupboardReq", require("./routes/cupboardRouter")); //Cupboard empty requests
 //TODO: add 404 page?
 
 /*When you load a new page, it gets that file out of the 
