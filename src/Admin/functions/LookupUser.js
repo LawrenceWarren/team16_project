@@ -2,6 +2,8 @@
 
 import React from "react";
 
+//TODO: implement the user management page
+
 class LookupUser extends React.Component {
   render() {
     return (
