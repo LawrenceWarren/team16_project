@@ -103,14 +103,11 @@ button {
   border-style: solid;
 }
 
-/*TODO: fix CSS styling for the ticker button
-(Absolute layout smells*/
-
 /*Styling for the spinning gif*/
 #ticker {
   display: none;
-  top: 1vh;
-  right: 50vw;
+  bottom: 0vh;
+  right: 0vw;
   position: absolute;
   height: 90px;
   width: 90px;

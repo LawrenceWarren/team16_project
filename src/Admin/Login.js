@@ -1,6 +1,8 @@
 //This code was written by Yutian Chen.
 
 import React from "react";
+import "./css/login.css";
+
 var Crypto = require("crypto-js");
 
 export default class Login extends React.Component {
@@ -101,28 +103,38 @@ export default class Login extends React.Component {
         onSubmit={(event) => {
           this.handleFormSubmit(event);
         }}
+        autocomplete="on"
       >
-        <label>
-          User:{" "}
-          <input
-            name="Username"
-            value={this.state.typedUsername}
-            onChange={(event) => {
-              this.handleChange(event);
-            }}
-          />
-        </label>
-        <label>
-          password:{" "}
-          <input
-            name="Password"
-            type="password"
-            value={this.state.typedPassword}
-            onChange={(event) => {
-              this.handleChange(event);
-            }}
-          />
-        </label>
+        <label for="Username">Username:</label>
+
+        <br />
+
+        <input
+          name="Username"
+          id="Username"
+          type="text"
+          onChange={(event) => {
+            this.handleChange(event);
+          }}
+        />
+
+        <br />
+
+        <label for="Password">Password:</label>
+
+        <br />
+
+        <input
+          name="Password"
+          id="Password"
+          type="password"
+          onChange={(event) => {
+            this.handleChange(event);
+          }}
+        />
+
+        <br />
+
         <button type="submit">Log In</button>
       </form>
     );
