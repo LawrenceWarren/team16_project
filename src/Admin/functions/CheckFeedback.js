@@ -108,7 +108,7 @@ class CheckFeedback extends React.Component {
       row = document.createElement("tr");
       body.appendChild(row);
 
-      //Defines an array to store the values of the current element
+      //an array to store the values of the current element
       //of state.details, to be looped through
       rowValues = [
         detail.experience,

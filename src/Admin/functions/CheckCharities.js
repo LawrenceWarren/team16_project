@@ -123,7 +123,7 @@ class CheckCharities extends React.Component {
       row = document.createElement("tr");
       body.appendChild(row);
 
-      //Defines an array to store the values of the current element
+      //an array to store the values of the current element
       //of state.details, to be looped through
       columnValues = [
         detail.charity_name, //0
@@ -132,17 +132,17 @@ class CheckCharities extends React.Component {
         detail.registerDate, //3
         {
           //4
-          innerText: "Edit entry", //Defines text for the button
+          innerText: "Edit entry", //text for the button
           function: (i) => {
-            this.buildForm(i, "edit"); //Defines a function for the button click
+            this.buildForm(i, "edit"); //a function for the button click
           },
           id: "editButton",
         },
         {
           //5
-          innerText: "Delete entry", //Defines text for the button
+          innerText: "Delete entry", //text for the button
           function: (i) => {
-            this.deleteEntry(i); //Defines a function for the button click
+            this.deleteEntry(i); //a function for the button click
           },
           id: "deleteButton",
         },

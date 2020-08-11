@@ -1,3 +1,5 @@
+//TODO: add nodemon to dependencies
+
 //This page was written by Wenzheng Shan and refactored by Lawrence Warren.
 
 import React from "react";
@@ -180,11 +182,16 @@ function MainPage() {
             </MainButton>
           </a>
 
-          <img
-            src={require("./resources/AAAction.jpg")}
-            className="button_image"
-            alt="ava_activity"
-          />
+          <a href="/Cupboard" className="link">
+            <MainButton
+              variant="contained"
+              color="primary"
+              id="cupboardButton"
+              className={CMargin.margin}
+            >
+              Empty Cupboard
+            </MainButton>
+          </a>
 
           <a href="/About" className="link">
             <MainButton
