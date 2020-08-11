@@ -103,14 +103,25 @@ button {
   border-style: solid;
 }
 
+.tickerString h1 {
+  float: left;
+  vertical-align: middle;
+}
+
 /*Styling for the spinning gif*/
 #ticker {
+  float: left;
+  vertical-align: middle;
   display: none;
   bottom: 0vh;
   right: 0vw;
   position: absolute;
   height: 90px;
   width: 90px;
+}
+
+.tickerString {
+  display: block;
 }
 
 /*Styling for the title above the form*/
